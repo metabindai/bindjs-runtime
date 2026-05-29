@@ -1,0 +1,16 @@
+{
+  "name": "@metabindai/bindjs",
+  "version": "0.0.0",
+  "private": true,
+  "description": "BindJS runtime + React renderer packages",
+  "type": "module",
+  "packageManager": "pnpm@9.15.9",
+  "scripts": {
+    "build": "pnpm -r build",
+    "test": "pnpm -r test",
+    "clean": "pnpm -r exec rm -rf dist"
+  },
+  "devDependencies": {
+    "typescript": "~5.6.2"
+  }
+}

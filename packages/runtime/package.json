@@ -1,0 +1,49 @@
+{
+    "private": false,
+    "name": "@metabindai/bindjs-runtime",
+    "version": "1.0.7",
+    "description": "",
+    "type": "module",
+    "main": "./dist/index.js",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.js",
+            "default": "./dist/index.js"
+        }
+    },
+    "sideEffects": false,
+    "files": [
+        "dist"
+    ],
+    "scripts": {
+        "dev": "tsc --watch",
+        "build": "rm -rf dist && tsc -b",
+        "build-runtime": "rm -rf dist-runtime && rollup -c",
+        "test": "vitest"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@types/node": "^22.10.5"
+    },
+    "devDependencies": {
+        "rollup": "^4.0.0",
+        "@rollup/plugin-node-resolve": "^15.0.0",
+        "@rollup/plugin-commonjs": "^25.0.0",
+        "@rollup/plugin-typescript": "^11.0.0",
+        "typescript": "~5.6.2",
+        "vitest": "^3.1.1"
+    },
+    "publishConfig": {
+        "access": "restricted"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/metabindai/bindjs-runtime",
+        "directory": "packages/runtime"
+    }
+}

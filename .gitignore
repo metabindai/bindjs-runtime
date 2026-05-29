@@ -1,0 +1,8 @@
+node_modules
+dist
+dist-runtime
+*.tsbuildinfo
+.DS_Store
+.turbo
+*.log
+.npmrc
