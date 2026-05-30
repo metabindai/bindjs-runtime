@@ -1,7 +1,7 @@
 {
     "private": false,
     "name": "@metabindai/bindjs-react",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "React renderer for BindJS",
     "type": "module",
     "main": "dist/index.js",
@@ -16,8 +16,14 @@
         "build-runtime": "rm -rf dist-runtime && rollup -c",
         "test": "vitest --watch"
     },
-    "keywords": [],
-    "author": "",
+    "keywords": [
+        "bindjs",
+        "metabind",
+        "server-driven-ui",
+        "react",
+        "renderer"
+    ],
+    "author": "Yap Studios",
     "license": "ISC",
     "dependencies": {
         "@google/model-viewer": "^4.1.0",
