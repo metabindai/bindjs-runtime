@@ -6,12 +6,11 @@ on:
       package:
         description: Which package to publish
         required: true
-        default: both
+        default: runtime
         type: choice
         options:
           - runtime
           - react
-          - both
 
 permissions:
   id-token: write
@@ -46,9 +45,35 @@ jobs:
         run: pnpm -r build
 
       - name: Publish @metabindai/bindjs-runtime
-        if: ${{ inputs.package == 'runtime' || inputs.package == 'both' }}
-        run: pnpm --filter @metabindai/bindjs-runtime publish --no-git-checks
+        if: ${{ inputs.package == 'runtime' }}
+        run: |
+          set +e
+          OUT=$(pnpm --filter @metabindai/bindjs-runtime publish --no-git-checks 2>&1)
+          CODE=$?
+          echo "$OUT"
+          if [ $CODE -eq 0 ]; then
+            echo "::notice::Published @metabindai/bindjs-runtime"
+          elif echo "$OUT" | grep -q "cannot publish over the previously published versions"; then
+            echo "::notice::@metabindai/bindjs-runtime version already published - nothing to publish. Bump the version to release."
+            exit 0
+          else
+            echo "::error::Publish failed for @metabindai/bindjs-runtime"
+            exit $CODE
+          fi
 
       - name: Publish @metabindai/bindjs-react
-        if: ${{ inputs.package == 'react' || inputs.package == 'both' }}
-        run: pnpm --filter @metabindai/bindjs-react publish --no-git-checks
+        if: ${{ inputs.package == 'react' }}
+        run: |
+          set +e
+          OUT=$(pnpm --filter @metabindai/bindjs-react publish --no-git-checks 2>&1)
+          CODE=$?
+          echo "$OUT"
+          if [ $CODE -eq 0 ]; then
+            echo "::notice::Published @metabindai/bindjs-react"
+          elif echo "$OUT" | grep -q "cannot publish over the previously published versions"; then
+            echo "::notice::@metabindai/bindjs-react version already published - nothing to publish. Bump the version to release."
+            exit 0
+          else
+            echo "::error::Publish failed for @metabindai/bindjs-react"
+            exit $CODE
+          fi
