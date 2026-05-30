@@ -1,7 +1,7 @@
 {
     "private": false,
     "name": "@metabindai/bindjs-runtime",
-    "version": "1.0.8",
+    "version": "1.0.9",
     "description": "Core BindJS runtime - hooks, modifiers, and component evaluation for the BindJS rendering engine.",
     "type": "module",
     "main": "./dist/index.js",
@@ -24,8 +24,13 @@
         "build-runtime": "rm -rf dist-runtime && rollup -c",
         "test": "vitest"
     },
-    "keywords": [],
-    "author": "",
+    "keywords": [
+        "bindjs",
+        "metabind",
+        "server-driven-ui",
+        "runtime"
+    ],
+    "author": "Yap Studios",
     "license": "ISC",
     "dependencies": {
         "@types/node": "^22.10.5"
