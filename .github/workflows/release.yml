@@ -31,10 +31,13 @@ jobs:
       # No registry-url here on purpose: actions/setup-node writes an
       # .npmrc with _authToken=${NODE_AUTH_TOKEN}, and any token (even empty)
       # makes npm/pnpm skip OIDC trusted publishing. We want OIDC only.
+      # Node 24 ships npm >= 11.5.1, required for the OIDC trusted-publishing
+      # handshake. Node 22 ships npm 10, which fails the handshake and the
+      # registry treats the publish as anonymous (misleading 404 on PUT).
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 24
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
