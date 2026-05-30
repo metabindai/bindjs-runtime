@@ -28,11 +28,13 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v4
 
+      # No registry-url here on purpose: actions/setup-node writes an
+      # .npmrc with _authToken=${NODE_AUTH_TOKEN}, and any token (even empty)
+      # makes npm/pnpm skip OIDC trusted publishing. We want OIDC only.
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          registry-url: https://registry.npmjs.org
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
@@ -42,20 +44,8 @@ jobs:
 
       - name: Publish @metabindai/bindjs-runtime
         if: ${{ inputs.package == 'runtime' || inputs.package == 'both' }}
-        run: |
-          VERSION=$(node -p "require('./packages/runtime/package.json').version")
-          if npm view "@metabindai/bindjs-runtime@${VERSION}" version >/dev/null 2>&1; then
-            echo "@metabindai/bindjs-runtime@${VERSION} already published - skipping"
-          else
-            pnpm --filter @metabindai/bindjs-runtime publish --no-git-checks
-          fi
+        run: pnpm --filter @metabindai/bindjs-runtime publish --no-git-checks
 
       - name: Publish @metabindai/bindjs-react
         if: ${{ inputs.package == 'react' || inputs.package == 'both' }}
-        run: |
-          VERSION=$(node -p "require('./packages/react/package.json').version")
-          if npm view "@metabindai/bindjs-react@${VERSION}" version >/dev/null 2>&1; then
-            echo "@metabindai/bindjs-react@${VERSION} already published - skipping"
-          else
-            pnpm --filter @metabindai/bindjs-react publish --no-git-checks
-          fi
+        run: pnpm --filter @metabindai/bindjs-react publish --no-git-checks
