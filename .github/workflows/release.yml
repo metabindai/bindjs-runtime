@@ -1,0 +1,61 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      package:
+        description: Which package to publish
+        required: true
+        default: both
+        type: choice
+        options:
+          - runtime
+          - react
+          - both
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment: release
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: https://registry.npmjs.org
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        run: pnpm -r build
+
+      - name: Publish @metabindai/bindjs-runtime
+        if: ${{ inputs.package == 'runtime' || inputs.package == 'both' }}
+        run: |
+          VERSION=$(node -p "require('./packages/runtime/package.json').version")
+          if npm view "@metabindai/bindjs-runtime@${VERSION}" version >/dev/null 2>&1; then
+            echo "@metabindai/bindjs-runtime@${VERSION} already published - skipping"
+          else
+            pnpm --filter @metabindai/bindjs-runtime publish --no-git-checks
+          fi
+
+      - name: Publish @metabindai/bindjs-react
+        if: ${{ inputs.package == 'react' || inputs.package == 'both' }}
+        run: |
+          VERSION=$(node -p "require('./packages/react/package.json').version")
+          if npm view "@metabindai/bindjs-react@${VERSION}" version >/dev/null 2>&1; then
+            echo "@metabindai/bindjs-react@${VERSION} already published - skipping"
+          else
+            pnpm --filter @metabindai/bindjs-react publish --no-git-checks
+          fi
