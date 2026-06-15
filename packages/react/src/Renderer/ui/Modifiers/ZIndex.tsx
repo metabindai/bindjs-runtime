@@ -31,7 +31,9 @@ export function ZIndex({ rawValue, children }: ZIndexProps): React.ReactNode {
     // rawValue=0 → zIndex=10000 (default)
     // rawValue=10 → zIndex=10010 (above default)
     // rawValue=-5000 → zIndex=5000 (below default but still visible)
-    const calculatedZIndex = BASE_Z_INDEX + rawValue;
+    // Guard non-finite rawValue (undefined/null/NaN) so we never emit zIndex:NaN.
+    const offset = Number.isFinite(rawValue) ? rawValue : 0;
+    const calculatedZIndex = BASE_Z_INDEX + offset;
     
     // Create a new style object for the z-index container
     // Note: StyleProvider doesn't create DOM element, so no layoutStyle needed
