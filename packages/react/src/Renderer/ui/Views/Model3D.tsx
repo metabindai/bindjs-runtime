@@ -1,4 +1,4 @@
-import '@google/model-viewer';
+import { useEffect } from 'react';
 import { layoutRegistry } from '../Layout/LayoutRegistry';
 import { useLayout } from '../Layout/useLayout';
 import { layoutStyle } from '../Layout/layoutStyle';
@@ -16,6 +16,16 @@ interface Model3DProps {
 }
 
 export function Model3D(props: Model3DProps) {
+    // Register the <model-viewer> custom element on the client only — the module
+    // touches HTMLElement/customElements at import time, which breaks SSR under
+    // Node. Side benefit: keeps model-viewer/three.js off the synchronous import
+    // path.
+    useEffect(() => {
+        import('@google/model-viewer').catch((err) => {
+            console.error('[Model3D] failed to load @google/model-viewer', err);
+        });
+    }, []);
+
     const layout = useLayout(props, Model3D);
 
     // Get animation node - provides ref and animation styles

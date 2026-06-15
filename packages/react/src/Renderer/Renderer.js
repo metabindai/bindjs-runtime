@@ -35,7 +35,8 @@ export function Renderer(props) {
 
     // Function to round values based on device pixel ratio (scale)
     const roundToScale = (value) => {
-        const scale = window.devicePixelRatio || 1
+        // window is absent under server-side rendering; 1 keeps values unrounded.
+        const scale = (typeof window !== 'undefined' ? window.devicePixelRatio : 1) || 1
         const increment = 1 / scale
         return Math.round(value / increment) * increment
     }

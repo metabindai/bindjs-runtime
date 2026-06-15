@@ -31,6 +31,8 @@ export function ZIndex({ rawValue, children }: ZIndexProps): React.ReactNode {
     // rawValue=0 → zIndex=10000 (default)
     // rawValue=10 → zIndex=10010 (above default)
     // rawValue=-5000 → zIndex=5000 (below default but still visible)
+    // Non-finite rawValue (caller off-contract, e.g. null) → no-op, apply no zIndex.
+    if (!Number.isFinite(rawValue)) return children;
     const calculatedZIndex = BASE_Z_INDEX + rawValue;
     
     // Create a new style object for the z-index container
