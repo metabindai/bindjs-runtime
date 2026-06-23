@@ -30,12 +30,17 @@ import { FontManager, useFontManager } from './src/Renderer/ui/FontManager'
 import { Model3D } from './src/Renderer/ui/Views/Model3D'
 import { AnimatableValuesProvider, useAnimationNode, motion, AnimatePresence } from './src/Renderer/ui/AnimatableStyle'
 import { DocumentScrollProvider, useDocumentScroll } from './src/Renderer/ui/ScrollViewContext'
+import { ShaderContext, ShaderReadyProvider } from './src/Renderer/ui/ShaderContext'
+import type { ShaderCoordinator, ShaderReadiness } from './src/Renderer/ui/ShaderContext'
 
 import { setDevTools } from './src/devtools'
 import type { DevToolsLogger } from './src/devtools'
 
 export { setDevTools }
 export type { DevToolsLogger }
+
+export { ShaderContext, ShaderReadyProvider }
+export type { ShaderCoordinator, ShaderReadiness }
 
 export { YapUIDecoder, useBindJSRuntime, useBindJSRuntime as useComposeJSRuntime, Renderer, BindJSRuntime as YapJSRuntime, ComposerGroupContext, RendererEnvironmentContext, RendererExecutionContext, DOMIdentifableContext, Components, AssetsProvider, ContentProvider, FontManager, useFontManager, Model3D, DocumentScrollProvider, useDocumentScroll }
 export type { ComposerGroupContextType } from './src/Renderer/ui/ComposerGroup'

@@ -1,8 +1,9 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useContext, useId, useCallback } from 'react';
 import { useStyle } from '../Style';
 import { layoutRegistry, LayoutMeasurement, useLayout, layoutStyle, LayoutNode } from '../Layout';
 import { useInView } from '../Utils/useInView';
 import { useAnimationNode } from '../AnimatableStyle';
+import { ShaderContext } from '../ShaderContext';
 interface ShaderProps {
     children?: React.ReactNode;
     sizeThatFits?: (props: ShaderProps) => { width: number, height: number };
@@ -84,7 +85,21 @@ function Shader(props: ShaderProps): React.ReactNode {
 
     const inViewRef = useRef(inView);
     inViewRef.current = inView;
-    const canvasRef = useShaderCanvas(props, inViewRef);
+
+    // Let a coordinating host (see ShaderContext) know this page has a shader and
+    // when it first paints. Inert when no provider is present.
+    const shaderCoordinator = useContext(ShaderContext);
+    const shaderId = useId();
+    useEffect(() => {
+        if (!shaderCoordinator) return;
+        shaderCoordinator.register(shaderId);
+        return () => shaderCoordinator.unregister(shaderId);
+    }, [shaderCoordinator, shaderId]);
+    const reportFirstFrame = useCallback(() => {
+        shaderCoordinator?.reportFirstFrame(shaderId);
+    }, [shaderCoordinator, shaderId]);
+
+    const canvasRef = useShaderCanvas(props, inViewRef, reportFirstFrame);
 
     const style: React.CSSProperties = {
         ...currentStyle,
@@ -115,8 +130,10 @@ function Shader(props: ShaderProps): React.ReactNode {
     );
 }
 
-function useShaderCanvas(props: ShaderProps, inViewRef: React.MutableRefObject<boolean>) {
+function useShaderCanvas(props: ShaderProps, inViewRef: React.MutableRefObject<boolean>, onFirstFrame?: () => void) {
     const canvasRef = useRef<HTMLCanvasElement>(null);
+    const onFirstFrameRef = useRef(onFirstFrame);
+    onFirstFrameRef.current = onFirstFrame;
 
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -302,6 +319,7 @@ function useShaderCanvas(props: ShaderProps, inViewRef: React.MutableRefObject<b
         let startTime = Date.now();
         let animationFrame: number;
         let intervalId: number | undefined;
+        let firstFrameReported = false;
         const isStatic = props.updateInterval === 0;
         const useCustomInterval = props.updateInterval && props.updateInterval > 0;
 
@@ -376,6 +394,12 @@ function useShaderCanvas(props: ShaderProps, inViewRef: React.MutableRefObject<b
 
             // Draw the rectangle
             gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+
+            // Signal first paint once (lets a host coordinate against the shader).
+            if (!firstFrameReported) {
+                firstFrameReported = true;
+                onFirstFrameRef.current?.();
+            }
 
             // Schedule next render
             scheduleNextRender();

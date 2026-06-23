@@ -53,15 +53,30 @@ export function Renderer(props) {
     // When document scrolling, the container grows to the full document height,
     // so measure the viewport instead to keep `screen.height` as the visible area.
     const useDocScroll = documentScroll?.useDocumentScroll == true
-    const screenHeight = useDocScroll ? Math.min(bounds?.height, windowSize?.height) : bounds?.height
-    const hasSized = bounds?.width > 0;
+
+    // useMeasure's ResizeObserver only reports AFTER the first commit, so content
+    // (gated on `hasSized` below) would otherwise render a blank frame first —
+    // visible as a flash on first paint and on client-side route changes,
+    // especially in Safari whose layout timing widens the gap. In full-page
+    // document-scroll mode the container fills the viewport, so seed bounds from
+    // the window until the real measurement arrives: content paints on the first
+    // commit and the measurement refines it. Scoped to doc-scroll so constrained
+    // / preview renders (which are NOT window-sized) keep waiting for the real
+    // measurement and don't reflow.
+    const measured = bounds?.width > 0
+    const seedFromWindow = !measured && useDocScroll && windowSize?.width > 0
+    const effectiveWidth = measured ? bounds?.width : (seedFromWindow ? windowSize?.width : bounds?.width)
+    const effectiveHeight = measured ? bounds?.height : (seedFromWindow ? windowSize?.height : bounds?.height)
+
+    const screenHeight = useDocScroll ? Math.min(effectiveHeight, windowSize?.height) : effectiveHeight
+    const hasSized = effectiveWidth > 0;
 
     const environmentData = {
         colorScheme: colorScheme,
         systemColorScheme: systemColorScheme,
         platform: 'web',
         screen: {
-            width: roundToScale(bounds?.width ?? 0),
+            width: roundToScale(effectiveWidth ?? 0),
             height: roundToScale(hasSized ? screenHeight ?? 0 : 0)
         },
         ...externalEnvironment
@@ -389,6 +404,15 @@ function useRendererContent(componentProps) {
     }
 
     if (updateEveryRender) {
+        renderVersion.current++
+        result = update()
+    } else if (result === null && componentContent) {
+        // First render: produce the body synchronously so the very first commit
+        // paints content instead of `null`. Otherwise content is computed only in
+        // the effect below (post-paint), leaving a blank frame or two — visible
+        // especially in Safari. Guarded on `componentContent` so this only runs
+        // once the component is registered (the host registers synchronously);
+        // subsequent updates still flow through the effect, keyed on deps.
         renderVersion.current++
         result = update()
     }
