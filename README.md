@@ -1,6 +1,11 @@
 # BindJS
 
-Runtime and React renderer for BindJS, published to npm under the `@metabindai` scope.
+BindJS is the cross-platform declarative UI framework at the heart of [Metabind](https://metabind.ai), the hosted platform for MCP Apps. You write a component once in JavaScript with a SwiftUI-inspired API; it renders as real native SwiftUI on iOS and Jetpack Compose on Android — not web views — and as React on the web. This repository is the canonical BindJS runtime and React renderer, published under the Apache License 2.0; the native rendering engines live in the companion [`bindjs-apple`](https://github.com/metabindai/bindjs-apple) and [`bindjs-android`](https://github.com/metabindai/bindjs-android) repositories.
+
+> [!TIP]
+> BindJS powers **Metabind** — turn your app's UI and APIs into a governed agent that runs in your own app and across Claude, ChatGPT, and every MCP host. **[🚀 Start free at metabind.ai](https://metabind.ai)** · **[📖 Read the docs](https://docs.metabind.ai)**
+
+Both packages here are published to npm under the `@metabindai` scope.
 
 | Package | npm | Path |
 | --- | --- | --- |
@@ -9,7 +14,56 @@ Runtime and React renderer for BindJS, published to npm under the `@metabindai` 
 | Playground (example) | — | `examples/playground` |
 
 `@metabindai/bindjs-react` depends on `@metabindai/bindjs-runtime`. Both are
-private (`publishConfig.access = restricted`).
+public, published under the Apache License 2.0 (`publishConfig.access = public`).
+
+## What BindJS looks like
+
+A component packages a `body` render function and an optional `properties` schema into a `defineComponent` call. Properties are declared with helper functions, and the body's `props` argument is typed against the schema:
+
+```typescript
+const properties = {
+  title: PropertyString({ title: "Title", required: true, defaultValue: "Welcome" }),
+  showAction: PropertyBoolean({ title: "Show action", defaultValue: true }),
+}
+
+const body = (props, children) =>
+  VStack({ spacing: 16 }, [
+    Text(props.title)
+      .font("headline")
+      .foregroundStyle(Color("primary")),
+
+    props.showAction
+      ? Button("Get started", () => console.log("Tapped"))
+      : Empty(),
+  ])
+
+export default defineComponent({
+  metadata: { title: "Welcome card", description: "A simple example" },
+  properties,
+  body,
+})
+```
+
+The runtime executes this with the BindJS globals injected — hooks, property helpers, animation builders — and emits a JSON AST; a renderer walks the AST and produces native views. Try it live in `examples/playground`.
+
+## Documentation
+
+The full BindJS reference lives on [docs.metabind.ai](https://docs.metabind.ai/bindjs/introduction):
+
+- [Introduction](https://docs.metabind.ai/bindjs/introduction) — what BindJS is and how the runtime, AST, renderers, and modifier pipeline fit together
+- [Quickstart](https://docs.metabind.ai/bindjs/quickstart) — author and preview your first component
+- [Authoring](https://docs.metabind.ai/bindjs/authoring/components) — components, [properties](https://docs.metabind.ai/bindjs/authoring/properties), [state](https://docs.metabind.ai/bindjs/authoring/state), [hooks](https://docs.metabind.ai/bindjs/authoring/hooks), and the [MCP host bridge](https://docs.metabind.ai/bindjs/authoring/mcp-host)
+- [Components](https://docs.metabind.ai/bindjs/components/layout-stacks) and [modifiers](https://docs.metabind.ai/bindjs/modifiers/layout-frame-and-padding) — the full catalog, entry by entry
+
+## The BindJS repositories
+
+| Repo | What it is |
+|---|---|
+| `bindjs-runtime` — this repository | The core runtime and React renderer: `@metabindai/bindjs-runtime` + `@metabindai/bindjs-react` |
+| [`bindjs-apple`](https://github.com/metabindai/bindjs-apple) | The SwiftUI rendering engine for iOS, macOS, visionOS, tvOS, and watchOS |
+| [`bindjs-android`](https://github.com/metabindai/bindjs-android) | The Jetpack Compose rendering engine for Android |
+
+One BindJS definition renders natively on all three surfaces. All three repos are Apache 2.0; the engines ship inside the Metabind SDKs ([`metabind-apple`](https://github.com/metabindai/metabind-apple), [`metabind-android`](https://github.com/metabindai/metabind-android), [`metabind-web`](https://github.com/metabindai/metabind-web)).
 
 ## Develop
 
@@ -48,11 +102,13 @@ checkout via pnpm overrides instead of publishing on every change:
 // consumer root package.json
 "pnpm": {
   "overrides": {
-    "@metabindai/bindjs-runtime": "link:../metabind-packages/bindjs/packages/runtime",
-    "@metabindai/bindjs-react":   "link:../metabind-packages/bindjs/packages/react"
+    "@metabindai/bindjs-runtime": "link:../bindjs-runtime/packages/runtime",
+    "@metabindai/bindjs-react":   "link:../bindjs-runtime/packages/react"
   }
 }
 ```
+
+The paths are relative to the consumer's root `package.json` — adjust them to wherever you cloned this repo.
 
 ## Publishing
 
@@ -65,3 +121,7 @@ pnpm --filter @metabindai/bindjs-react   build && npm publish -w packages/react
 `react`, `react-dom`, and `styled-components` are **peer dependencies** of
 `@metabindai/bindjs-react` — consumers provide them, avoiding duplicate-React
 "invalid hook call" errors.
+
+## License
+
+Apache License 2.0. See [`LICENSE`](LICENSE).
