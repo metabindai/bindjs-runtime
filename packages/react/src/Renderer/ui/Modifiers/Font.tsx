@@ -1,7 +1,9 @@
 import React, { createContext, useContext, ReactNode, useEffect } from 'react';
 import { useLayout, LayoutNodeChildren } from '../Layout';
-import { pt, px } from '../../Utils'
+import { pt, px, asNumber } from '../../Utils'
 import { useFontManager } from '../FontManager';
+import { resolveFont } from '../Utils/resolveDynamicTypeSize';
+import { useEnvironment } from '../Environment';
 
 // Define a type for the style context
 export interface FontContextType {
@@ -35,6 +37,62 @@ export function FontStyleProvider({ children, font }: { children: ReactNode; fon
 }
 
 // TODO: Have function generate style / css from font properties.
+
+/**
+ * Resolves the current font context (text style, explicit size, weight, dynamic
+ * type size, line spacing) into concrete CSS. Shared by text-rendering views
+ * (Text, TextField) so font modifiers apply consistently.
+ */
+export function useResolvedFontStyle(): React.CSSProperties {
+    const fontContext = useFont();
+    const fontStyle = fontContext.style;
+    const environment = useEnvironment();
+
+    /**
+     * Resolve font properties based on dynamic type size
+     * If no text style is explicitly set, default to 'body'
+     */
+    const { fontSize, fontWeight, lineHeight } = resolveFont({
+        textStyle: fontContext.textStyle || 'body', // Use 'body' as default style
+        dynamicTypeSize: environment.dynamicTypeSize, // Get from environment
+        explicitSize: fontContext.size, // Explicit size overrides text style
+        weight: fontContext.weight, // Explicit weight overrides default,
+        custom: fontContext.custom ? true : false
+    });
+
+    // Create a new style object with the resolved font properties
+    const resolvedFontStyle: React.CSSProperties = {
+        ...fontStyle,
+        // Provide default font family if none is set
+        fontFamily: fontStyle.fontFamily || 'system-ui, ui-sans-serif, -apple-system, BlinkMacSystemFont, sans-serif'
+    };
+
+    // Only apply resolved properties if they exist
+    if (fontSize) {
+        resolvedFontStyle.fontSize = fontSize;
+    }
+
+    if (fontWeight) {
+        resolvedFontStyle.fontWeight = fontWeight;
+    }
+
+    // Calculate line height in relative units
+    let lineHeightRelative = asNumber(lineHeight || fontSize || 16) / asNumber(fontSize || 16);
+
+    // If there's explicit line spacing, adjust the line height accordingly. In SwiftUI lineSpacing is added to the base line height, not multiplied or an absolute value.
+    // Using 'unitless' line spacing so it scales with font size when rendering markdown headers etc.
+    if (lineHeightRelative > 0) {
+        if (fontContext.lineSpacing) {
+            let additionalLineSpacing = fontContext.lineSpacing / asNumber(fontSize || 16);
+            let finalLineHeight = (lineHeightRelative ?? 1.0) + additionalLineSpacing;
+            resolvedFontStyle.lineHeight = `${finalLineHeight.toFixed(2)}`;
+        } else {
+            resolvedFontStyle.lineHeight = `${lineHeightRelative.toFixed(2)}`;
+        }
+    }
+
+    return resolvedFontStyle;
+}
 
 /**
  * Font

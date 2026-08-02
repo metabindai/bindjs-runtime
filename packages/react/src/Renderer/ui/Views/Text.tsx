@@ -4,12 +4,10 @@ import { useStyle } from '../Style';
 import { ClearStyle } from '../Style';
 import { useEnvironmentStyle } from '../Style';
 import { useForegroundStyleContext, foregroundStyleToCSS } from '../Modifiers/ForegroundStyle';
-import { useFont } from '../Modifiers/Font';
+import { useResolvedFontStyle } from '../Modifiers/Font';
 import { styleUserSelect } from '../../Utils/styleUserSelect';
-import { resolveFont } from '../Utils/resolveDynamicTypeSize';
 import { useEnvironment } from '../Environment';
 import remarkBreaks from 'remark-breaks';
-import { asNumber } from '../../Utils';
 import { layoutRegistry, LayoutMeasurement, useLayout, layoutStyle, LayoutNode } from '../Layout';
 import { Divider } from './Divider';
 import styled from 'styled-components';
@@ -25,8 +23,7 @@ interface TextProps {
 
 export default function Text({ text, value, rawValue, markdown, children }: TextProps) {
     const style = useStyle()
-    const fontContext = useFont() // Get the full font context, not just the style
-    const fontStyle = fontContext.style // Keep the original style for backward compatibility
+    const resolvedFontStyle = useResolvedFontStyle()
     const foregroundStyleContext = useForegroundStyleContext()
     const environmentStyle = useEnvironmentStyle()
     const environment = useEnvironment() // Access the environment values
@@ -44,49 +41,6 @@ export default function Text({ text, value, rawValue, markdown, children }: Text
 
     const content = rawValue ?? value ?? text ?? children;
     const markdownContent = markdown;
-
-    /**
-     * Resolve font properties based on dynamic type size
-     * If no text style is explicitly set, default to 'body'
-     */
-    const { fontSize, fontWeight, lineHeight } = resolveFont({
-        textStyle: fontContext.textStyle || 'body', // Use 'body' as default style
-        dynamicTypeSize: environment.dynamicTypeSize, // Get from environment
-        explicitSize: fontContext.size, // Explicit size overrides text style
-        weight: fontContext.weight, // Explicit weight overrides default,
-        custom: fontContext.custom ? true : false
-    });
-
-    // Create a new style object with the resolved font properties
-    const resolvedFontStyle: React.CSSProperties = {
-        ...fontStyle,
-        // Provide default font family if none is set
-        fontFamily: fontStyle.fontFamily || 'system-ui, ui-sans-serif, -apple-system, BlinkMacSystemFont, sans-serif'
-    };
-
-    // Only apply resolved properties if they exist
-    if (fontSize) {
-        resolvedFontStyle.fontSize = fontSize;
-    }
-
-    if (fontWeight) {
-        resolvedFontStyle.fontWeight = fontWeight;
-    }
-
-    // Calculate line height in relative units
-    let lineHeightRelative = asNumber(lineHeight || fontSize || 16) / asNumber(fontSize || 16);
-
-    // If there's explicit line spacing, adjust the line height accordingly. In SwiftUI lineSpacing is added to the base line height, not multiplied or an absolute value.
-    // Using 'unitless' line spacing so it scales with font size when rendering markdown headers etc.
-    if (lineHeightRelative > 0) {
-        if (fontContext.lineSpacing) {
-            let additionalLineSpacing = fontContext.lineSpacing / asNumber(fontSize || 16);
-            let finalLineHeight = (lineHeightRelative ?? 1.0) + additionalLineSpacing;
-            resolvedFontStyle.lineHeight = `${finalLineHeight.toFixed(2)}`;
-        } else {
-            resolvedFontStyle.lineHeight = `${lineHeightRelative.toFixed(2)}`;
-        }
-    }
 
     /**
      * Apply foreground style

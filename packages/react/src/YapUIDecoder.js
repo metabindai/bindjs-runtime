@@ -97,7 +97,7 @@ import { LinearGradient } from './Renderer/ui/Views/LinearGradient';
 import { AngularGradient } from './Renderer/ui/Views/AngularGradient';
 import { RadialGradient } from './Renderer/ui/Views/RadialGradient';
 import { EllipticalGradient } from './Renderer/ui/Views/EllipticalGradient';
-import { TextField } from './Renderer/ui/Views/TextField';
+import { TextField, SecureField } from './Renderer/ui/Views/TextField';
 import { Toggle } from './Renderer/ui/Views/Toggle';
 import { Slider } from './Renderer/ui/Views/Slider';
 import { ProgressView } from './Renderer/ui/Views/ProgressView';
@@ -195,7 +195,7 @@ const componentsMap = {
     PreviewFrame: PreviewFrame,
     Component: Component,
     TextField: TextField,
-    SecureField: TextField,
+    SecureField: SecureField,
     TextEditor: TextEditor,
     Toggle: Toggle,
     Slider: Slider,
