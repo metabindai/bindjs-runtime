@@ -22,7 +22,7 @@
         "dev": "tsc --watch",
         "build": "rm -rf dist && tsc -b",
         "build-runtime": "rm -rf dist-runtime && rollup -c",
-        "test": "vitest"
+        "test": "vitest run"
     },
     "keywords": [
         "bindjs",
@@ -33,15 +33,15 @@
     "author": "Yap Studios",
     "license": "Apache-2.0",
     "dependencies": {
-        "@types/node": "^22.10.5"
+        "@types/node": "^26.1.1"
     },
     "devDependencies": {
-        "rollup": "^4.0.0",
-        "@rollup/plugin-node-resolve": "^15.0.0",
-        "@rollup/plugin-commonjs": "^25.0.0",
-        "@rollup/plugin-typescript": "^11.0.0",
-        "typescript": "~5.6.2",
-        "vitest": "^3.1.1"
+        "@rollup/plugin-commonjs": "^29.0.3",
+        "@rollup/plugin-node-resolve": "^16.0.3",
+        "@rollup/plugin-typescript": "^12.3.0",
+        "rollup": "^4.62.2",
+        "typescript": "~5.9.3",
+        "vitest": "^4.1.10"
     },
     "publishConfig": {
         "access": "public"
