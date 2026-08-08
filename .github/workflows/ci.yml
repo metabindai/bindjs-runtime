@@ -1,0 +1,44 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-test:
+    name: Build and test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      # Must precede setup-node so `cache: pnpm` can find the binary.
+      # Version comes from the root package.json `packageManager` field.
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+
+      # Node 24 matches the release workflow, so CI validates on the same
+      # toolchain the packages are published with.
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        run: pnpm -r build
+
+      # examples/playground has no test script; pnpm skips it.
+      - name: Test
+        run: pnpm -r test
