@@ -326,7 +326,10 @@ export class BindJSRuntime {
 
         // Register layout group
         this.#registerHelperComponent('LayoutGroup', LayoutGroup);
-        this.#registerHelperComponent('Detent', Detent);
+
+        // Detent is a plain value namespace (Detent.medium, Detent.fraction(...)),
+        // not a component, so expose it in the context directly.
+        this.context['Detent'] = Detent;
 
         // Regster environment value modiifer
         this.#registerBuiltInModifier('environment', EnvironmentValue);
