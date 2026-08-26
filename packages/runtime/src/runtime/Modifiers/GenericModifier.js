@@ -41,6 +41,12 @@ export function GenericModifier({ args, name }) {
         props = { rawValue: props }
     }
 
+    // Scale modifiers take a { value: style } map. Record the key order so the
+    // renderers can build the scale domain in authoring order.
+    if ((name == 'chartForegroundStyleScale' || name == 'chartSymbolScale') && props && typeof props == 'object') {
+        props = { ...props, __bindjsScaleDomain: Object.keys(props) }
+    }
+
     return { props }
 }
 
