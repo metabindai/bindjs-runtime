@@ -1,9 +1,9 @@
 # BindJS
 
-BindJS is the cross-platform declarative UI framework at the heart of [Metabind](https://metabind.ai), the hosted platform for MCP Apps. You write a component once in JavaScript with a SwiftUI-inspired API; it renders as real native SwiftUI on iOS and Jetpack Compose on Android — not web views — and as React on the web. This repository is the canonical BindJS runtime and React renderer, published under the Apache License 2.0; the native rendering engines live in the companion [`bindjs-apple`](https://github.com/metabindai/bindjs-apple) and [`bindjs-android`](https://github.com/metabindai/bindjs-android) repositories.
+BindJS is the open component language for agent UI. Write a UI component once, with its logic, and BindJS renders it as native SwiftUI, Jetpack Compose, and React, wherever an agent renders UI: as an [MCP Apps](https://github.com/modelcontextprotocol/ext-apps) View, as an A2UI catalog, or inside an in-app assistant. It is at the heart of [Metabind](https://metabind.ai), the hosted platform for MCP Apps. Components are written in JavaScript against a SwiftUI-shaped API and render as real native views, not web views. This repository is the canonical BindJS runtime and React renderer, published under the Apache License 2.0; the native rendering engines live in the companion [`bindjs-apple`](https://github.com/metabindai/bindjs-apple) and [`bindjs-android`](https://github.com/metabindai/bindjs-android) repositories.
 
 > [!TIP]
-> BindJS powers **Metabind** — turn your app's UI and APIs into a governed agent that runs in your own app and across Claude, ChatGPT, and every MCP host. **[🚀 Start free at metabind.ai](https://metabind.ai)** · **[📖 Read the docs](https://docs.metabind.ai)**
+> BindJS powers [Metabind](https://metabind.ai) — the hosted platform for [MCP Apps](https://github.com/modelcontextprotocol/ext-apps). Turn your app's UI and APIs into a governed agent that runs in your own app and across Claude, ChatGPT, and every MCP host. **[Start free at metabind.ai](https://www.metabind.ai/signup)** · **[Read the docs](https://docs.metabind.ai)**
 
 Both packages here are published to npm under the `@metabindai` scope.
 
