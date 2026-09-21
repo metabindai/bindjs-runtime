@@ -58,6 +58,9 @@ jobs:
             exit 0
           else
             echo "::error::Publish failed for @metabindai/bindjs-runtime"
+            # npm only prints the OIDC trusted-publishing rejection reason at
+            # verbose level; the debug log always has it.
+            grep -hi "oidc" "$HOME"/.npm/_logs/*-debug-0.log || true
             exit $CODE
           fi
 
@@ -75,5 +78,8 @@ jobs:
             exit 0
           else
             echo "::error::Publish failed for @metabindai/bindjs-react"
+            # npm only prints the OIDC trusted-publishing rejection reason at
+            # verbose level; the debug log always has it.
+            grep -hi "oidc" "$HOME"/.npm/_logs/*-debug-0.log || true
             exit $CODE
           fi
