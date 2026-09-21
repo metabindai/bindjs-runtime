@@ -12,6 +12,7 @@ import type { LayoutMeasurement } from '../Layout/LayoutTypes';
 import { measureChildren } from '../Layout/utils';
 import { Alignment, alignmentMap } from '../Alignment';
 import { useAnimationNode } from '../AnimatableStyle';
+import { ClearTextInputPadding } from '../Utils/textInputPadding';
 
 interface ZStackProps {
     className?: any;
@@ -88,7 +89,9 @@ export function ZStack(props: ZStackProps): React.ReactElement {
                         className={`zstack ${id} ${className ?? ''}`}
                         style={style}
                         {...domEvents}>
-                        {remappedChildren}
+                        <ClearTextInputPadding>
+                            {remappedChildren}
+                        </ClearTextInputPadding>
                     </ZStackContent>
                 </ClearID>
             </ClearStyle>

@@ -8,6 +8,7 @@ import { layoutRegistry } from '../Layout/LayoutRegistry';
 import type { LayoutMeasurement } from '../Layout/LayoutTypes';
 import { measureMaxChild } from '../Layout/utils';
 import { useAnimationNode } from '../AnimatableStyle';
+import { TextInputPaddingProvider, useTextInputPadding } from '../Utils/textInputPadding';
 
 export interface PaddingInsets {
     left: number,
@@ -140,6 +141,16 @@ export function Padding(props: PaddingProps) {
         style.width = 'calc(' + style.width + ' + ' + px(Math.abs(totalPadding)) + ')'
     }
 
+    // Hand the padding down for a text input below to absorb as native padding. Accumulates
+    // across nested paddings; layout containers clear it.
+    const outerTextInputPadding = useTextInputPadding();
+    const textInputPadding = {
+        left: paddingValues.left + (outerTextInputPadding?.left ?? 0),
+        right: paddingValues.right + (outerTextInputPadding?.right ?? 0),
+        top: paddingValues.top + (outerTextInputPadding?.top ?? 0),
+        bottom: paddingValues.bottom + (outerTextInputPadding?.bottom ?? 0),
+    };
+
     // Set scrollPadding in environment for children to use for scroll-margin
     const childEnvStyle = {
         ...envStyle,
@@ -151,7 +162,9 @@ export function Padding(props: PaddingProps) {
             <ClearStyle>
                 <div ref={animationRef as React.Ref<HTMLDivElement>} style={style}>
                     <EnvironmentStyleProvider style={childEnvStyle}>
-                        {children}
+                        <TextInputPaddingProvider insets={textInputPadding}>
+                            {children}
+                        </TextInputPaddingProvider>
                     </EnvironmentStyleProvider>
                 </div>
             </ClearStyle>

@@ -12,6 +12,7 @@ import type { LayoutMeasurement } from '../Layout/LayoutTypes';
 import { measureChildren } from '../Layout/utils';
 import { HorizontalAlignment, horizontalAlignmentMap } from '../Alignment';
 import { useAnimationNode } from '../AnimatableStyle';
+import { ClearTextInputPadding } from '../Utils/textInputPadding';
 
 interface VStackProps {
     spacing?: number;
@@ -114,7 +115,9 @@ export function VStack(props: VStackProps): React.ReactElement {
                     {...domEvents}>
                     <EnvironmentStyleProvider style={childEnvStyle}>
                         <LayoutNodeChildren layout={layout}>
-                            {wrappedChildren}
+                            <ClearTextInputPadding>
+                                {wrappedChildren}
+                            </ClearTextInputPadding>
                         </LayoutNodeChildren>
                     </EnvironmentStyleProvider>
                 </VStackContent>

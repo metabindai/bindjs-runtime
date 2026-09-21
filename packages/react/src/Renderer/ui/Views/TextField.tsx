@@ -6,6 +6,7 @@ import { useAnimationNode } from '../AnimatableStyle';
 import { useResolvedFontStyle } from '../Modifiers/Font';
 import { useForegroundStyleContext, foregroundStyleToCSS } from '../Modifiers/ForegroundStyle';
 import { useEnvironment } from '../Environment';
+import { ClearTextInputPadding, useTextInputPaddingStyle } from '../Utils/textInputPadding';
 
 import { layoutRegistry, LayoutMeasurement, useLayout, layoutStyle } from '../Layout';
 
@@ -45,7 +46,9 @@ export function TextField(props: TextFieldProps) {
 
             style['textAlign'] = style['textAlign'] || 'center'
 
-            return <Variables {...variableProps} {...style}><StyleProvider style={style}>{textFieldStyleView}</StyleProvider></Variables>
+            // A custom style places the input somewhere inside its own view, so padding
+            // around the TextField is no longer padding around the input.
+            return <ClearTextInputPadding><Variables {...variableProps} {...style}><StyleProvider style={style}>{textFieldStyleView}</StyleProvider></Variables></ClearTextInputPadding>
         }
     }
     return (
@@ -77,6 +80,7 @@ function TextFieldInput({ placeholder, text, setTextId, secure, style: outerStyl
 
     const style: React.CSSProperties = {
         background: 'transparent',
+        boxSizing: 'border-box',
         width: '100%',
         ...useStyle(),
         ...outerStyle,
@@ -84,6 +88,9 @@ function TextFieldInput({ placeholder, text, setTextId, secure, style: outerStyl
         ...resolvedFontStyle,
         ...animationStyle,
     }
+
+    // Absorb padding applied directly around the field as native padding of the control.
+    Object.assign(style, useTextInputPaddingStyle(style));
 
     // Remove default border if not specified
     if (style.borderWidth === undefined && style.border === undefined) {
@@ -116,14 +123,18 @@ export function SecureField(props: TextFieldProps) {
 }
 
 // Size calculation function
-const sizeThatFits = ({ proposal }): LayoutMeasurement => {
+const sizeThatFits = ({ proposal, environment }): LayoutMeasurement => {
+    // Directly inside a fixed-height frame, fill it so the whole frame is the field
+    // (clickable, text stays vertically centered) rather than a short input floating in it.
+    const fillsFrameHeight = environment?.layout === 'frame' && environment?.frame?.height != null;
+
     return {
         frame: {
             // Fill the proposed width so .frame({ maxWidth: Infinity }) etc composes,
             // matching SwiftUI's greedy-width TextField behaviour.
             width: proposal.width ?? Infinity,
             // Height stays intrinsic unless proposed.
-            height: proposal.height,
+            height: proposal.height ?? (fillsFrameHeight ? Infinity : undefined),
         }
     };
 }

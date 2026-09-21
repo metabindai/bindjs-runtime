@@ -5,6 +5,7 @@ import { colorNodeToCSS } from '../Utils/colorNodeToCSS';;
 import { LayoutNode, layoutRegistry, layoutStyle, useLayout, LayoutMeasurement, LayoutNodeChildren } from '../Layout';
 import { useEnvironment } from '../Environment';
 import { useAnimationNode } from '../AnimatableStyle';
+import { ClearTextInputPadding } from '../Utils/textInputPadding';
 
 /**
  * Renders a SwiftUI-style `Background` view, which places visual content
@@ -64,7 +65,7 @@ export function Background(props: { rawValue?: string | React.ReactNode, content
 
         return (
             <ClearStyle>
-                <div ref={animationRef as React.Ref<HTMLDivElement>} key="background" className="background" style={{ ...style, backgroundColor: colorValue as any }}>{children}</div>
+                <div ref={animationRef as React.Ref<HTMLDivElement>} key="background" className="background" style={{ ...style, backgroundColor: colorValue as any }}><ClearTextInputPadding>{children}</ClearTextInputPadding></div>
             </ClearStyle>
         )
 
@@ -96,7 +97,9 @@ export function Background(props: { rawValue?: string | React.ReactNode, content
                 </LayoutNode>
                 <div style={style} key="children">
                     <LayoutNodeChildren layout={layout}>
-                        {children}
+                        <ClearTextInputPadding>
+                            {children}
+                        </ClearTextInputPadding>
                     </LayoutNodeChildren>
                 </div>
             </div>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {LayoutNodeChildren, layoutRegistry, useLayout } from '../Layout';
 import { measureMaxChild } from '../Layout/utils';
+import { ClearTextInputPadding } from '../Utils/textInputPadding';
 
 export function Group({ children }) {
     const layout = useLayout({ children }, Group);
@@ -11,7 +12,9 @@ export function Group({ children }) {
 
     return (
         <LayoutNodeChildren layout={layout}>
-            {filteredChildren}
+            <ClearTextInputPadding>
+                {filteredChildren}
+            </ClearTextInputPadding>
         </LayoutNodeChildren>
     );
 }

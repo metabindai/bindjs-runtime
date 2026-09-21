@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { alignmentMap, Alignment } from '../Alignment';
 import { useLayout, layoutStyle, LayoutNode, layoutRegistry, LayoutMeasurement, LayoutNodeChildren } from '../Layout';
 import { measureMaxChild } from '../Layout/utils';
+import { ClearTextInputPadding } from '../Utils/textInputPadding';
 
 /**
  * Overlay
@@ -59,7 +60,9 @@ export function Overlay(props: OverlayProps): React.ReactNode {
         <LayoutNode layout={layout}>
             <div style={style} className="overlay">
                 <LayoutNodeChildren layout={layout}>
-                    {children}
+                    <ClearTextInputPadding>
+                        {children}
+                    </ClearTextInputPadding>
                 </LayoutNodeChildren>
                 <OverlayItemFrame style={overlayItemStyle} className="overlay-item">
                     <LayoutNode layout={null}>

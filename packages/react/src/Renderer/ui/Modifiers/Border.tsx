@@ -8,6 +8,7 @@ import { gradientNodeToCSS } from '../Utils/gradientNodeToCSS';
 import { materialNodeToCSS } from '../Utils/materialNodeToCSS';
 import { useLayout, LayoutNodeChildren } from '../Layout';
 import { useEnvironment } from '../Environment';
+import { ClearTextInputPadding } from '../Utils/textInputPadding';
 
 /**
  * Border
@@ -79,7 +80,9 @@ export function Border(props: BorderProps) {
     return (
         <StyleProvider style={cssStyle}>
             <LayoutNodeChildren layout={layout}>
-                {children}
+                <ClearTextInputPadding>
+                    {children}
+                </ClearTextInputPadding>
             </LayoutNodeChildren>
         </StyleProvider>
     );
@@ -108,7 +111,9 @@ export function BorderWidth({ rawValue, children }: BorderWidthProps) {
     return (
         <StyleProvider style={style}>
             <LayoutNodeChildren layout={layout}>
-                {children}
+                <ClearTextInputPadding>
+                    {children}
+                </ClearTextInputPadding>
             </LayoutNodeChildren>
         </StyleProvider>
     );

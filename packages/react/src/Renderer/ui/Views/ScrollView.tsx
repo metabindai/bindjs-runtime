@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import { useStyle, ClearStyle, StyleProvider, useEnvironmentStyle, EnvironmentStyleProvider } from '../Style';
 import { layoutRegistry, LayoutMeasurement, useLayout, layoutStyle, LayoutNode } from '../Layout';
 import { ScrollViewProvider, useDocumentScroll, DocumentScrollProvider } from '../ScrollViewContext';
+import { ClearTextInputPadding } from '../Utils/textInputPadding';
 
 export function ScrollView(props) {
     const { axis = 'vertical', showsIndicators = true, children } = props;
@@ -32,7 +33,7 @@ export function ScrollView(props) {
                 <ClearStyle>
                     <EnvironmentStyleProvider style={{ ...envStyle, scrollTargetBehavior: null }}>
                         <StyleProvider style={containerInfo as any}>
-                            <>{children}</>
+                            <ClearTextInputPadding>{children}</ClearTextInputPadding>
                         </StyleProvider>
                     </EnvironmentStyleProvider>
                 </ClearStyle>
@@ -103,7 +104,7 @@ export function ScrollView(props) {
                 <EnvironmentStyleProvider style={childEnvStyle}>
                     <ScrollViewProvider scrollRef={scrollRef} axis={axis}>
                         <StyleProvider style={containerInfo as any}>
-                            <div>{children}</div>
+                            <div><ClearTextInputPadding>{children}</ClearTextInputPadding></div>
                         </StyleProvider>
                     </ScrollViewProvider>
                 </EnvironmentStyleProvider>
