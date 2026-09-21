@@ -1,7 +1,7 @@
 {
     "private": false,
     "name": "@metabindai/bindjs-react",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "description": "React renderer for BindJS",
     "type": "module",
     "main": "dist/index.js",
