@@ -1,4 +1,5 @@
 import { useStyle } from '../Style';
+import { ClearTextInputPadding } from '../Utils/textInputPadding';
 
 export function Section({ rawValue, header, children }) {
 
@@ -15,7 +16,9 @@ export function Section({ rawValue, header, children }) {
     return (
         <div style={style} >
             {rawValue ?? header}
-            {children}
+            <ClearTextInputPadding>
+                {children}
+            </ClearTextInputPadding>
         </div>
     );
 }
