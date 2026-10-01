@@ -552,7 +552,50 @@ type LogLevel = 'debug' | 'info' | 'warning' | 'error';
  * // result is the structured data directly, e.g. { products: [...] }
  * ```
  */
+interface MCPContentBlock {
+    type: 'text' | 'image' | 'audio' | 'resource_link' | 'resource';
+    text?: string;
+    data?: string;
+    mimeType?: string;
+    uri?: string;
+    name?: string;
+    resource?: Record<string, unknown>;
+    annotations?: { audience?: ('user' | 'assistant')[]; priority?: number; lastModified?: string };
+    _meta?: Record<string, unknown>;
+    [key: string]: unknown;
+}
+
+interface MCPHostContext {
+    displayMode?: 'inline' | 'fullscreen' | 'pip';
+    availableDisplayModes?: ('inline' | 'fullscreen' | 'pip')[];
+    containerDimensions?: { width?: number; height?: number; maxWidth?: number; maxHeight?: number };
+    locale?: string;
+    theme?: 'light' | 'dark';
+    styles?: { variables?: Record<string, string | undefined>; css?: { fonts?: string } };
+    'openai/deepLink'?: { url: string };
+    'openai/modelContext'?: {
+        updateId: string;
+        content?: MCPContentBlock[];
+        structuredContent?: Record<string, unknown>;
+    } | null;
+    [key: string]: unknown;
+}
+
+interface MCPModelContext {
+    content?: MCPContentBlock[];
+    structuredContent?: Record<string, unknown>;
+}
+
+interface MCPMessageOptions {
+    target?: 'active' | 'new';
+    send?: true;
+}
+
+
 interface MCPHost {
+    readonly hostContext: MCPHostContext;
+    readonly openedWithEmptyInput: boolean;
+    subscribeHostContext: (listener: (context: MCPHostContext) => void) => () => void;
     // -- Transport (low-level) ------------------------------------------------
 
     /**
@@ -589,7 +632,7 @@ interface MCPHost {
      * await host.sendMessage("Tell me more about this product")
      * ```
      */
-    sendMessage: (message: string) => Promise<void>;
+    sendMessage: (content: string | MCPContentBlock[], options?: MCPMessageOptions) => Promise<void>;
 
     // -- Model Context --------------------------------------------------------
 
@@ -601,7 +644,7 @@ interface MCPHost {
      * await host.updateModelContext({ selectedProduct: { id: 123, name: "..." } })
      * ```
      */
-    updateModelContext: (content: Record<string, any>) => Promise<void>;
+    updateModelContext: (context: MCPModelContext | Record<string, unknown>) => Promise<void>;
 
     // -- Size -----------------------------------------------------------------
 
