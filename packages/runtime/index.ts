@@ -5,3 +5,4 @@ export { BindJSDataRuntime } from './src/runtime/BindJSDataRuntime.js'
 // AST
 import AST from './src/runtime/AST.js'
 export { AST }
+export type { MCPHost, MCPHostContext, MCPContentBlock, MCPModelContext, MCPMessageOptions } from "./src/mcp-host.js"
