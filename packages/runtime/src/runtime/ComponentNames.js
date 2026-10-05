@@ -9,6 +9,7 @@ export const componentNames = [
     "AnyView",
     "AssistiveAccess",
     "AsyncImage",
+    "AudioPlayer",
     "Body",
     "Chart",
     "PieChart",

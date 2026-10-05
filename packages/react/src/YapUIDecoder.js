@@ -89,6 +89,7 @@ import { TextEditor } from './Renderer/ui/Views/TextEditor';
 import { Script } from './Renderer/ui/Script';
 import { UIImage } from './Renderer/ui/Views/Image';
 import { UIVideo } from './Renderer/ui/Views/Video';
+import { AudioPlayer } from './Renderer/ui/Views/AudioPlayer';
 import { UIContent } from './Renderer/ui/Views/Content';
 import { ScrollView } from './Renderer/ui/Views/ScrollView';
 import { Divider } from './Renderer/ui/Views/Divider';
@@ -175,6 +176,7 @@ const componentsMap = {
     UIImage: UIImage,
     Video: UIVideo,
     UIVideo: UIVideo,
+    AudioPlayer: AudioPlayer,
     Content: UIContent,
     ForEach: ForEach,
     Script: Script,
