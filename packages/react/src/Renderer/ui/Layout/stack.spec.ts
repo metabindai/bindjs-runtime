@@ -121,3 +121,17 @@ describe('sizing pass', () => {
         });
     });
 });
+
+describe('stack spacing', () => {
+    it('measures the default spacing a stack draws', async () => {
+        const { VStack } = await import('../Views/VStack');
+        const { HStack } = await import('../Views/HStack');
+        const bars = [React.createElement(Fixed, { length: 20 }), React.createElement(Fixed, { length: 20 })];
+        const measure = (type: React.ElementType, props: Record<string, unknown>) =>
+            layoutRegistry.get(type)!.sizingFn({ proposal: { width: null, height: null }, props: { ...props, children: bars }, children: bars, environment: {} });
+        // VStack { bar; bar } is 20 + 8 + 20 tall, as SwiftUI and the CSS gap draw it.
+        expect(measure(VStack, {}).frame.height).toBe(48);
+        expect(measure(VStack, { spacing: 0 }).frame.height).toBe(40);
+        expect(measure(HStack, {}).frame.width).toBe(208);
+    });
+});
