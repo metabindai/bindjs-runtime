@@ -92,6 +92,9 @@ function resolveLogger(logger) {
 }
 
 export class BindJSRuntime {
+
+    /** Each modifier's place in its view's chain, counted from the view (see #makeModifier). */
+    #modifierPositions = new WeakMap()
     /** @param {BindJSRuntimeOptions} [options] */
     constructor(options) {
         this.options = options ?? { expandForEach: false }
@@ -203,7 +206,7 @@ export class BindJSRuntime {
             // Current id set by a modifier. Used to create the path if set.
             modifierId: null,
 
-            // Current id in a ForEach loop. Used to create the path if set.
+            // The id of the ForEach row a renderer builds next (setForEachElementId).
             forEachElementId: null,
 
             // Index of the number of calls to makeComponent. Used to generate a unique id for a component if a name isnt available (if called from code)
@@ -806,20 +809,6 @@ exports.default = defineComponent({
         }
     }
 
-    /**
-     * Restores an environment by id, leaving the hook-state path alone. Callers that
-     * invoke a stored callback outside a render pass need the environment back without
-     * rebinding this pass's hooks to the stored path.
-     * @param {*} environmentId
-     */
-    restoreEnvironmentOnly(environmentId) {
-        let env = this.storedEnvironments[environmentId]
-
-        if (env) {
-            this.environment = env
-        }
-    }
-
     restoreHookStateStorage() {
         // Setup currentComponent content.
         // This is needed if when restoring a function that would be accessing state.
@@ -1270,6 +1259,9 @@ exports.default = defineComponent({
 
         return (...args) => {
 
+            // The first modifier on a view is at 1, the next at 2, and so on.
+            const position = (this.#modifierPositions.get(f) ?? 0) + 1
+
             const modifierContent = () => {
 
                 const executeModifiedContent = (args) => {
@@ -1339,7 +1331,7 @@ exports.default = defineComponent({
                 }
 
                 // Execute modifier function
-                const { props: modifierProps, ast: modifierAst } = modifierFunction.bind(this)({ args: processedArgs, content: content, name: name })
+                const { props: modifierProps, ast: modifierAst } = modifierFunction.bind(this)({ args: processedArgs, content: content, name: name, position: position })
 
                 /**
                  * Modifier function can return either an AST or a new set of props. 
@@ -1356,6 +1348,8 @@ exports.default = defineComponent({
                 }
 
             }
+
+            this.#modifierPositions.set(modifierContent, position)
 
             return new Proxy(modifierContent, {
                 get: function (target, prop, receiver) {
@@ -1383,22 +1377,13 @@ exports.default = defineComponent({
 
         const f = () => {
 
-            let { path, modifierId, childIndex, componentHookStore, currentComponent, forEachElementId } = this.hookState
+            let { path, modifierId, childIndex, componentHookStore, currentComponent } = this.hookState
 
             // Push on to hook state path
             // Use id if specified otherwise use child index + component name to create a deterministct path to that item.
             var id = null
             if (modifierId) {
                 id = modifierId + componentName + '_' + childIndex
-            } else if (forEachElementId != null) {
-                // A ForEach row's own root, and only it. Compared against null rather
-                // than for truthiness because index 0 is a valid element id, and cleared
-                // as soon as it is consumed: left set, every component nested under the
-                // row would take the row index as its path segment too, collapsing the
-                // whole subtree onto one segment per depth and making siblings share a
-                // hook array. Clearing here is also what lets ForEach nest.
-                id = forEachElementId
-                this.hookState.forEachElementId = null
             } else {
                 id = componentName + '_' + childIndex
             }
@@ -1474,8 +1459,46 @@ exports.default = defineComponent({
         return id
     }
 
+    /**
+     * Sets the id of the ForEach row the next callForEachFunction builds (a
+     * renderer building a lazy ForEach's rows calls it first).
+     */
     setForEachElementId(id) {
         this.hookState.forEachElementId = id
+    }
+
+    /**
+     * Builds one ForEach row under its own hook-path segment, the row's id, so
+     * everything in the row (its root, an overlay's content, nested views) is
+     * addressed within that row and by its own name: two rows never share
+     * state, and a row whose view changes type starts fresh, as in SwiftUI.
+     */
+    buildForEachRow(id, build) {
+        this.hookState.forEachElementId = null
+        return this.#buildInSegment(String(id), () => this.unwrapComponentAST(build()))
+    }
+
+    /**
+     * Builds the views a modifier holds (an overlay's content, a background) under a
+     * hook-path segment of their own: the modifier's name, the modified view's index
+     * among its siblings and the modifier's place in the view's chain. Built at the
+     * modified view's own path, `Leaf().overlay(Leaf())` would give both leaves one
+     * hook array; in SwiftUI they are two views with state of their own.
+     */
+    buildModifierContent(name, position, build) {
+        return this.#buildInSegment(`${name}_${this.hookState.childIndex}_${position}`, build)
+    }
+
+    #buildInSegment(segment, build) {
+        const { path, childIndex } = this.hookState
+        path.push(segment)
+        this.hookState.childIndex = 0
+        try {
+            return build()
+        } finally {
+            path.pop()
+            this.hookState.childIndex = childIndex
+        }
     }
 
     /**
@@ -1512,11 +1535,7 @@ exports.default = defineComponent({
      */
     callForEachFunction(functionId, element, index) {
         let f = this.restoreFunction(functionId)
-        let result = f(element, index)
-        while (result && result._component) {
-            result = result()
-        }
-        return result
+        return this.buildForEachRow(this.hookState.forEachElementId ?? index, () => f(element, index))
     }
 
     /**
