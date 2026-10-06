@@ -49,12 +49,36 @@ export function unwrapGroupChildren(children: React.ReactNode): React.ReactNode 
     }
     return children;
 }
+export interface StackElements {
+    /** The views the stack lays out, a ForEach's rows in its place, in the order the stack measures them. */
+    items: React.ReactElement[];
+    /** Per child of the stack: null for a view, or how many rows a ForEach contributes. */
+    shape: (number | null)[];
+}
+
+const isForEach = (element: React.ReactElement) => (element.props as any)?._type === 'ForEach';
+
 /**
- * The elements a stack lays out, after unwrapping a single Group, when they are
- * its direct children. Null when a `ForEach` or `Group` among them renders
- * several, so they can't be matched one to one with what the stack measures.
+ * The views a stack lays out, after unwrapping a single Group, with each
+ * ForEach's rows (`expand` builds a lazy one's). Null when a nested Group, or a
+ * ForEach or Group among a ForEach's rows, renders several views the stack
+ * can't match one to one with what it measures.
  */
-export function stackElements(children: React.ReactNode): React.ReactElement[] | null {
-    const elements = React.Children.toArray(unwrapGroupChildren(children)).filter(React.isValidElement) as React.ReactElement[];
-    return elements.some((element) => element.type === Group || (element.props as any)?._type === 'ForEach') ? null : elements;
+export function stackElements(children: React.ReactNode, expand?: (props: Record<string, any>) => React.ReactNode): StackElements | null {
+    const items: React.ReactElement[] = [];
+    const shape: (number | null)[] = [];
+    for (const element of React.Children.toArray(unwrapGroupChildren(children)).filter(React.isValidElement) as React.ReactElement[]) {
+        if (element.type === Group) return null;
+        if (!isForEach(element)) {
+            items.push(element);
+            shape.push(null);
+            continue;
+        }
+        const props = element.props as any;
+        const rows = React.Children.toArray(expand ? expand(props) : props.children).filter(React.isValidElement) as React.ReactElement[];
+        if (rows.some((row) => row.type === Group || isForEach(row))) return null;
+        items.push(...rows);
+        shape.push(rows.length);
+    }
+    return { items, shape };
 }

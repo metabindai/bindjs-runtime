@@ -1,8 +1,7 @@
 import React from 'react';
-import type { LayoutFrameType, LayoutMeasurement, LayoutSize, LayoutSizingFunction } from './LayoutTypes';
+import type { LayoutFrameType, LayoutMeasurement, LayoutSize } from './LayoutTypes';
 import type { Offer, OfferedLength } from './offer';
-import { layoutRegistry } from './LayoutRegistry';
-import { defaultSizingFunction } from './utils';
+import { measureElement } from './utils';
 
 /** The length a stack lays its children out along. */
 export type StackAxis = 'width' | 'height';
@@ -37,11 +36,6 @@ function lengthAt(measurement: LayoutMeasurement, axis: StackAxis, offered: numb
     if (typeof max === 'number' && max > 0) resolved = Math.min(resolved, max);
     if (typeof min === 'number' && Number.isFinite(min)) resolved = Math.max(resolved, min);
     return resolved;
-}
-
-function sizingFunction(child: React.ReactElement): LayoutSizingFunction {
-    const type = child.type;
-    return (typeof type !== 'string' && layoutRegistry.get(type)?.sizingFn) || defaultSizingFunction;
 }
 
 /**
@@ -83,7 +77,7 @@ export function distributeStack({ children, measured, axis, length, cross, spaci
         const dependsOnOffer = !(typeof own === 'number' && Number.isFinite(own));
         const props = child.props as any;
         const at = (offered: number): LayoutMeasurement => dependsOnOffer
-            ? sizingFunction(child)({ proposal, props, children: props.children, environment: { ...environment, proposal: offerAt(offered) } })
+            ? measureElement(child, { proposal, props, children: props.children, environment: { ...environment, proposal: offerAt(offered) } })
             : usual;
         return { at, least: lengthAt(at(0), axis, 0), most: lengthAt(at(Infinity), axis, Infinity) };
     });
@@ -114,4 +108,10 @@ export function distributeStack({ children, measured, axis, length, cross, spaci
     }
 
     return { measurements, offers, length: total };
+}
+
+/** A stack's offers per child: one per view, and a ForEach's offers for its rows (see stackElements). */
+export function groupOffers(offers: Offer[], shape: (number | null)[]): (Offer | Offer[])[] {
+    let index = 0;
+    return shape.map((rows) => (rows === null ? offers[index++] : offers.slice(index, (index += rows))));
 }

@@ -1,5 +1,6 @@
-import type React from 'react';
+import React from 'react';
 import { useRendererContext } from '../../RendererContext';
+import { LayoutNode, useLayoutContext } from '../Layout/LayoutNode';
 
 // A lazy ForEach's items, by the props object of its decoded element: built
 // once and shared by the layout pass (an ancestor measuring them) and the
@@ -47,5 +48,16 @@ export function expandForEach(props: Record<string, any>, rendererContext: any):
 
 export function ForEach(props) {
     const rendererContext = useRendererContext();
-    return expandForEach(props, rendererContext);
+    const parent = useLayoutContext()?.parentLayoutResult;
+    const items = expandForEach(props, rendererContext);
+
+    // In a stack sharing its length in points, each row is offered its own.
+    const offers: unknown[] | undefined = parent?.environment?.itemOffers;
+    if (!parent || !offers) return items;
+    const { itemOffers, ...environment } = parent.environment ?? {};
+    let index = 0;
+    return React.Children.map(items, (item) => {
+        if (!React.isValidElement(item) || index >= offers.length) return item;
+        return <LayoutNode layout={{ ...parent, environment: { ...environment, proposal: offers[index++] } }}>{item}</LayoutNode>;
+    });
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { describe, expect, it } from 'vitest';
-import { distributeStack } from './stack';
+import { distributeStack, groupOffers } from './stack';
+import { inSizingPass, measureElement } from './utils';
 import { layoutRegistry } from './LayoutRegistry';
 import { getOffer } from './offer';
 import type { LayoutMeasurement } from './LayoutTypes';
@@ -83,5 +84,40 @@ describe('stack distribution', () => {
     it('leaves the stack to CSS when its children and measurements do not match', () => {
         const children = [React.createElement(Fixed, { length: 20 })];
         expect(distributeStack({ children, measured: [], axis: 'height', length: 300, cross: 100, spacing: 0, proposal: { width: null, height: null }, environment: {} })).toBeNull();
+    });
+});
+
+describe('stack offers per child', () => {
+    it('groups a ForEach\'s rows under it', () => {
+        const a = { width: 100, height: 10 }, b = { width: 100, height: 20 }, c = { width: 100, height: 30 };
+        expect(groupOffers([a, b, c], [null, 2])).toEqual([a, [b, c]]);
+        expect(groupOffers([a, b, c], [2, null])).toEqual([[a, b], c]);
+    });
+});
+
+describe('sizing pass', () => {
+    it('measures an element once per offer within a pass', () => {
+        let calls = 0;
+        function Counted() { return null; }
+        layoutRegistry.register(Counted, () => { calls++; return { frame: { width: 10, height: 10 } }; });
+        const element = React.createElement(Counted);
+        const at = (height: number) => measureElement(element, { proposal: { width: null, height: null }, props: element.props, environment: { proposal: { width: 100, height } } });
+        inSizingPass(() => { at(50); at(50); at(80); });
+        expect(calls).toBe(2);
+        // Outside a pass nothing is kept, so a later render measures afresh.
+        at(50);
+        at(50);
+        expect(calls).toBe(4);
+    });
+
+    it('hands out a copy, so a caller adjusting it leaves the next one alone', () => {
+        function Sized() { return null; }
+        layoutRegistry.register(Sized, () => ({ frame: { width: 10, height: 10 } }));
+        const element = React.createElement(Sized);
+        const options = { proposal: { width: null, height: null }, props: element.props, environment: { proposal: { width: 100, height: 50 } } };
+        inSizingPass(() => {
+            measureElement(element, options).frame.height = 99;
+            expect(measureElement(element, options).frame.height).toBe(10);
+        });
     });
 });

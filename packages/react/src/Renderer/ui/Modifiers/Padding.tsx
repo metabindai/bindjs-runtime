@@ -105,10 +105,12 @@ export function Padding(props: PaddingProps) {
         bottom: finalInsets.bottom > 0 ? finalInsets.bottom : 0,
     };
 
-    // Normalize margin values (negative insets become margins)
+    // Negative insets become negative margins: the box keeps its content's size,
+    // and takes the content's size plus the insets in its parent's layout, so the
+    // content overflows it by the insets, as in SwiftUI.
     const marginValues = {
-        left: finalInsets.left < 0 ? finalInsets.left * 2 : 0,
-        right: finalInsets.right < 0 ? finalInsets.right * 2 : 0,
+        left: finalInsets.left < 0 ? finalInsets.left : 0,
+        right: finalInsets.right < 0 ? finalInsets.right : 0,
         top: finalInsets.top < 0 ? finalInsets.top : 0,
         bottom: finalInsets.bottom < 0 ? finalInsets.bottom : 0,
     };
@@ -136,10 +138,15 @@ export function Padding(props: PaddingProps) {
         marginBottom: marginValues.bottom !== 0 ? px(marginValues.bottom) : 0,
     };
 
-    // Handle negative padding width adjustments
-    let totalPadding = finalInsets.left + finalInsets.right;
-    if (totalPadding < 0) {
-        style.width = 'calc(' + style.width + ' + ' + px(Math.abs(totalPadding)) + ')'
+    // A box sized by the layout pass is sized as the padding (content plus insets);
+    // as the content's box it takes back what negative insets removed.
+    const negativeWidth = -(marginValues.left + marginValues.right);
+    if (negativeWidth > 0 && style.width != null) {
+        style.width = 'calc(' + (typeof style.width === 'number' ? px(style.width) : style.width) + ' + ' + px(negativeWidth) + ')'
+    }
+    const negativeHeight = -(marginValues.top + marginValues.bottom);
+    if (negativeHeight > 0 && style.height != null) {
+        style.height = 'calc(' + (typeof style.height === 'number' ? px(style.height) : style.height) + ' + ' + px(negativeHeight) + ')'
     }
 
     // Hand the padding down for a text input below to absorb as native padding. Accumulates

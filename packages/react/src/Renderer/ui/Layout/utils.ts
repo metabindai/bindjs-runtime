@@ -2,6 +2,40 @@ import React from 'react';
 import { LayoutFrameType, LayoutMeasurement, LayoutSize, LayoutSizingFunction } from './LayoutTypes';
 import { layoutRegistry } from './LayoutRegistry';
 
+/**
+ * Measurements made during one sizing pass (a node's sizing function at render
+ * and everything it measures), by element and offer. Stacks and aspect boxes
+ * measure a child at several offers, and their ancestors measure them at
+ * several in turn: without this, nested stacks cost exponential time.
+ */
+let pass: WeakMap<object, Map<string, LayoutMeasurement>> | null = null;
+
+/** Runs `measure` as one sizing pass, or inside the pass already running. */
+export function inSizingPass<T>(measure: () => T): T {
+    if (pass) return measure();
+    pass = new WeakMap();
+    try {
+        return measure();
+    } finally {
+        pass = null;
+    }
+}
+
+/** An element's measurement under `options`, measured once per offer within a sizing pass. */
+export function measureElement(child: React.ReactElement, options: Parameters<LayoutSizingFunction>[0]): LayoutMeasurement {
+    const sizeFunction = getSizingFunctionForType(child) ?? defaultSizingFunction;
+    const props = child.props as object;
+    if (!pass || !props) return sizeFunction(options);
+    const offer = options.environment?.proposal;
+    const key = `${offer?.width}|${offer?.height}|${options.environment?.layout ?? ''}|${options.proposal?.width}|${options.proposal?.height}`;
+    let byOffer = pass.get(props);
+    if (!byOffer) pass.set(props, (byOffer = new Map()));
+    let measurement = byOffer.get(key);
+    if (!measurement) byOffer.set(key, (measurement = sizeFunction(options)));
+    // Callers may adjust what they are given; the cached measurement stays as measured.
+    return { ...measurement, frame: { ...measurement.frame } };
+}
+
 function getSizingFunctionForType(child: React.ReactNode): LayoutSizingFunction | null {
     if (!React.isValidElement(child)) return null;
     
@@ -28,10 +62,9 @@ export const defaultSizingFunction: LayoutSizingFunction = ({ proposal, props, c
         // If only one child, use its size
         let child = React.Children.toArray(children)[0];
 
-        let measurementFunction = getSizingFunctionForType(child) ?? defaultSizingFunction;
-        
-        if (React.isValidElement(child) && measurementFunction) {
-            const measurement = measurementFunction({ proposal, props: child.props, children: child.props.children, context, environment });
+        if (React.isValidElement(child)) {
+            const childProps = child.props as any;
+            const measurement = measureElement(child, { proposal, props: childProps, children: childProps.children, context, environment });
             // The child's offer is what it offers its own children; a node
             // passing its child's size through offers what it was offered.
             if (measurement.environment && 'offer' in measurement.environment) {
@@ -79,10 +112,9 @@ export function measureChildren(children, proposedSize: LayoutSize, environment:
                 return
             }
 
-            let sizeFunction = getSizingFunctionForType(child) ?? defaultSizingFunction;
-
-            if (child && child.type && sizeFunction) {
-                const size = sizeFunction({ proposal: proposedSize, props: child.props, children: child.props.children, environment: { ...environment, ...nodeEnvironment ?? {} } });
+            if (React.isValidElement(child) && child.type) {
+                const childProps = child.props as any;
+                const size = measureElement(child, { proposal: proposedSize, props: childProps, children: childProps.children, environment: { ...environment, ...nodeEnvironment ?? {} } });
                 childrenWithSizes.push(size)
             }
 

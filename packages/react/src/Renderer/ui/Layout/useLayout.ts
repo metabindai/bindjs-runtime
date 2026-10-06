@@ -2,7 +2,7 @@ import { LayoutFrameType, LayoutMeasurement } from "./LayoutTypes";
 import DefaultLayoutSystemRegistry from "./LayoutRegistry";
 import { useLayoutContext } from "./LayoutNode";
 import { LayoutSizingFunction, LayoutContextValue } from "./LayoutTypes";
-import { measureMaxChild, defaultSizingFunction } from "./utils";
+import { measureMaxChild, defaultSizingFunction, inSizingPass } from "./utils";
 import { getOffer, offeredWidth, offeredHeight } from "./offer";
 import { useRendererContext } from "../../RendererContext";
 import { expandForEach } from "../Views/ForEach";
@@ -16,7 +16,7 @@ function layoutElement(props, children, nodeType: React.ElementType, layoutConte
     const sizeFunction = DefaultLayoutSystemRegistry.get(nodeType)?.sizingFn ?? defaultSizingFunction;
 
     // Determine size based on current environment and children
-    return sizeFunction({ proposal: frame, props, children, context: layoutContext, environment });
+    return inSizingPass(() => sizeFunction({ proposal: frame, props, children, context: layoutContext, environment }));
 }
 
 
@@ -50,11 +50,13 @@ export function useLayout(props, nodeType: React.ElementType, options: UseLayout
             layoutElement(otherProps, children, nodeType, layoutContext, layoutContext?.parentLayoutResult, currentEnvironment) :
             { ...layoutContext?.parentLayoutResult ?? { frame: {} } };
 
-    // Merge current environment with parent's environment
+    // Merge current environment with parent's environment. A stack's per-row
+    // offers are for the ForEach they were given to, not its descendants.
     const newEnvironment = {
         ...currentEnvironment,
         ...layoutMeasurement.environment,
     };
+    delete newEnvironment.itemOffers;
 
     // A node that draws an element sets the offer its children see: the one its
     // sizing function returned, or the one its own size implies. Nodes without

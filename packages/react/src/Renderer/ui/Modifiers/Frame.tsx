@@ -111,12 +111,13 @@ const sizeThatFits = ({ proposal, props, children, environment }): LayoutMeasure
     var contentWidth: number | null = null
     var contentHeight: number | null = null
 
+    // A zero length is a known length (a zero frame, or a box offered nothing).
     sizesOfChildren.forEach((layoutResult) => {
         const size = layoutResult.frame;
-        if (size.width) {
+        if (size.width != null) {
             contentWidth = Math.max((contentWidth ?? 0), size.width)
         }
-        if (size.height) {
+        if (size.height != null) {
             contentHeight = Math.max((contentHeight ?? 0), size.height)
         }
     })

@@ -1,8 +1,8 @@
 import React from 'react';
 import { useStyle, ClearStyle } from '../Style';
 import { useLayout, LayoutNode, layoutRegistry, getOffer, isKnownLength } from '../Layout';
-import type { LayoutSizingFunction } from '../Layout/LayoutTypes';
-import { defaultSizingFunction } from '../Layout/utils';
+import type { LayoutMeasurement, LayoutSizingFunction } from '../Layout/LayoutTypes';
+import { defaultSizingFunction, inSizingPass } from '../Layout/utils';
 import { useLayoutContext } from '../Layout/LayoutNode';
 import type { Offer } from '../Layout';
 import { ImageFitContext, useImageNaturalSize, svgDataURL, cachedNaturalSize } from '../ImageFit';
@@ -54,7 +54,7 @@ export function AspectRatio(props: AspectRatioProps): React.ReactNode {
     const natural = useImageNaturalSize(imageURL, image?.dimensions);
     const { ref: animationRef, style: animationStyle } = useAnimationNode();
 
-    if (ignoresProposal(measureUnoffered(children, parentEnvironment).frame, image)) {
+    if (inSizingPass(() => ownSize(children, parentEnvironment))) {
         return <>{children}</>;
     }
 
@@ -273,18 +273,52 @@ function idealSize(node: React.ReactNode, naturalOf: (image: UIImage) => Natural
 const UNSPECIFIED = { width: null, height: null };
 
 /**
- * The child's size with nothing offered, SwiftUI's ideal-size probe: a child
- * that is fixed or sized by its content there ignores proposals. Measured once
- * per sizing pass, so nested aspect ratios cost linear time.
+ * The child's size with nothing offered, SwiftUI's ideal-size probe. Probes
+ * are measured once per offer in a sizing pass (see inSizingPass), so nested
+ * aspect ratios cost linear time.
  */
 function measureUnoffered(children: React.ReactNode, environment?: Record<string, any> | null) {
     return defaultSizingFunction({ proposal: UNSPECIFIED, props: {}, children, environment: { ...(environment ?? {}), proposal: UNSPECIFIED } });
 }
 
-/** A child with a size of its own (fixed or content-sized), or a non-resizable image, ignores the proposal. */
-function ignoresProposal(size: { width?: number | null; height?: number | null }, image: ReturnType<typeof findImage>): boolean {
-    if (image && !image.resizable) return true;
-    return (isKnownLength(size.width) && isKnownLength(size.height)) || (size.width == null && size.height == null);
+/**
+ * Whether the chain ends in a non-resizable image through views that keep its
+ * size (padding and modifiers that draw nothing, not frames): it ignores any
+ * proposal, even before the image has loaded.
+ */
+function isNaturalImage(node: React.ReactNode): boolean {
+    let element = onlyChild(node);
+    while (element) {
+        if (element.type === UIImage) return !element.props.resizable;
+        if (element.type === Frame || !passesThrough(element)) return false;
+        element = onlyChild(element.props.children);
+    }
+    return false;
+}
+
+/**
+ * The child's size when it keeps one whatever it is offered: the same finite
+ * size offered no room and unlimited room. A frame with only a width keeps its
+ * width but not its height, so it isn't fixed.
+ */
+function fixedSize(children: React.ReactNode, environment?: Record<string, any> | null): { width: number; height: number } | null {
+    const at = (length: number) => defaultSizingFunction({ proposal: UNSPECIFIED, props: {}, children, environment: { ...(environment ?? {}), proposal: { width: length, height: length } } }).frame;
+    const none = at(0);
+    const unlimited = at(Infinity);
+    const same = (axis: 'width' | 'height') => isKnownLength(none[axis]) && none[axis] === unlimited[axis];
+    return same('width') && same('height') ? { width: none.width as number, height: none.height as number } : null;
+}
+
+/**
+ * The measurement of a child that keeps a size of its own whatever it is
+ * offered, so the box doesn't apply: content CSS sizes (text), a natural image,
+ * or a fixed child. Null when the child takes what the box offers.
+ */
+function ownSize(children: React.ReactNode, environment?: Record<string, any> | null): LayoutMeasurement | null {
+    const probe = measureUnoffered(children, environment);
+    if ((probe.frame.width == null && probe.frame.height == null) || isNaturalImage(children)) return probe;
+    const fixed = fixedSize(children, environment);
+    return fixed ? { frame: fixed } : null;
 }
 
 function explicitRatio(value: unknown): number | null {
@@ -298,9 +332,10 @@ function explicitRatio(value: unknown): number | null {
  * box is flexible, like the child.
  */
 const sizeThatFits: LayoutSizingFunction = ({ props, children, environment }) => {
+    const own = ownSize(children, environment);
+    if (own) return own;
     const probe = measureUnoffered(children, environment);
     const image = findImage(children);
-    if (ignoresProposal(probe.frame, image)) return probe;
 
     const offer = getOffer(environment);
     const mode: ContentMode = props.contentMode === 'fill' ? 'fill' : 'fit';
