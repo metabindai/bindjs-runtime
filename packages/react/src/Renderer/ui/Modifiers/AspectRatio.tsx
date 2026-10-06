@@ -6,7 +6,11 @@ import { defaultSizingFunction } from '../Layout/utils';
 import { useLayoutContext } from '../Layout/LayoutNode';
 import type { Offer } from '../Layout';
 import { ImageFitContext, useImageNaturalSize, svgDataURL, cachedNaturalSize } from '../ImageFit';
+import type { NaturalSize } from '../ImageFit';
 import { UIImage } from '../Views/Image';
+import { Padding, paddingInsetsFromProps } from './Padding';
+import { Frame } from './Frame';
+import { useAnimationNode } from '../AnimatableStyle';
 import { px } from '../../Utils';
 
 type ContentMode = 'fit' | 'fill';
@@ -33,7 +37,8 @@ interface AspectRatioProps {
  *   fitted image still draws contained)
  * - height unspecified (content-sized, as in an MCP host): width-driven
  *
- * With no ratio, the child's own is used: an image's pixel size, otherwise 1.
+ * With no ratio, the child's own is used: its ideal size (an image's pixel
+ * size, plus any padding, or a fixed frame), otherwise 1.
  */
 export function AspectRatio(props: AspectRatioProps): React.ReactNode {
     const { aspectRatio, contentMode, children } = props;
@@ -45,16 +50,22 @@ export function AspectRatio(props: AspectRatioProps): React.ReactNode {
     const parentStyle = useStyle();
 
     const image = findImage(children);
-    const natural = useImageNaturalSize(image?.url ?? (image?.svg ? svgDataURL(image.svg) : null), image?.dimensions);
+    const imageURL = imageSource(image);
+    const natural = useImageNaturalSize(imageURL, image?.dimensions);
+    const { ref: animationRef, style: animationStyle } = useAnimationNode();
 
-    if (ignoresProposal(children, image, parentEnvironment)) {
+    if (ignoresProposal(measureUnoffered(children, parentEnvironment).frame, image)) {
         return <>{children}</>;
     }
 
     const explicit = explicitRatio(aspectRatio);
-    const ratio = explicit ?? (natural ? natural.width / natural.height : image ? null : 1);
+    const ideal = idealSize(children, () => natural);
+    const ratio = explicit ?? (ideal ? ideal.width / ideal.height : image ? null : 1);
 
-    const box = ratio == null ? { style: { width: '100%', height: 0 } } : boxLayout(offer, ratio, mode, natural);
+    // An image whose size isn't known yet: the box takes what is offered where
+    // that is definite, and an <img> sizes it where it isn't, so it has its
+    // file's ratio as soon as the browser does (server rendering included).
+    const box = ratio != null ? boxLayout(offer, ratio, mode, ideal) : unknownRatioLayout(offer, imageURL);
     const style: React.CSSProperties = {
         ...parentStyle,
         display: 'flex',
@@ -62,21 +73,28 @@ export function AspectRatio(props: AspectRatioProps): React.ReactNode {
         justifyContent: 'center',
         flexShrink: 1,
         ...box.style,
+        // Accumulated animatable values (opacity, offset) apply to the box,
+        // before ClearStyle resets them for the content.
+        ...animationStyle,
     };
 
-    // Inside the box, both lengths are definite.
+    // Inside the box, both lengths are definite: in points when the box's size
+    // is known, otherwise to CSS.
+    const known = ratio != null ? boxSize(offer, ratio, mode) : null;
     const innerLayout = {
         ...layout,
-        environment: { ...layout.environment, proposal: { width: 'fill', height: 'fill' } },
+        environment: { ...layout.environment, proposal: { width: known?.width ?? 'fill', height: known?.height ?? 'fill' } },
     };
 
+    const sized = box.strut != null || box.img != null;
     return (
         <LayoutNode layout={innerLayout}>
             <ClearStyle>
-                <div className="aspectRatio" style={style}>
+                <div className="aspectRatio" ref={animationRef as React.Ref<HTMLDivElement>} style={style}>
                     {box.strut != null && <Strut {...box.strut} />}
+                    {box.img != null && <img aria-hidden="true" alt="" src={box.img.src} style={box.img.style} />}
                     <ImageFitContext.Provider value={{ contentMode: mode, intrinsic: explicit == null }}>
-                        {box.strut != null ? <div style={cellStyle}>{children}</div> : children}
+                        {sized ? <div style={cellStyle}>{children}</div> : children}
                     </ImageFitContext.Provider>
                 </div>
             </ClearStyle>
@@ -84,10 +102,42 @@ export function AspectRatio(props: AspectRatioProps): React.ReactNode {
     );
 }
 
+/** The box's size in points, when the offer and ratio determine it. */
+function boxSize(offer: Offer, ratio: number, mode: ContentMode): { width: number; height: number } | null {
+    const { width: W, height: H } = offer;
+    if (typeof W === 'number' && typeof H === 'number') {
+        const width = (mode === 'fit' ? Math.min : Math.max)(W, H * ratio);
+        return { width, height: width / ratio };
+    }
+    if (typeof H === 'number' && W === null) return { width: H * ratio, height: H };
+    if (typeof W === 'number' && H === null) return { width: W, height: W / ratio };
+    return null;
+}
+
+/**
+ * The box for an image whose ratio isn't known yet. With both lengths definite,
+ * the box takes them and the image draws contained or covered. Otherwise a
+ * hidden <img> with the unknown length auto sizes the box from the file.
+ */
+function unknownRatioLayout(offer: Offer, src: string | null): BoxLayout {
+    const { width: W, height: H } = offer;
+    const length = (value: typeof W) => (typeof value === 'number' ? px(value) : value === 'fill' ? '100%' : 'auto');
+    if (W !== null && H !== null) {
+        return { style: { width: length(W), height: length(H) } };
+    }
+    if (!src) return { style: { width: length(W), height: 0 } };
+    return {
+        style: { ...gridBox, width: W === null ? 'auto' : length(W), height: H === null ? 'auto' : length(H) },
+        img: { src, style: { gridArea: '1 / 1', display: 'block', width: length(W), height: length(H), visibility: 'hidden' } },
+    };
+}
+
 interface BoxLayout {
     style: React.CSSProperties;
     /** A width the box asks for (see Strut). */
     strut?: StrutProps;
+    /** An image that sizes the box from its file (see unknownRatioLayout). */
+    img?: { src: string; style: React.CSSProperties };
 }
 
 export function boxLayout(offer: Offer, ratio: number, mode: ContentMode, natural?: { width: number; height: number } | null): BoxLayout {
@@ -166,22 +216,74 @@ const cellStyle: React.CSSProperties = {
     justifyContent: 'center',
 };
 
-/** The Image a modifier chain ends in, looking through modifiers that draw no element. */
+/** The single element a modifier chain continues with, or null. */
+function onlyChild(node: React.ReactNode): React.ReactElement<any> | null {
+    const nodes = React.Children.toArray(node);
+    return nodes.length === 1 && React.isValidElement(nodes[0]) ? (nodes[0] as React.ReactElement<any>) : null;
+}
+
+/**
+ * Views a modifier chain looks through to its content: modifiers that draw
+ * nothing of their own, and padding and frames, whose ideal size derives
+ * from their content's.
+ */
+function passesThrough(element: React.ReactElement<any>): boolean {
+    return element.type === Padding || element.type === Frame || !layoutRegistry.get(element.type as React.ElementType);
+}
+
+/** The Image a modifier chain ends in. */
 function findImage(node: React.ReactNode): (UIImage & { resizable?: boolean }) | null {
-    let nodes = React.Children.toArray(node);
-    while (nodes.length === 1 && React.isValidElement(nodes[0])) {
-        const element = nodes[0] as React.ReactElement<any>;
+    let element = onlyChild(node);
+    while (element) {
         if (element.type === UIImage) return element.props as UIImage;
-        if (layoutRegistry.get(element.type as React.ElementType)) return null;
-        nodes = React.Children.toArray(element.props.children);
+        if (!passesThrough(element)) return null;
+        element = onlyChild(element.props.children);
     }
     return null;
 }
 
+function imageSource(image: UIImage | null): string | null {
+    return image?.url ?? (image?.svg ? svgDataURL(image.svg) : null);
+}
+
+/**
+ * SwiftUI's ideal size for a modifier chain: an image's pixel size, plus
+ * padding, with a fixed frame length replacing its content's. Null when the
+ * chain's content has none (a shape or color, whose ratio is then 1).
+ */
+function idealSize(node: React.ReactNode, naturalOf: (image: UIImage) => NaturalSize | null): NaturalSize | null {
+    const element = onlyChild(node);
+    if (!element) return null;
+    if (element.type === UIImage) return naturalOf(element.props);
+    if (!passesThrough(element)) return null;
+    const content = idealSize(element.props.children, naturalOf);
+    if (element.type === Padding) {
+        if (!content) return null;
+        const insets = paddingInsetsFromProps(element.props);
+        return { width: Math.max(0, content.width + insets.left + insets.right), height: Math.max(0, content.height + insets.top + insets.bottom) };
+    }
+    if (element.type === Frame) {
+        const width = isKnownLength(element.props.width) ? element.props.width : content?.width;
+        const height = isKnownLength(element.props.height) ? element.props.height : content?.height;
+        return width != null && height != null && width > 0 && height > 0 ? { width, height } : null;
+    }
+    return content;
+}
+
+const UNSPECIFIED = { width: null, height: null };
+
+/**
+ * The child's size with nothing offered, SwiftUI's ideal-size probe: a child
+ * that is fixed or sized by its content there ignores proposals. Measured once
+ * per sizing pass, so nested aspect ratios cost linear time.
+ */
+function measureUnoffered(children: React.ReactNode, environment?: Record<string, any> | null) {
+    return defaultSizingFunction({ proposal: UNSPECIFIED, props: {}, children, environment: { ...(environment ?? {}), proposal: UNSPECIFIED } });
+}
+
 /** A child with a size of its own (fixed or content-sized), or a non-resizable image, ignores the proposal. */
-function ignoresProposal(children: React.ReactNode, image: ReturnType<typeof findImage>, environment?: Record<string, any> | null): boolean {
+function ignoresProposal(size: { width?: number | null; height?: number | null }, image: ReturnType<typeof findImage>): boolean {
     if (image && !image.resizable) return true;
-    const size = defaultSizingFunction({ proposal: { width: null, height: null }, props: {}, children, environment: environment ?? {} }).frame;
     return (isKnownLength(size.width) && isKnownLength(size.height)) || (size.width == null && size.height == null);
 }
 
@@ -195,29 +297,24 @@ function explicitRatio(value: unknown): number | null {
  * does. With both lengths and the ratio known, the size is exact. Otherwise the
  * box is flexible, like the child.
  */
-const sizeThatFits: LayoutSizingFunction = ({ proposal, props, children, environment }) => {
-    const child = defaultSizingFunction({ proposal, props, children, environment });
+const sizeThatFits: LayoutSizingFunction = ({ props, children, environment }) => {
+    const probe = measureUnoffered(children, environment);
     const image = findImage(children);
-    if (ignoresProposal(children, image, environment)) return child;
+    if (ignoresProposal(probe.frame, image)) return probe;
 
     const offer = getOffer(environment);
     const mode: ContentMode = props.contentMode === 'fill' ? 'fill' : 'fit';
-    const natural = image ? cachedNaturalSize(image.url ?? (image.svg ? svgDataURL(image.svg) : null), image.dimensions) : null;
-    const ratio = explicitRatio(props.aspectRatio) ?? (natural ? natural.width / natural.height : image ? null : 1);
+    const ideal = idealSize(children, (img) => cachedNaturalSize(imageSource(img), img.dimensions));
+    const ratio = explicitRatio(props.aspectRatio) ?? (ideal ? ideal.width / ideal.height : image ? null : 1);
     const { width: W, height: H } = offer;
 
-    if (ratio && typeof W === 'number' && typeof H === 'number') {
-        const width = (mode === 'fit' ? Math.min : Math.max)(W, H * ratio);
-        return { frame: { width, height: width / ratio } };
-    }
-    if (ratio && typeof H === 'number' && W === null) {
-        return { frame: { width: H * ratio, height: H } };
-    }
+    const known = ratio ? boxSize(offer, ratio, mode) : null;
+    if (known) return { frame: known };
     if (typeof H === 'number' && W === 'fill' && mode === 'fit') {
         // Its size comes from CSS (see boxLayout): a frame with only a height hugs it.
         return { frame: { width: null, height: null } };
     }
-    return child;
+    return probe;
 }
 
 layoutRegistry.register(AspectRatio, sizeThatFits);

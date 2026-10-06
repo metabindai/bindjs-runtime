@@ -31,7 +31,14 @@ export const defaultSizingFunction: LayoutSizingFunction = ({ proposal, props, c
         let measurementFunction = getSizingFunctionForType(child) ?? defaultSizingFunction;
         
         if (React.isValidElement(child) && measurementFunction) {
-            return measurementFunction({ proposal, props: child.props, children: child.props.children, context, environment });
+            const measurement = measurementFunction({ proposal, props: child.props, children: child.props.children, context, environment });
+            // The child's offer is what it offers its own children; a node
+            // passing its child's size through offers what it was offered.
+            if (measurement.environment && 'offer' in measurement.environment) {
+                const { offer, ...rest } = measurement.environment;
+                return { ...measurement, environment: rest };
+            }
+            return measurement;
         } else {
             return {
                 frame: proposal

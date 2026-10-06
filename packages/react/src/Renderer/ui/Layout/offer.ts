@@ -60,28 +60,36 @@ export function sharedLength(length: OfferedLength): OfferedLength {
 }
 
 /**
- * A frame proposes its fixed size, or its parent's offer clamped to its max.
- * An unspecified offer clamped to a max is the max, as in SwiftUI.
+ * A frame proposes its fixed size, or its parent's offer clamped to its
+ * bounds. An unspecified offer clamped to a max is the max, as in SwiftUI;
+ * an offer only CSS knows stays so (the frame's min-width/max-width apply).
  */
-export function frameLength(exact: unknown, max: unknown, parent: OfferedLength): OfferedLength {
+export function frameLength(exact: unknown, max: unknown, parent: OfferedLength, min?: unknown): OfferedLength {
     if (isKnownLength(exact)) return exact;
-    if (isKnownLength(max)) {
-        if (typeof parent === 'number') return Math.min(parent, max);
-        if (parent === null) return max;
-        return 'fill';
+    if (typeof parent === 'number') {
+        let length = parent;
+        if (isKnownLength(max)) length = Math.min(length, max);
+        if (isKnownLength(min)) length = Math.max(length, min);
+        return length;
     }
+    if (parent === null && isKnownLength(max)) return isKnownLength(min) ? Math.max(max, min) : max;
     return parent;
 }
 
+/** An offer less the insets; negative insets offer more. */
 export function insetLength(length: OfferedLength, inset: number): OfferedLength {
     return typeof length === 'number' ? Math.max(0, length - inset) : length;
 }
 
 /**
- * The layout an overlay or background gives its content: the base view's size,
- * which CSS knows (the content is positioned over the base at 100% × 100%).
+ * The layout an overlay or background gives its content: the base view's size
+ * (the content is positioned over the base at 100% × 100%), in points when the
+ * base's size is known.
  */
-export const BASE_SIZE_LAYOUT = { frame: {}, environment: { proposal: { width: 'fill', height: 'fill' } as Offer } };
+export function baseSizeLayout(base?: { width?: number | null; height?: number | null } | null) {
+    const length = (value?: number | null): OfferedLength => (isKnownLength(value) && value > 0 ? value : 'fill');
+    return { frame: {}, environment: { proposal: { width: length(base?.width), height: length(base?.height) } as Offer } };
+}
 
 export function getOffer(environment?: Record<string, any> | null): Offer {
     return environment?.proposal ?? ROOT_OFFER;

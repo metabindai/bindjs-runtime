@@ -18,13 +18,16 @@ export function Clipped(props: { children?: React.ReactNode }): React.ReactNode 
     const { ref: animationRef, style: animationStyle } = useAnimationNode();
 
     const style: React.CSSProperties = {
+        // clipped() never changes its content's size, but overflow: hidden makes a
+        // flex item's automatic minimum 0, so a flex parent could shrink the box
+        // below its content. min-content restores that minimum: a natural-size
+        // image keeps its size and flexible content still shares space.
+        minWidth: 'min-content',
+        minHeight: 'min-content',
         ...useStyle(),
         ...layoutStyle(layout),
         ...animationStyle,
         overflow: 'hidden',
-        // clipped() never changes its content's size. overflow: hidden would let
-        // a flex parent shrink the box below it (its automatic minimum becomes 0).
-        flexShrink: 0,
     };
 
     return (

@@ -43,7 +43,9 @@ export function ScrollView(props) {
                 <ClearStyle>
                     <EnvironmentStyleProvider style={{ ...envStyle, scrollTargetBehavior: null }}>
                         <StyleProvider style={containerInfo as any}>
-                            <ClearTextInputPadding>{children}</ClearTextInputPadding>
+                            <LayoutNode layout={contentLayout}>
+                                <ClearTextInputPadding>{children}</ClearTextInputPadding>
+                            </LayoutNode>
                         </StyleProvider>
                     </EnvironmentStyleProvider>
                 </ClearStyle>

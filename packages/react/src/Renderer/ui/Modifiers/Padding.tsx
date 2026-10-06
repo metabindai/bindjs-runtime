@@ -18,7 +18,7 @@ export interface PaddingInsets {
     bottom: number
 }
 
-function paddingInsetsFromProps(props: PaddingProps): PaddingInsets {
+export function paddingInsetsFromProps(props: PaddingProps): PaddingInsets {
     var insets: PaddingInsets = {
         left: 0,
         right: 0,
@@ -179,26 +179,28 @@ const sizeThatFits = ({ proposal, props, children, environment }): LayoutMeasure
 
     const parentOffer = getOffer(environment);
     const offer = {
-        width: insetLength(parentOffer.width, Math.max(0, insets.left) + Math.max(0, insets.right)),
-        height: insetLength(parentOffer.height, Math.max(0, insets.top) + Math.max(0, insets.bottom)),
+        width: insetLength(parentOffer.width, insets.left + insets.right),
+        height: insetLength(parentOffer.height, insets.top + insets.bottom),
     };
 
     var reportedSize = measureMaxChild({ children, proposal, environment: environment, nodeEnvironment: { proposal: offer } });
 
+    // SwiftUI's padding is its content's size plus the insets; negative insets
+    // shrink it (and propose the content more room, above).
     if (reportedSize.width != null && reportedSize.width != Infinity) {
-        reportedSize.width += Math.abs(insets.left) + Math.abs(insets.right)
+        reportedSize.width = Math.max(0, reportedSize.width + insets.left + insets.right)
     }
 
     if (reportedSize.height != null && reportedSize.height != Infinity) {
-        reportedSize.height += Math.abs(insets.top) + Math.abs(insets.bottom)
+        reportedSize.height = Math.max(0, reportedSize.height + insets.top + insets.bottom)
     }
 
     // A minimum carried up from the content includes the insets.
     if (reportedSize.minWidth) {
-        reportedSize.minWidth += Math.max(0, insets.left) + Math.max(0, insets.right)
+        reportedSize.minWidth = Math.max(0, reportedSize.minWidth + insets.left + insets.right)
     }
     if (reportedSize.minHeight) {
-        reportedSize.minHeight += Math.max(0, insets.top) + Math.max(0, insets.bottom)
+        reportedSize.minHeight = Math.max(0, reportedSize.minHeight + insets.top + insets.bottom)
     }
 
     return {

@@ -96,8 +96,8 @@ const sizeThatFits = ({ proposal, props, children, environment }): LayoutMeasure
 
     const parentOffer = getOffer(environment);
     const offer = {
-        width: frameLength(props.width, props.maxWidth, parentOffer.width),
-        height: frameLength(props.height, props.maxHeight, parentOffer.height),
+        width: frameLength(props.width, props.maxWidth, parentOffer.width, props.minWidth),
+        height: frameLength(props.height, props.maxHeight, parentOffer.height, props.minHeight),
     };
 
     const nodeEnvironment = {

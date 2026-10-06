@@ -10,7 +10,7 @@ import { LayoutNode, LayoutNodeChildren } from '../Layout/LayoutNode';
 import { layoutRegistry } from '../Layout/LayoutRegistry';
 import type { LayoutMeasurement } from '../Layout/LayoutTypes';
 import { measureChildren, knownMinimum } from '../Layout/utils';
-import { getOffer, offeredWidth, offeredHeight, sharedLength } from '../Layout/offer';
+import { getOffer, sharedLength } from '../Layout/offer';
 import { HorizontalAlignment, horizontalAlignmentMap } from '../Alignment';
 import { useAnimationNode } from '../AnimatableStyle';
 import { ClearTextInputPadding } from '../Utils/textInputPadding';
@@ -216,11 +216,9 @@ const sizeThatFits = ({ proposal, props, children, environment }): LayoutMeasure
         if (least > 0) minHeight = Math.max(minHeight ?? 0, least + (props.spacing ?? 0) * (sizesOfChildren.length - 1))
     }
 
-    const parentOffer = getOffer(environment);
-    const offer = {
-        height: sharedLength(offeredHeight(height, parentOffer.height)),
-        width: offeredWidth(width, parentOffer.width),
-    };
+    // SwiftUI's stack proposes from its own proposal, not from the size its
+    // children add up to: the children see at render what they were measured with.
+    const offer = measuringOffer;
     return {
         environment: { ...vstackEnvironment, offer },
         subviews: sizesOfChildren,

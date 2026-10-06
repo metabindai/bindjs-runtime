@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { frameLength, insetLength, offeredHeight, offeredWidth, sharedLength, getOffer, ROOT_OFFER } from './offer';
+import { frameLength, insetLength, offeredHeight, offeredWidth, sharedLength, getOffer, ROOT_OFFER, baseSizeLayout } from './offer';
 
 describe('layout offers', () => {
     it('a node offers its own known length', () => {
@@ -42,11 +42,28 @@ describe('layout offers', () => {
         expect(frameLength(undefined, undefined, null)).toBeNull();
     });
 
+    it('a frame offer is clamped by its minimum too', () => {
+        // frame({ minWidth: 400 }) offered 300 proposes 400, as SwiftUI does.
+        expect(frameLength(undefined, undefined, 300, 400)).toBe(400);
+        expect(frameLength(undefined, 500, 300, 100)).toBe(300);
+        expect(frameLength(undefined, 120, null, 200)).toBe(200);
+        expect(frameLength(undefined, undefined, null, 200)).toBeNull();
+        expect(frameLength(undefined, undefined, 'fill', 200)).toBe('fill');
+    });
+
     it('padding shrinks a known offer', () => {
         expect(insetLength(200, 40)).toBe(160);
         expect(insetLength(20, 40)).toBe(0);
         expect(insetLength('fill', 40)).toBe('fill');
         expect(insetLength(null, 40)).toBeNull();
+        // Negative padding offers its content more room.
+        expect(insetLength(300, -20)).toBe(320);
+    });
+
+    it('overlay and background content is offered the base size, in points when known', () => {
+        expect(baseSizeLayout({ width: 50, height: 100 }).environment.proposal).toEqual({ width: 50, height: 100 });
+        expect(baseSizeLayout({ width: Infinity, height: null }).environment.proposal).toEqual({ width: 'fill', height: 'fill' });
+        expect(baseSizeLayout(null).environment.proposal).toEqual({ width: 'fill', height: 'fill' });
     });
 
     it('the root is as wide as its container with no height', () => {
