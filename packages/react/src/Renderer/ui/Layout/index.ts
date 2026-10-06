@@ -1,5 +1,5 @@
 // Core
-export { LayoutNode, LayoutNodeChildren } from "./LayoutNode";
+export { LayoutNode, LayoutNodeChildren, StackLayoutChildren } from "./LayoutNode";
 export { layoutRegistry } from "./LayoutRegistry";
 
 // Hooks

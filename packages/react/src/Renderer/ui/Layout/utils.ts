@@ -108,11 +108,12 @@ export function measureMaxChild({ proposal, children, environment, nodeEnvironme
     sizesOfChildren.forEach((measurment) => {
         const size = measurment.frame;
 
-        if (size.width) {
+        // A zero length is a known length (a zero frame, or a box offered nothing).
+        if (size.width != null) {
             v.width = Math.max((v.width ?? 0), size.width)
             sizedChildrenWidth += 1
         }
-        if (size.height) {
+        if (size.height != null) {
             v.height = Math.max((v.height ?? 0), size.height)
             sizedChildrenHeight += 1
         }

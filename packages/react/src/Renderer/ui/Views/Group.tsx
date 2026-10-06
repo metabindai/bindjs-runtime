@@ -49,3 +49,12 @@ export function unwrapGroupChildren(children: React.ReactNode): React.ReactNode 
     }
     return children;
 }
+/**
+ * The elements a stack lays out, after unwrapping a single Group, when they are
+ * its direct children. Null when a `ForEach` or `Group` among them renders
+ * several, so they can't be matched one to one with what the stack measures.
+ */
+export function stackElements(children: React.ReactNode): React.ReactElement[] | null {
+    const elements = React.Children.toArray(unwrapGroupChildren(children)).filter(React.isValidElement) as React.ReactElement[];
+    return elements.some((element) => element.type === Group || (element.props as any)?._type === 'ForEach') ? null : elements;
+}

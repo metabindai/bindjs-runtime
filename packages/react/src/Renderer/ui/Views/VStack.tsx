@@ -3,14 +3,15 @@ import styled from 'styled-components';
 import { useStyle, ClearStyle, useEnvironmentStyle, EnvironmentStyleProvider, StyleProvider } from '../Style';
 import { px, getDomEvents } from "../../Utils";
 import { useID, ClearID } from '../Modifiers/ID';
-import { unwrapGroupChildren } from './Group';
+import { unwrapGroupChildren, stackElements } from './Group';
 import { useLayout } from '../Layout/useLayout';
 import { layoutStyle } from '../Layout/layoutStyle';
-import { LayoutNode, LayoutNodeChildren } from '../Layout/LayoutNode';
+import { StackLayoutChildren } from '../Layout/LayoutNode';
 import { layoutRegistry } from '../Layout/LayoutRegistry';
 import type { LayoutMeasurement } from '../Layout/LayoutTypes';
 import { measureChildren, knownMinimum } from '../Layout/utils';
-import { getOffer, sharedLength } from '../Layout/offer';
+import { getOffer, sharedLength, isKnownLength } from '../Layout/offer';
+import { distributeStack } from '../Layout/stack';
 import { HorizontalAlignment, horizontalAlignmentMap } from '../Alignment';
 import { useAnimationNode } from '../AnimatableStyle';
 import { ClearTextInputPadding } from '../Utils/textInputPadding';
@@ -115,11 +116,11 @@ export function VStack(props: VStackProps): React.ReactElement {
                     style={style}
                     {...domEvents}>
                     <EnvironmentStyleProvider style={childEnvStyle}>
-                        <LayoutNodeChildren layout={layout}>
-                            <ClearTextInputPadding>
+                        <ClearTextInputPadding>
+                            <StackLayoutChildren layout={layout}>
                                 {wrappedChildren}
-                            </ClearTextInputPadding>
-                        </LayoutNodeChildren>
+                            </StackLayoutChildren>
+                        </ClearTextInputPadding>
                     </EnvironmentStyleProvider>
                 </VStackContent>
             </ClearID>
@@ -143,6 +144,26 @@ const sizeThatFits = ({ proposal, props, children, environment }): LayoutMeasure
 
     const measuringOffer = { height: sharedLength(getOffer(environment).height), width: getOffer(environment).width };
     let sizesOfChildren = measureChildren(children, proposal, environment, { ...vstackEnvironment, proposal: measuringOffer })
+
+    // Offered a height in points, the stack shares it as SwiftUI does, least flexible
+    // child first, when the layout pass knows every child's height (see stack.ts).
+    const stackOffer = getOffer(environment).height;
+    const elements = isKnownLength(stackOffer) ? stackElements(children) : null;
+    const distribution = elements && isKnownLength(stackOffer) ? distributeStack({
+        children: elements,
+        measured: elements.length === React.Children.toArray(children).filter(React.isValidElement).length
+            ? sizesOfChildren
+            : measureChildren(elements, proposal, environment, { ...vstackEnvironment, proposal: measuringOffer }),
+        axis: 'height',
+        length: stackOffer,
+        cross: measuringOffer.width,
+        spacing: props.spacing ?? 8,
+        proposal,
+        environment: { ...environment, ...vstackEnvironment },
+    }) : null;
+    if (distribution) {
+        sizesOfChildren = distribution.measurements
+    }
 
     var width: (number | null) = proposal.width
     var height: number | null = proposal.height
@@ -218,11 +239,17 @@ const sizeThatFits = ({ proposal, props, children, environment }): LayoutMeasure
 
     // SwiftUI's stack proposes from its own proposal, not from the size its
     // children add up to: the children see at render what they were measured with.
+    if (distribution) {
+        height = distribution.length
+        minHeight = null
+    }
+
     const offer = measuringOffer;
     return {
         environment: { ...vstackEnvironment, offer },
         subviews: sizesOfChildren,
-        frame: { width: width, height: height, minWidth: minWidth, minHeight: minHeight }
+        frame: { width: width, height: height, minWidth: minWidth, minHeight: minHeight },
+        childOffers: distribution?.offers,
     }
 }
 

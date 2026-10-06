@@ -3,14 +3,15 @@ import styled from 'styled-components';
 import { useStyle, ClearStyle, useEnvironmentStyle, EnvironmentStyleProvider, StyleProvider } from '../Style';
 import { px, getDomEvents } from "../../Utils";
 import { useID, ClearID } from '../Modifiers/ID';
-import { unwrapGroupChildren } from './Group';
+import { unwrapGroupChildren, stackElements } from './Group';
 import { useLayout } from '../Layout/useLayout';
 import { layoutStyle } from '../Layout/layoutStyle';
 import { layoutRegistry } from '../Layout/LayoutRegistry';
-import { LayoutNodeChildren, LayoutNode } from '../Layout/LayoutNode';
+import { StackLayoutChildren } from '../Layout/LayoutNode';
 import type { LayoutMeasurement } from '../Layout/LayoutTypes';
 import { measureChildren, knownMinimum } from '../Layout/utils';
-import { getOffer, sharedLength } from '../Layout/offer';
+import { getOffer, sharedLength, isKnownLength } from '../Layout/offer';
+import { distributeStack } from '../Layout/stack';
 import { VerticalAlignment, verticalAlignmentMap } from '../Alignment';
 import { useAnimationNode } from '../AnimatableStyle';
 import { ClearTextInputPadding } from '../Utils/textInputPadding';
@@ -105,11 +106,11 @@ export function HStack(props: HStackProps): React.ReactElement {
                     style={style}
                     {...domEvents}>
                     <EnvironmentStyleProvider style={childEnvStyle}>
-                        <LayoutNodeChildren layout={layout}>
-                            <ClearTextInputPadding>
+                        <ClearTextInputPadding>
+                            <StackLayoutChildren layout={layout}>
                                 {wrappedChildren}
-                            </ClearTextInputPadding>
-                        </LayoutNodeChildren>
+                            </StackLayoutChildren>
+                        </ClearTextInputPadding>
                     </EnvironmentStyleProvider>
                 </HStackContent>
             </ClearID>
@@ -133,6 +134,26 @@ const sizeThatFits = ({ proposal, props, children, environment }): LayoutMeasure
 
     const measuringOffer = { width: sharedLength(getOffer(environment).width), height: getOffer(environment).height };
     let sizesOfChildren = measureChildren(children, proposal, environment, { ...nodeEnvironment, proposal: measuringOffer })
+
+    // Offered a width in points, the stack shares it as SwiftUI does, least flexible
+    // child first, when the layout pass knows every child's width (see stack.ts).
+    const stackOffer = getOffer(environment).width;
+    const elements = isKnownLength(stackOffer) ? stackElements(children) : null;
+    const distribution = elements && isKnownLength(stackOffer) ? distributeStack({
+        children: elements,
+        measured: elements.length === React.Children.toArray(children).filter(React.isValidElement).length
+            ? sizesOfChildren
+            : measureChildren(elements, proposal, environment, { ...nodeEnvironment, proposal: measuringOffer }),
+        axis: 'width',
+        length: stackOffer,
+        cross: measuringOffer.height,
+        spacing: props.spacing ?? 8,
+        proposal,
+        environment: { ...environment, ...nodeEnvironment },
+    }) : null;
+    if (distribution) {
+        sizesOfChildren = distribution.measurements
+    }
 
     var width: (number | null) = proposal.width
     var height: number | null = proposal.height
@@ -207,11 +228,17 @@ const sizeThatFits = ({ proposal, props, children, environment }): LayoutMeasure
 
     // SwiftUI's stack proposes from its own proposal, not from the size its
     // children add up to: the children see at render what they were measured with.
+    if (distribution) {
+        width = distribution.length
+        minWidth = null
+    }
+
     const offer = measuringOffer;
     return {
         environment: { ...nodeEnvironment, offer },
         subviews: sizesOfChildren,
-        frame: { width: width, height: height, minWidth: minWidth, minHeight: minHeight }
+        frame: { width: width, height: height, minWidth: minWidth, minHeight: minHeight },
+        childOffers: distribution?.offers,
     }
 }
 

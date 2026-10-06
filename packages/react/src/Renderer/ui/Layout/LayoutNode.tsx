@@ -18,6 +18,27 @@ export function LayoutNodeChildren({ layout, children }: { layout: LayoutMeasure
     );
 }
 
+/**
+ * A stack's children, each offered its own share when the stack shares its
+ * length in points (`layout.childOffers`), otherwise all the stack's offer.
+ */
+export function StackLayoutChildren({ layout, children }: { layout: LayoutMeasurement | null; children: ReactNode }) {
+    const offers = layout?.childOffers;
+    if (!layout || !offers) {
+        return <LayoutNode layout={layout}>{children}</LayoutNode>;
+    }
+    let index = 0;
+    return (
+        <LayoutNode layout={layout}>
+            {React.Children.map(children, (child) => {
+                if (!React.isValidElement(child)) return child;
+                const offer = offers[index++];
+                return <LayoutNode layout={{ ...layout, environment: { ...layout.environment, proposal: offer } }}>{child}</LayoutNode>;
+            })}
+        </LayoutNode>
+    );
+}
+
 export function useLayoutContext(): LayoutContextValue | null {
     return useContext(LayoutContext);
 }
