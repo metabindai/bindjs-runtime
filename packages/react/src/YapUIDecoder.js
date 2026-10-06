@@ -65,6 +65,7 @@ import { AccentColor } from './Renderer/ui/Modifiers/AccentColor';
 import { GlassEffect } from './Renderer/ui/Modifiers/GlassEffect';
 import { Mask } from './Renderer/ui/Modifiers/Mask';
 import { ClipShape } from './Renderer/ui/Modifiers/ClipShape';
+import { Clipped } from './Renderer/ui/Modifiers/Clipped';
 import { VisualEffectModifier } from './Renderer/ui/Modifiers/VisualEffect';
 import { IgnoresSafeArea } from './Renderer/ui/Modifiers/IgnoresSafeArea';
 import { ScrollTargetLayout, ScrollTargetBehavior } from './Renderer/ui/Modifiers/ScrollTarget';
@@ -307,6 +308,7 @@ const modifiersMap = {
     accentColor: AccentColor,
     mask: Mask,
     clipShape: ClipShape,
+    clipped: Clipped,
     visualEffect: VisualEffectModifier,
     ignoresSafeArea: IgnoresSafeArea,
     scrollTargetLayout: ScrollTargetLayout,

@@ -1,6 +1,8 @@
+import { getOffer } from '../Layout/offer';
 import { useRef } from 'react';
 import { useStyle, ClearStyle, StyleProvider, useEnvironmentStyle, EnvironmentStyleProvider } from '../Style';
 import { layoutRegistry, LayoutMeasurement, useLayout, layoutStyle, LayoutNode } from '../Layout';
+import { useLayoutContext } from '../Layout/LayoutNode';
 import { ScrollViewProvider, useDocumentScroll, DocumentScrollProvider } from '../ScrollViewContext';
 import { ClearTextInputPadding } from '../Utils/textInputPadding';
 
@@ -15,6 +17,14 @@ export function ScrollView(props) {
 
     // Perform layout calculation
     const layout = useLayout(props, ScrollView);
+
+    // The content sees its parent's layout as before, with the scroll axis
+    // unspecified: a carousel item sized from its height gets its own width.
+    const parentLayout = useLayoutContext()?.parentLayoutResult;
+    const contentLayout = {
+        ...(parentLayout ?? { frame: {} }),
+        environment: { ...parentLayout?.environment, proposal: layout.environment?.proposal },
+    };
 
     // Get environment style for scroll target behavior
     const envStyle = useEnvironmentStyle();
@@ -104,7 +114,7 @@ export function ScrollView(props) {
                 <EnvironmentStyleProvider style={childEnvStyle}>
                     <ScrollViewProvider scrollRef={scrollRef} axis={axis}>
                         <StyleProvider style={containerInfo as any}>
-                            <div><ClearTextInputPadding>{children}</ClearTextInputPadding></div>
+                            <div><LayoutNode layout={contentLayout}><ClearTextInputPadding>{children}</ClearTextInputPadding></LayoutNode></div>
                         </StyleProvider>
                     </ScrollViewProvider>
                 </EnvironmentStyleProvider>
@@ -113,9 +123,15 @@ export function ScrollView(props) {
     );
 }
 
-const sizeThatFits = ({ proposal, props, children }): LayoutMeasurement => {
+const sizeThatFits = ({ proposal, props, children, environment }): LayoutMeasurement => {
+    const axis = props.axis ?? 'vertical';
+    const parentOffer = getOffer(environment);
     const scrollViewEnvironment = {
-        layout: 'scrollView'
+        layout: 'scrollView',
+        offer: {
+            width: axis === 'horizontal' || axis === 'both' ? null : parentOffer.width,
+            height: axis === 'vertical' || axis === 'both' ? null : parentOffer.height,
+        },
     };
     return {
         environment: scrollViewEnvironment,

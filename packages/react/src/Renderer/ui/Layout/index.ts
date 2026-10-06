@@ -12,3 +12,7 @@ export { layoutStyle } from "./layoutStyle";
 export type { LayoutMeasurement } from "./LayoutTypes";
 export type { LayoutSize } from "./LayoutTypes";
 export type { LayoutSizingFunction } from "./LayoutTypes";
+
+// Offers
+export { getOffer, isKnownLength } from "./offer";
+export type { Offer, OfferedLength } from "./offer";

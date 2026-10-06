@@ -3,6 +3,7 @@ import DefaultLayoutSystemRegistry from "./LayoutRegistry";
 import { useLayoutContext } from "./LayoutNode";
 import { LayoutSizingFunction, LayoutContextValue } from "./LayoutTypes";
 import { measureMaxChild, defaultSizingFunction } from "./utils";
+import { getOffer, offeredWidth, offeredHeight } from "./offer";
 
 function layoutElement(props, children, nodeType: React.ElementType, layoutContext?: LayoutContextValue | null, parentLayoutResult?: LayoutMeasurement | null, environment?: Record<string, any>): LayoutMeasurement {
 
@@ -47,6 +48,19 @@ export function useLayout(props, nodeType: React.ElementType, options: UseLayout
         ...currentEnvironment,
         ...layoutMeasurement.environment,
     };
+
+    // A node that draws an element sets the offer its children see: the one its
+    // sizing function returned, or the one its own size implies. Nodes without
+    // an element pass their parent's offer through.
+    if (options.hasDOMElement) {
+        const parentOffer = getOffer(currentEnvironment);
+        const own = layoutMeasurement.frame ?? {};
+        newEnvironment.proposal = layoutMeasurement.environment?.offer ?? {
+            width: offeredWidth(own.width, parentOffer.width),
+            height: offeredHeight(own.height, parentOffer.height),
+        };
+        delete newEnvironment.offer;
+    }
 
     // Update layout measurement with new environment
     layoutMeasurement.environment = newEnvironment;

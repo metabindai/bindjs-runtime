@@ -10,6 +10,7 @@ import { layoutRegistry } from '../Layout/LayoutRegistry';
 import { LayoutNodeChildren, LayoutNode } from '../Layout/LayoutNode';
 import type { LayoutMeasurement } from '../Layout/LayoutTypes';
 import { measureChildren } from '../Layout/utils';
+import { getOffer, offeredWidth, offeredHeight, sharedLength } from '../Layout/offer';
 import { VerticalAlignment, verticalAlignmentMap } from '../Alignment';
 import { useAnimationNode } from '../AnimatableStyle';
 import { ClearTextInputPadding } from '../Utils/textInputPadding';
@@ -130,7 +131,8 @@ const sizeThatFits = ({ proposal, props, children, environment }): LayoutMeasure
         layout: 'hstack'
     }
 
-    let sizesOfChildren = measureChildren(children, proposal, environment, nodeEnvironment)
+    const measuringOffer = { width: sharedLength(getOffer(environment).width), height: getOffer(environment).height };
+    let sizesOfChildren = measureChildren(children, proposal, environment, { ...nodeEnvironment, proposal: measuringOffer })
 
     var width: (number | null) = proposal.width
     var height: number | null = proposal.height
@@ -191,8 +193,13 @@ const sizeThatFits = ({ proposal, props, children, environment }): LayoutMeasure
         height = null
     }
 
+    const parentOffer = getOffer(environment);
+    const offer = {
+        width: sharedLength(offeredWidth(width, parentOffer.width)),
+        height: offeredHeight(height, parentOffer.height),
+    };
     return {
-        environment: nodeEnvironment,
+        environment: { ...nodeEnvironment, offer },
         subviews: sizesOfChildren,
         frame: { width: width, height: height, minWidth: minWidth, minHeight: minHeight }
     }

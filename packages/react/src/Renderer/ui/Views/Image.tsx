@@ -5,6 +5,10 @@ import { useAssets } from '../Assets';
 import { useFontStyle } from '../Modifiers/Font';
 import { layoutRegistry } from '../Layout';
 import { useAnimationNode } from '../AnimatableStyle';
+import { useImageFit, useImageNaturalSize, svgDataURL, NaturalSize } from '../ImageFit';
+import { useLayoutContext } from '../Layout/LayoutNode';
+import { getOffer } from '../Layout/offer';
+import { px } from '../../Utils';
 
 export interface UIImage {
     named?: string;
@@ -18,12 +22,17 @@ export interface UIImage {
     dimensions?: { width: number, height: number };
 }
 
-function ImageContent({ url, resizable, contentMode }: { url?: string, resizable?: boolean, contentMode?: 'fit' | 'fill' | undefined }) {
+function ImageContent({ url, resizable, contentMode, dimensions }: { url?: string, resizable?: boolean, contentMode?: 'fit' | 'fill' | undefined, dimensions?: NaturalSize }) {
 
     // Get animation node - provides ref and animation styles
     const { ref: animationRef, style: animationStyle } = useAnimationNode();
 
     const style = { ...useStyle(), ...animationStyle };
+
+    // Set when an aspectRatio / scaledToFit / scaledToFill modifier sized the box.
+    const fit = useImageFit();
+    const offer = getOffer(useLayoutContext()?.parentLayoutResult?.environment);
+    const natural = useImageNaturalSize(resizable && !fit ? url : null, dimensions);
 
     if (url == null) {
         return null;
@@ -44,17 +53,27 @@ function ImageContent({ url, resizable, contentMode }: { url?: string, resizable
             backgroundSize: '100% 100%'
         }
 
-        /**
-         * Currently we support image aspect ratios via a contentMode attribute, which affects how the image is 
-         * displayed within its frame.
-         * 
-         * This is different from SwiftUI's aspectRatio modifier, which affects the size of the view itself.
-         * We may add support for that in the future.
-         */
-        if (contentMode === 'fit') {
-            imageStyle.backgroundSize = 'contain';
-        } else if (contentMode === 'fill') {
-            imageStyle.backgroundSize = 'cover';
+        if (fit) {
+            // The box has the image's own ratio unless one was given; with one,
+            // SwiftUI stretches the image to it.
+            imageStyle.backgroundSize = fit.intrinsic ? (fit.contentMode === 'fill' ? 'cover' : 'contain') : '100% 100%';
+        } else {
+            // Image({ contentMode }) fits or fills within whatever frame the image gets.
+            if (contentMode === 'fit') {
+                imageStyle.backgroundSize = 'contain';
+            } else if (contentMode === 'fill') {
+                imageStyle.backgroundSize = 'cover';
+            }
+
+            // With a length unspecified, a resizable image takes its own pixel
+            // length there, as in SwiftUI. Without this it collapses to nothing
+            // in a content-sized renderer (MET-1652).
+            if (offer.height === null) {
+                imageStyle.height = natural ? px(natural.height) : 0;
+            }
+            if (offer.width === null && natural) {
+                imageStyle.width = px(natural.width);
+            }
         }
 
         return (
@@ -74,7 +93,7 @@ export function UIImage({ url, svg, crop, dimensions, systemName, resizable, con
     const fontStyle = useFontStyle();
 
     if (url) {
-        return <ImageContent url={url} resizable={resizable} contentMode={contentMode} />
+        return <ImageContent url={url} resizable={resizable} contentMode={contentMode} dimensions={dimensions} />
     } else if (systemName) {
         let fontSize = fontStyle.fontSize ?? 17;
         let numericFontSize =
@@ -100,8 +119,7 @@ export function UIImage({ url, svg, crop, dimensions, systemName, resizable, con
         try {
             svg = setSvgFill(svg, '$foregroundColor');
             svg = svg.replace('$foregroundColor', css.backgroundColor ?? 'black');
-            const svgUrl = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
-            return <ImageContent url={svgUrl} resizable={resizable} contentMode={contentMode} />
+            return <ImageContent url={svgDataURL(svg)} resizable={resizable} contentMode={contentMode} dimensions={dimensions} />
         } catch (error) {
             return 'invalid svg ' + error.message
         }

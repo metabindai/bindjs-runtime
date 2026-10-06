@@ -10,6 +10,7 @@ import type { LayoutMeasurement } from '../Layout/LayoutTypes';
 import { LayoutFrameType } from '../Layout/LayoutTypes';
 import { alignmentMap } from '../Alignment';
 import { AnimatableValuesProvider, useAnimationNode } from '../AnimatableStyle';
+import { frameLength, getOffer } from '../Layout/offer';
 
 /**
  * Frame
@@ -36,6 +37,10 @@ export function Frame(props) {
         // Apply layout positioning css
         ...layoutStyle(layout),
     }
+
+    // layoutStyle skips zero lengths; an explicit zero is still a size.
+    if (props.width === 0) Object.assign(style, { width: 0, minWidth: 0, flexShrink: 0 });
+    if (props.height === 0) Object.assign(style, { height: 0, minHeight: 0, flexShrink: 0 });
 
     // Fix for the alignment switch statement
     // TODO: Replace with alignment map
@@ -89,9 +94,16 @@ const sizeThatFits = ({ proposal, props, children, environment }): LayoutMeasure
         alignment: props.alignment
     }
 
+    const parentOffer = getOffer(environment);
+    const offer = {
+        width: frameLength(props.width, props.maxWidth, parentOffer.width),
+        height: frameLength(props.height, props.maxHeight, parentOffer.height),
+    };
+
     const nodeEnvironment = {
         frame: v,
-        layout: 'frame'
+        layout: 'frame',
+        proposal: offer,
     }
 
     const sizesOfChildren = measureChildren(children, proposal, environment, nodeEnvironment);
@@ -136,7 +148,7 @@ const sizeThatFits = ({ proposal, props, children, environment }): LayoutMeasure
     }
 
     return {
-        environment: nodeEnvironment,
+        environment: { ...nodeEnvironment, offer },
         frame: v
     }
 }

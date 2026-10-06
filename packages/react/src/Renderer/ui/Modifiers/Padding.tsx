@@ -2,6 +2,7 @@ import React from 'react';
 import { useStyle, ClearStyle, useEnvironmentStyle, EnvironmentStyleProvider } from '../Style';
 import { px, asNumber } from '../../Utils'
 import { useLayout } from '../Layout/useLayout';
+import { getOffer, insetLength } from '../Layout/offer';
 import { layoutStyle } from '../Layout/layoutStyle';
 import { LayoutNode } from '../Layout/LayoutNode';
 import { layoutRegistry } from '../Layout/LayoutRegistry';
@@ -176,7 +177,13 @@ const sizeThatFits = ({ proposal, props, children, environment }): LayoutMeasure
 
     const insets = paddingInsetsFromProps(props)
 
-    var reportedSize = measureMaxChild({ children, proposal, environment: environment, nodeEnvironment: {} });
+    const parentOffer = getOffer(environment);
+    const offer = {
+        width: insetLength(parentOffer.width, Math.max(0, insets.left) + Math.max(0, insets.right)),
+        height: insetLength(parentOffer.height, Math.max(0, insets.top) + Math.max(0, insets.bottom)),
+    };
+
+    var reportedSize = measureMaxChild({ children, proposal, environment: environment, nodeEnvironment: { proposal: offer } });
 
     if (reportedSize.width != null && reportedSize.width != Infinity) {
         reportedSize.width += Math.abs(insets.left) + Math.abs(insets.right)
@@ -187,6 +194,7 @@ const sizeThatFits = ({ proposal, props, children, environment }): LayoutMeasure
     }
 
     return {
+        environment: { offer },
         frame: reportedSize
     }
 }
