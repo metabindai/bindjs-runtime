@@ -41,13 +41,13 @@ export function offeredWidth(own: number | null | undefined, parent: OfferedLeng
 }
 
 /**
- * The height a node offers its children: its own when known, its parent's
- * when it fills the parent (Infinity), unspecified when it sizes to its
- * content, since CSS does not resolve a percentage height against an auto one.
+ * The height a node offers its children: its own when known, otherwise its
+ * parent's, except that a content-sized node cannot pass on a height only CSS
+ * knows: CSS does not resolve a percentage height against an auto one.
  */
 export function offeredHeight(own: number | null | undefined, parent: OfferedLength): OfferedLength {
     if (isKnownLength(own) && own > 0) return own;
-    if (own === Infinity) return parent;
+    if (own === Infinity || typeof parent === 'number') return parent;
     return null;
 }
 

@@ -1,5 +1,7 @@
 import { describe, expect, it } from 'vitest';
-import { boxStyle } from './AspectRatio';
+import { boxLayout } from './AspectRatio';
+
+const boxStyle = (...args: Parameters<typeof boxLayout>) => boxLayout(...args).style;
 
 // Expected sizes are SwiftUI's for the same proposal (checked with ImageRenderer).
 describe('aspectRatio box', () => {
@@ -12,8 +14,9 @@ describe('aspectRatio box', () => {
     });
 
     it('height known, width from CSS: fit hugs height × ratio up to the full width', () => {
-        expect(boxStyle({ width: 'fill', height: 100 }, 2, 'fit')).toEqual({ width: '200px', maxWidth: '100%', aspectRatio: '2' });
-        expect(boxStyle({ width: 'fill', height: 100 }, 2, 'fill')).toEqual({ width: 'max(100%, 200px)', aspectRatio: '2' });
+        expect(boxLayout({ width: 'fill', height: 100 }, 2, 'fit')).toMatchObject({ style: { display: 'grid', minWidth: 0, aspectRatio: '2' }, strut: { width: 200, compressible: true } });
+        // Fill holds its column at least height × ratio wide, as SwiftUI's frame(maxWidth: .infinity) does.
+        expect(boxLayout({ width: 'fill', height: 100 }, 2, 'fill')).toMatchObject({ style: { display: 'grid', minWidth: '100%', flexShrink: 0, aspectRatio: '2' }, strut: { width: 200, compressible: false } });
     });
 
     it('height known, width unspecified (a horizontal carousel): height × ratio', () => {

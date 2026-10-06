@@ -26,7 +26,8 @@ interface AspectRatioProps {
  *
  * The box is sized from what the parent offers (see Layout/offer.ts):
  * - width and height known: exact points
- * - height known, width from CSS: min()/max() of 100% and height × ratio
+ * - height known, width from CSS: height × ratio, capped (fit) or raised (fill)
+ *   to the full width
  * - height definite but only CSS knows it: height 100%, width from the ratio
  *   (exact unless the width is the limit: then the box is the full width and a
  *   fitted image still draws contained)
@@ -53,13 +54,14 @@ export function AspectRatio(props: AspectRatioProps): React.ReactNode {
     const explicit = explicitRatio(aspectRatio);
     const ratio = explicit ?? (natural ? natural.width / natural.height : image ? null : 1);
 
+    const box = ratio == null ? { style: { width: '100%', height: 0 } } : boxLayout(offer, ratio, mode, natural);
     const style: React.CSSProperties = {
         ...parentStyle,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
         flexShrink: 1,
-        ...(ratio == null ? { width: '100%', height: 0 } : boxStyle(offer, ratio, mode, natural)),
+        ...box.style,
     };
 
     // Inside the box, both lengths are definite.
@@ -72,8 +74,9 @@ export function AspectRatio(props: AspectRatioProps): React.ReactNode {
         <LayoutNode layout={innerLayout}>
             <ClearStyle>
                 <div className="aspectRatio" style={style}>
+                    {box.strut != null && <Strut {...box.strut} />}
                     <ImageFitContext.Provider value={{ contentMode: mode, intrinsic: explicit == null }}>
-                        {children}
+                        {box.strut != null ? <div style={cellStyle}>{children}</div> : children}
                     </ImageFitContext.Provider>
                 </div>
             </ClearStyle>
@@ -81,33 +84,87 @@ export function AspectRatio(props: AspectRatioProps): React.ReactNode {
     );
 }
 
-export function boxStyle(offer: Offer, ratio: number, mode: ContentMode, natural?: { width: number; height: number } | null): React.CSSProperties {
+interface BoxLayout {
+    style: React.CSSProperties;
+    /** A width the box asks for (see Strut). */
+    strut?: StrutProps;
+}
+
+export function boxLayout(offer: Offer, ratio: number, mode: ContentMode, natural?: { width: number; height: number } | null): BoxLayout {
     const { width: W, height: H } = offer;
     const pick = mode === 'fit' ? Math.min : Math.max;
 
     if (typeof W === 'number' && typeof H === 'number') {
         const width = pick(W, H * ratio);
-        return { width: px(width), height: px(width / ratio), flexShrink: 0 };
+        return { style: { width: px(width), height: px(width / ratio), flexShrink: 0 } };
     }
     if (typeof H === 'number') {
         if (W === 'fill') {
+            // Fit: height × ratio, or less when the container is narrower; a
+            // frame with only a height hugs it, and a narrow column shrinks it.
+            // Fill: height × ratio, or the container's width when wider; like
+            // SwiftUI's, a column holding it is at least height × ratio wide.
             return mode === 'fit'
-                ? { width: px(H * ratio), maxWidth: '100%', aspectRatio: String(ratio) }
-                : { width: `max(100%, ${px(H * ratio)})`, aspectRatio: String(ratio) };
+                ? { style: { ...gridBox, minWidth: 0, aspectRatio: String(ratio) }, strut: { width: H * ratio, compressible: true } }
+                : { style: { ...gridBox, minWidth: '100%', flexShrink: 0, aspectRatio: String(ratio) }, strut: { width: H * ratio, compressible: false } };
         }
-        return { width: px(H * ratio), height: px(H), flexShrink: 0 };
+        return { style: { width: px(H * ratio), height: px(H), flexShrink: 0 } };
     }
     if (H === 'fill') {
         return mode === 'fit'
-            ? { height: '100%', maxWidth: typeof W === 'number' ? px(W) : '100%', aspectRatio: String(ratio) }
-            : { height: '100%', minWidth: typeof W === 'number' ? px(W) : '100%', aspectRatio: String(ratio) };
+            ? { style: { height: '100%', maxWidth: typeof W === 'number' ? px(W) : '100%', aspectRatio: String(ratio) } }
+            : { style: { height: '100%', minWidth: typeof W === 'number' ? px(W) : '100%', aspectRatio: String(ratio) } };
     }
-    if (typeof W === 'number') return { width: px(W), height: px(W / ratio), flexShrink: 0 };
-    if (W === 'fill') return { width: '100%', aspectRatio: String(ratio) };
+    if (typeof W === 'number') return { style: { width: px(W), height: px(W / ratio), flexShrink: 0 } };
+    if (W === 'fill') return { style: { width: '100%', aspectRatio: String(ratio) } };
     // Nothing offered: the child's ideal size, as SwiftUI does.
     const width = natural ? natural.width : 10;
-    return { width: px(width), height: px(width / ratio), flexShrink: 0 };
+    return { style: { width: px(width), height: px(width / ratio), flexShrink: 0 } };
 }
+
+/** A box whose one grid cell, holding the strut and the content, fills it. */
+const gridBox: React.CSSProperties = {
+    display: 'grid',
+    justifyContent: 'stretch',
+    alignContent: 'stretch',
+    justifyItems: 'stretch',
+    alignItems: 'stretch',
+};
+
+interface StrutProps {
+    width: number;
+    /** Whether the box may shrink below `width` to fit its container. */
+    compressible: boolean;
+}
+
+/**
+ * Asks a grid box for `width` points. Compressible, the box takes `width` or
+ * its container's width, whichever is less. That cannot be the box's own
+ * `width` with `max-width: 100%`, which would hold a column at least `width`
+ * wide: CSS ignores a percentage max-width when it computes a min-content
+ * size. A replaced element with a percentage max-width is compressible instead
+ * (its min-content size is 0), so the box hugs `width` and still shrinks.
+ * Incompressible, the strut holds the box and its column at least `width` wide.
+ */
+function Strut({ width, compressible }: StrutProps) {
+    return (
+        <svg
+            aria-hidden="true"
+            width={width}
+            height={0}
+            style={{ gridArea: '1 / 1', display: 'block', width: px(width), maxWidth: compressible ? '100%' : undefined, height: 0, visibility: 'hidden' }}
+        />
+    );
+}
+
+const cellStyle: React.CSSProperties = {
+    gridArea: '1 / 1',
+    width: '100%',
+    height: '100%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+};
 
 /** The Image a modifier chain ends in, looking through modifiers that draw no element. */
 function findImage(node: React.ReactNode): (UIImage & { resizable?: boolean }) | null {
@@ -157,7 +214,8 @@ const sizeThatFits: LayoutSizingFunction = ({ proposal, props, children, environ
         return { frame: { width: H * ratio, height: H } };
     }
     if (typeof H === 'number' && W === 'fill' && mode === 'fit') {
-        return { frame: { width: null, height: H } };
+        // Its size comes from CSS (see boxLayout): a frame with only a height hugs it.
+        return { frame: { width: null, height: null } };
     }
     return child;
 }

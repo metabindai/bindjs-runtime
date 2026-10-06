@@ -7,13 +7,14 @@ describe('layout offers', () => {
         expect(offeredHeight(80, null)).toBe(80);
     });
 
-    it('a content-sized node passes its width through but leaves its height unspecified', () => {
+    it('a content-sized node passes its offer through, except a height only CSS knows', () => {
         // SwiftUI passes the proposal through; CSS resolves a percentage width
         // against a shrink-to-fit box, but not a percentage height against an auto one.
         expect(offeredWidth(null, 'fill')).toBe('fill');
         expect(offeredWidth(null, 300)).toBe(300);
+        expect(offeredHeight(null, 300)).toBe(300);
         expect(offeredHeight(null, 'fill')).toBeNull();
-        expect(offeredHeight(null, 300)).toBeNull();
+        expect(offeredHeight(null, null)).toBeNull();
     });
 
     it('a node that fills its parent offers the parent offer', () => {
