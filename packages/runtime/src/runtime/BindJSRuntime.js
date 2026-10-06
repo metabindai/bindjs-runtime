@@ -783,20 +783,6 @@ exports.default = defineComponent({
     }
 
     /**
-     * Restores an environment by id, leaving the hook-state path alone. Callers that
-     * invoke a stored callback outside a render pass need the environment back without
-     * rebinding this pass's hooks to the stored path.
-     * @param {*} environmentId
-     */
-    restoreEnvironmentOnly(environmentId) {
-        let env = this.storedEnvironments[environmentId]
-
-        if (env) {
-            this.environment = env
-        }
-    }
-
-    /**
      * Restores an environment by id
      * @param {*} environmentId 
      */
@@ -817,6 +803,20 @@ exports.default = defineComponent({
             if (hookState.restoreHookStateStorage) {
                 this.restoreHookStateStorage();
             }
+        }
+    }
+
+    /**
+     * Restores an environment by id, leaving the hook-state path alone. Callers that
+     * invoke a stored callback outside a render pass need the environment back without
+     * rebinding this pass's hooks to the stored path.
+     * @param {*} environmentId
+     */
+    restoreEnvironmentOnly(environmentId) {
+        let env = this.storedEnvironments[environmentId]
+
+        if (env) {
+            this.environment = env
         }
     }
 
