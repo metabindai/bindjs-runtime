@@ -5,6 +5,10 @@
 //
 // The content mode is always explicit. An omitted mode is "fit", as the types
 // document; bindjs-apple would otherwise default to .fill.
+//
+// Without a usable ratio the key is left out rather than sent as null, which
+// means the content's own ratio; bindjs-android parses the ratio as a non-null
+// number and rejects the whole tree on a null.
 export function AspectRatio({ args }) {
     let [ratio, contentMode] = args;
 
@@ -19,10 +23,9 @@ export function AspectRatio({ args }) {
         ratio = null;
     }
 
-    return {
-        props: {
-            aspectRatio: typeof ratio === 'number' && Number.isFinite(ratio) && ratio > 0 ? ratio : null,
-            contentMode: contentMode === 'fill' ? 'fill' : 'fit',
-        }
-    };
+    const props = { contentMode: contentMode === 'fill' ? 'fill' : 'fit' };
+    if (typeof ratio === 'number' && Number.isFinite(ratio) && ratio > 0) {
+        props.aspectRatio = ratio;
+    }
+    return { props };
 }

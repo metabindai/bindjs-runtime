@@ -23,8 +23,8 @@ describe('aspectRatio modifier', () => {
     });
 
     it('keeps the content mode when the ratio is omitted', () => {
-        expect(modifierOf(c => c.aspectRatio(null, 'fill')).props).toMatchObject({ aspectRatio: null, contentMode: 'fill' });
-        expect(modifierOf(c => c.aspectRatio(undefined, 'fit')).props).toMatchObject({ aspectRatio: null, contentMode: 'fit' });
+        expect(modifierOf(c => c.aspectRatio(null, 'fill')).props).toEqual({ contentMode: 'fill', children: [] });
+        expect(modifierOf(c => c.aspectRatio(undefined, 'fit')).props).toEqual({ contentMode: 'fit', children: [] });
     });
 
     it('a ratio alone fits', () => {
@@ -36,16 +36,16 @@ describe('aspectRatio modifier', () => {
     });
 
     it('treats a lone string as the content mode', () => {
-        expect(modifierOf(c => c.aspectRatio('fit')).props).toMatchObject({ aspectRatio: null, contentMode: 'fit' });
+        expect(modifierOf(c => c.aspectRatio('fit')).props).toEqual({ contentMode: 'fit', children: [] });
     });
 
     it('no arguments means the intrinsic ratio, fitted', () => {
-        expect(modifierOf(c => c.aspectRatio()).props).toMatchObject({ aspectRatio: null, contentMode: 'fit' });
+        expect(modifierOf(c => c.aspectRatio()).props).toEqual({ contentMode: 'fit', children: [] });
     });
 
     it('drops ratios that cannot size a view', () => {
         for (const bad of [0, -1, NaN, Infinity, '2']) {
-            expect(modifierOf(c => c.aspectRatio(bad, 'fit')).props.aspectRatio).toBeNull();
+            expect(modifierOf(c => c.aspectRatio(bad, 'fit')).props).not.toHaveProperty('aspectRatio');
         }
     });
 
@@ -56,7 +56,7 @@ describe('aspectRatio modifier', () => {
     it('wraps a resizable image without disturbing resizable', () => {
         const component = runtime.defineComponent({ body: () => Image({ url: 'x' }).resizable().aspectRatio(null, 'fit') });
         const node = runtime.invokeComponent(component).props.children[0];
-        expect(node.props.modifier.props).toMatchObject({ aspectRatio: null, contentMode: 'fit' });
+        expect(node.props.modifier.props).toEqual({ contentMode: 'fit', children: [] });
         expect(node.props.content[0].props.resizable).toBe(true);
     });
 
