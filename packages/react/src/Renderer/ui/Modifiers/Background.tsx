@@ -1,5 +1,5 @@
 import React from 'react';
-import { useStyle, ClearStyle } from '../Style';
+import { useStyle, ClearStyle, ClearElementSemantics, useElementProps } from '../Style';
 import { Color } from '../Views/Color';
 import { colorNodeToCSS } from '../Utils/colorNodeToCSS';;
 import { LayoutNode, layoutRegistry, layoutStyle, useLayout, LayoutMeasurement, LayoutNodeChildren } from '../Layout';
@@ -47,6 +47,9 @@ export function Background(props: { rawValue?: string | React.ReactNode, content
     const { ref: animationRef, style: animationStyle } = useAnimationNode();
     const baseStyle = useStyle();
 
+    // Element semantics (Button, Link, accessibility modifiers)
+    const { as: Element = 'div', ...elementProps } = useElementProps({ labelRole: 'group' });
+
     // --- If not a valid React element, return children directly ---
     if (!React.isValidElement(backgroundContent)) {
         return children
@@ -65,7 +68,7 @@ export function Background(props: { rawValue?: string | React.ReactNode, content
 
         return (
             <ClearStyle>
-                <div ref={animationRef as React.Ref<HTMLDivElement>} key="background" className="background" style={{ ...style, backgroundColor: colorValue as any }}><ClearTextInputPadding>{children}</ClearTextInputPadding></div>
+                <Element ref={animationRef as React.Ref<any>} key="background" className="background" style={{ ...style, backgroundColor: colorValue as any }} {...elementProps}><ClearTextInputPadding>{children}</ClearTextInputPadding></Element>
             </ClearStyle>
         )
 
@@ -91,18 +94,20 @@ export function Background(props: { rawValue?: string | React.ReactNode, content
 
         // Size overlay element to the size it's being applied to
         return (
-            <div ref={animationRef as React.Ref<HTMLDivElement>} style={style} key="background" className="mb-background">
-                <LayoutNode layout={null}>
-                    <div style={backgroundStyle} key="content">{backgroundContent}</div>
-                </LayoutNode>
-                <div style={style} key="children">
-                    <LayoutNodeChildren layout={layout}>
-                        <ClearTextInputPadding>
-                            {children}
-                        </ClearTextInputPadding>
-                    </LayoutNodeChildren>
-                </div>
-            </div>
+            <Element ref={animationRef as React.Ref<any>} style={style} key="background" className="mb-background" {...elementProps}>
+                <ClearElementSemantics>
+                    <LayoutNode layout={null}>
+                        <div style={backgroundStyle} key="content">{backgroundContent}</div>
+                    </LayoutNode>
+                    <div style={style} key="children">
+                        <LayoutNodeChildren layout={layout}>
+                            <ClearTextInputPadding>
+                                {children}
+                            </ClearTextInputPadding>
+                        </LayoutNodeChildren>
+                    </div>
+                </ClearElementSemantics>
+            </Element>
         )
 
     }

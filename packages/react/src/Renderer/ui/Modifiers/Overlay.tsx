@@ -4,6 +4,7 @@ import { alignmentMap, Alignment } from '../Alignment';
 import { useLayout, layoutStyle, LayoutNode, layoutRegistry, LayoutMeasurement, LayoutNodeChildren } from '../Layout';
 import { measureMaxChild } from '../Layout/utils';
 import { ClearTextInputPadding } from '../Utils/textInputPadding';
+import { ClearElementSemantics } from '../Style';
 
 /**
  * Overlay
@@ -66,7 +67,10 @@ export function Overlay(props: OverlayProps): React.ReactNode {
                 </LayoutNodeChildren>
                 <OverlayItemFrame style={overlayItemStyle} className="overlay-item">
                     <LayoutNode layout={null}>
-                        {overlayContent}
+                        {/* The view's element semantics belong to its content, not the overlay */}
+                        <ClearElementSemantics>
+                            {overlayContent}
+                        </ClearElementSemantics>
                     </LayoutNode>
                 </OverlayItemFrame>
             </div>

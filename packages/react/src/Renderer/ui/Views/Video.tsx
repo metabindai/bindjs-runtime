@@ -1,4 +1,4 @@
-import { useStyle } from '../Style';
+import { useStyle, useElementSemantics, elementProps } from '../Style';
 import { useAssets } from '../Assets';
 import { useEffect, useReducer, useRef, ReactNode } from 'react';
 import { AssetMediaType } from '../Assets';
@@ -54,9 +54,16 @@ function VideoContent(props: VideoContentProps) {
     // Video object fit based on environment aspect ratio content mode
     const objectFit = contentMode === 'fill' ? 'cover' : 'contain';
 
+    // Element semantics (Button, Link, accessibility modifiers). A video inside a
+    // button or link is part of it; otherwise its label goes on the <video>.
+    const semantics = useElementSemantics();
+    const { as: Element = 'div', ...wrapperProps } = semantics?.as ? elementProps(semantics) : {};
+    const videoProps = semantics?.as ? {} : elementProps(semantics, { replaced: true });
+
     return (
-        <div style={style} ref={animationRef as React.Ref<HTMLDivElement>}>
+        <Element style={style} ref={animationRef as React.Ref<any>} {...wrapperProps}>
             <video
+                {...videoProps}
                 ref={videoRef}
                 style={{
                     width: '100%',
@@ -73,7 +80,7 @@ function VideoContent(props: VideoContentProps) {
             >
                 Your browser does not support the video tag.
             </video>
-        </div>
+        </Element>
     );
 }
 

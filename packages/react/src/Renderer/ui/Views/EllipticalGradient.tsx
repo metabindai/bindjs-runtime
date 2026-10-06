@@ -1,4 +1,4 @@
-import { useStyle } from '../Style';
+import { useStyle, useElementProps } from '../Style';
 import { EllipticalGradientStyle, ellipticalGradientStyleToCSS } from '../Styles/EllipticalGradientStyle';
 import { layoutRegistry, LayoutMeasurement, useLayout, layoutStyle } from '../Layout';
 import { useAnimationNode } from '../AnimatableStyle';
@@ -35,6 +35,9 @@ export function EllipticalGradient(props: EllipticalGradientProps) {
     // Convert the props to a CSS linear-gradient string
     const css = ellipticalGradientStyleToCSS(props);
 
+    // Element semantics (Button, Link, accessibility modifiers)
+    const { as: Element = 'div', ...elementProps } = useElementProps({ labelRole: 'img' });
+
     // Get the current style from context and apply the gradient
     const style = {
         ...useStyle(),
@@ -47,7 +50,7 @@ export function EllipticalGradient(props: EllipticalGradientProps) {
     };
 
     // Render the gradient container
-    return <div style={style} ref={animationRef as React.Ref<HTMLDivElement>}>&nbsp;</div>
+    return <Element style={style} ref={animationRef as React.Ref<any>} {...elementProps}>&nbsp;</Element>
 }
 
 const sizeThatFits = ({ proposal, props, children }): LayoutMeasurement => {
