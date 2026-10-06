@@ -11,7 +11,7 @@ function render(body: (c: Record<string, any>) => any): string {
     const components = new Proxy({}, { get: (_, name: string) => runtime.getComponent(name) });
     const component = runtime.defineComponent({ body: () => body(components) });
     const ast = runtime.invokeComponent(component).props.children[0];
-    return renderToString(<>{YapUIDecoder(ast, () => null)}</>);
+    return renderToString(<>{YapUIDecoder(ast, () => null, undefined)}</>);
 }
 
 const count = (html: string, pattern: RegExp) => (html.match(pattern) ?? []).length;
