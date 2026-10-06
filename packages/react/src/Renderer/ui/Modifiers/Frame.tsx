@@ -139,6 +139,16 @@ const sizeThatFits = ({ proposal, props, children, environment }): LayoutMeasure
         v.height = Infinity
     }
 
+    // SwiftUI sizes a flexible frame at min(max, max(child, proposal)): it is
+    // at least as wide as a child of known size. The width above is the
+    // proposal (100%); a known child size sets the minimum.
+    if (props.maxWidth != null && contentWidth != null && Number.isFinite(contentWidth)) {
+        v.minWidth = Math.max(props.minWidth ?? 0, Math.min(contentWidth, props.maxWidth))
+    }
+    if (props.maxHeight != null && contentHeight != null && Number.isFinite(contentHeight)) {
+        v.minHeight = Math.max(props.minHeight ?? 0, Math.min(contentHeight, props.maxHeight))
+    }
+
     if (props.maxWidth != null && proposal.width > props.maxWidth) {
         v.width = props.maxWidth
     }

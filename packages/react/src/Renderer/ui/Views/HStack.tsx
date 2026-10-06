@@ -167,7 +167,7 @@ const sizeThatFits = ({ proposal, props, children, environment }): LayoutMeasure
     }
 
     if (contentWidth != null) {
-        contentWidth += (props.spacing ?? 0) * (children.length - 1)
+        contentWidth += (props.spacing ?? 0) * (sizesOfChildren.length - 1)
     }
 
     if (contentWidth != null || width != null) {
@@ -181,7 +181,8 @@ const sizeThatFits = ({ proposal, props, children, environment }): LayoutMeasure
     var minHeight: number | null = null
     var minWidth: number | null = null
 
-    const childLength = React.Children.count(children)
+    // The measured children: a ForEach counts as its items.
+    const childLength = sizesOfChildren.length
 
     if (sizedChildrenWidth != childLength && width != Infinity) {
         minWidth = width

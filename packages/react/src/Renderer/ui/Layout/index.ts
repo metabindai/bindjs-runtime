@@ -14,5 +14,5 @@ export type { LayoutSize } from "./LayoutTypes";
 export type { LayoutSizingFunction } from "./LayoutTypes";
 
 // Offers
-export { getOffer, isKnownLength } from "./offer";
+export { getOffer, BASE_SIZE_LAYOUT, isKnownLength } from "./offer";
 export type { Offer, OfferedLength } from "./offer";

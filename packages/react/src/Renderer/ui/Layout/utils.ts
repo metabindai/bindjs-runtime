@@ -53,9 +53,10 @@ export function measureChildren(children, proposedSize: LayoutSize, environment:
 
         React.Children.forEach(children, (child) => {   
 
-            // TODO: Handle this better
+            // A ForEach's items are its parent's children. A lazy one is built
+            // here, through the renderer, so the parent measures them.
             if (child && child.props && child.props._type == 'ForEach') {
-                mapChildren(child.props.children)
+                mapChildren(environment?.expandForEach ? environment.expandForEach(child.props) : child.props.children)
                 return
             }
 

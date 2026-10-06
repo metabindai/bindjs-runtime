@@ -65,13 +65,18 @@ function ImageContent({ url, resizable, contentMode, dimensions }: { url?: strin
                 imageStyle.backgroundSize = 'cover';
             }
 
-            // With a length unspecified, a resizable image takes its own pixel
-            // length there, as in SwiftUI. Without this it collapses to nothing
-            // in a content-sized renderer (MET-1652).
-            if (offer.height === null) {
+            // A resizable image takes the size it is offered, as in SwiftUI: a
+            // length in points, the full container, or with nothing offered its
+            // own pixel length. A percentage height against a content-sized
+            // container would collapse it to nothing (MET-1652).
+            if (typeof offer.height === 'number') {
+                imageStyle.height = px(offer.height);
+            } else if (offer.height === null) {
                 imageStyle.height = natural ? px(natural.height) : 0;
             }
-            if (offer.width === null && natural) {
+            if (typeof offer.width === 'number') {
+                imageStyle.width = px(offer.width);
+            } else if (offer.width === null && natural) {
                 imageStyle.width = px(natural.width);
             }
         }

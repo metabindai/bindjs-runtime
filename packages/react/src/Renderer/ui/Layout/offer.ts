@@ -77,6 +77,12 @@ export function insetLength(length: OfferedLength, inset: number): OfferedLength
     return typeof length === 'number' ? Math.max(0, length - inset) : length;
 }
 
+/**
+ * The layout an overlay or background gives its content: the base view's size,
+ * which CSS knows (the content is positioned over the base at 100% × 100%).
+ */
+export const BASE_SIZE_LAYOUT = { frame: {}, environment: { proposal: { width: 'fill', height: 'fill' } as Offer } };
+
 export function getOffer(environment?: Record<string, any> | null): Offer {
     return environment?.proposal ?? ROOT_OFFER;
 }

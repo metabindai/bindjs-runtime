@@ -3,6 +3,7 @@ import { useStyle, ClearStyle } from '../Style';
 import { Color } from '../Views/Color';
 import { colorNodeToCSS } from '../Utils/colorNodeToCSS';;
 import { LayoutNode, layoutRegistry, layoutStyle, useLayout, LayoutMeasurement, LayoutNodeChildren } from '../Layout';
+import { BASE_SIZE_LAYOUT } from '../Layout/offer';
 import { useEnvironment } from '../Environment';
 import { useAnimationNode } from '../AnimatableStyle';
 import { ClearTextInputPadding } from '../Utils/textInputPadding';
@@ -92,7 +93,8 @@ export function Background(props: { rawValue?: string | React.ReactNode, content
         // Size overlay element to the size it's being applied to
         return (
             <div ref={animationRef as React.Ref<HTMLDivElement>} style={style} key="background" className="mb-background">
-                <LayoutNode layout={null}>
+                {/* The content is offered the base view's size. */}
+                <LayoutNode layout={BASE_SIZE_LAYOUT}>
                     <div style={backgroundStyle} key="content">{backgroundContent}</div>
                 </LayoutNode>
                 <div style={style} key="children">

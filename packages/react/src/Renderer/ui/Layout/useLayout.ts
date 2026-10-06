@@ -4,6 +4,8 @@ import { useLayoutContext } from "./LayoutNode";
 import { LayoutSizingFunction, LayoutContextValue } from "./LayoutTypes";
 import { measureMaxChild, defaultSizingFunction } from "./utils";
 import { getOffer, offeredWidth, offeredHeight } from "./offer";
+import { useRendererContext } from "../../RendererContext";
+import { expandForEach } from "../Views/ForEach";
 
 function layoutElement(props, children, nodeType: React.ElementType, layoutContext?: LayoutContextValue | null, parentLayoutResult?: LayoutMeasurement | null, environment?: Record<string, any>): LayoutMeasurement {
 
@@ -34,8 +36,13 @@ export function useLayout(props, nodeType: React.ElementType, options: UseLayout
     // Get current layout context
     const layoutContext = useLayoutContext();   
 
-    // Get current environment from layout context
-    const currentEnvironment = layoutContext?.parentLayoutResult?.environment ?? {};    
+    // Get current environment from layout context. The layout pass builds a
+    // lazy ForEach's items through the renderer to measure them.
+    const rendererContext = useRendererContext();
+    const parentEnvironment = layoutContext?.parentLayoutResult?.environment ?? {};
+    const currentEnvironment = rendererContext && !parentEnvironment.expandForEach
+        ? { ...parentEnvironment, expandForEach: (props: Record<string, any>) => expandForEach(props, rendererContext) }
+        : parentEnvironment;
 
     // Use layoutElement to calculate the layout
     // If the component does not have a DOM element, we just pass through the parent's layout result.

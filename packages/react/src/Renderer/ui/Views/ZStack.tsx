@@ -139,7 +139,8 @@ const sizeThatFits = ({ proposal, props, children, environment }): LayoutMeasure
     }
 
     // If a child has no defined height, then dont clamp to sized one.
-    const childLength = React.Children.count(children)
+    // The measured children: a ForEach counts as its items.
+    const childLength = sizesOfChildren.length
     if (sizedChildrenHeight != childLength && height != Infinity) {
         height = null
     }
