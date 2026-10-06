@@ -2047,6 +2047,32 @@ declare function Image(_: ImageProps): Image;
 /** Plays video from a URL or asset name. */
 declare function Video(_: VideoProps): Component;
 
+/**
+ * Plays audio from a URL or asset name. With `controls: true` it draws the
+ * platform's standard audio controls. Without them it draws nothing and takes
+ * no space: it owns playback and reports its state, and the author builds the UI.
+ *
+ * ```js
+ * AudioPlayer({ url: "https://example.com/episode.mp3", controls: true })
+ * ```
+ *
+ * Playing, position, and status follow the value-and-setter convention.
+ * The renderer calls `setCurrentTime` while playing; setting `currentTime`
+ * to any other value seeks, so a `Slider` bound to the same state scrubs.
+ *
+ * ```js
+ * const [isPlaying, setIsPlaying] = useState(false)
+ * const [time, setTime] = useState(0)
+ * const [info, setInfo] = useState({ status: "loading", duration: null })
+ * VStack([
+ *   AudioPlayer({ url, isPlaying, setIsPlaying, currentTime: time, setCurrentTime: setTime, onStatusChange: setInfo }),
+ *   Slider({ value: time, setValue: setTime, range: [0, info.duration ?? 1] }),
+ *   Button(isPlaying ? "Pause" : "Play", () => setIsPlaying(!isPlaying)),
+ * ])
+ * ```
+ */
+declare function AudioPlayer(_: AudioPlayerProps): Component;
+
 /** Displays a 3D model from a URL. */
 declare function Model3D(_: Model3DProps): Component;
 
@@ -2646,6 +2672,43 @@ type ImageProps = BaseImageProps & ({ name: string } | { systemName: string } | 
 type VideoContentMode = "fit" | "fill";
 type BaseVideoProps = { autoplay?: boolean; muted?: boolean; controls?: boolean; loop?: boolean, contentMode?: VideoContentMode, poster?: string };
 type VideoProps = (BaseVideoProps & { url: string }) | (BaseVideoProps & { video: string });
+/** Playback state of an `AudioPlayer`. */
+type MediaStatus = "loading" | "ready" | "buffering" | "ended" | "failed";
+/** Passed to `onStatusChange`. */
+type MediaStatusInfo = {
+    status: MediaStatus;
+    /** Seconds. `null` until known; `Infinity` for a live stream. */
+    duration: number | null;
+    /** Seconds buffered from the start. */
+    bufferedTime: number;
+    /** Present when `status` is `"failed"`. */
+    error?: string;
+};
+type BaseAudioPlayerProps = {
+    /** Plays when it becomes `true`, pauses when it becomes `false`. Defaults to `false`. */
+    isPlaying?: boolean;
+    /** Called when playback starts or stops without the author asking: the drawn controls, a media key, end of media, an interruption, or an autoplay refusal. */
+    setIsPlaying?: (isPlaying: boolean) => void;
+    /** Position in seconds. Changing it to anything but the last value the player reported seeks. */
+    currentTime?: number;
+    /** Called with the position every 0.25 to 0.5 seconds while playing, after a seek, and at the end. */
+    setCurrentTime?: (time: number) => void;
+    /** Playback rate. Defaults to 1. */
+    rate?: number;
+    /** Volume from 0 to 1. Defaults to 1. */
+    volume?: number;
+    /** Defaults to `false`. */
+    isMuted?: boolean;
+    /** Restart at the end instead of stopping. Defaults to `false`. */
+    loop?: boolean;
+    /** Draw the platform's standard controls: full width, fixed height of 44 to 56 points. Defaults to `false`. */
+    controls?: boolean;
+    /** Called when the status or duration changes, and as buffering advances. */
+    onStatusChange?: (info: MediaStatusInfo) => void;
+    /** Called when playback reaches the end without `loop`. */
+    onEnded?: () => void;
+};
+type AudioPlayerProps = (BaseAudioPlayerProps & { url: string }) | (BaseAudioPlayerProps & { audio: string });
 type Model3DProps = { url: string, iOSURL?: string, description?: string, cameraControls: boolean, autoRotate: boolean };
 
 // =============================================================================
@@ -2907,7 +2970,7 @@ type ToolbarBarPlacement = "navigationBar" | "tabBar" | "bottomBar" | "windowToo
 // MARK: - Asset Types
 // =============================================================================
 
-/** Metadata for a media asset (image, video, or 3D model). */
+/** Metadata for a media asset (image, video, audio, or 3D model). */
 type AssetMedia = {
     id?: string;
     alt?: string;
@@ -2918,9 +2981,10 @@ type AssetMedia = {
 
 /** An asset value resolved from a PropertyAsset field. Exactly one media type is present. */
 type Asset =
-    | { image: AssetMedia; video?: never; model?: never }
-    | { video: AssetMedia; image?: never; model?: never }
-    | { model: AssetMedia; image?: never; video?: never }
+    | { image: AssetMedia; video?: never; audio?: never; model?: never }
+    | { video: AssetMedia; image?: never; audio?: never; model?: never }
+    | { audio: AssetMedia; image?: never; video?: never; model?: never }
+    | { model: AssetMedia; image?: never; video?: never; audio?: never }
 
 // =============================================================================
 // MARK: - Type Inference Utilities
