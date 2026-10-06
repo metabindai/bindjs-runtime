@@ -1,12 +1,17 @@
 import React from 'react';
 import { useStyle, StyleProvider } from '../Style';
-import { ActionsProvider } from '../Actions';
+import { ActionsProvider, ControlProvider } from '../Actions';
 import { useRendererContext } from '../../RendererContext';
 import { useLayout, LayoutNodeChildren } from '../Layout';
 
 /**
  * Link modifier
- * Makes a component clickable and navigates to the specified URL
+ * Renders the component as a link (<a href>) to the specified URL.
+ *
+ * A plain click opens the URL through the runtime's openURL, which a host can
+ * intercept (for example to route internal URLs client-side). The browser handles
+ * the rest itself: modified and middle clicks open a new tab or window, and the
+ * link can be copied and crawled.
  */
 interface LinkProps {
     rawValue: string;
@@ -15,10 +20,10 @@ interface LinkProps {
 
 export function Link(props: LinkProps): React.ReactNode {
     const { rawValue, children } = props;
-    
+
     // Perform layout calculation
     const layout = useLayout({ rawValue, children }, Link);
-    
+
     const style = {
         ...useStyle(),
         cursor: 'pointer'
@@ -27,18 +32,29 @@ export function Link(props: LinkProps): React.ReactNode {
 
     const rendererContext = useRendererContext();
 
-    const onClick = () => {
-        if (rendererContext && rendererContext.navigateCallback) {
-            rendererContext.navigateCallback(rawValue);
+    const onClick = (event: React.MouseEvent<HTMLElement>) => {
+        if (event.defaultPrevented) {
+            return;
         }
+
+        // Leave modified clicks on a real link to the browser.
+        const isLink = (event.target as Element).closest?.('a[href]') != null;
+        if (isLink && (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey)) {
+            return;
+        }
+
+        event.preventDefault();
+        rendererContext?.openURLCallback?.(rawValue);
     }
 
     return (
         <StyleProvider style={style}>
             <ActionsProvider actions={{ onClick }}>
-                <LayoutNodeChildren layout={layout}>
-                    {children}
-                </LayoutNodeChildren>
+                <ControlProvider as="a" attributes={{ href: rawValue }}>
+                    <LayoutNodeChildren layout={layout}>
+                        {children}
+                    </LayoutNodeChildren>
+                </ControlProvider>
             </ActionsProvider>
         </StyleProvider>
     );

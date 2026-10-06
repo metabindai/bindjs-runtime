@@ -1,5 +1,5 @@
 import React from 'react';
-import { useStyle, ClearStyle } from '../Style';
+import { useStyle, ClearStyle, useElementProps } from '../Style';
 import { measureChildren } from '../Layout/utils';
 import { useAnimationContext, cssForAnimation } from '../AnimationContext';
 import { useLayout } from '../Layout/useLayout';
@@ -50,10 +50,13 @@ export function Frame(props) {
         height: layout.frame.height
     }
 
+    // Element semantics (Button, Link, accessibility modifiers)
+    const elementProps = useElementProps({ labelRole: 'group' });
+
     return (
         <LayoutNode layout={layout}>
             <AnimatableValuesProvider values={animationValues}>
-                <AnimatedFrame style={style}>{children}</AnimatedFrame>
+                <AnimatedFrame style={style} elementProps={elementProps}>{children}</AnimatedFrame>
             </AnimatableValuesProvider>
         </LayoutNode>
     )
@@ -70,9 +73,11 @@ function AnimatedFrame(props) {
         ...props.style,
     }
 
+    const { as: Element = 'div', ...elementProps } = props.elementProps;
+
     return (
         <ClearStyle>
-            <div className="frame" ref={animationRef as React.Ref<HTMLDivElement>} style={style}>{children}</div>
+            <Element className="frame" ref={animationRef as React.Ref<any>} style={style} {...elementProps}>{children}</Element>
         </ClearStyle>
     )
 }

@@ -484,11 +484,17 @@ function useRendererContent(componentProps) {
         return runtime.callForEachFunction(functionId, element, index)
     }
 
+    // Opens a URL through the runtime's openURL, which hosts can intercept (runtime.onOpenURL).
+    const openURLCallback = (url) => {
+        runtime?.openURL(url)
+    }
+
     return (
         <RendererContext.Provider value={{
             viewCallback: externalCallbackRef.current,
             makeView: makeViewCallback,
             navigateCallback: navigateCallback,
+            openURLCallback: openURLCallback,
             dataCallback: dataCallback,
             functionCallback: functionCallback,
             decodeViewCallback: decodeViewCallback,
@@ -530,6 +536,15 @@ const RendererContentContainer = styled.div.attrs(props => ({
 
     & * {
         box-sizing: border-box;
+    }
+
+    /* A view that renders as a button or link (Button, Link) keeps the view's look:
+       no browser button or link styling, and the browser's own focus ring. */
+    & :where([data-bindjs-control]) {
+        all: unset;
+        display: block;
+        outline: revert;
+        outline-offset: revert;
     }
 `
 

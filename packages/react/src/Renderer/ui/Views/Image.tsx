@@ -1,4 +1,4 @@
-import { useStyle } from '../Style';
+import { useStyle, useElementSemantics, elementProps } from '../Style';
 import { foregroundStyleToCSS, useForegroundStyleContext } from '../Modifiers/ForegroundStyle';
 import { SFSymbol } from './Utils/SFSymbol';
 import { useAssets } from '../Assets';
@@ -24,6 +24,9 @@ function ImageContent({ url, resizable, contentMode }: { url?: string, resizable
     const { ref: animationRef, style: animationStyle } = useAnimationNode();
 
     const style = { ...useStyle(), ...animationStyle };
+
+    // Element semantics (Button, Link, accessibility modifiers)
+    const semantics = useElementSemantics();
 
     if (url == null) {
         return null;
@@ -57,15 +60,21 @@ function ImageContent({ url, resizable, contentMode }: { url?: string, resizable
             imageStyle.backgroundSize = 'cover';
         }
 
+        // A labelled background image is an image to assistive technology.
+        const { as: Element = 'div', ...divProps } = elementProps(semantics, { labelRole: 'img' });
+
         return (
-            <div ref={animationRef as React.Ref<HTMLDivElement>} style={imageStyle} />
+            <Element ref={animationRef as React.Ref<any>} style={imageStyle} {...divProps} />
         )
 
         /**
          * Non-resizable Image
          */
     } else {
-        return <img ref={animationRef as React.Ref<HTMLImageElement>} style={style} src={url} alt="" />
+        // The label is the alt text; an image without one is decorative.
+        const { 'aria-label': alt, ...imgProps } = elementProps(semantics, { replaced: true });
+
+        return <img ref={animationRef as React.Ref<HTMLImageElement>} style={style} src={url} alt={alt ?? ''} {...imgProps} />
     }
 }
 

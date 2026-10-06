@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useStyle, ClearStyle, useEnvironmentStyle, EnvironmentStyleProvider, StyleProvider } from '../Style';
+import { useStyle, ClearStyle, useEnvironmentStyle, EnvironmentStyleProvider, StyleProvider, useElementProps } from '../Style';
 import { px, getDomEvents } from "../../Utils";
 import { useID, ClearID } from '../Modifiers/ID';
 import { unwrapGroupChildren } from './Group';
@@ -73,6 +73,9 @@ export function HStack(props: HStackProps): React.ReactElement {
 
     const domEvents = getDomEvents(props);
 
+    // Element semantics (Button, Link, accessibility modifiers)
+    const elementProps = useElementProps({ labelRole: 'group' });
+
     // If scrollTargetLayout is set, wrap each child in StyleProvider with scroll-snap-align
     var wrappedChildren = children
     if (envStyle.scrollTargetLayout) {
@@ -102,6 +105,7 @@ export function HStack(props: HStackProps): React.ReactElement {
                     id={id ? String(id) : undefined}
                     className={`hstack ${id}`}
                     style={style}
+                    {...elementProps}
                     {...domEvents}>
                     <EnvironmentStyleProvider style={childEnvStyle}>
                         <LayoutNodeChildren layout={layout}>

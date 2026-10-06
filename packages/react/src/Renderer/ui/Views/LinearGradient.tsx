@@ -1,4 +1,4 @@
-import { useStyle } from '../Style';
+import { useStyle, useElementProps } from '../Style';
 import { LinearGradientStyle, linearGradientStyleToCSS } from '../Styles/LinearGradientStyle';
 import { layoutRegistry } from '../Layout/LayoutRegistry';
 import { layoutStyle } from '../Layout/layoutStyle';
@@ -41,6 +41,9 @@ export function LinearGradient(props: LinearGradientProps) {
     // Convert the props to a CSS linear-gradient string
     const css = linearGradientStyleToCSS(props);
 
+    // Element semantics (Button, Link, accessibility modifiers)
+    const { as: Element = 'div', ...elementProps } = useElementProps({ labelRole: 'img' });
+
     // Get the current style from context and apply the gradient
     const style = {
         // Apply environment style.
@@ -57,7 +60,7 @@ export function LinearGradient(props: LinearGradientProps) {
     };
 
     // Render the gradient container
-    return <div style={style} ref={animationRef as React.Ref<HTMLDivElement>}>&nbsp;</div>;
+    return <Element style={style} ref={animationRef as React.Ref<any>} {...elementProps}>&nbsp;</Element>;
 }
 
 /**

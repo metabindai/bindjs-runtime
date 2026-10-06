@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
-import { useStyle } from '../Style';
+import { useStyle, useElementProps } from '../Style';
 import { ClearStyle } from '../Style';
 import { useEnvironmentStyle } from '../Style';
 import { useForegroundStyleContext, foregroundStyleToCSS } from '../Modifiers/ForegroundStyle';
@@ -28,6 +28,9 @@ export default function Markdown({ text, value, rawValue, children }: MarkdownPr
     const foregroundStyleContext = useForegroundStyleContext()
     const environmentStyle = useEnvironmentStyle()
     const environment = useEnvironment()
+
+    // Element semantics (Button, Link, accessibility modifiers)
+    const elementProps = useElementProps({ labelRole: 'group' })
 
     let elementStyle: React.CSSProperties = {
         margin: '0px',
@@ -98,7 +101,7 @@ export default function Markdown({ text, value, rawValue, children }: MarkdownPr
     };
 
     return (
-        <MarkdownDocumentTextStyle className="markdown" style={{ ...elementStyle, ...style, ...foregroundStyle, ...resolvedFontStyle }}>
+        <MarkdownDocumentTextStyle className="markdown" style={{ ...elementStyle, ...style, ...foregroundStyle, ...resolvedFontStyle }} {...elementProps}>
             <ClearStyle>
                 <ReactMarkdown
                     remarkPlugins={[remarkBreaks]}
