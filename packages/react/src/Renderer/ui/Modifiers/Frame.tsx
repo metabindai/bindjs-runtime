@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStyle, ClearStyle } from '../Style';
-import { measureChildren } from '../Layout/utils';
+import { measureChildren, knownMinimum } from '../Layout/utils';
 import { useAnimationContext, cssForAnimation } from '../AnimationContext';
 import { useLayout } from '../Layout/useLayout';
 import { layoutStyle } from '../Layout/layoutStyle';
@@ -10,6 +10,7 @@ import type { LayoutMeasurement } from '../Layout/LayoutTypes';
 import { LayoutFrameType } from '../Layout/LayoutTypes';
 import { alignmentMap } from '../Alignment';
 import { AnimatableValuesProvider, useAnimationNode } from '../AnimatableStyle';
+import { frameLength, getOffer } from '../Layout/offer';
 
 /**
  * Frame
@@ -36,6 +37,10 @@ export function Frame(props) {
         // Apply layout positioning css
         ...layoutStyle(layout),
     }
+
+    // layoutStyle skips zero lengths; an explicit zero is still a size.
+    if (props.width === 0) Object.assign(style, { width: 0, minWidth: 0, flexShrink: 0 });
+    if (props.height === 0) Object.assign(style, { height: 0, minHeight: 0, flexShrink: 0 });
 
     // Fix for the alignment switch statement
     // TODO: Replace with alignment map
@@ -89,9 +94,16 @@ const sizeThatFits = ({ proposal, props, children, environment }): LayoutMeasure
         alignment: props.alignment
     }
 
+    const parentOffer = getOffer(environment);
+    const offer = {
+        width: frameLength(props.width, props.maxWidth, parentOffer.width, props.minWidth),
+        height: frameLength(props.height, props.maxHeight, parentOffer.height, props.minHeight),
+    };
+
     const nodeEnvironment = {
         frame: v,
-        layout: 'frame'
+        layout: 'frame',
+        proposal: offer,
     }
 
     const sizesOfChildren = measureChildren(children, proposal, environment, nodeEnvironment);
@@ -99,12 +111,13 @@ const sizeThatFits = ({ proposal, props, children, environment }): LayoutMeasure
     var contentWidth: number | null = null
     var contentHeight: number | null = null
 
+    // A zero length is a known length (a zero frame, or a box offered nothing).
     sizesOfChildren.forEach((layoutResult) => {
         const size = layoutResult.frame;
-        if (size.width) {
+        if (size.width != null) {
             contentWidth = Math.max((contentWidth ?? 0), size.width)
         }
-        if (size.height) {
+        if (size.height != null) {
             contentHeight = Math.max((contentHeight ?? 0), size.height)
         }
     })
@@ -127,6 +140,18 @@ const sizeThatFits = ({ proposal, props, children, environment }): LayoutMeasure
         v.height = Infinity
     }
 
+    // SwiftUI sizes a flexible frame at min(max, max(child, proposal)), and a
+    // frame without a length at the child's: either way it is at least as
+    // large as the child's known size. A fixed length does not grow.
+    const childMinWidth = Math.max(0, ...sizesOfChildren.map((m) => knownMinimum(m.frame, 'width')))
+    const childMinHeight = Math.max(0, ...sizesOfChildren.map((m) => knownMinimum(m.frame, 'height')))
+    if (props.width == null && childMinWidth > 0) {
+        v.minWidth = Math.max(props.minWidth ?? 0, props.maxWidth != null ? Math.min(childMinWidth, props.maxWidth) : childMinWidth)
+    }
+    if (props.height == null && childMinHeight > 0) {
+        v.minHeight = Math.max(props.minHeight ?? 0, props.maxHeight != null ? Math.min(childMinHeight, props.maxHeight) : childMinHeight)
+    }
+
     if (props.maxWidth != null && proposal.width > props.maxWidth) {
         v.width = props.maxWidth
     }
@@ -136,7 +161,7 @@ const sizeThatFits = ({ proposal, props, children, environment }): LayoutMeasure
     }
 
     return {
-        environment: nodeEnvironment,
+        environment: { ...nodeEnvironment, offer },
         frame: v
     }
 }

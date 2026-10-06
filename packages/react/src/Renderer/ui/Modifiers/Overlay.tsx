@@ -2,6 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { alignmentMap, Alignment } from '../Alignment';
 import { useLayout, layoutStyle, LayoutNode, layoutRegistry, LayoutMeasurement, LayoutNodeChildren } from '../Layout';
+import { baseSizeLayout } from '../Layout/offer';
+import { useAnimationNode } from '../AnimatableStyle';
+import { useStyle, ClearStyle } from '../Style';
 import { measureMaxChild } from '../Layout/utils';
 import { ClearTextInputPadding } from '../Utils/textInputPadding';
 
@@ -34,10 +37,17 @@ export function Overlay(props: OverlayProps): React.ReactNode {
     // Prefer `content`; fall back to `rawValue`.    
     const overlayContent = content ?? rawValue;
 
-    // Size overlay element to the item it's being applied to
+    // Size overlay element to the item it's being applied to. Modifiers applied
+    // after the overlay (clipShape, opacity, offset) apply to the base and the
+    // overlay together, as in SwiftUI.
+    // Accumulated animatable values (opacity, offset) apply here too, before
+    // ClearStyle resets them for the base and the overlay.
+    const { ref: animationRef, style: animationStyle } = useAnimationNode();
     const style: React.CSSProperties = {
+        ...useStyle(),
         position: 'relative',
-        ...layoutStyle(layout)
+        ...layoutStyle(layout),
+        ...animationStyle,
     };
 
     // Inner overlay content.
@@ -58,17 +68,20 @@ export function Overlay(props: OverlayProps): React.ReactNode {
 
     return (
         <LayoutNode layout={layout}>
-            <div style={style} className="overlay">
-                <LayoutNodeChildren layout={layout}>
-                    <ClearTextInputPadding>
-                        {children}
-                    </ClearTextInputPadding>
-                </LayoutNodeChildren>
-                <OverlayItemFrame style={overlayItemStyle} className="overlay-item">
-                    <LayoutNode layout={null}>
-                        {overlayContent}
-                    </LayoutNode>
-                </OverlayItemFrame>
+            <div ref={animationRef as React.Ref<HTMLDivElement>} style={style} className="overlay">
+                <ClearStyle>
+                    <LayoutNodeChildren layout={layout}>
+                        <ClearTextInputPadding>
+                            {children}
+                        </ClearTextInputPadding>
+                    </LayoutNodeChildren>
+                    <OverlayItemFrame style={overlayItemStyle} className="overlay-item">
+                        {/* The content is offered the base view's size. */}
+                        <LayoutNode layout={baseSizeLayout(layout.frame)}>
+                            {overlayContent}
+                        </LayoutNode>
+                    </OverlayItemFrame>
+                </ClearStyle>
             </div>
         </LayoutNode>
     );

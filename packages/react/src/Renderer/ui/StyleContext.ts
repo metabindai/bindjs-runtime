@@ -9,9 +9,6 @@ export interface StyleContextType {
 // Create the StyleContext with an empty default value
 export const StyleContext = createContext<StyleContextType>({ style: {} });
 
-// Aspect Ratio Content Mode
-export type AspectRatioContentMode = 'fill' | 'fit'
-
 /**
  * Environment Style
  */
@@ -21,8 +18,6 @@ export interface EnvironmentStyleContextType {
     textFieldStyle?: string | null,
     controlSize?: 'mini' | 'small' | 'regular' | 'large' | 'extraLarge' | null,
     textSelection?: 'enabled' | 'disabled' | null
-    aspectRatioContentMode?: AspectRatioContentMode | null,
-    aspectRatio?: number | null,
     accentColor?: React.ReactNode | null,
     scrollTargetLayout?: boolean | null,
     scrollTargetBehavior?: 'viewAligned' | 'paging' | null,

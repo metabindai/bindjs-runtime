@@ -22,10 +22,15 @@ export function layoutStyle(measurement: LayoutMeasurement | null): React.CSSPro
     var maxWidth = size.maxWidth
     var alignment = size.alignment
 
+    // A view that takes what it is offered is exactly the offer when that is
+    // known in points: SwiftUI proposes the parent's offer, which CSS's 100%
+    // would replace with the parent's final size. Otherwise CSS fills.
+    const offer = measurement.offer;
+
     // If child requests Infinity width, set the style to fill available
     if (width != null) {
         if (Number.isFinite(width) == false) {
-            style['width'] = '100%';
+            style['width'] = typeof offer?.width === 'number' ? px(offer.width) : '100%';
         } else if (width != null && width > 0) {
             style['width'] = px(width)
             style['minWidth'] = px(width); 
@@ -35,7 +40,7 @@ export function layoutStyle(measurement: LayoutMeasurement | null): React.CSSPro
     // If child requests Infinity height, set the style to fill available
     if (height != null) {
         if (Number.isFinite(height) == false) {
-            style['height'] = '100%';
+            style['height'] = typeof offer?.height === 'number' ? px(offer.height) : '100%';
         } else if (height != null && height > 0) {
             style['height'] = px(height);
             style['minHeight'] = px(height); // Chrome   

@@ -29,6 +29,13 @@ export interface LayoutMeasurement {
     frame: LayoutFrameType;
     subviews?: LayoutMeasurement[];
     environment?: Record<string, any>;
+    /** What the parent offered this node (see offer.ts). */
+    offer?: import('./offer').Offer;
+    /**
+     * What a stack offers each of its children, when it shares its length in
+     * points (see stack.ts): an offer per view, or a ForEach's offers per row.
+     */
+    childOffers?: (import('./offer').Offer | import('./offer').Offer[])[];
 }
 
 export type LayoutSizingFunction = (options: {

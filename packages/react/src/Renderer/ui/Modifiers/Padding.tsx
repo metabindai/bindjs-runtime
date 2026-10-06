@@ -2,6 +2,7 @@ import React from 'react';
 import { useStyle, ClearStyle, useEnvironmentStyle, EnvironmentStyleProvider } from '../Style';
 import { px, asNumber } from '../../Utils'
 import { useLayout } from '../Layout/useLayout';
+import { getOffer, insetLength } from '../Layout/offer';
 import { layoutStyle } from '../Layout/layoutStyle';
 import { LayoutNode } from '../Layout/LayoutNode';
 import { layoutRegistry } from '../Layout/LayoutRegistry';
@@ -17,7 +18,7 @@ export interface PaddingInsets {
     bottom: number
 }
 
-function paddingInsetsFromProps(props: PaddingProps): PaddingInsets {
+export function paddingInsetsFromProps(props: PaddingProps): PaddingInsets {
     var insets: PaddingInsets = {
         left: 0,
         right: 0,
@@ -104,10 +105,12 @@ export function Padding(props: PaddingProps) {
         bottom: finalInsets.bottom > 0 ? finalInsets.bottom : 0,
     };
 
-    // Normalize margin values (negative insets become margins)
+    // Negative insets become negative margins: the box keeps its content's size,
+    // and takes the content's size plus the insets in its parent's layout, so the
+    // content overflows it by the insets, as in SwiftUI.
     const marginValues = {
-        left: finalInsets.left < 0 ? finalInsets.left * 2 : 0,
-        right: finalInsets.right < 0 ? finalInsets.right * 2 : 0,
+        left: finalInsets.left < 0 ? finalInsets.left : 0,
+        right: finalInsets.right < 0 ? finalInsets.right : 0,
         top: finalInsets.top < 0 ? finalInsets.top : 0,
         bottom: finalInsets.bottom < 0 ? finalInsets.bottom : 0,
     };
@@ -135,10 +138,15 @@ export function Padding(props: PaddingProps) {
         marginBottom: marginValues.bottom !== 0 ? px(marginValues.bottom) : 0,
     };
 
-    // Handle negative padding width adjustments
-    let totalPadding = finalInsets.left + finalInsets.right;
-    if (totalPadding < 0) {
-        style.width = 'calc(' + style.width + ' + ' + px(Math.abs(totalPadding)) + ')'
+    // A box sized by the layout pass is sized as the padding (content plus insets);
+    // as the content's box it takes back what negative insets removed.
+    const negativeWidth = -(marginValues.left + marginValues.right);
+    if (negativeWidth > 0 && style.width != null) {
+        style.width = 'calc(' + (typeof style.width === 'number' ? px(style.width) : style.width) + ' + ' + px(negativeWidth) + ')'
+    }
+    const negativeHeight = -(marginValues.top + marginValues.bottom);
+    if (negativeHeight > 0 && style.height != null) {
+        style.height = 'calc(' + (typeof style.height === 'number' ? px(style.height) : style.height) + ' + ' + px(negativeHeight) + ')'
     }
 
     // Hand the padding down for a text input below to absorb as native padding. Accumulates
@@ -176,17 +184,34 @@ const sizeThatFits = ({ proposal, props, children, environment }): LayoutMeasure
 
     const insets = paddingInsetsFromProps(props)
 
-    var reportedSize = measureMaxChild({ children, proposal, environment: environment, nodeEnvironment: {} });
+    const parentOffer = getOffer(environment);
+    const offer = {
+        width: insetLength(parentOffer.width, insets.left + insets.right),
+        height: insetLength(parentOffer.height, insets.top + insets.bottom),
+    };
 
+    var reportedSize = measureMaxChild({ children, proposal, environment: environment, nodeEnvironment: { proposal: offer } });
+
+    // SwiftUI's padding is its content's size plus the insets; negative insets
+    // shrink it (and propose the content more room, above).
     if (reportedSize.width != null && reportedSize.width != Infinity) {
-        reportedSize.width += Math.abs(insets.left) + Math.abs(insets.right)
+        reportedSize.width = Math.max(0, reportedSize.width + insets.left + insets.right)
     }
 
     if (reportedSize.height != null && reportedSize.height != Infinity) {
-        reportedSize.height += Math.abs(insets.top) + Math.abs(insets.bottom)
+        reportedSize.height = Math.max(0, reportedSize.height + insets.top + insets.bottom)
+    }
+
+    // A minimum carried up from the content includes the insets.
+    if (reportedSize.minWidth) {
+        reportedSize.minWidth = Math.max(0, reportedSize.minWidth + insets.left + insets.right)
+    }
+    if (reportedSize.minHeight) {
+        reportedSize.minHeight = Math.max(0, reportedSize.minHeight + insets.top + insets.bottom)
     }
 
     return {
+        environment: { offer },
         frame: reportedSize
     }
 }

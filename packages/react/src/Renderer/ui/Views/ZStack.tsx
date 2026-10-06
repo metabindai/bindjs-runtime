@@ -9,7 +9,7 @@ import { layoutStyle } from '../Layout/layoutStyle';
 import { LayoutNode } from '../Layout/LayoutNode';
 import { layoutRegistry } from '../Layout/LayoutRegistry';
 import type { LayoutMeasurement } from '../Layout/LayoutTypes';
-import { measureChildren } from '../Layout/utils';
+import { measureChildren, knownMinimum } from '../Layout/utils';
 import { Alignment, alignmentMap } from '../Alignment';
 import { useAnimationNode } from '../AnimatableStyle';
 import { ClearTextInputPadding } from '../Utils/textInputPadding';
@@ -139,7 +139,8 @@ const sizeThatFits = ({ proposal, props, children, environment }): LayoutMeasure
     }
 
     // If a child has no defined height, then dont clamp to sized one.
-    const childLength = React.Children.count(children)
+    // The measured children: a ForEach counts as its items.
+    const childLength = sizesOfChildren.length
     if (sizedChildrenHeight != childLength && height != Infinity) {
         height = null
     }
@@ -147,9 +148,13 @@ const sizeThatFits = ({ proposal, props, children, environment }): LayoutMeasure
         width = null
     }
 
+    // A flexible ZStack is at least as large as its largest known child.
+    const minWidth = width === Infinity ? Math.max(0, ...sizesOfChildren.map((m) => knownMinimum(m.frame, 'width'))) || null : null
+    const minHeight = height === Infinity ? Math.max(0, ...sizesOfChildren.map((m) => knownMinimum(m.frame, 'height'))) || null : null
+
     return {
         environment: nodeEnvironment,
-        frame: { width: width, height: height }
+        frame: { width: width, height: height, minWidth, minHeight }
     }
 }
 

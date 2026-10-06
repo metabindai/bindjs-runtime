@@ -2,6 +2,40 @@ import React from 'react';
 import { LayoutFrameType, LayoutMeasurement, LayoutSize, LayoutSizingFunction } from './LayoutTypes';
 import { layoutRegistry } from './LayoutRegistry';
 
+/**
+ * Measurements made during one sizing pass (a node's sizing function at render
+ * and everything it measures), by element and offer. Stacks and aspect boxes
+ * measure a child at several offers, and their ancestors measure them at
+ * several in turn: without this, nested stacks cost exponential time.
+ */
+let pass: WeakMap<object, Map<string, LayoutMeasurement>> | null = null;
+
+/** Runs `measure` as one sizing pass, or inside the pass already running. */
+export function inSizingPass<T>(measure: () => T): T {
+    if (pass) return measure();
+    pass = new WeakMap();
+    try {
+        return measure();
+    } finally {
+        pass = null;
+    }
+}
+
+/** An element's measurement under `options`, measured once per offer within a sizing pass. */
+export function measureElement(child: React.ReactElement, options: Parameters<LayoutSizingFunction>[0]): LayoutMeasurement {
+    const sizeFunction = getSizingFunctionForType(child) ?? defaultSizingFunction;
+    const props = child.props as object;
+    if (!pass || !props) return sizeFunction(options);
+    const offer = options.environment?.proposal;
+    const key = `${offer?.width}|${offer?.height}|${options.environment?.layout ?? ''}|${options.proposal?.width}|${options.proposal?.height}`;
+    let byOffer = pass.get(props);
+    if (!byOffer) pass.set(props, (byOffer = new Map()));
+    let measurement = byOffer.get(key);
+    if (!measurement) byOffer.set(key, (measurement = sizeFunction(options)));
+    // Callers may adjust what they are given; the cached measurement stays as measured.
+    return { ...measurement, frame: { ...measurement.frame } };
+}
+
 function getSizingFunctionForType(child: React.ReactNode): LayoutSizingFunction | null {
     if (!React.isValidElement(child)) return null;
     
@@ -28,10 +62,16 @@ export const defaultSizingFunction: LayoutSizingFunction = ({ proposal, props, c
         // If only one child, use its size
         let child = React.Children.toArray(children)[0];
 
-        let measurementFunction = getSizingFunctionForType(child) ?? defaultSizingFunction;
-        
-        if (React.isValidElement(child) && measurementFunction) {
-            return measurementFunction({ proposal, props: child.props, children: child.props.children, context, environment });
+        if (React.isValidElement(child)) {
+            const childProps = child.props as any;
+            const measurement = measureElement(child, { proposal, props: childProps, children: childProps.children, context, environment });
+            // The child's offer is what it offers its own children; a node
+            // passing its child's size through offers what it was offered.
+            if (measurement.environment && 'offer' in measurement.environment) {
+                const { offer, ...rest } = measurement.environment;
+                return { ...measurement, environment: rest };
+            }
+            return measurement;
         } else {
             return {
                 frame: proposal
@@ -46,6 +86,18 @@ export const defaultSizingFunction: LayoutSizingFunction = ({ proposal, props, c
     }
 }
 
+/**
+ * The least a child takes along an axis: its size when known, or the minimum
+ * a flexible child reported. SwiftUI never sizes a view smaller than a child
+ * of known size, so containers that take their children's size carry it up.
+ */
+export function knownMinimum(size: LayoutFrameType, axis: 'width' | 'height'): number {
+    const length = size[axis];
+    const min = size[axis === 'width' ? 'minWidth' : 'minHeight'];
+    const known = typeof length === 'number' && Number.isFinite(length) ? length : 0;
+    return Math.max(known, typeof min === 'number' && Number.isFinite(min) ? min : 0);
+}
+
 export function measureChildren(children, proposedSize: LayoutSize, environment: Record<string, any>, nodeEnvironment?: Record<string, any>): LayoutMeasurement[] {
     var childrenWithSizes: LayoutMeasurement[] = []
 
@@ -53,16 +105,16 @@ export function measureChildren(children, proposedSize: LayoutSize, environment:
 
         React.Children.forEach(children, (child) => {   
 
-            // TODO: Handle this better
+            // A ForEach's items are its parent's children. A lazy one is built
+            // here, through the renderer, so the parent measures them.
             if (child && child.props && child.props._type == 'ForEach') {
-                mapChildren(child.props.children)
+                mapChildren(environment?.expandForEach ? environment.expandForEach(child.props) : child.props.children)
                 return
             }
 
-            let sizeFunction = getSizingFunctionForType(child) ?? defaultSizingFunction;
-
-            if (child && child.type && sizeFunction) {
-                const size = sizeFunction({ proposal: proposedSize, props: child.props, children: child.props.children, environment: { ...environment, ...nodeEnvironment ?? {} } });
+            if (React.isValidElement(child) && child.type) {
+                const childProps = child.props as any;
+                const size = measureElement(child, { proposal: proposedSize, props: childProps, children: childProps.children, environment: { ...environment, ...nodeEnvironment ?? {} } });
                 childrenWithSizes.push(size)
             }
 
@@ -88,11 +140,12 @@ export function measureMaxChild({ proposal, children, environment, nodeEnvironme
     sizesOfChildren.forEach((measurment) => {
         const size = measurment.frame;
 
-        if (size.width) {
+        // A zero length is a known length (a zero frame, or a box offered nothing).
+        if (size.width != null) {
             v.width = Math.max((v.width ?? 0), size.width)
             sizedChildrenWidth += 1
         }
-        if (size.height) {
+        if (size.height != null) {
             v.height = Math.max((v.height ?? 0), size.height)
             sizedChildrenHeight += 1
         }
@@ -103,10 +156,10 @@ export function measureMaxChild({ proposal, children, environment, nodeEnvironme
             v.maxHeight = size.maxHeight
         }
         if (size.minWidth) {
-            v.minWidth = size.minWidth
+            v.minWidth = Math.max(v.minWidth ?? 0, size.minWidth)
         }
         if (size.minHeight) {
-            v.minHeight = size.minHeight
+            v.minHeight = Math.max(v.minHeight ?? 0, size.minHeight)
         }
     })
 

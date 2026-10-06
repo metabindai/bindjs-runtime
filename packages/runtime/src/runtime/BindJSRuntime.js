@@ -20,6 +20,7 @@ import { PathComponent } from './Components/Path.js'
 import { GenericModifier } from './Modifiers/GenericModifier.js'
 import { Padding } from './Modifiers/Padding.js'
 import { Resizable } from './Modifiers/Resizable.js'
+import { AspectRatio } from './Modifiers/AspectRatio.js'
 import { Opacity } from './Modifiers/Opacity.js'
 import { OnHandler } from './Modifiers/OnHandler.js'
 import { AnimationModifier } from './Modifiers/AnimationModifier.js'
@@ -290,6 +291,7 @@ export class BindJSRuntime {
         this.#registerBuiltInModifier('stroke', Stroke);
         this.#registerBuiltInModifier('buttonStyle', ButtonStyle);
         this.#registerBuiltInModifier('resizable', Resizable);
+        this.#registerBuiltInModifier('aspectRatio', AspectRatio);
 
         this.#registerBuiltInModifier('background', ContentModifier);
         this.#registerBuiltInModifier('listRowBackground', ContentModifier);

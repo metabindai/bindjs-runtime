@@ -1,5 +1,5 @@
 // Core
-export { LayoutNode, LayoutNodeChildren } from "./LayoutNode";
+export { LayoutNode, LayoutNodeChildren, StackLayoutChildren } from "./LayoutNode";
 export { layoutRegistry } from "./LayoutRegistry";
 
 // Hooks
@@ -12,3 +12,7 @@ export { layoutStyle } from "./layoutStyle";
 export type { LayoutMeasurement } from "./LayoutTypes";
 export type { LayoutSize } from "./LayoutTypes";
 export type { LayoutSizingFunction } from "./LayoutTypes";
+
+// Offers
+export { getOffer, baseSizeLayout, isKnownLength } from "./offer";
+export type { Offer, OfferedLength } from "./offer";

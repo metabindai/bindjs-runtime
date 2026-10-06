@@ -3,6 +3,7 @@ import { StyleContext } from './StyleContext'
 import { EnvironmentStyleContext, EnvironmentStyleContextType } from './StyleContext';
 import styled from 'styled-components'
 import { ClearAnimatableValues } from './AnimatableStyle';
+import { ImageFitContext } from './ImageFit';
 
 function ViewStyle({ children }) {
     const style = { ...useStyle() }
@@ -12,9 +13,11 @@ function ViewStyle({ children }) {
 export function ClearStyle({ children }) {
     return (
         <StyleContext.Provider value={{ style: {} }}>
-            <ClearAnimatableValues>
-                {children}
-            </ClearAnimatableValues>
+            <ImageFitContext.Provider value={null}>
+                <ClearAnimatableValues>
+                    {children}
+                </ClearAnimatableValues>
+            </ImageFitContext.Provider>
         </StyleContext.Provider>
     );
 }

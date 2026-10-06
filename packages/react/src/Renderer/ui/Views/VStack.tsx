@@ -3,13 +3,15 @@ import styled from 'styled-components';
 import { useStyle, ClearStyle, useEnvironmentStyle, EnvironmentStyleProvider, StyleProvider } from '../Style';
 import { px, getDomEvents } from "../../Utils";
 import { useID, ClearID } from '../Modifiers/ID';
-import { unwrapGroupChildren } from './Group';
+import { unwrapGroupChildren, stackElements } from './Group';
 import { useLayout } from '../Layout/useLayout';
 import { layoutStyle } from '../Layout/layoutStyle';
-import { LayoutNode, LayoutNodeChildren } from '../Layout/LayoutNode';
+import { StackLayoutChildren } from '../Layout/LayoutNode';
 import { layoutRegistry } from '../Layout/LayoutRegistry';
 import type { LayoutMeasurement } from '../Layout/LayoutTypes';
-import { measureChildren } from '../Layout/utils';
+import { measureChildren, knownMinimum } from '../Layout/utils';
+import { getOffer, sharedLength, isKnownLength } from '../Layout/offer';
+import { distributeStack, groupOffers, stackSpacing } from '../Layout/stack';
 import { HorizontalAlignment, horizontalAlignmentMap } from '../Alignment';
 import { useAnimationNode } from '../AnimatableStyle';
 import { ClearTextInputPadding } from '../Utils/textInputPadding';
@@ -53,7 +55,7 @@ export function VStack(props: VStackProps): React.ReactElement {
         ...layoutStyle(layout),
 
         // Apply gap between elements
-        gap: px(spacing ?? 8),
+        gap: px(stackSpacing(spacing)),
 
         // Apply alignment
         alignItems: horizontalAlignment,
@@ -84,6 +86,8 @@ export function VStack(props: VStackProps): React.ReactElement {
         const childCount = React.Children.count(children);
 
         wrappedChildren = React.Children.map(children, (child, index) => {
+            // An empty child stays empty: wrapped, it would count as a child.
+            if (!React.isValidElement(child)) return child;
             const isFirst = index === 0;
             const isLast = index === childCount - 1;
 
@@ -114,11 +118,11 @@ export function VStack(props: VStackProps): React.ReactElement {
                     style={style}
                     {...domEvents}>
                     <EnvironmentStyleProvider style={childEnvStyle}>
-                        <LayoutNodeChildren layout={layout}>
-                            <ClearTextInputPadding>
+                        <ClearTextInputPadding>
+                            <StackLayoutChildren layout={layout}>
                                 {wrappedChildren}
-                            </ClearTextInputPadding>
-                        </LayoutNodeChildren>
+                            </StackLayoutChildren>
+                        </ClearTextInputPadding>
                     </EnvironmentStyleProvider>
                 </VStackContent>
             </ClearID>
@@ -140,7 +144,29 @@ const sizeThatFits = ({ proposal, props, children, environment }): LayoutMeasure
         layout: 'vstack'
     }
 
-    let sizesOfChildren = measureChildren(children, proposal, environment, vstackEnvironment)
+    const measuringOffer = { height: sharedLength(getOffer(environment).height), width: getOffer(environment).width };
+    let sizesOfChildren = measureChildren(children, proposal, environment, { ...vstackEnvironment, proposal: measuringOffer })
+
+    // Offered a height in points, the stack shares it as SwiftUI does, least flexible
+    // child first, when the layout pass knows every child's height (see stack.ts).
+    const stackOffer = getOffer(environment).height;
+    // A ForEach's rows count as children, as measureChildren measures them.
+    const elements = isKnownLength(stackOffer) ? stackElements(children, environment?.expandForEach) : null;
+    const distribution = elements && isKnownLength(stackOffer) ? distributeStack({
+        children: elements.items,
+        measured: unwrapGroupChildren(children) === children
+            ? sizesOfChildren
+            : measureChildren(elements.items, proposal, environment, { ...vstackEnvironment, proposal: measuringOffer }),
+        axis: 'height',
+        length: stackOffer,
+        cross: measuringOffer.width,
+        spacing: stackSpacing(props.spacing),
+        proposal,
+        environment: { ...environment, ...vstackEnvironment },
+    }) : null;
+    if (distribution) {
+        sizesOfChildren = distribution.measurements
+    }
 
     var width: (number | null) = proposal.width
     var height: number | null = proposal.height
@@ -175,7 +201,7 @@ const sizeThatFits = ({ proposal, props, children, environment }): LayoutMeasure
     }
 
     if (contentHeight != null) {
-        contentHeight += (props.spacing ?? 0) * (children.length - 1)
+        contentHeight += stackSpacing(props.spacing) * (sizesOfChildren.length - 1)
     }
 
     if (contentWidth != null || width != null) {
@@ -189,7 +215,8 @@ const sizeThatFits = ({ proposal, props, children, environment }): LayoutMeasure
     var minHeight: number | null = null
     var minWidth: number | null = null
 
-    const childLength = React.Children.count(children)
+    // The measured children: a ForEach counts as its items.
+    const childLength = sizesOfChildren.length
 
     if (sizedChildrenWidth != childLength && width != Infinity) {
         minWidth = width
@@ -202,10 +229,30 @@ const sizeThatFits = ({ proposal, props, children, environment }): LayoutMeasure
         height = null
     }
 
+    // A flexible stack is at least as large as its children's known sizes:
+    // their sum (and spacing) along the stack, the largest across it.
+    if (width === Infinity) {
+        const least = Math.max(0, ...sizesOfChildren.map((m) => knownMinimum(m.frame, 'width')))
+        if (least > 0) minWidth = Math.max(minWidth ?? 0, least)
+    }
+    if (height === Infinity) {
+        const least = sizesOfChildren.reduce((sum, m) => sum + knownMinimum(m.frame, 'height'), 0)
+        if (least > 0) minHeight = Math.max(minHeight ?? 0, least + stackSpacing(props.spacing) * (sizesOfChildren.length - 1))
+    }
+
+    // SwiftUI's stack proposes from its own proposal, not from the size its
+    // children add up to: the children see at render what they were measured with.
+    if (distribution) {
+        height = distribution.length
+        minHeight = null
+    }
+
+    const offer = measuringOffer;
     return {
-        environment: vstackEnvironment,
+        environment: { ...vstackEnvironment, offer },
         subviews: sizesOfChildren,
-        frame: { width: width, height: height, minWidth: minWidth, minHeight: minHeight }
+        frame: { width: width, height: height, minWidth: minWidth, minHeight: minHeight },
+        childOffers: distribution && elements ? groupOffers(distribution.offers, elements.shape) : undefined,
     }
 }
 
