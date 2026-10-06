@@ -11,7 +11,7 @@ import { StackLayoutChildren } from '../Layout/LayoutNode';
 import type { LayoutMeasurement } from '../Layout/LayoutTypes';
 import { measureChildren, knownMinimum } from '../Layout/utils';
 import { getOffer, sharedLength, isKnownLength } from '../Layout/offer';
-import { distributeStack, groupOffers } from '../Layout/stack';
+import { distributeStack, groupOffers, stackSpacing } from '../Layout/stack';
 import { VerticalAlignment, verticalAlignmentMap } from '../Alignment';
 import { useAnimationNode } from '../AnimatableStyle';
 import { ClearTextInputPadding } from '../Utils/textInputPadding';
@@ -55,7 +55,7 @@ export function HStack(props: HStackProps): React.ReactElement {
         ...layoutStyle(layout),
 
         // Apply gap between elements
-        gap: px(spacing ?? 8),
+        gap: px(stackSpacing(spacing)),
 
         // Apply alignment
         alignItems: verticalAlignment,
@@ -150,7 +150,7 @@ const sizeThatFits = ({ proposal, props, children, environment }): LayoutMeasure
         axis: 'width',
         length: stackOffer,
         cross: measuringOffer.height,
-        spacing: props.spacing ?? 8,
+        spacing: stackSpacing(props.spacing),
         proposal,
         environment: { ...environment, ...nodeEnvironment },
     }) : null;
@@ -191,7 +191,7 @@ const sizeThatFits = ({ proposal, props, children, environment }): LayoutMeasure
     }
 
     if (contentWidth != null) {
-        contentWidth += (props.spacing ?? 0) * (sizesOfChildren.length - 1)
+        contentWidth += stackSpacing(props.spacing) * (sizesOfChildren.length - 1)
     }
 
     if (contentWidth != null || width != null) {
@@ -226,7 +226,7 @@ const sizeThatFits = ({ proposal, props, children, environment }): LayoutMeasure
     }
     if (width === Infinity) {
         const least = sizesOfChildren.reduce((sum, m) => sum + knownMinimum(m.frame, 'width'), 0)
-        if (least > 0) minWidth = Math.max(minWidth ?? 0, least + (props.spacing ?? 0) * (sizesOfChildren.length - 1))
+        if (least > 0) minWidth = Math.max(minWidth ?? 0, least + stackSpacing(props.spacing) * (sizesOfChildren.length - 1))
     }
 
     // SwiftUI's stack proposes from its own proposal, not from the size its

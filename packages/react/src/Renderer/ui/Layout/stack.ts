@@ -3,6 +3,11 @@ import type { LayoutFrameType, LayoutMeasurement, LayoutSize } from './LayoutTyp
 import type { Offer, OfferedLength } from './offer';
 import { measureElement } from './utils';
 
+/** The spacing a stack puts between its children: its own, or SwiftUI's default of 8. */
+export function stackSpacing(spacing: number | null | undefined): number {
+    return spacing ?? 8;
+}
+
 /** The length a stack lays its children out along. */
 export type StackAxis = 'width' | 'height';
 

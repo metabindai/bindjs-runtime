@@ -11,7 +11,7 @@ import { layoutRegistry } from '../Layout/LayoutRegistry';
 import type { LayoutMeasurement } from '../Layout/LayoutTypes';
 import { measureChildren, knownMinimum } from '../Layout/utils';
 import { getOffer, sharedLength, isKnownLength } from '../Layout/offer';
-import { distributeStack, groupOffers } from '../Layout/stack';
+import { distributeStack, groupOffers, stackSpacing } from '../Layout/stack';
 import { HorizontalAlignment, horizontalAlignmentMap } from '../Alignment';
 import { useAnimationNode } from '../AnimatableStyle';
 import { ClearTextInputPadding } from '../Utils/textInputPadding';
@@ -55,7 +55,7 @@ export function VStack(props: VStackProps): React.ReactElement {
         ...layoutStyle(layout),
 
         // Apply gap between elements
-        gap: px(spacing ?? 8),
+        gap: px(stackSpacing(spacing)),
 
         // Apply alignment
         alignItems: horizontalAlignment,
@@ -160,7 +160,7 @@ const sizeThatFits = ({ proposal, props, children, environment }): LayoutMeasure
         axis: 'height',
         length: stackOffer,
         cross: measuringOffer.width,
-        spacing: props.spacing ?? 8,
+        spacing: stackSpacing(props.spacing),
         proposal,
         environment: { ...environment, ...vstackEnvironment },
     }) : null;
@@ -201,7 +201,7 @@ const sizeThatFits = ({ proposal, props, children, environment }): LayoutMeasure
     }
 
     if (contentHeight != null) {
-        contentHeight += (props.spacing ?? 0) * (sizesOfChildren.length - 1)
+        contentHeight += stackSpacing(props.spacing) * (sizesOfChildren.length - 1)
     }
 
     if (contentWidth != null || width != null) {
@@ -237,7 +237,7 @@ const sizeThatFits = ({ proposal, props, children, environment }): LayoutMeasure
     }
     if (height === Infinity) {
         const least = sizesOfChildren.reduce((sum, m) => sum + knownMinimum(m.frame, 'height'), 0)
-        if (least > 0) minHeight = Math.max(minHeight ?? 0, least + (props.spacing ?? 0) * (sizesOfChildren.length - 1))
+        if (least > 0) minHeight = Math.max(minHeight ?? 0, least + stackSpacing(props.spacing) * (sizesOfChildren.length - 1))
     }
 
     // SwiftUI's stack proposes from its own proposal, not from the size its
