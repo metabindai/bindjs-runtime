@@ -10,14 +10,7 @@ export function ForEach({ args }) {
     var ast = null  
 
     if (expand) {
-        const children = data.map((element, index) => {
-            this.setForEachElementId(index)
-            let result = callback(element, index)
-            while (result && result._component) {
-                result = result()
-            }
-            return result
-        })
+        const children = data.map((element, index) => this.buildForEachRow(index, () => callback(element, index)))
         ast = AST.ForEach(null, null, count, null, children)
     } else {
         const id = this.currentPathId('ForEach')    
