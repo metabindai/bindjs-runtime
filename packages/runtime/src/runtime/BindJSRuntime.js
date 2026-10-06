@@ -783,6 +783,20 @@ exports.default = defineComponent({
     }
 
     /**
+     * Restores an environment by id, leaving the hook-state path alone. Callers that
+     * invoke a stored callback outside a render pass need the environment back without
+     * rebinding this pass's hooks to the stored path.
+     * @param {*} environmentId
+     */
+    restoreEnvironmentOnly(environmentId) {
+        let env = this.storedEnvironments[environmentId]
+
+        if (env) {
+            this.environment = env
+        }
+    }
+
+    /**
      * Restores an environment by id
      * @param {*} environmentId 
      */
@@ -1376,8 +1390,15 @@ exports.default = defineComponent({
             var id = null
             if (modifierId) {
                 id = modifierId + componentName + '_' + childIndex
-            } else if (forEachElementId) {
+            } else if (forEachElementId != null) {
+                // A ForEach row's own root, and only it. Compared against null rather
+                // than for truthiness because index 0 is a valid element id, and cleared
+                // as soon as it is consumed: left set, every component nested under the
+                // row would take the row index as its path segment too, collapsing the
+                // whole subtree onto one segment per depth and making siblings share a
+                // hook array. Clearing here is also what lets ForEach nest.
                 id = forEachElementId
+                this.hookState.forEachElementId = null
             } else {
                 id = componentName + '_' + childIndex
             }

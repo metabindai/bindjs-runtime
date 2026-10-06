@@ -18,6 +18,12 @@ export function ForEach({ args }) {
             }
             return result
         })
+
+        // A row whose callback returned a plain AST rather than a component never
+        // reached #makeComponent, so nothing consumed the id. Drop it here so it
+        // cannot leak into whatever is built after this loop.
+        this.setForEachElementId(null)
+
         ast = AST.ForEach(null, null, count, null, children)
     } else {
         const id = this.currentPathId('ForEach')    
