@@ -526,7 +526,6 @@ const RendererContentContainer = styled.div.attrs(props => ({
     overflow: hidden;
     ${props => props.$fullHeight !== false ? 'height: 100%;' : 'height: auto;'}
     width: 100%;
-    user-select: none;
 
     & * {
         box-sizing: border-box;

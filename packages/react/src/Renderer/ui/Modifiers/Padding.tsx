@@ -120,8 +120,6 @@ export function Padding(props: PaddingProps) {
         // Apply layout positioning css
         ...layoutStyle(layout),
 
-        WebkitUserSelect: 'none',
-
         // Apply padding
         paddingLeft: paddingValues.left > 0 ? px(paddingValues.left) : 0,
         paddingRight: paddingValues.right > 0 ? px(paddingValues.right) : 0,

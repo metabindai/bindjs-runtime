@@ -35,9 +35,8 @@ export default function Text({ text, value, rawValue, markdown, children }: Text
         margin: '0px',
     }
 
-    // Determine if text selection should be enabled based on environment style
-    const isTextSelectionEnabled = environmentStyle.textSelection === 'enabled';
-    elementStyle = styleUserSelect(isTextSelectionEnabled, elementStyle);
+    // Apply text selection from the environment style
+    elementStyle = styleUserSelect(environmentStyle.textSelection, elementStyle);
 
     const content = rawValue ?? value ?? text ?? children;
     const markdownContent = markdown;
