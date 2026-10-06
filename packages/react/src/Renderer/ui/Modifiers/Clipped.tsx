@@ -22,6 +22,9 @@ export function Clipped(props: { children?: React.ReactNode }): React.ReactNode 
         ...layoutStyle(layout),
         ...animationStyle,
         overflow: 'hidden',
+        // clipped() never changes its content's size. overflow: hidden would let
+        // a flex parent shrink the box below it (its automatic minimum becomes 0).
+        flexShrink: 0,
     };
 
     return (
