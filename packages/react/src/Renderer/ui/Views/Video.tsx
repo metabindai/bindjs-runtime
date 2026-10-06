@@ -4,6 +4,7 @@ import { useEffect, useReducer, useRef, ReactNode } from 'react';
 import { AssetMediaType } from '../Assets';
 import { layoutRegistry, LayoutMeasurement, useLayout, layoutStyle, LayoutNode } from '../Layout';
 import { useAnimationNode } from '../AnimatableStyle';
+import type Hls from 'hls.js';
 
 type VideoContentMode = 'fill' | 'fit';
 
@@ -50,6 +51,7 @@ function VideoContent(props: VideoContentProps) {
     };
 
     const videoRef = useRef<HTMLVideoElement>(null);
+    useHLSPlayback(videoRef, url, autoplay);
 
     // Video object fit based on environment aspect ratio content mode
     const objectFit = contentMode === 'fill' ? 'cover' : 'contain';
@@ -75,6 +77,42 @@ function VideoContent(props: VideoContentProps) {
             </video>
         </div>
     );
+}
+
+/**
+ * Plays an HLS playlist (.m3u8) in browsers that can't play one natively, such
+ * as Firefox, through hls.js. hls.js is only loaded in those browsers.
+ */
+function useHLSPlayback(videoRef: React.RefObject<HTMLVideoElement>, url: string, autoplay: boolean) {
+    useEffect(() => {
+        const video = videoRef.current;
+        if (!video || !/\.m3u8($|[?#])/i.test(url) || video.canPlayType('application/vnd.apple.mpegurl')) {
+            return;
+        }
+
+        let hls: Hls | null = null;
+        let cancelled = false;
+
+        import('hls.js/light').then(({ default: HlsLight }) => {
+            if (cancelled || !HlsLight.isSupported()) return;
+
+            // A video that doesn't autoplay loads its segments when it starts playing.
+            hls = new HlsLight({ autoStartLoad: autoplay });
+            hls.loadSource(url);
+            hls.attachMedia(video);
+            if (!autoplay) {
+                video.addEventListener('play', () => hls?.startLoad(), { once: true });
+            }
+        }).catch((error) => {
+            console.warn('Video: HLS playback unavailable', error);
+        });
+
+        return () => {
+            cancelled = true;
+            hls?.destroy();
+            hls = null;
+        };
+    }, [url, autoplay]);
 }
 
 interface AssetLoaderProps {
