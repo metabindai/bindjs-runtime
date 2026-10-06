@@ -29,6 +29,8 @@ export interface LayoutMeasurement {
     frame: LayoutFrameType;
     subviews?: LayoutMeasurement[];
     environment?: Record<string, any>;
+    /** What the parent offered this node (see offer.ts). */
+    offer?: import('./offer').Offer;
 }
 
 export type LayoutSizingFunction = (options: {

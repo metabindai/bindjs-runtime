@@ -193,6 +193,14 @@ const sizeThatFits = ({ proposal, props, children, environment }): LayoutMeasure
         reportedSize.height += Math.abs(insets.top) + Math.abs(insets.bottom)
     }
 
+    // A minimum carried up from the content includes the insets.
+    if (reportedSize.minWidth) {
+        reportedSize.minWidth += Math.max(0, insets.left) + Math.max(0, insets.right)
+    }
+    if (reportedSize.minHeight) {
+        reportedSize.minHeight += Math.max(0, insets.top) + Math.max(0, insets.bottom)
+    }
+
     return {
         environment: { offer },
         frame: reportedSize

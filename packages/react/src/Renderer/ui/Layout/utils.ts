@@ -46,6 +46,18 @@ export const defaultSizingFunction: LayoutSizingFunction = ({ proposal, props, c
     }
 }
 
+/**
+ * The least a child takes along an axis: its size when known, or the minimum
+ * a flexible child reported. SwiftUI never sizes a view smaller than a child
+ * of known size, so containers that take their children's size carry it up.
+ */
+export function knownMinimum(size: LayoutFrameType, axis: 'width' | 'height'): number {
+    const length = size[axis];
+    const min = size[axis === 'width' ? 'minWidth' : 'minHeight'];
+    const known = typeof length === 'number' && Number.isFinite(length) ? length : 0;
+    return Math.max(known, typeof min === 'number' && Number.isFinite(min) ? min : 0);
+}
+
 export function measureChildren(children, proposedSize: LayoutSize, environment: Record<string, any>, nodeEnvironment?: Record<string, any>): LayoutMeasurement[] {
     var childrenWithSizes: LayoutMeasurement[] = []
 
@@ -104,10 +116,10 @@ export function measureMaxChild({ proposal, children, environment, nodeEnvironme
             v.maxHeight = size.maxHeight
         }
         if (size.minWidth) {
-            v.minWidth = size.minWidth
+            v.minWidth = Math.max(v.minWidth ?? 0, size.minWidth)
         }
         if (size.minHeight) {
-            v.minHeight = size.minHeight
+            v.minHeight = Math.max(v.minHeight ?? 0, size.minHeight)
         }
     })
 

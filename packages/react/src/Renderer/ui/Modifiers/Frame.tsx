@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStyle, ClearStyle } from '../Style';
-import { measureChildren } from '../Layout/utils';
+import { measureChildren, knownMinimum } from '../Layout/utils';
 import { useAnimationContext, cssForAnimation } from '../AnimationContext';
 import { useLayout } from '../Layout/useLayout';
 import { layoutStyle } from '../Layout/layoutStyle';
@@ -139,14 +139,16 @@ const sizeThatFits = ({ proposal, props, children, environment }): LayoutMeasure
         v.height = Infinity
     }
 
-    // SwiftUI sizes a flexible frame at min(max, max(child, proposal)): it is
-    // at least as wide as a child of known size. The width above is the
-    // proposal (100%); a known child size sets the minimum.
-    if (props.maxWidth != null && contentWidth != null && Number.isFinite(contentWidth)) {
-        v.minWidth = Math.max(props.minWidth ?? 0, Math.min(contentWidth, props.maxWidth))
+    // SwiftUI sizes a flexible frame at min(max, max(child, proposal)), and a
+    // frame without a length at the child's: either way it is at least as
+    // large as the child's known size. A fixed length does not grow.
+    const childMinWidth = Math.max(0, ...sizesOfChildren.map((m) => knownMinimum(m.frame, 'width')))
+    const childMinHeight = Math.max(0, ...sizesOfChildren.map((m) => knownMinimum(m.frame, 'height')))
+    if (props.width == null && childMinWidth > 0) {
+        v.minWidth = Math.max(props.minWidth ?? 0, props.maxWidth != null ? Math.min(childMinWidth, props.maxWidth) : childMinWidth)
     }
-    if (props.maxHeight != null && contentHeight != null && Number.isFinite(contentHeight)) {
-        v.minHeight = Math.max(props.minHeight ?? 0, Math.min(contentHeight, props.maxHeight))
+    if (props.height == null && childMinHeight > 0) {
+        v.minHeight = Math.max(props.minHeight ?? 0, props.maxHeight != null ? Math.min(childMinHeight, props.maxHeight) : childMinHeight)
     }
 
     if (props.maxWidth != null && proposal.width > props.maxWidth) {

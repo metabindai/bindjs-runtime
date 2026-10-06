@@ -9,7 +9,7 @@ import { layoutStyle } from '../Layout/layoutStyle';
 import { LayoutNode, LayoutNodeChildren } from '../Layout/LayoutNode';
 import { layoutRegistry } from '../Layout/LayoutRegistry';
 import type { LayoutMeasurement } from '../Layout/LayoutTypes';
-import { measureChildren } from '../Layout/utils';
+import { measureChildren, knownMinimum } from '../Layout/utils';
 import { getOffer, offeredWidth, offeredHeight, sharedLength } from '../Layout/offer';
 import { HorizontalAlignment, horizontalAlignmentMap } from '../Alignment';
 import { useAnimationNode } from '../AnimatableStyle';
@@ -203,6 +203,17 @@ const sizeThatFits = ({ proposal, props, children, environment }): LayoutMeasure
         // Validate if needed. Causing issues when in a vstack with infinity siblings.
         //minHeight = height
         height = null
+    }
+
+    // A flexible stack is at least as large as its children's known sizes:
+    // their sum (and spacing) along the stack, the largest across it.
+    if (width === Infinity) {
+        const least = Math.max(0, ...sizesOfChildren.map((m) => knownMinimum(m.frame, 'width')))
+        if (least > 0) minWidth = Math.max(minWidth ?? 0, least)
+    }
+    if (height === Infinity) {
+        const least = sizesOfChildren.reduce((sum, m) => sum + knownMinimum(m.frame, 'height'), 0)
+        if (least > 0) minHeight = Math.max(minHeight ?? 0, least + (props.spacing ?? 0) * (sizesOfChildren.length - 1))
     }
 
     const parentOffer = getOffer(environment);

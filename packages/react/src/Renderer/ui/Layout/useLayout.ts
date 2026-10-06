@@ -67,6 +67,7 @@ export function useLayout(props, nodeType: React.ElementType, options: UseLayout
             height: offeredHeight(own.height, parentOffer.height),
         };
         delete newEnvironment.offer;
+        layoutMeasurement.offer = parentOffer;
     }
 
     // Update layout measurement with new environment
