@@ -539,8 +539,9 @@ const RendererContentContainer = styled.div.attrs(props => ({
     }
 
     /* A view that renders as a button or link (Button, Link) keeps the view's look:
-       no browser button or link styling, and the browser's own focus ring. */
-    & :where([data-bindjs-control]) {
+       no browser button or link styling, and the browser's own focus ring.
+       No specificity, so the view's own styles win. */
+    :where(&) :where([data-bindjs-control]) {
         all: unset;
         display: block;
         outline: revert;
