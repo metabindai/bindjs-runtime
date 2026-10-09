@@ -378,6 +378,46 @@ describe('ChartCollector', () => {
             value: 'south',
         });
     });
+
+    // The runtime adds __bindjsScaleDomain (the keys' authoring order) to scale
+    // modifier props; these inputs are copied from its output in the fixture snapshots.
+    it('ignores __bindjsScaleDomain in chartForegroundStyleScale', () => {
+        const model = collectChartModel(
+            [bar('Jan', 12)],
+            [{
+                type: 'chartForegroundStyleScale',
+                props: { North: 'blue', South: 'green', __bindjsScaleDomain: ['North', 'South'], children: [] },
+            }]
+        );
+
+        expect(Object.keys(model.style.foregroundStyleScale ?? {})).toEqual(['North', 'South']);
+        expect(model.diagnostics).toEqual([]);
+    });
+
+    it('ignores __bindjsScaleDomain in chartSymbolScale', () => {
+        const model = collectChartModel(
+            [point('Jan', 12)],
+            [{
+                type: 'chartSymbolScale',
+                props: { circle: 'circle', square: 'square', __bindjsScaleDomain: ['circle', 'square'], children: [] },
+            }]
+        );
+
+        expect(model.style.symbolScale).toEqual({ circle: 'circle', square: 'square' });
+        expect(model.diagnostics).toEqual([]);
+    });
+
+    it('ignores __bindjsScaleDomain in a pie chart foreground scale', () => {
+        const model = collectPieChartModel(
+            [pieSlice('product', 40, 'Product'), pieSlice('services', 60, 'Services')],
+            [{
+                type: 'chartForegroundStyleScale',
+                props: { Product: 'blue', Services: 'green', __bindjsScaleDomain: ['Product', 'Services'], children: [] },
+            }]
+        );
+
+        expect(Object.keys(model.style.foregroundStyleScale ?? {})).toEqual(['Product', 'Services']);
+    });
 });
 
 function bar(x: string, y: number) {
