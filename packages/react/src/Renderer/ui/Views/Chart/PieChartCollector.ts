@@ -242,11 +242,16 @@ function applyPieChartModifier(modifier: ChartModifierDirective, model: PieChart
     }
 }
 
+// Keys on a scale modifier's props that aren't series. The runtime adds
+// __bindjsScaleDomain (the authoring order of the keys) for renderers that
+// need it; left in, it shows up as an extra legend entry.
+const SCALE_META_KEYS = ['children', 'rawValue', 'value', '_type', '__bindjsScaleDomain'];
+
 function foregroundScaleFromProps(props: Record<string, any>, colorScheme?: ChartColorScheme): Record<string, string> {
     const source = props.scale && typeof props.scale === 'object' ? props.scale : props;
     return Object.fromEntries(
         Object.entries(source)
-            .filter(([key]) => !['children', 'rawValue', 'value', '_type'].includes(key))
+            .filter(([key]) => !SCALE_META_KEYS.includes(key))
             .map(([key, value]) => [key, colorFromRaw(value, colorScheme) ?? String(value)])
     );
 }
