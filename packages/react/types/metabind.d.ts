@@ -88,7 +88,7 @@ type DefineComponent = <
             props: InferProps<T extends (...args: any[]) => infer R ? R : T>,
             children: Component[]
         ) => Component;
-        thumbnail?: string | Component;
+        thumbnail?: string | Component | ((props: any, children: Component[]) => Component);
         icon?: string;
         previews?: (() => Component[]) | Component[];
     }
@@ -1353,13 +1353,13 @@ interface Component {
      * Sets the aspect ratio for the component's content.
      *
      * ```js
-     * Image({ url: "photo.jpg" }).resizable().aspectRatio(16/9, "fit")
+     * Image({ url: "photo.jpg" }).resizable().aspectRatio({ aspectRatio: 16/9, contentMode: "fit" })
      * ```
      *
-     * @param aspectRatio The width-to-height ratio (e.g. 1.0 for square). Omit to use the content's intrinsic ratio.
-     * @param contentMode How content fills the frame: "fit" (letterbox) or "fill" (crop).
+     * - `aspectRatio`: the width-to-height ratio (e.g. 1.0 for square). Omit to use the content's intrinsic ratio.
+     * - `contentMode`: how content fills the frame: "fit" (letterbox) or "fill" (crop).
      */
-    aspectRatio(aspectRatio?: number, contentMode?: "fit" | "fill"): Component;
+    aspectRatio(_: { aspectRatio?: number; contentMode?: "fit" | "fill" }): Component;
 
     /** Scales the content to fit within the frame, preserving aspect ratio. May letterbox. */
     scaledToFit(): Component;
@@ -2557,7 +2557,7 @@ interface Shape extends Component {
      * Draws the shape outline.
      *
      * ```js
-     * Circle().stroke(Color("red"), 2)
+     * Circle().stroke({ style: Color("red"), lineWidth: 2 })
      * RoundedRectangle({ cornerRadius: 5 }).stroke(Color("gray"))
      * ```
      */

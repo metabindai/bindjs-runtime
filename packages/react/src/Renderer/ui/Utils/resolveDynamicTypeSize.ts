@@ -395,6 +395,12 @@ const lineHeights = {
     },
 };
 
+const TEXT_STYLE_ALIASES: Record<string, string> = {
+    title1: 'title',
+    subheadline: 'subhead',
+    caption: 'caption1',
+};
+
 // Type for the parameters
 interface ResolveFontSizeParams {
     textStyle?: string;
@@ -433,8 +439,8 @@ export function resolveFont(params: ResolveFontSizeParams): {
             // Default line height to the explicit size if not scaling            
             lineHeight = explicitSize;
 
-            let originalSize = fontSizes['large']?.[textStyle]
-            let currentSize = fontSizes[dynamicTypeSize]?.[textStyle]
+            let originalSize = fontSizes['large']?.[TEXT_STYLE_ALIASES[textStyle] ?? textStyle]
+            let currentSize = fontSizes[dynamicTypeSize]?.[TEXT_STYLE_ALIASES[textStyle] ?? textStyle]
             if (originalSize && currentSize) {
                 let scale = currentSize / originalSize;
 
@@ -455,8 +461,9 @@ export function resolveFont(params: ResolveFontSizeParams): {
 
     // Process text style and dynamic type size
     if (textStyle) {
-        // Normalize text style name (handle title vs title1)
-        const normalizedTextStyle = textStyle === 'title1' ? 'title' : textStyle;
+        // Normalize text style name: the tables use Apple's HIG names (title1,
+        // subhead, caption1), the BindJS API uses SwiftUI's (title, subheadline, caption).
+        const normalizedTextStyle = TEXT_STYLE_ALIASES[textStyle] ?? textStyle;
         
         // Normalize dynamic type size name (handle defaults)
         const normalizedTypeSize = dynamicTypeSize || 'large';
