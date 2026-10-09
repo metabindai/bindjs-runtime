@@ -341,6 +341,17 @@ const preventDecode = {
     PieChart: true
 }
 
+// A plain object with no `type` isn't a view and React can't render it. Streaming tool input
+// can deliver one in place of a child before it becomes a component (e.g. `{}` for a block
+// whose fields haven't arrived yet), which would throw "Objects are not valid as a React
+// child". Render nothing in its place. Objects with a `type` (React elements, retained JSON
+// nodes that chart collectors read) are left alone.
+function renderableChildren(children) {
+    if (Array.isArray(children)) return children.map(renderableChildren);
+    if (children != null && typeof children === 'object' && children.type == null) return null;
+    return children;
+}
+
 /**
  * YapUIDecoder decodes a JSON structure representing YapUI Directives or Variables 
  * into React components or HTML elements. It handles variables, custom components, 
@@ -506,7 +517,7 @@ export function YapUIDecoder(json, viewCallback, resolvedDependanciesCallback) {
             }
 
             // Resolve children
-            const children = props?.children
+            const children = renderableChildren(props?.children)
 
             // Setup node
             const Node = componentsMap[type];
@@ -552,7 +563,7 @@ export function YapUIDecoder(json, viewCallback, resolvedDependanciesCallback) {
 
             const key = (parent?.type ?? 'Element') + "_" + type + "_" + modifierType + "_" + stack + "_" + index;
 
-            return <Node key={key}  {...modifierProps}>{content}</Node>
+            return <Node key={key}  {...modifierProps}>{renderableChildren(content)}</Node>
 
             /**
              * External view dependency
