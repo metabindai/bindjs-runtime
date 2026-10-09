@@ -1,0 +1,314 @@
+{
+  "fixture": "text/TestText",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestText",
+          "props": {},
+          "children": [
+            {
+              "type": "ScrollView",
+              "props": {
+                "children": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "lineSpacing",
+                        "props": {
+                          "rawValue": 4,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "multilineTextAlignment",
+                              "props": {
+                                "rawValue": "leading",
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "VStack",
+                                "props": {
+                                  "alignment": "leading",
+                                  "spacing": 0,
+                                  "children": [
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "background",
+                                          "props": {
+                                            "content": {
+                                              "type": "Color",
+                                              "props": {
+                                                "rawValue": "black",
+                                                "children": [],
+                                                "opacity": 0.1
+                                              }
+                                            },
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "ModifiedComponent",
+                                            "props": {
+                                              "modifier": {
+                                                "type": "font",
+                                                "props": {
+                                                  "rawValue": "largeTitle",
+                                                  "children": []
+                                                }
+                                              },
+                                              "content": [
+                                                {
+                                                  "type": "Text",
+                                                  "props": {
+                                                    "rawValue": "\nLorem ipsum dolor sit amet, consectetur adipiscing elit.\nSed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\n\n1234567890\n👋 👍 👎\n🫠 🫡 🫨\n🏳️‍🌈 🏴‍☠️ 🏳️‍⚧️\n🩵 🩶 🩷\n🪿 🦭 🐿️\n• ‣ ⁃ ◦\n⦿ ⬤ ● ○\n⚫ ⚪ ⬛ ⬜\n▲ ▼ △ ▽\n---",
+                                                    "children": []
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "font",
+                                          "props": {
+                                            "rawValue": "title",
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "Text",
+                                            "props": {
+                                              "rawValue": "\nLorem ipsum dolor sit amet, consectetur adipiscing elit.\nSed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\n\n1234567890\n👋 👍 👎\n🫠 🫡 🫨\n🏳️‍🌈 🏴‍☠️ 🏳️‍⚧️\n🩵 🩶 🩷\n🪿 🦭 🐿️\n• ‣ ⁃ ◦\n⦿ ⬤ ● ○\n⚫ ⚪ ⬛ ⬜\n▲ ▼ △ ▽\n---",
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "font",
+                                          "props": {
+                                            "rawValue": "title2",
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "Text",
+                                            "props": {
+                                              "rawValue": "\nLorem ipsum dolor sit amet, consectetur adipiscing elit.\nSed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\n\n1234567890\n👋 👍 👎\n🫠 🫡 🫨\n🏳️‍🌈 🏴‍☠️ 🏳️‍⚧️\n🩵 🩶 🩷\n🪿 🦭 🐿️\n• ‣ ⁃ ◦\n⦿ ⬤ ● ○\n⚫ ⚪ ⬛ ⬜\n▲ ▼ △ ▽\n---",
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "font",
+                                          "props": {
+                                            "rawValue": "title3",
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "Text",
+                                            "props": {
+                                              "rawValue": "\nLorem ipsum dolor sit amet, consectetur adipiscing elit.\nSed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\n\n1234567890\n👋 👍 👎\n🫠 🫡 🫨\n🏳️‍🌈 🏴‍☠️ 🏳️‍⚧️\n🩵 🩶 🩷\n🪿 🦭 🐿️\n• ‣ ⁃ ◦\n⦿ ⬤ ● ○\n⚫ ⚪ ⬛ ⬜\n▲ ▼ △ ▽\n---",
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "font",
+                                          "props": {
+                                            "rawValue": "headline",
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "Text",
+                                            "props": {
+                                              "rawValue": "\nLorem ipsum dolor sit amet, consectetur adipiscing elit.\nSed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\n\n1234567890\n👋 👍 👎\n🫠 🫡 🫨\n🏳️‍🌈 🏴‍☠️ 🏳️‍⚧️\n🩵 🩶 🩷\n🪿 🦭 🐿️\n• ‣ ⁃ ◦\n⦿ ⬤ ● ○\n⚫ ⚪ ⬛ ⬜\n▲ ▼ △ ▽\n---",
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "font",
+                                          "props": {
+                                            "rawValue": "body",
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "Text",
+                                            "props": {
+                                              "rawValue": "\nLorem ipsum dolor sit amet, consectetur adipiscing elit.\nSed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\n\n1234567890\n👋 👍 👎\n🫠 🫡 🫨\n🏳️‍🌈 🏴‍☠️ 🏳️‍⚧️\n🩵 🩶 🩷\n🪿 🦭 🐿️\n• ‣ ⁃ ◦\n⦿ ⬤ ● ○\n⚫ ⚪ ⬛ ⬜\n▲ ▼ △ ▽\n---",
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "font",
+                                          "props": {
+                                            "rawValue": "callout",
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "Text",
+                                            "props": {
+                                              "rawValue": "\nLorem ipsum dolor sit amet, consectetur adipiscing elit.\nSed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\n\n1234567890\n👋 👍 👎\n🫠 🫡 🫨\n🏳️‍🌈 🏴‍☠️ 🏳️‍⚧️\n🩵 🩶 🩷\n🪿 🦭 🐿️\n• ‣ ⁃ ◦\n⦿ ⬤ ● ○\n⚫ ⚪ ⬛ ⬜\n▲ ▼ △ ▽\n---",
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "font",
+                                          "props": {
+                                            "rawValue": "subheadline",
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "Text",
+                                            "props": {
+                                              "rawValue": "\nLorem ipsum dolor sit amet, consectetur adipiscing elit.\nSed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\n\n1234567890\n👋 👍 👎\n🫠 🫡 🫨\n🏳️‍🌈 🏴‍☠️ 🏳️‍⚧️\n🩵 🩶 🩷\n🪿 🦭 🐿️\n• ‣ ⁃ ◦\n⦿ ⬤ ● ○\n⚫ ⚪ ⬛ ⬜\n▲ ▼ △ ▽\n---",
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "font",
+                                          "props": {
+                                            "rawValue": "footnote",
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "Text",
+                                            "props": {
+                                              "rawValue": "\nLorem ipsum dolor sit amet, consectetur adipiscing elit.\nSed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\n\n1234567890\n👋 👍 👎\n🫠 🫡 🫨\n🏳️‍🌈 🏴‍☠️ 🏳️‍⚧️\n🩵 🩶 🩷\n🪿 🦭 🐿️\n• ‣ ⁃ ◦\n⦿ ⬤ ● ○\n⚫ ⚪ ⬛ ⬜\n▲ ▼ △ ▽\n---",
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "font",
+                                          "props": {
+                                            "rawValue": "caption",
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "Text",
+                                            "props": {
+                                              "rawValue": "\nLorem ipsum dolor sit amet, consectetur adipiscing elit.\nSed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\n\n1234567890\n👋 👍 👎\n🫠 🫡 🫨\n🏳️‍🌈 🏴‍☠️ 🏳️‍⚧️\n🩵 🩶 🩷\n🪿 🦭 🐿️\n• ‣ ⁃ ◦\n⦿ ⬤ ● ○\n⚫ ⚪ ⬛ ⬜\n▲ ▼ △ ▽\n---",
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "font",
+                                          "props": {
+                                            "rawValue": "caption2",
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "Text",
+                                            "props": {
+                                              "rawValue": "\nLorem ipsum dolor sit amet, consectetur adipiscing elit.\nSed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\n\n1234567890\n👋 👍 👎\n🫠 🫡 🫨\n🏳️‍🌈 🏴‍☠️ 🏳️‍⚧️\n🩵 🩶 🩷\n🪿 🦭 🐿️\n• ‣ ⁃ ◦\n⦿ ⬤ ● ○\n⚫ ⚪ ⬛ ⬜\n▲ ▼ △ ▽\n---",
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

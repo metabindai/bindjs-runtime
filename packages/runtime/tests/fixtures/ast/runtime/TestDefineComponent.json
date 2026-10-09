@@ -1,0 +1,255 @@
+{
+  "fixture": "runtime/TestDefineComponent",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestDefineComponent",
+          "props": {},
+          "children": [
+            {
+              "type": "VStack",
+              "props": {
+                "children": [
+                  {
+                    "type": "Text",
+                    "props": {
+                      "rawValue": "Hello abasbasdf 1234 *no title*",
+                      "children": []
+                    }
+                  },
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "background",
+                        "props": {
+                          "content": {
+                            "type": "Color",
+                            "props": {
+                              "rawValue": "green",
+                              "children": []
+                            }
+                          },
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "ComponentCall",
+                          "props": {
+                            "name": "TestDefineComponent",
+                            "props": {
+                              "title": "Hello 1234",
+                              "title2": 1234
+                            },
+                            "children": [
+                              {
+                                "type": "Text",
+                                "props": {
+                                  "rawValue": "My Other Thing Hello 1234",
+                                  "children": []
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "render": "preview 0: First Preview",
+      "errors": [],
+      "ast": {
+        "type": "ModifiedComponent",
+        "props": {
+          "modifier": {
+            "type": "previewName",
+            "props": {
+              "rawValue": "First Preview",
+              "children": []
+            }
+          },
+          "content": [
+            {
+              "type": "ComponentCall",
+              "props": {
+                "name": "TestDefineComponent",
+                "props": {
+                  "title": "Preview XYZ"
+                },
+                "children": [
+                  {
+                    "type": "VStack",
+                    "props": {
+                      "children": [
+                        {
+                          "type": "Text",
+                          "props": {
+                            "rawValue": "Hello abasbasdf 1234 Preview XYZ",
+                            "children": []
+                          }
+                        },
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "background",
+                              "props": {
+                                "content": {
+                                  "type": "Color",
+                                  "props": {
+                                    "rawValue": "green",
+                                    "children": []
+                                  }
+                                },
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "ComponentCall",
+                                "props": {
+                                  "name": "TestDefineComponent",
+                                  "props": {
+                                    "title": "Hello 1234",
+                                    "title2": 1234
+                                  },
+                                  "children": [
+                                    {
+                                      "type": "Text",
+                                      "props": {
+                                        "rawValue": "My Other Thing Hello 1234",
+                                        "children": []
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "render": "preview 1: Blue Background",
+      "errors": [],
+      "ast": {
+        "type": "ModifiedComponent",
+        "props": {
+          "modifier": {
+            "type": "previewName",
+            "props": {
+              "rawValue": "Blue Background",
+              "children": []
+            }
+          },
+          "content": [
+            {
+              "type": "ModifiedComponent",
+              "props": {
+                "modifier": {
+                  "type": "background",
+                  "props": {
+                    "content": {
+                      "type": "Color",
+                      "props": {
+                        "rawValue": "blue",
+                        "children": []
+                      }
+                    },
+                    "children": []
+                  }
+                },
+                "content": [
+                  {
+                    "type": "ComponentCall",
+                    "props": {
+                      "name": "TestDefineComponent",
+                      "props": {
+                        "title": "Preview 2"
+                      },
+                      "children": [
+                        {
+                          "type": "VStack",
+                          "props": {
+                            "children": [
+                              {
+                                "type": "Text",
+                                "props": {
+                                  "rawValue": "Hello abasbasdf 1234 Preview 2",
+                                  "children": []
+                                }
+                              },
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "background",
+                                    "props": {
+                                      "content": {
+                                        "type": "Color",
+                                        "props": {
+                                          "rawValue": "green",
+                                          "children": []
+                                        }
+                                      },
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "ComponentCall",
+                                      "props": {
+                                        "name": "TestDefineComponent",
+                                        "props": {
+                                          "title": "Hello 1234",
+                                          "title2": 1234
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "Text",
+                                            "props": {
+                                              "rawValue": "My Other Thing Hello 1234",
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -1,8 +1,8 @@
 # BindJS Playground (example)
 
-A minimal, self-contained playground for exercising the BindJS **web renderer**
-(`@metabindai/bindjs-react`). Edit a component on the left in TypeScript, see it
-rendered live on the right.
+A minimal, self-contained playground and fixture catalog for exercising the
+BindJS **web renderer** (`@metabindai/bindjs-react`). Pick a fixture in the
+sidebar (or use the Scratch editor), edit it in TypeScript, see it rendered live.
 
 It is deliberately small — **styled-components + Monaco + react-resizable-panels**
 only. No `metabind-ui` / shadcn dependency. Everything `metabind-ui` provided in
@@ -43,6 +43,24 @@ Then open the printed URL (default http://localhost:5180).
 > The renderer and runtime are consumed via `workspace:*` and resolve to their
 > built `dist/`. If you change those packages, rebuild them
 > (`pnpm --filter @metabindai/bindjs-react build`) to see the changes here.
+
+## Fixture catalog
+
+The sidebar lists every fixture in the repo's top-level `fixtures/<category>/<Name>.ts`; **Scratch**
+at the top is the free-form editor. Selecting one opens its source in the editor
+and renders it, with the fixture's `metadata.description` above the preview as
+the "what correct looks like" note. The selection lives in the URL hash
+(`#/layout/TestHStack`), so you can link to a specific case.
+
+- Every fixture is registered in the runtime at startup under its file name, so
+  fixtures can call each other (`LabeledRectangle(...)`, `ButtonStyleTest()`).
+  Don't rename a fixture another one calls.
+- Edits stay in the editor (an orange dot marks edited fixtures) until **Reset**
+  or a page reload. To keep a change, edit the file itself.
+- Runtime errors, which normally just render nothing, appear in the bar under
+  the preview.
+- **Adding a fixture:** see [`fixtures/README.md`](../../fixtures/README.md).
+  New files appear without a restart.
 
 ## What to try
 

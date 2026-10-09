@@ -1,0 +1,46 @@
+{
+  "fixture": "text/TestTextMarkdown",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestTextMarkdown",
+          "props": {},
+          "children": [
+            {
+              "type": "ScrollView",
+              "props": {
+                "children": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "lineSpacing",
+                        "props": {
+                          "rawValue": 4,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "Text",
+                          "props": {
+                            "markdown": "\n# Metabind Presentation for Lowe's\n## Native Mobile CMS Overview\n\n**Target Audience:** Product/Design Team + Engineering Director.\n**Duration:** 30-40 minutes.\n**Goal:** Demonstrate how Metabind enables instant mobile app updates for retail experiences.\n\n\n## Slide 1: Title Slide\n---\n\n### Slide Content\n**Metabind**\nThe Native Mobile CMS for Your iOS & Android App\n\n*Presented to Lowe's*\n[Date]\n\n### Visuals\n* Metabind logo\n* Clean background with subtle retail/home improvement imagery (tools, paint, garden)\n* Optional: Animation showing mobile phone transitioning between different app screens\n\n\n## Slide 3: Introducing Metabind\n---\n\n### Slide Content\n**The First CMS Built for Native Mobile Apps**\n\nManage both **content AND UI** for your iOS and Android app.\n\n**Update layouts, flows, and experiences in minutes—**\nwithout app store delays or developer bottlenecks.\n\n**100% Native on Device**\n\n### Visuals\n- Central image of mobile phone showing beautiful native app interface\n- Surrounding icons showing key capabilities:\n  - CMS icon (content management)\n  - Layout/design icon (UI management)\n  - Clock icon (instant updates)\n  - Native rendering icon (SwiftUI/Jetpack Compose logos)\n- Optional: Short video loop showing an experience being edited in CMS and updating instantly on device\n\n### Speaker Notes\nMetabind is the Native Mobile CMS—the first content management system built specifically to solve this problem for native mobile apps.\n\nUnlike traditional headless CMSs that only manage your content DATA, Metabind manages both your content AND your presentation layer—the UI, the layouts, the flows.\n\nThis means your product and marketing teams can:\n- Update content (product info, images, copy)\n- AND update layouts (how content is structured and displayed)\n- AND update flows (navigation, user journeys)\n\nAll through a visual CMS interface, with changes deploying instantly to users' apps—no app store submission, no waiting for approval, no developer bottleneck.\n\nAnd critically for Lowe's: this isn't done with web views or hybrid compromises. Everything renders as true native components—SwiftUI on iOS, Jetpack Compose on Android—maintaining the premium native experience your customers expect.\n\n---\n",
+                            "children": []
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

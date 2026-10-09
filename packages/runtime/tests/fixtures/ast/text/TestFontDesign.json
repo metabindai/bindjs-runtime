@@ -1,0 +1,102 @@
+{
+  "fixture": "text/TestFontDesign",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestFontDesign",
+          "props": {},
+          "children": [
+            {
+              "type": "ModifiedComponent",
+              "props": {
+                "modifier": {
+                  "type": "font",
+                  "props": {
+                    "rawValue": 24,
+                    "children": []
+                  }
+                },
+                "content": [
+                  {
+                    "type": "VStack",
+                    "props": {
+                      "children": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "fontDesign",
+                              "props": {
+                                "rawValue": "monospaced",
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "Text",
+                                "props": {
+                                  "rawValue": "Monospaced",
+                                  "children": []
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "fontDesign",
+                              "props": {
+                                "rawValue": "rounded",
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "Text",
+                                "props": {
+                                  "rawValue": "Rounded",
+                                  "children": []
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "fontDesign",
+                              "props": {
+                                "rawValue": "serif",
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "Text",
+                                "props": {
+                                  "rawValue": "Serif",
+                                  "children": []
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,206 @@
+{
+  "fixture": "text/TestTextEditor",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestTextEditor",
+          "props": {},
+          "children": [
+            {
+              "type": "ModifiedComponent",
+              "props": {
+                "modifier": {
+                  "type": "padding",
+                  "props": {
+                    "top": 20,
+                    "leading": 0,
+                    "bottom": 0,
+                    "trailing": 0,
+                    "children": []
+                  }
+                },
+                "content": [
+                  {
+                    "type": "VStack",
+                    "props": {
+                      "children": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "frame",
+                              "props": {
+                                "maxHeight": 400,
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "padding",
+                                    "props": {
+                                      "top": 20,
+                                      "leading": 20,
+                                      "bottom": 20,
+                                      "trailing": 20,
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "cornerRadius",
+                                          "props": {
+                                            "rawValue": 10,
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "ModifiedComponent",
+                                            "props": {
+                                              "modifier": {
+                                                "type": "scrollContentBackground",
+                                                "props": {
+                                                  "rawValue": "hidden",
+                                                  "children": []
+                                                }
+                                              },
+                                              "content": [
+                                                {
+                                                  "type": "ModifiedComponent",
+                                                  "props": {
+                                                    "modifier": {
+                                                      "type": "background",
+                                                      "props": {
+                                                        "content": {
+                                                          "type": "Color",
+                                                          "props": {
+                                                            "rawValue": "primary",
+                                                            "children": [],
+                                                            "opacity": 0.1
+                                                          }
+                                                        },
+                                                        "children": []
+                                                      }
+                                                    },
+                                                    "content": [
+                                                      {
+                                                        "type": "ModifiedComponent",
+                                                        "props": {
+                                                          "modifier": {
+                                                            "type": "padding",
+                                                            "props": {
+                                                              "top": 8,
+                                                              "leading": 8,
+                                                              "bottom": 8,
+                                                              "trailing": 8,
+                                                              "children": []
+                                                            }
+                                                          },
+                                                          "content": [
+                                                            {
+                                                              "type": "TextEditor",
+                                                              "props": {
+                                                                "text": "Hello World",
+                                                                "setTextId": "0,TestTextEditor_0,VStack_0,TextEditor_0,setText,0",
+                                                                "children": []
+                                                              }
+                                                            }
+                                                          ]
+                                                        }
+                                                      }
+                                                    ]
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "type": "Divider",
+                          "props": {
+                            "children": []
+                          }
+                        },
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "padding",
+                              "props": {
+                                "top": 20,
+                                "leading": 20,
+                                "bottom": 20,
+                                "trailing": 20,
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "frame",
+                                    "props": {
+                                      "maxWidth": "Infinity",
+                                      "alignment": "leading",
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "font",
+                                          "props": {
+                                            "rawValue": "caption",
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "Text",
+                                            "props": {
+                                              "rawValue": "Hello World",
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

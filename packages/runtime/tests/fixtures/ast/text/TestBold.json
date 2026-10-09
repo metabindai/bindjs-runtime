@@ -1,0 +1,52 @@
+{
+  "fixture": "text/TestBold",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestBold",
+          "props": {},
+          "children": [
+            {
+              "type": "VStack",
+              "props": {
+                "children": [
+                  {
+                    "type": "Text",
+                    "props": {
+                      "rawValue": "Not Bold",
+                      "children": []
+                    }
+                  },
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "bold",
+                        "props": {
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "Text",
+                          "props": {
+                            "rawValue": "Is Bold",
+                            "children": []
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

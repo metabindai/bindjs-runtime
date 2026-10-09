@@ -1,0 +1,27 @@
+{
+  "fixture": "text/CheltenhamStdBoldCond",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "CheltenhamStdBoldCond",
+          "props": {},
+          "children": [
+            {
+              "type": "CustomFont",
+              "props": {
+                "family": "CheltenhamStd-BoldCond",
+                "size": 24,
+                "url": "https://firebasestorage.googleapis.com/v0/b/content-builder-aa1f5.appspot.com/o/Statue%20of%20Liberty%2FCheltenhamStd-BoldCond.otf?alt=media&token=3e183679-e2f2-42ba-b8be-b768c58b047f",
+                "children": []
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

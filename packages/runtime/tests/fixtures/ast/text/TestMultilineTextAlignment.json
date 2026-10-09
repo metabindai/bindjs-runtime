@@ -1,0 +1,103 @@
+{
+  "fixture": "text/TestMultilineTextAlignment",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestMultilineTextAlignment",
+          "props": {},
+          "children": [
+            {
+              "type": "ModifiedComponent",
+              "props": {
+                "modifier": {
+                  "type": "frame",
+                  "props": {
+                    "width": 80,
+                    "children": []
+                  }
+                },
+                "content": [
+                  {
+                    "type": "VStack",
+                    "props": {
+                      "spacing": 20,
+                      "children": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "multilineTextAlignment",
+                              "props": {
+                                "rawValue": "leading",
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "Text",
+                                "props": {
+                                  "rawValue": "Left aligned multiline text",
+                                  "children": []
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "multilineTextAlignment",
+                              "props": {
+                                "rawValue": "center",
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "Text",
+                                "props": {
+                                  "rawValue": "Center aligned multiline text",
+                                  "children": []
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "multilineTextAlignment",
+                              "props": {
+                                "rawValue": "trailing",
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "Text",
+                                "props": {
+                                  "rawValue": "Right aligned multiline text",
+                                  "children": []
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

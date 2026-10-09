@@ -1,0 +1,191 @@
+{
+  "fixture": "charts/TestChartCustomDomain",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestChartCustomDomain",
+          "props": {},
+          "children": [
+            {
+              "type": "ModifiedComponent",
+              "props": {
+                "modifier": {
+                  "type": "frame",
+                  "props": {
+                    "height": 280,
+                    "children": []
+                  }
+                },
+                "content": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "chartYScale",
+                        "props": {
+                          "domain": [
+                            0,
+                            100
+                          ],
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "Chart",
+                          "props": {
+                            "children": [
+                              {
+                                "type": "ForEach",
+                                "props": {
+                                  "dataId": "0,TestChartCustomDomain_0,Chart_0,ForEach_0,ForEach,0",
+                                  "functionId": "0,TestChartCustomDomain_0,Chart_0,ForEach_0,ForEach,0",
+                                  "count": 2,
+                                  "environmentId": "0,TestChartCustomDomain_0,Chart_0,ForEach_0,ForEach,0",
+                                  "$items": [
+                                    {
+                                      "type": "BarMark",
+                                      "props": {
+                                        "x": {
+                                          "value": "Jan"
+                                        },
+                                        "y": {
+                                          "value": 42
+                                        },
+                                        "children": []
+                                      }
+                                    },
+                                    {
+                                      "type": "BarMark",
+                                      "props": {
+                                        "x": {
+                                          "value": "Feb"
+                                        },
+                                        "y": {
+                                          "value": 64
+                                        },
+                                        "children": []
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "render": "preview 0: Default",
+      "errors": [],
+      "ast": {
+        "type": "ModifiedComponent",
+        "props": {
+          "modifier": {
+            "type": "previewName",
+            "props": {
+              "rawValue": "Default",
+              "children": []
+            }
+          },
+          "content": [
+            {
+              "type": "ComponentCall",
+              "props": {
+                "name": "TestChartCustomDomain",
+                "props": {},
+                "children": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "frame",
+                        "props": {
+                          "height": 280,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "chartYScale",
+                              "props": {
+                                "domain": [
+                                  0,
+                                  100
+                                ],
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "Chart",
+                                "props": {
+                                  "children": [
+                                    {
+                                      "type": "ForEach",
+                                      "props": {
+                                        "dataId": "0,TestChartCustomDomain_0,Chart_0,ForEach_0,ForEach,0",
+                                        "functionId": "0,TestChartCustomDomain_0,Chart_0,ForEach_0,ForEach,0",
+                                        "count": 2,
+                                        "environmentId": "0,TestChartCustomDomain_0,Chart_0,ForEach_0,ForEach,0",
+                                        "$items": [
+                                          {
+                                            "type": "BarMark",
+                                            "props": {
+                                              "x": {
+                                                "value": "Jan"
+                                              },
+                                              "y": {
+                                                "value": 42
+                                              },
+                                              "children": []
+                                            }
+                                          },
+                                          {
+                                            "type": "BarMark",
+                                            "props": {
+                                              "x": {
+                                                "value": "Feb"
+                                              },
+                                              "y": {
+                                                "value": 64
+                                              },
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

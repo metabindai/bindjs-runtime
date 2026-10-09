@@ -1,0 +1,158 @@
+{
+  "fixture": "layout/TestDivider",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestDivider",
+          "props": {},
+          "children": [
+            {
+              "type": "VStack",
+              "props": {
+                "spacing": 0,
+                "children": [
+                  {
+                    "type": "HStack",
+                    "props": {
+                      "children": [
+                        {
+                          "type": "Text",
+                          "props": {
+                            "rawValue": "Column 1",
+                            "children": []
+                          }
+                        },
+                        {
+                          "type": "Divider",
+                          "props": {
+                            "children": []
+                          }
+                        },
+                        {
+                          "type": "Text",
+                          "props": {
+                            "rawValue": "Column 2",
+                            "children": []
+                          }
+                        },
+                        {
+                          "type": "Divider",
+                          "props": {
+                            "children": []
+                          }
+                        },
+                        {
+                          "type": "Text",
+                          "props": {
+                            "rawValue": "Column 3",
+                            "children": []
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "VStack",
+                    "props": {
+                      "children": [
+                        {
+                          "type": "Divider",
+                          "props": {
+                            "children": []
+                          }
+                        },
+                        {
+                          "type": "Text",
+                          "props": {
+                            "rawValue": "Row 1",
+                            "children": []
+                          }
+                        },
+                        {
+                          "type": "Divider",
+                          "props": {
+                            "children": []
+                          }
+                        },
+                        {
+                          "type": "Text",
+                          "props": {
+                            "rawValue": "Row 2",
+                            "children": []
+                          }
+                        },
+                        {
+                          "type": "Divider",
+                          "props": {
+                            "children": []
+                          }
+                        },
+                        {
+                          "type": "Text",
+                          "props": {
+                            "rawValue": "Row 3",
+                            "children": []
+                          }
+                        },
+                        {
+                          "type": "Divider",
+                          "props": {
+                            "children": []
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "HStack",
+                    "props": {
+                      "children": [
+                        {
+                          "type": "Text",
+                          "props": {
+                            "rawValue": "Column 1",
+                            "children": []
+                          }
+                        },
+                        {
+                          "type": "Divider",
+                          "props": {
+                            "children": []
+                          }
+                        },
+                        {
+                          "type": "Text",
+                          "props": {
+                            "rawValue": "Column 2",
+                            "children": []
+                          }
+                        },
+                        {
+                          "type": "Divider",
+                          "props": {
+                            "children": []
+                          }
+                        },
+                        {
+                          "type": "Text",
+                          "props": {
+                            "rawValue": "Column 3",
+                            "children": []
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

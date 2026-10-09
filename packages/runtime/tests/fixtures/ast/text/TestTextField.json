@@ -1,0 +1,438 @@
+{
+  "fixture": "text/TestTextField",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestTextField",
+          "props": {},
+          "children": [
+            {
+              "type": "ModifiedComponent",
+              "props": {
+                "modifier": {
+                  "type": "padding",
+                  "props": {
+                    "top": 20,
+                    "leading": 20,
+                    "bottom": 20,
+                    "trailing": 20,
+                    "children": []
+                  }
+                },
+                "content": [
+                  {
+                    "type": "VStack",
+                    "props": {
+                      "spacing": 12,
+                      "children": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "cornerRadius",
+                              "props": {
+                                "rawValue": 20,
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "background",
+                                    "props": {
+                                      "content": {
+                                        "type": "Color",
+                                        "props": {
+                                          "rawValue": "primary",
+                                          "children": [],
+                                          "opacity": 0.1
+                                        }
+                                      },
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "submitLabel",
+                                          "props": {
+                                            "rawValue": "go",
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "ModifiedComponent",
+                                            "props": {
+                                              "modifier": {
+                                                "type": "padding",
+                                                "props": {
+                                                  "top": 8,
+                                                  "leading": 8,
+                                                  "bottom": 8,
+                                                  "trailing": 8,
+                                                  "children": []
+                                                }
+                                              },
+                                              "content": [
+                                                {
+                                                  "type": "TextField",
+                                                  "props": {
+                                                    "text": "TextField",
+                                                    "placeholder": "Write some text..",
+                                                    "setTextId": "0,TestTextField_0,VStack_0,TextField_0,setText,0",
+                                                    "children": []
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "frame",
+                              "props": {
+                                "maxWidth": "Infinity",
+                                "alignment": "leading",
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "font",
+                                    "props": {
+                                      "rawValue": "caption",
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "Text",
+                                      "props": {
+                                        "rawValue": "TextField",
+                                        "children": []
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "padding",
+                              "props": {
+                                "top": 20,
+                                "leading": 0,
+                                "bottom": 20,
+                                "trailing": 0,
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "Divider",
+                                "props": {
+                                  "children": []
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "cornerRadius",
+                              "props": {
+                                "rawValue": 20,
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "background",
+                                    "props": {
+                                      "content": {
+                                        "type": "Color",
+                                        "props": {
+                                          "rawValue": "primary",
+                                          "children": [],
+                                          "opacity": 0.1
+                                        }
+                                      },
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "padding",
+                                          "props": {
+                                            "top": 8,
+                                            "leading": 8,
+                                            "bottom": 8,
+                                            "trailing": 8,
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "SecureField",
+                                            "props": {
+                                              "text": "1234",
+                                              "placeholder": "Write some text..",
+                                              "setTextId": "0,TestTextField_0,VStack_0,SecureField_3,setText,3",
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "frame",
+                              "props": {
+                                "maxWidth": "Infinity",
+                                "alignment": "leading",
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "font",
+                                    "props": {
+                                      "rawValue": "caption",
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "Text",
+                                      "props": {
+                                        "rawValue": "1234",
+                                        "children": []
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "padding",
+                              "props": {
+                                "top": 20,
+                                "leading": 0,
+                                "bottom": 20,
+                                "trailing": 0,
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "Divider",
+                                "props": {
+                                  "children": []
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "onSubmit",
+                              "props": {
+                                "handlerId": "0,TestTextField_0,VStack_0,onSubmit,6",
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "textFieldStyle",
+                                    "props": {
+                                      "rawValue": "roundedBorder",
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "keyboardType",
+                                          "props": {
+                                            "rawValue": "numberPad",
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "ModifiedComponent",
+                                            "props": {
+                                              "modifier": {
+                                                "type": "padding",
+                                                "props": {
+                                                  "top": 8,
+                                                  "leading": 8,
+                                                  "bottom": 8,
+                                                  "trailing": 8,
+                                                  "children": []
+                                                }
+                                              },
+                                              "content": [
+                                                {
+                                                  "type": "ModifiedComponent",
+                                                  "props": {
+                                                    "modifier": {
+                                                      "type": "focused",
+                                                      "props": {
+                                                        "isFocused": false,
+                                                        "setIsFocusedId": "0,TestTextField_0,VStack_0,setIsFocused,6",
+                                                        "children": []
+                                                      }
+                                                    },
+                                                    "content": [
+                                                      {
+                                                        "type": "TextField",
+                                                        "props": {
+                                                          "text": "1234",
+                                                          "placeholder": "Write some text..",
+                                                          "setTextId": "0,TestTextField_0,VStack_0,TextField_6,setText,6",
+                                                          "children": []
+                                                        }
+                                                      }
+                                                    ]
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "frame",
+                              "props": {
+                                "maxWidth": "Infinity",
+                                "alignment": "leading",
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "font",
+                                    "props": {
+                                      "rawValue": "caption",
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "Text",
+                                      "props": {
+                                        "rawValue": "1234",
+                                        "children": []
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "type": "Text",
+                          "props": {
+                            "rawValue": "Not submitted",
+                            "children": []
+                          }
+                        },
+                        {
+                          "type": "Button",
+                          "props": {
+                            "handlerId": "0,TestTextField_0,VStack_0,Button_9,,9",
+                            "label": {
+                              "type": "Text",
+                              "props": {
+                                "rawValue": "Focus number field",
+                                "children": []
+                              }
+                            },
+                            "environmentId": "0,TestTextField_0,VStack_0,Button_9,,9",
+                            "children": []
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

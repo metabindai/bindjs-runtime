@@ -1,0 +1,395 @@
+{
+  "fixture": "charts/TestChartBarMultiSeries",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestChartBarMultiSeries",
+          "props": {},
+          "children": [
+            {
+              "type": "ModifiedComponent",
+              "props": {
+                "modifier": {
+                  "type": "frame",
+                  "props": {
+                    "height": 280,
+                    "children": []
+                  }
+                },
+                "content": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "chartForegroundStyleScale",
+                        "props": {
+                          "North": "blue",
+                          "South": "green",
+                          "__bindjsScaleDomain": [
+                            "North",
+                            "South"
+                          ],
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "Chart",
+                          "props": {
+                            "children": [
+                              {
+                                "type": "ForEach",
+                                "props": {
+                                  "dataId": "0,TestChartBarMultiSeries_0,Chart_0,ForEach_0,ForEach,0",
+                                  "functionId": "0,TestChartBarMultiSeries_0,Chart_0,ForEach_0,ForEach,0",
+                                  "count": 4,
+                                  "environmentId": "0,TestChartBarMultiSeries_0,Chart_0,ForEach_0,ForEach,0",
+                                  "$items": [
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "foregroundStyle",
+                                          "props": {
+                                            "by": {
+                                              "value": "North",
+                                              "label": "Region"
+                                            },
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "BarMark",
+                                            "props": {
+                                              "x": {
+                                                "value": "Jan",
+                                                "label": "Month"
+                                              },
+                                              "y": {
+                                                "value": 12,
+                                                "label": "Revenue"
+                                              },
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "foregroundStyle",
+                                          "props": {
+                                            "by": {
+                                              "value": "South",
+                                              "label": "Region"
+                                            },
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "BarMark",
+                                            "props": {
+                                              "x": {
+                                                "value": "Jan",
+                                                "label": "Month"
+                                              },
+                                              "y": {
+                                                "value": 9,
+                                                "label": "Revenue"
+                                              },
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "foregroundStyle",
+                                          "props": {
+                                            "by": {
+                                              "value": "North",
+                                              "label": "Region"
+                                            },
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "BarMark",
+                                            "props": {
+                                              "x": {
+                                                "value": "Feb",
+                                                "label": "Month"
+                                              },
+                                              "y": {
+                                                "value": 18,
+                                                "label": "Revenue"
+                                              },
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "foregroundStyle",
+                                          "props": {
+                                            "by": {
+                                              "value": "South",
+                                              "label": "Region"
+                                            },
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "BarMark",
+                                            "props": {
+                                              "x": {
+                                                "value": "Feb",
+                                                "label": "Month"
+                                              },
+                                              "y": {
+                                                "value": 15,
+                                                "label": "Revenue"
+                                              },
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "render": "preview 0: Default",
+      "errors": [],
+      "ast": {
+        "type": "ModifiedComponent",
+        "props": {
+          "modifier": {
+            "type": "previewName",
+            "props": {
+              "rawValue": "Default",
+              "children": []
+            }
+          },
+          "content": [
+            {
+              "type": "ComponentCall",
+              "props": {
+                "name": "TestChartBarMultiSeries",
+                "props": {},
+                "children": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "frame",
+                        "props": {
+                          "height": 280,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "chartForegroundStyleScale",
+                              "props": {
+                                "North": "blue",
+                                "South": "green",
+                                "__bindjsScaleDomain": [
+                                  "North",
+                                  "South"
+                                ],
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "Chart",
+                                "props": {
+                                  "children": [
+                                    {
+                                      "type": "ForEach",
+                                      "props": {
+                                        "dataId": "0,TestChartBarMultiSeries_0,Chart_0,ForEach_0,ForEach,0",
+                                        "functionId": "0,TestChartBarMultiSeries_0,Chart_0,ForEach_0,ForEach,0",
+                                        "count": 4,
+                                        "environmentId": "0,TestChartBarMultiSeries_0,Chart_0,ForEach_0,ForEach,0",
+                                        "$items": [
+                                          {
+                                            "type": "ModifiedComponent",
+                                            "props": {
+                                              "modifier": {
+                                                "type": "foregroundStyle",
+                                                "props": {
+                                                  "by": {
+                                                    "value": "North",
+                                                    "label": "Region"
+                                                  },
+                                                  "children": []
+                                                }
+                                              },
+                                              "content": [
+                                                {
+                                                  "type": "BarMark",
+                                                  "props": {
+                                                    "x": {
+                                                      "value": "Jan",
+                                                      "label": "Month"
+                                                    },
+                                                    "y": {
+                                                      "value": 12,
+                                                      "label": "Revenue"
+                                                    },
+                                                    "children": []
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          {
+                                            "type": "ModifiedComponent",
+                                            "props": {
+                                              "modifier": {
+                                                "type": "foregroundStyle",
+                                                "props": {
+                                                  "by": {
+                                                    "value": "South",
+                                                    "label": "Region"
+                                                  },
+                                                  "children": []
+                                                }
+                                              },
+                                              "content": [
+                                                {
+                                                  "type": "BarMark",
+                                                  "props": {
+                                                    "x": {
+                                                      "value": "Jan",
+                                                      "label": "Month"
+                                                    },
+                                                    "y": {
+                                                      "value": 9,
+                                                      "label": "Revenue"
+                                                    },
+                                                    "children": []
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          {
+                                            "type": "ModifiedComponent",
+                                            "props": {
+                                              "modifier": {
+                                                "type": "foregroundStyle",
+                                                "props": {
+                                                  "by": {
+                                                    "value": "North",
+                                                    "label": "Region"
+                                                  },
+                                                  "children": []
+                                                }
+                                              },
+                                              "content": [
+                                                {
+                                                  "type": "BarMark",
+                                                  "props": {
+                                                    "x": {
+                                                      "value": "Feb",
+                                                      "label": "Month"
+                                                    },
+                                                    "y": {
+                                                      "value": 18,
+                                                      "label": "Revenue"
+                                                    },
+                                                    "children": []
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          {
+                                            "type": "ModifiedComponent",
+                                            "props": {
+                                              "modifier": {
+                                                "type": "foregroundStyle",
+                                                "props": {
+                                                  "by": {
+                                                    "value": "South",
+                                                    "label": "Region"
+                                                  },
+                                                  "children": []
+                                                }
+                                              },
+                                              "content": [
+                                                {
+                                                  "type": "BarMark",
+                                                  "props": {
+                                                    "x": {
+                                                      "value": "Feb",
+                                                      "label": "Month"
+                                                    },
+                                                    "y": {
+                                                      "value": 15,
+                                                      "label": "Revenue"
+                                                    },
+                                                    "children": []
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

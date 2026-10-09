@@ -1,0 +1,88 @@
+{
+  "fixture": "state/TestUseStoreHook",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestUseStoreHook",
+          "props": {},
+          "children": [
+            {
+              "type": "VStack",
+              "props": {
+                "children": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "onTapGesture",
+                        "props": {
+                          "handlerId": "0,TestUseStoreHook_0,VStack_0,onTapGesture,0",
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "Text",
+                          "props": {
+                            "rawValue": "useStore 1",
+                            "children": []
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "onTapGesture",
+                        "props": {
+                          "handlerId": "0,TestUseStoreHook_0,VStack_0,onTapGesture,1",
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "Text",
+                          "props": {
+                            "rawValue": "useStore 2 {\"name\":\"Hello\"}",
+                            "children": []
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "onTapGesture",
+                        "props": {
+                          "handlerId": "0,TestUseStoreHook_0,VStack_0,onTapGesture,2",
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "Text",
+                          "props": {
+                            "rawValue": "useStore Scope a",
+                            "children": []
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

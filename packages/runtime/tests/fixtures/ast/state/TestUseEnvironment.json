@@ -1,0 +1,80 @@
+{
+  "fixture": "state/TestUseEnvironment",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestUseEnvironment",
+          "props": {},
+          "children": [
+            {
+              "type": "ModifiedComponent",
+              "props": {
+                "modifier": {
+                  "type": "environment",
+                  "props": {
+                    "environmentKey": "screen",
+                    "value": {
+                      "width": 23,
+                      "height": 44
+                    },
+                    "children": []
+                  }
+                },
+                "content": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "environment",
+                        "props": {
+                          "environmentKey": "someValue",
+                          "value": 1,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "VStack",
+                          "props": {
+                            "children": [
+                              {
+                                "type": "ComponentCall",
+                                "props": {
+                                  "name": "TestUseEnvironment",
+                                  "props": {},
+                                  "children": [
+                                    {
+                                      "type": "Text",
+                                      "props": {
+                                        "rawValue": "Other {\"width\":23,\"height\":44}",
+                                        "children": []
+                                      }
+                                    }
+                                  ]
+                                }
+                              },
+                              {
+                                "type": "Text",
+                                "props": {
+                                  "children": []
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

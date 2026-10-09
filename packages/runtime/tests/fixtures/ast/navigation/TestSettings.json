@@ -1,0 +1,499 @@
+{
+  "fixture": "navigation/TestSettings",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestSettings",
+          "props": {},
+          "children": [
+            {
+              "type": "NavigationStack",
+              "props": {
+                "children": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "navigationTitle",
+                        "props": {
+                          "rawValue": "Settings",
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "List",
+                          "props": {
+                            "children": [
+                              {
+                                "type": "Section",
+                                "props": {
+                                  "header": {
+                                    "type": "Text",
+                                    "props": {
+                                      "rawValue": "General",
+                                      "children": []
+                                    }
+                                  },
+                                  "children": [
+                                    {
+                                      "type": "NavigationLink",
+                                      "props": {
+                                        "destinationHandlerId": "0,TestSettings_0,NavigationStack_0,List_0,Section_0,NavigationLink_0,NavigationLink_destination,0",
+                                        "label": {
+                                          "type": "HStack",
+                                          "props": {
+                                            "alignment": "center",
+                                            "children": [
+                                              {
+                                                "type": "ModifiedComponent",
+                                                "props": {
+                                                  "modifier": {
+                                                    "type": "font",
+                                                    "props": {
+                                                      "rawValue": "body",
+                                                      "children": []
+                                                    }
+                                                  },
+                                                  "content": [
+                                                    {
+                                                      "type": "Text",
+                                                      "props": {
+                                                        "rawValue": "About",
+                                                        "children": []
+                                                      }
+                                                    }
+                                                  ]
+                                                }
+                                              }
+                                            ]
+                                          }
+                                        },
+                                        "environmentId": "0,TestSettings_0,NavigationStack_0,List_0,Section_0,NavigationLink_0,,0",
+                                        "children": []
+                                      }
+                                    },
+                                    {
+                                      "type": "HStack",
+                                      "props": {
+                                        "alignment": "center",
+                                        "children": [
+                                          {
+                                            "type": "Text",
+                                            "props": {
+                                              "rawValue": "Software Update",
+                                              "children": []
+                                            }
+                                          },
+                                          {
+                                            "type": "Spacer",
+                                            "props": {
+                                              "children": []
+                                            }
+                                          },
+                                          {
+                                            "type": "ModifiedComponent",
+                                            "props": {
+                                              "modifier": {
+                                                "type": "foregroundStyle",
+                                                "props": {
+                                                  "rawValue": {
+                                                    "type": "Color",
+                                                    "props": {
+                                                      "rawValue": "secondary",
+                                                      "children": []
+                                                    }
+                                                  },
+                                                  "children": []
+                                                }
+                                              },
+                                              "content": [
+                                                {
+                                                  "type": "Text",
+                                                  "props": {
+                                                    "rawValue": "None",
+                                                    "children": []
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              },
+                              {
+                                "type": "Section",
+                                "props": {
+                                  "header": {
+                                    "type": "Text",
+                                    "props": {
+                                      "rawValue": "Connectivity",
+                                      "children": []
+                                    }
+                                  },
+                                  "children": [
+                                    {
+                                      "type": "Toggle",
+                                      "props": {
+                                        "label": "Wi-Fi",
+                                        "isOn": true,
+                                        "setIsOnId": "0,TestSettings_0,NavigationStack_0,List_0,Section_1,Toggle_0,setIsOn,0",
+                                        "children": []
+                                      }
+                                    },
+                                    {
+                                      "type": "Toggle",
+                                      "props": {
+                                        "label": "Notifications",
+                                        "isOn": false,
+                                        "setIsOnId": "0,TestSettings_0,NavigationStack_0,List_0,Section_1,Toggle_1,setIsOn,1",
+                                        "children": []
+                                      }
+                                    }
+                                  ]
+                                }
+                              },
+                              {
+                                "type": "Section",
+                                "props": {
+                                  "header": {
+                                    "type": "Text",
+                                    "props": {
+                                      "rawValue": "Account",
+                                      "children": []
+                                    }
+                                  },
+                                  "children": [
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "onTapGesture",
+                                          "props": {
+                                            "handlerId": "0,TestSettings_0,NavigationStack_0,List_0,Section_2,onTapGesture,0",
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "HStack",
+                                            "props": {
+                                              "children": [
+                                                {
+                                                  "type": "ModifiedComponent",
+                                                  "props": {
+                                                    "modifier": {
+                                                      "type": "foregroundStyle",
+                                                      "props": {
+                                                        "rawValue": {
+                                                          "type": "Color",
+                                                          "props": {
+                                                            "rawValue": "red",
+                                                            "children": []
+                                                          }
+                                                        },
+                                                        "children": []
+                                                      }
+                                                    },
+                                                    "content": [
+                                                      {
+                                                        "type": "Text",
+                                                        "props": {
+                                                          "rawValue": "Sign Out",
+                                                          "children": []
+                                                        }
+                                                      }
+                                                    ]
+                                                  }
+                                                },
+                                                {
+                                                  "type": "Spacer",
+                                                  "props": {
+                                                    "children": []
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "render": "preview 0: Default Settings Screen",
+      "errors": [],
+      "ast": {
+        "type": "ModifiedComponent",
+        "props": {
+          "modifier": {
+            "type": "previewName",
+            "props": {
+              "rawValue": "Default Settings Screen",
+              "children": []
+            }
+          },
+          "content": [
+            {
+              "type": "ComponentCall",
+              "props": {
+                "name": "TestSettings",
+                "props": {},
+                "children": [
+                  {
+                    "type": "NavigationStack",
+                    "props": {
+                      "children": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "navigationTitle",
+                              "props": {
+                                "rawValue": "Settings",
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "List",
+                                "props": {
+                                  "children": [
+                                    {
+                                      "type": "Section",
+                                      "props": {
+                                        "header": {
+                                          "type": "Text",
+                                          "props": {
+                                            "rawValue": "General",
+                                            "children": []
+                                          }
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "NavigationLink",
+                                            "props": {
+                                              "destinationHandlerId": "0,TestSettings_0,NavigationStack_0,List_0,Section_0,NavigationLink_0,NavigationLink_destination,0",
+                                              "label": {
+                                                "type": "HStack",
+                                                "props": {
+                                                  "alignment": "center",
+                                                  "children": [
+                                                    {
+                                                      "type": "ModifiedComponent",
+                                                      "props": {
+                                                        "modifier": {
+                                                          "type": "font",
+                                                          "props": {
+                                                            "rawValue": "body",
+                                                            "children": []
+                                                          }
+                                                        },
+                                                        "content": [
+                                                          {
+                                                            "type": "Text",
+                                                            "props": {
+                                                              "rawValue": "About",
+                                                              "children": []
+                                                            }
+                                                          }
+                                                        ]
+                                                      }
+                                                    }
+                                                  ]
+                                                }
+                                              },
+                                              "environmentId": "0,TestSettings_0,NavigationStack_0,List_0,Section_0,NavigationLink_0,,0",
+                                              "children": []
+                                            }
+                                          },
+                                          {
+                                            "type": "HStack",
+                                            "props": {
+                                              "alignment": "center",
+                                              "children": [
+                                                {
+                                                  "type": "Text",
+                                                  "props": {
+                                                    "rawValue": "Software Update",
+                                                    "children": []
+                                                  }
+                                                },
+                                                {
+                                                  "type": "Spacer",
+                                                  "props": {
+                                                    "children": []
+                                                  }
+                                                },
+                                                {
+                                                  "type": "ModifiedComponent",
+                                                  "props": {
+                                                    "modifier": {
+                                                      "type": "foregroundStyle",
+                                                      "props": {
+                                                        "rawValue": {
+                                                          "type": "Color",
+                                                          "props": {
+                                                            "rawValue": "secondary",
+                                                            "children": []
+                                                          }
+                                                        },
+                                                        "children": []
+                                                      }
+                                                    },
+                                                    "content": [
+                                                      {
+                                                        "type": "Text",
+                                                        "props": {
+                                                          "rawValue": "None",
+                                                          "children": []
+                                                        }
+                                                      }
+                                                    ]
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "type": "Section",
+                                      "props": {
+                                        "header": {
+                                          "type": "Text",
+                                          "props": {
+                                            "rawValue": "Connectivity",
+                                            "children": []
+                                          }
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "Toggle",
+                                            "props": {
+                                              "label": "Wi-Fi",
+                                              "isOn": true,
+                                              "setIsOnId": "0,TestSettings_0,NavigationStack_0,List_0,Section_1,Toggle_0,setIsOn,0",
+                                              "children": []
+                                            }
+                                          },
+                                          {
+                                            "type": "Toggle",
+                                            "props": {
+                                              "label": "Notifications",
+                                              "isOn": false,
+                                              "setIsOnId": "0,TestSettings_0,NavigationStack_0,List_0,Section_1,Toggle_1,setIsOn,1",
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "type": "Section",
+                                      "props": {
+                                        "header": {
+                                          "type": "Text",
+                                          "props": {
+                                            "rawValue": "Account",
+                                            "children": []
+                                          }
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "ModifiedComponent",
+                                            "props": {
+                                              "modifier": {
+                                                "type": "onTapGesture",
+                                                "props": {
+                                                  "handlerId": "0,TestSettings_0,NavigationStack_0,List_0,Section_2,onTapGesture,0",
+                                                  "children": []
+                                                }
+                                              },
+                                              "content": [
+                                                {
+                                                  "type": "HStack",
+                                                  "props": {
+                                                    "children": [
+                                                      {
+                                                        "type": "ModifiedComponent",
+                                                        "props": {
+                                                          "modifier": {
+                                                            "type": "foregroundStyle",
+                                                            "props": {
+                                                              "rawValue": {
+                                                                "type": "Color",
+                                                                "props": {
+                                                                  "rawValue": "red",
+                                                                  "children": []
+                                                                }
+                                                              },
+                                                              "children": []
+                                                            }
+                                                          },
+                                                          "content": [
+                                                            {
+                                                              "type": "Text",
+                                                              "props": {
+                                                                "rawValue": "Sign Out",
+                                                                "children": []
+                                                              }
+                                                            }
+                                                          ]
+                                                        }
+                                                      },
+                                                      {
+                                                        "type": "Spacer",
+                                                        "props": {
+                                                          "children": []
+                                                        }
+                                                      }
+                                                    ]
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

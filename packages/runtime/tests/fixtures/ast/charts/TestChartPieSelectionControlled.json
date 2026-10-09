@@ -1,0 +1,269 @@
+{
+  "fixture": "charts/TestChartPieSelectionControlled",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestChartPieSelectionControlled",
+          "props": {},
+          "children": [
+            {
+              "type": "VStack",
+              "props": {
+                "spacing": 12,
+                "children": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "frame",
+                        "props": {
+                          "height": 280,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "chartSelection",
+                              "props": {
+                                "value": "product",
+                                "onChangeId": "0,TestChartPieSelectionControlled_0,VStack_0,onChange,0",
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "PieChart",
+                                "props": {
+                                  "children": [
+                                    {
+                                      "type": "PieSliceMark",
+                                      "props": {
+                                        "id": "product",
+                                        "value": 45,
+                                        "label": "Product",
+                                        "children": []
+                                      }
+                                    },
+                                    {
+                                      "type": "PieSliceMark",
+                                      "props": {
+                                        "id": "services",
+                                        "value": 35,
+                                        "label": "Services",
+                                        "children": []
+                                      }
+                                    },
+                                    {
+                                      "type": "PieSliceMark",
+                                      "props": {
+                                        "id": "support",
+                                        "value": 20,
+                                        "label": "Support",
+                                        "children": []
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "foregroundStyle",
+                        "props": {
+                          "rawValue": {
+                            "type": "Color",
+                            "props": {
+                              "rawValue": "secondary",
+                              "children": []
+                            }
+                          },
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "font",
+                              "props": {
+                                "rawValue": "caption",
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "Text",
+                                "props": {
+                                  "rawValue": "Selected: product",
+                                  "children": []
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "render": "preview 0: Default",
+      "errors": [],
+      "ast": {
+        "type": "ModifiedComponent",
+        "props": {
+          "modifier": {
+            "type": "previewName",
+            "props": {
+              "rawValue": "Default",
+              "children": []
+            }
+          },
+          "content": [
+            {
+              "type": "ComponentCall",
+              "props": {
+                "name": "TestChartPieSelectionControlled",
+                "props": {},
+                "children": [
+                  {
+                    "type": "VStack",
+                    "props": {
+                      "spacing": 12,
+                      "children": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "frame",
+                              "props": {
+                                "height": 280,
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "chartSelection",
+                                    "props": {
+                                      "value": "product",
+                                      "onChangeId": "0,TestChartPieSelectionControlled_0,VStack_0,onChange,0",
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "PieChart",
+                                      "props": {
+                                        "children": [
+                                          {
+                                            "type": "PieSliceMark",
+                                            "props": {
+                                              "id": "product",
+                                              "value": 45,
+                                              "label": "Product",
+                                              "children": []
+                                            }
+                                          },
+                                          {
+                                            "type": "PieSliceMark",
+                                            "props": {
+                                              "id": "services",
+                                              "value": 35,
+                                              "label": "Services",
+                                              "children": []
+                                            }
+                                          },
+                                          {
+                                            "type": "PieSliceMark",
+                                            "props": {
+                                              "id": "support",
+                                              "value": 20,
+                                              "label": "Support",
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "foregroundStyle",
+                              "props": {
+                                "rawValue": {
+                                  "type": "Color",
+                                  "props": {
+                                    "rawValue": "secondary",
+                                    "children": []
+                                  }
+                                },
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "font",
+                                    "props": {
+                                      "rawValue": "caption",
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "Text",
+                                      "props": {
+                                        "rawValue": "Selected: product",
+                                        "children": []
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

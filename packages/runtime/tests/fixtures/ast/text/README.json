@@ -1,0 +1,151 @@
+{
+  "fixture": "text/README",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "README",
+          "props": {},
+          "children": [
+            {
+              "type": "ModifiedComponent",
+              "props": {
+                "modifier": {
+                  "type": "shadow",
+                  "props": {
+                    "y": 10,
+                    "radius": 20,
+                    "color": {
+                      "type": "Color",
+                      "props": {
+                        "rawValue": "black",
+                        "children": [],
+                        "opacity": 0.1
+                      }
+                    },
+                    "children": []
+                  }
+                },
+                "content": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "frame",
+                        "props": {
+                          "maxWidth": 800,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "padding",
+                              "props": {
+                                "top": 30,
+                                "leading": 30,
+                                "bottom": 30,
+                                "trailing": 30,
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "cornerRadius",
+                                    "props": {
+                                      "rawValue": 20,
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "background",
+                                          "props": {
+                                            "content": {
+                                              "type": "Color",
+                                              "props": {
+                                                "rawValue": "white",
+                                                "children": []
+                                              }
+                                            },
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "ScrollView",
+                                            "props": {
+                                              "children": [
+                                                {
+                                                  "type": "ModifiedComponent",
+                                                  "props": {
+                                                    "modifier": {
+                                                      "type": "lineSpacing",
+                                                      "props": {
+                                                        "rawValue": 5,
+                                                        "children": []
+                                                      }
+                                                    },
+                                                    "content": [
+                                                      {
+                                                        "type": "ModifiedComponent",
+                                                        "props": {
+                                                          "modifier": {
+                                                            "type": "padding",
+                                                            "props": {
+                                                              "top": 50,
+                                                              "leading": 50,
+                                                              "bottom": 50,
+                                                              "trailing": 50,
+                                                              "children": []
+                                                            }
+                                                          },
+                                                          "content": [
+                                                            {
+                                                              "type": "Text",
+                                                              "props": {
+                                                                "markdown": "\n# Metabind テストスイートへようこそ\n\n---\n\nこのプロジェクトを使用して、さまざまなBindJS機能をテストしてください。\nこれはいくつかのテキストです。\n\nこんにちは。\n\n* これは箇条書きです。\n* これは別の箇条書きポイントです。\n\n",
+                                                                "children": []
+                                                              }
+                                                            }
+                                                          ]
+                                                        }
+                                                      }
+                                                    ]
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

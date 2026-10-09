@@ -1,0 +1,241 @@
+{
+  "fixture": "charts/TestChartLegendHidden",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestChartLegendHidden",
+          "props": {},
+          "children": [
+            {
+              "type": "ModifiedComponent",
+              "props": {
+                "modifier": {
+                  "type": "frame",
+                  "props": {
+                    "height": 280,
+                    "children": []
+                  }
+                },
+                "content": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "chartLegend",
+                        "props": {
+                          "hidden": true,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "Chart",
+                          "props": {
+                            "children": [
+                              {
+                                "type": "ForEach",
+                                "props": {
+                                  "dataId": "0,TestChartLegendHidden_0,Chart_0,ForEach_0,ForEach,0",
+                                  "functionId": "0,TestChartLegendHidden_0,Chart_0,ForEach_0,ForEach,0",
+                                  "count": 2,
+                                  "environmentId": "0,TestChartLegendHidden_0,Chart_0,ForEach_0,ForEach,0",
+                                  "$items": [
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "foregroundStyle",
+                                          "props": {
+                                            "by": "North",
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "BarMark",
+                                            "props": {
+                                              "x": {
+                                                "value": "Jan"
+                                              },
+                                              "y": {
+                                                "value": 12
+                                              },
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "foregroundStyle",
+                                          "props": {
+                                            "by": "South",
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "BarMark",
+                                            "props": {
+                                              "x": {
+                                                "value": "Jan"
+                                              },
+                                              "y": {
+                                                "value": 9
+                                              },
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "render": "preview 0: Default",
+      "errors": [],
+      "ast": {
+        "type": "ModifiedComponent",
+        "props": {
+          "modifier": {
+            "type": "previewName",
+            "props": {
+              "rawValue": "Default",
+              "children": []
+            }
+          },
+          "content": [
+            {
+              "type": "ComponentCall",
+              "props": {
+                "name": "TestChartLegendHidden",
+                "props": {},
+                "children": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "frame",
+                        "props": {
+                          "height": 280,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "chartLegend",
+                              "props": {
+                                "hidden": true,
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "Chart",
+                                "props": {
+                                  "children": [
+                                    {
+                                      "type": "ForEach",
+                                      "props": {
+                                        "dataId": "0,TestChartLegendHidden_0,Chart_0,ForEach_0,ForEach,0",
+                                        "functionId": "0,TestChartLegendHidden_0,Chart_0,ForEach_0,ForEach,0",
+                                        "count": 2,
+                                        "environmentId": "0,TestChartLegendHidden_0,Chart_0,ForEach_0,ForEach,0",
+                                        "$items": [
+                                          {
+                                            "type": "ModifiedComponent",
+                                            "props": {
+                                              "modifier": {
+                                                "type": "foregroundStyle",
+                                                "props": {
+                                                  "by": "North",
+                                                  "children": []
+                                                }
+                                              },
+                                              "content": [
+                                                {
+                                                  "type": "BarMark",
+                                                  "props": {
+                                                    "x": {
+                                                      "value": "Jan"
+                                                    },
+                                                    "y": {
+                                                      "value": 12
+                                                    },
+                                                    "children": []
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          {
+                                            "type": "ModifiedComponent",
+                                            "props": {
+                                              "modifier": {
+                                                "type": "foregroundStyle",
+                                                "props": {
+                                                  "by": "South",
+                                                  "children": []
+                                                }
+                                              },
+                                              "content": [
+                                                {
+                                                  "type": "BarMark",
+                                                  "props": {
+                                                    "x": {
+                                                      "value": "Jan"
+                                                    },
+                                                    "y": {
+                                                      "value": 9
+                                                    },
+                                                    "children": []
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

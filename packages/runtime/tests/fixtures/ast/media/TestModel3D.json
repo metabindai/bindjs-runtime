@@ -1,0 +1,27 @@
+{
+  "fixture": "media/TestModel3D",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestModel3D",
+          "props": {},
+          "children": [
+            {
+              "type": "Model3D",
+              "props": {
+                "url": "https://cdn-dev.metabind.ai/213236ac-f3a9-416a-b371-d13bee51593e/bSxSS25yiIRLSytQin9f/components/cV4i4p5ksldMc8oI9xdN/latest/assets/lhK7Bbz4D8Z6MWb1njih/distortus_rex2-25P.glb",
+                "cameraControls": true,
+                "autoRotate": true,
+                "children": []
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

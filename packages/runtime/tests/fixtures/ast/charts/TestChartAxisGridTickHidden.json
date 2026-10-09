@@ -1,0 +1,193 @@
+{
+  "fixture": "charts/TestChartAxisGridTickHidden",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestChartAxisGridTickHidden",
+          "props": {},
+          "children": [
+            {
+              "type": "ModifiedComponent",
+              "props": {
+                "modifier": {
+                  "type": "frame",
+                  "props": {
+                    "height": 280,
+                    "children": []
+                  }
+                },
+                "content": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "chartYAxis",
+                        "props": {
+                          "labelsHidden": true,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "chartXAxis",
+                              "props": {
+                                "ticksHidden": true,
+                                "gridHidden": true,
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "Chart",
+                                "props": {
+                                  "children": [
+                                    {
+                                      "type": "LineMark",
+                                      "props": {
+                                        "x": {
+                                          "value": "Jan"
+                                        },
+                                        "y": {
+                                          "value": 12
+                                        },
+                                        "children": []
+                                      }
+                                    },
+                                    {
+                                      "type": "LineMark",
+                                      "props": {
+                                        "x": {
+                                          "value": "Feb"
+                                        },
+                                        "y": {
+                                          "value": 18
+                                        },
+                                        "children": []
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "render": "preview 0: Default",
+      "errors": [],
+      "ast": {
+        "type": "ModifiedComponent",
+        "props": {
+          "modifier": {
+            "type": "previewName",
+            "props": {
+              "rawValue": "Default",
+              "children": []
+            }
+          },
+          "content": [
+            {
+              "type": "ComponentCall",
+              "props": {
+                "name": "TestChartAxisGridTickHidden",
+                "props": {},
+                "children": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "frame",
+                        "props": {
+                          "height": 280,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "chartYAxis",
+                              "props": {
+                                "labelsHidden": true,
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "chartXAxis",
+                                    "props": {
+                                      "ticksHidden": true,
+                                      "gridHidden": true,
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "Chart",
+                                      "props": {
+                                        "children": [
+                                          {
+                                            "type": "LineMark",
+                                            "props": {
+                                              "x": {
+                                                "value": "Jan"
+                                              },
+                                              "y": {
+                                                "value": 12
+                                              },
+                                              "children": []
+                                            }
+                                          },
+                                          {
+                                            "type": "LineMark",
+                                            "props": {
+                                              "x": {
+                                                "value": "Feb"
+                                              },
+                                              "y": {
+                                                "value": 18
+                                              },
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

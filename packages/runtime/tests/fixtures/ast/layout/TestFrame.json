@@ -1,0 +1,32 @@
+{
+  "fixture": "layout/TestFrame",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestFrame",
+          "props": {},
+          "children": [
+            {
+              "type": "VStack",
+              "props": {
+                "children": [
+                  {
+                    "type": "Text",
+                    "props": {
+                      "rawValue": "TestFrame",
+                      "children": []
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

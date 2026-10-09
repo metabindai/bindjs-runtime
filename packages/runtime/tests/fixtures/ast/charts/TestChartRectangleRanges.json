@@ -1,0 +1,269 @@
+{
+  "fixture": "charts/TestChartRectangleRanges",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestChartRectangleRanges",
+          "props": {},
+          "children": [
+            {
+              "type": "ModifiedComponent",
+              "props": {
+                "modifier": {
+                  "type": "frame",
+                  "props": {
+                    "width": 600,
+                    "children": []
+                  }
+                },
+                "content": [
+                  {
+                    "type": "VStack",
+                    "props": {
+                      "children": [
+                        {
+                          "type": "Chart",
+                          "props": {
+                            "children": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "foregroundStyle",
+                                    "props": {
+                                      "rawValue": {
+                                        "type": "Color",
+                                        "props": {
+                                          "rawValue": "blue",
+                                          "children": []
+                                        }
+                                      },
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "RectangleMark",
+                                      "props": {
+                                        "x": {
+                                          "value": "Jan",
+                                          "label": "Start"
+                                        },
+                                        "x2": {
+                                          "value": "Feb",
+                                          "label": "End"
+                                        },
+                                        "y": {
+                                          "value": "North",
+                                          "label": "Start region"
+                                        },
+                                        "y2": {
+                                          "value": "South",
+                                          "label": "End region"
+                                        },
+                                        "children": []
+                                      }
+                                    }
+                                  ]
+                                }
+                              },
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "foregroundStyle",
+                                    "props": {
+                                      "rawValue": {
+                                        "type": "Color",
+                                        "props": {
+                                          "rawValue": "green",
+                                          "children": []
+                                        }
+                                      },
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "RectangleMark",
+                                      "props": {
+                                        "x": {
+                                          "value": "Feb",
+                                          "label": "Start"
+                                        },
+                                        "x2": {
+                                          "value": "Mar",
+                                          "label": "End"
+                                        },
+                                        "y": {
+                                          "value": "South",
+                                          "label": "Start region"
+                                        },
+                                        "y2": {
+                                          "value": "West",
+                                          "label": "End region"
+                                        },
+                                        "children": []
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "render": "preview 0: Default",
+      "errors": [],
+      "ast": {
+        "type": "ModifiedComponent",
+        "props": {
+          "modifier": {
+            "type": "previewName",
+            "props": {
+              "rawValue": "Default",
+              "children": []
+            }
+          },
+          "content": [
+            {
+              "type": "ComponentCall",
+              "props": {
+                "name": "TestChartRectangleRanges",
+                "props": {},
+                "children": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "frame",
+                        "props": {
+                          "width": 600,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "VStack",
+                          "props": {
+                            "children": [
+                              {
+                                "type": "Chart",
+                                "props": {
+                                  "children": [
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "foregroundStyle",
+                                          "props": {
+                                            "rawValue": {
+                                              "type": "Color",
+                                              "props": {
+                                                "rawValue": "blue",
+                                                "children": []
+                                              }
+                                            },
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "RectangleMark",
+                                            "props": {
+                                              "x": {
+                                                "value": "Jan",
+                                                "label": "Start"
+                                              },
+                                              "x2": {
+                                                "value": "Feb",
+                                                "label": "End"
+                                              },
+                                              "y": {
+                                                "value": "North",
+                                                "label": "Start region"
+                                              },
+                                              "y2": {
+                                                "value": "South",
+                                                "label": "End region"
+                                              },
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "foregroundStyle",
+                                          "props": {
+                                            "rawValue": {
+                                              "type": "Color",
+                                              "props": {
+                                                "rawValue": "green",
+                                                "children": []
+                                              }
+                                            },
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "RectangleMark",
+                                            "props": {
+                                              "x": {
+                                                "value": "Feb",
+                                                "label": "Start"
+                                              },
+                                              "x2": {
+                                                "value": "Mar",
+                                                "label": "End"
+                                              },
+                                              "y": {
+                                                "value": "South",
+                                                "label": "Start region"
+                                              },
+                                              "y2": {
+                                                "value": "West",
+                                                "label": "End region"
+                                              },
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

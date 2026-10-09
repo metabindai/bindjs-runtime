@@ -1,0 +1,225 @@
+{
+  "fixture": "charts/TestChartLineSingle",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestChartLineSingle",
+          "props": {},
+          "children": [
+            {
+              "type": "ModifiedComponent",
+              "props": {
+                "modifier": {
+                  "type": "frame",
+                  "props": {
+                    "height": 280,
+                    "children": []
+                  }
+                },
+                "content": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "chartXScale",
+                        "props": {
+                          "rawValue": {
+                            "type": "date"
+                          },
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "Chart",
+                          "props": {
+                            "children": [
+                              {
+                                "type": "ForEach",
+                                "props": {
+                                  "dataId": "0,TestChartLineSingle_0,Chart_0,ForEach_0,ForEach,0",
+                                  "functionId": "0,TestChartLineSingle_0,Chart_0,ForEach_0,ForEach,0",
+                                  "count": 3,
+                                  "environmentId": "0,TestChartLineSingle_0,Chart_0,ForEach_0,ForEach,0",
+                                  "$items": [
+                                    {
+                                      "type": "LineMark",
+                                      "props": {
+                                        "x": {
+                                          "value": "2026-01-01",
+                                          "label": "Date"
+                                        },
+                                        "y": {
+                                          "value": 12,
+                                          "label": "Value"
+                                        },
+                                        "children": []
+                                      }
+                                    },
+                                    {
+                                      "type": "LineMark",
+                                      "props": {
+                                        "x": {
+                                          "value": "2026-02-01",
+                                          "label": "Date"
+                                        },
+                                        "y": {
+                                          "value": 15,
+                                          "label": "Value"
+                                        },
+                                        "children": []
+                                      }
+                                    },
+                                    {
+                                      "type": "LineMark",
+                                      "props": {
+                                        "x": {
+                                          "value": "2026-03-01",
+                                          "label": "Date"
+                                        },
+                                        "y": {
+                                          "value": 21,
+                                          "label": "Value"
+                                        },
+                                        "children": []
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "render": "preview 0: Default",
+      "errors": [],
+      "ast": {
+        "type": "ModifiedComponent",
+        "props": {
+          "modifier": {
+            "type": "previewName",
+            "props": {
+              "rawValue": "Default",
+              "children": []
+            }
+          },
+          "content": [
+            {
+              "type": "ComponentCall",
+              "props": {
+                "name": "TestChartLineSingle",
+                "props": {},
+                "children": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "frame",
+                        "props": {
+                          "height": 280,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "chartXScale",
+                              "props": {
+                                "rawValue": {
+                                  "type": "date"
+                                },
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "Chart",
+                                "props": {
+                                  "children": [
+                                    {
+                                      "type": "ForEach",
+                                      "props": {
+                                        "dataId": "0,TestChartLineSingle_0,Chart_0,ForEach_0,ForEach,0",
+                                        "functionId": "0,TestChartLineSingle_0,Chart_0,ForEach_0,ForEach,0",
+                                        "count": 3,
+                                        "environmentId": "0,TestChartLineSingle_0,Chart_0,ForEach_0,ForEach,0",
+                                        "$items": [
+                                          {
+                                            "type": "LineMark",
+                                            "props": {
+                                              "x": {
+                                                "value": "2026-01-01",
+                                                "label": "Date"
+                                              },
+                                              "y": {
+                                                "value": 12,
+                                                "label": "Value"
+                                              },
+                                              "children": []
+                                            }
+                                          },
+                                          {
+                                            "type": "LineMark",
+                                            "props": {
+                                              "x": {
+                                                "value": "2026-02-01",
+                                                "label": "Date"
+                                              },
+                                              "y": {
+                                                "value": 15,
+                                                "label": "Value"
+                                              },
+                                              "children": []
+                                            }
+                                          },
+                                          {
+                                            "type": "LineMark",
+                                            "props": {
+                                              "x": {
+                                                "value": "2026-03-01",
+                                                "label": "Date"
+                                              },
+                                              "y": {
+                                                "value": 21,
+                                                "label": "Value"
+                                              },
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

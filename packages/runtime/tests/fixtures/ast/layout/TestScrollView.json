@@ -1,0 +1,32 @@
+{
+  "fixture": "layout/TestScrollView",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestScrollView",
+          "props": {},
+          "children": [
+            {
+              "type": "VStack",
+              "props": {
+                "children": [
+                  {
+                    "type": "Text",
+                    "props": {
+                      "rawValue": "TestScrollView",
+                      "children": []
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

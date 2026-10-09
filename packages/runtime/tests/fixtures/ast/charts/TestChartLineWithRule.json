@@ -1,0 +1,275 @@
+{
+  "fixture": "charts/TestChartLineWithRule",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestChartLineWithRule",
+          "props": {},
+          "children": [
+            {
+              "type": "ModifiedComponent",
+              "props": {
+                "modifier": {
+                  "type": "frame",
+                  "props": {
+                    "height": 280,
+                    "children": []
+                  }
+                },
+                "content": [
+                  {
+                    "type": "Chart",
+                    "props": {
+                      "children": [
+                        {
+                          "type": "ForEach",
+                          "props": {
+                            "dataId": "0,TestChartLineWithRule_0,Chart_0,ForEach_0,ForEach,0",
+                            "functionId": "0,TestChartLineWithRule_0,Chart_0,ForEach_0,ForEach,0",
+                            "count": 3,
+                            "environmentId": "0,TestChartLineWithRule_0,Chart_0,ForEach_0,ForEach,0",
+                            "$items": [
+                              {
+                                "type": "LineMark",
+                                "props": {
+                                  "x": {
+                                    "value": "Jan"
+                                  },
+                                  "y": {
+                                    "value": 12
+                                  },
+                                  "children": []
+                                }
+                              },
+                              {
+                                "type": "LineMark",
+                                "props": {
+                                  "x": {
+                                    "value": "Feb"
+                                  },
+                                  "y": {
+                                    "value": 18
+                                  },
+                                  "children": []
+                                }
+                              },
+                              {
+                                "type": "LineMark",
+                                "props": {
+                                  "x": {
+                                    "value": "Mar"
+                                  },
+                                  "y": {
+                                    "value": 14
+                                  },
+                                  "children": []
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "lineStyle",
+                              "props": {
+                                "dash": [
+                                  4,
+                                  2
+                                ],
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "foregroundStyle",
+                                    "props": {
+                                      "rawValue": {
+                                        "type": "Color",
+                                        "props": {
+                                          "rawValue": "red",
+                                          "children": []
+                                        }
+                                      },
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "RuleMark",
+                                      "props": {
+                                        "y": {
+                                          "value": 15,
+                                          "label": "Average"
+                                        },
+                                        "children": []
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "render": "preview 0: Default",
+      "errors": [],
+      "ast": {
+        "type": "ModifiedComponent",
+        "props": {
+          "modifier": {
+            "type": "previewName",
+            "props": {
+              "rawValue": "Default",
+              "children": []
+            }
+          },
+          "content": [
+            {
+              "type": "ComponentCall",
+              "props": {
+                "name": "TestChartLineWithRule",
+                "props": {},
+                "children": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "frame",
+                        "props": {
+                          "height": 280,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "Chart",
+                          "props": {
+                            "children": [
+                              {
+                                "type": "ForEach",
+                                "props": {
+                                  "dataId": "0,TestChartLineWithRule_0,Chart_0,ForEach_0,ForEach,0",
+                                  "functionId": "0,TestChartLineWithRule_0,Chart_0,ForEach_0,ForEach,0",
+                                  "count": 3,
+                                  "environmentId": "0,TestChartLineWithRule_0,Chart_0,ForEach_0,ForEach,0",
+                                  "$items": [
+                                    {
+                                      "type": "LineMark",
+                                      "props": {
+                                        "x": {
+                                          "value": "Jan"
+                                        },
+                                        "y": {
+                                          "value": 12
+                                        },
+                                        "children": []
+                                      }
+                                    },
+                                    {
+                                      "type": "LineMark",
+                                      "props": {
+                                        "x": {
+                                          "value": "Feb"
+                                        },
+                                        "y": {
+                                          "value": 18
+                                        },
+                                        "children": []
+                                      }
+                                    },
+                                    {
+                                      "type": "LineMark",
+                                      "props": {
+                                        "x": {
+                                          "value": "Mar"
+                                        },
+                                        "y": {
+                                          "value": 14
+                                        },
+                                        "children": []
+                                      }
+                                    }
+                                  ]
+                                }
+                              },
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "lineStyle",
+                                    "props": {
+                                      "dash": [
+                                        4,
+                                        2
+                                      ],
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "foregroundStyle",
+                                          "props": {
+                                            "rawValue": {
+                                              "type": "Color",
+                                              "props": {
+                                                "rawValue": "red",
+                                                "children": []
+                                              }
+                                            },
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "RuleMark",
+                                            "props": {
+                                              "y": {
+                                                "value": 15,
+                                                "label": "Average"
+                                              },
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

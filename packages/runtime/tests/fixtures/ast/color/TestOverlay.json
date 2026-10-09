@@ -1,0 +1,1505 @@
+{
+  "fixture": "color/TestOverlay",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestOverlay",
+          "props": {},
+          "children": [
+            {
+              "type": "VStack",
+              "props": {
+                "children": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "overlay",
+                        "props": {
+                          "content": {
+                            "type": "ModifiedComponent",
+                            "props": {
+                              "modifier": {
+                                "type": "offset",
+                                "props": {
+                                  "x": 40,
+                                  "y": 8,
+                                  "children": []
+                                }
+                              },
+                              "content": [
+                                {
+                                  "type": "ModifiedComponent",
+                                  "props": {
+                                    "modifier": {
+                                      "type": "frame",
+                                      "props": {
+                                        "width": 25,
+                                        "height": 25,
+                                        "children": []
+                                      }
+                                    },
+                                    "content": [
+                                      {
+                                        "type": "Circle",
+                                        "props": {
+                                          "children": [],
+                                          "fill": {
+                                            "style": {
+                                              "type": "Color",
+                                              "props": {
+                                                "rawValue": "black",
+                                                "children": []
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          },
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "overlay",
+                              "props": {
+                                "content": {
+                                  "type": "ModifiedComponent",
+                                  "props": {
+                                    "modifier": {
+                                      "type": "offset",
+                                      "props": {
+                                        "x": -40,
+                                        "y": 8,
+                                        "children": []
+                                      }
+                                    },
+                                    "content": [
+                                      {
+                                        "type": "ModifiedComponent",
+                                        "props": {
+                                          "modifier": {
+                                            "type": "frame",
+                                            "props": {
+                                              "width": 25,
+                                              "height": 25,
+                                              "children": []
+                                            }
+                                          },
+                                          "content": [
+                                            {
+                                              "type": "Circle",
+                                              "props": {
+                                                "children": [],
+                                                "fill": {
+                                                  "style": {
+                                                    "type": "Color",
+                                                    "props": {
+                                                      "rawValue": "black",
+                                                      "children": []
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          ]
+                                        }
+                                      }
+                                    ]
+                                  }
+                                },
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "overlay",
+                                    "props": {
+                                      "content": {
+                                        "type": "ModifiedComponent",
+                                        "props": {
+                                          "modifier": {
+                                            "type": "offset",
+                                            "props": {
+                                              "y": 60,
+                                              "children": []
+                                            }
+                                          },
+                                          "content": [
+                                            {
+                                              "type": "ModifiedComponent",
+                                              "props": {
+                                                "modifier": {
+                                                  "type": "frame",
+                                                  "props": {
+                                                    "width": 40,
+                                                    "height": 40,
+                                                    "children": []
+                                                  }
+                                                },
+                                                "content": [
+                                                  {
+                                                    "type": "Circle",
+                                                    "props": {
+                                                      "children": [],
+                                                      "fill": {
+                                                        "style": {
+                                                          "type": "Color",
+                                                          "props": {
+                                                            "r": 227,
+                                                            "g": 227,
+                                                            "b": 227,
+                                                            "a": 1,
+                                                            "children": []
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                ]
+                                              }
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "overlay",
+                                          "props": {
+                                            "content": {
+                                              "type": "ModifiedComponent",
+                                              "props": {
+                                                "modifier": {
+                                                  "type": "offset",
+                                                  "props": {
+                                                    "x": 40,
+                                                    "children": []
+                                                  }
+                                                },
+                                                "content": [
+                                                  {
+                                                    "type": "ModifiedComponent",
+                                                    "props": {
+                                                      "modifier": {
+                                                        "type": "frame",
+                                                        "props": {
+                                                          "width": 50,
+                                                          "height": 50,
+                                                          "children": []
+                                                        }
+                                                      },
+                                                      "content": [
+                                                        {
+                                                          "type": "Circle",
+                                                          "props": {
+                                                            "children": [],
+                                                            "fill": {
+                                                              "style": {
+                                                                "type": "Color",
+                                                                "props": {
+                                                                  "r": 227,
+                                                                  "g": 227,
+                                                                  "b": 227,
+                                                                  "a": 1,
+                                                                  "children": []
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      ]
+                                                    }
+                                                  }
+                                                ]
+                                              }
+                                            },
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "ModifiedComponent",
+                                            "props": {
+                                              "modifier": {
+                                                "type": "overlay",
+                                                "props": {
+                                                  "content": {
+                                                    "type": "ModifiedComponent",
+                                                    "props": {
+                                                      "modifier": {
+                                                        "type": "offset",
+                                                        "props": {
+                                                          "x": -40,
+                                                          "children": []
+                                                        }
+                                                      },
+                                                      "content": [
+                                                        {
+                                                          "type": "ModifiedComponent",
+                                                          "props": {
+                                                            "modifier": {
+                                                              "type": "frame",
+                                                              "props": {
+                                                                "width": 50,
+                                                                "height": 50,
+                                                                "children": []
+                                                              }
+                                                            },
+                                                            "content": [
+                                                              {
+                                                                "type": "Circle",
+                                                                "props": {
+                                                                  "children": [],
+                                                                  "fill": {
+                                                                    "style": {
+                                                                      "type": "Color",
+                                                                      "props": {
+                                                                        "r": 227,
+                                                                        "g": 227,
+                                                                        "b": 227,
+                                                                        "a": 1,
+                                                                        "children": []
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            ]
+                                                          }
+                                                        }
+                                                      ]
+                                                    }
+                                                  },
+                                                  "children": []
+                                                }
+                                              },
+                                              "content": [
+                                                {
+                                                  "type": "ModifiedComponent",
+                                                  "props": {
+                                                    "modifier": {
+                                                      "type": "overlay",
+                                                      "props": {
+                                                        "content": {
+                                                          "type": "Circle",
+                                                          "props": {
+                                                            "children": [],
+                                                            "fill": {
+                                                              "style": {
+                                                                "type": "Color",
+                                                                "props": {
+                                                                  "rawValue": "purple",
+                                                                  "children": []
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        },
+                                                        "children": []
+                                                      }
+                                                    },
+                                                    "content": [
+                                                      {
+                                                        "type": "ModifiedComponent",
+                                                        "props": {
+                                                          "modifier": {
+                                                            "type": "frame",
+                                                            "props": {
+                                                              "width": 200,
+                                                              "height": 200,
+                                                              "children": []
+                                                            }
+                                                          },
+                                                          "content": [
+                                                            {
+                                                              "type": "RoundedRectangle",
+                                                              "props": {
+                                                                "children": [],
+                                                                "fill": {
+                                                                  "style": {
+                                                                    "type": "Color",
+                                                                    "props": {
+                                                                      "r": 227,
+                                                                      "g": 227,
+                                                                      "b": 227,
+                                                                      "a": 1,
+                                                                      "children": []
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          ]
+                                                        }
+                                                      }
+                                                    ]
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "foregroundStyle",
+                        "props": {
+                          "rawValue": {
+                            "type": "Color",
+                            "props": {
+                              "rawValue": "white",
+                              "children": []
+                            }
+                          },
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "overlay",
+                              "props": {
+                                "alignment": "bottomTrailing",
+                                "content": {
+                                  "type": "Text",
+                                  "props": {
+                                    "rawValue": "Bottom Trailing",
+                                    "children": []
+                                  }
+                                },
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "overlay",
+                                    "props": {
+                                      "alignment": "center",
+                                      "content": {
+                                        "type": "Text",
+                                        "props": {
+                                          "rawValue": "Center",
+                                          "children": []
+                                        }
+                                      },
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "overlay",
+                                          "props": {
+                                            "alignment": "topLeading",
+                                            "content": {
+                                              "type": "Text",
+                                              "props": {
+                                                "rawValue": "Top Left",
+                                                "children": []
+                                              }
+                                            },
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "ModifiedComponent",
+                                            "props": {
+                                              "modifier": {
+                                                "type": "frame",
+                                                "props": {
+                                                  "width": 200,
+                                                  "height": 200,
+                                                  "children": []
+                                                }
+                                              },
+                                              "content": [
+                                                {
+                                                  "type": "RoundedRectangle",
+                                                  "props": {
+                                                    "children": [],
+                                                    "fill": {
+                                                      "style": {
+                                                        "type": "Color",
+                                                        "props": {
+                                                          "rawValue": "blue",
+                                                          "children": []
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "render": "preview 0: Both",
+      "errors": [],
+      "ast": {
+        "type": "ModifiedComponent",
+        "props": {
+          "modifier": {
+            "type": "previewName",
+            "props": {
+              "rawValue": "Both",
+              "children": []
+            }
+          },
+          "content": [
+            {
+              "type": "ComponentCall",
+              "props": {
+                "name": "TestOverlay",
+                "props": {},
+                "children": [
+                  {
+                    "type": "VStack",
+                    "props": {
+                      "children": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "overlay",
+                              "props": {
+                                "content": {
+                                  "type": "ModifiedComponent",
+                                  "props": {
+                                    "modifier": {
+                                      "type": "offset",
+                                      "props": {
+                                        "x": 40,
+                                        "y": 8,
+                                        "children": []
+                                      }
+                                    },
+                                    "content": [
+                                      {
+                                        "type": "ModifiedComponent",
+                                        "props": {
+                                          "modifier": {
+                                            "type": "frame",
+                                            "props": {
+                                              "width": 25,
+                                              "height": 25,
+                                              "children": []
+                                            }
+                                          },
+                                          "content": [
+                                            {
+                                              "type": "Circle",
+                                              "props": {
+                                                "children": [],
+                                                "fill": {
+                                                  "style": {
+                                                    "type": "Color",
+                                                    "props": {
+                                                      "rawValue": "black",
+                                                      "children": []
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          ]
+                                        }
+                                      }
+                                    ]
+                                  }
+                                },
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "overlay",
+                                    "props": {
+                                      "content": {
+                                        "type": "ModifiedComponent",
+                                        "props": {
+                                          "modifier": {
+                                            "type": "offset",
+                                            "props": {
+                                              "x": -40,
+                                              "y": 8,
+                                              "children": []
+                                            }
+                                          },
+                                          "content": [
+                                            {
+                                              "type": "ModifiedComponent",
+                                              "props": {
+                                                "modifier": {
+                                                  "type": "frame",
+                                                  "props": {
+                                                    "width": 25,
+                                                    "height": 25,
+                                                    "children": []
+                                                  }
+                                                },
+                                                "content": [
+                                                  {
+                                                    "type": "Circle",
+                                                    "props": {
+                                                      "children": [],
+                                                      "fill": {
+                                                        "style": {
+                                                          "type": "Color",
+                                                          "props": {
+                                                            "rawValue": "black",
+                                                            "children": []
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                ]
+                                              }
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "overlay",
+                                          "props": {
+                                            "content": {
+                                              "type": "ModifiedComponent",
+                                              "props": {
+                                                "modifier": {
+                                                  "type": "offset",
+                                                  "props": {
+                                                    "y": 60,
+                                                    "children": []
+                                                  }
+                                                },
+                                                "content": [
+                                                  {
+                                                    "type": "ModifiedComponent",
+                                                    "props": {
+                                                      "modifier": {
+                                                        "type": "frame",
+                                                        "props": {
+                                                          "width": 40,
+                                                          "height": 40,
+                                                          "children": []
+                                                        }
+                                                      },
+                                                      "content": [
+                                                        {
+                                                          "type": "Circle",
+                                                          "props": {
+                                                            "children": [],
+                                                            "fill": {
+                                                              "style": {
+                                                                "type": "Color",
+                                                                "props": {
+                                                                  "r": 227,
+                                                                  "g": 227,
+                                                                  "b": 227,
+                                                                  "a": 1,
+                                                                  "children": []
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      ]
+                                                    }
+                                                  }
+                                                ]
+                                              }
+                                            },
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "ModifiedComponent",
+                                            "props": {
+                                              "modifier": {
+                                                "type": "overlay",
+                                                "props": {
+                                                  "content": {
+                                                    "type": "ModifiedComponent",
+                                                    "props": {
+                                                      "modifier": {
+                                                        "type": "offset",
+                                                        "props": {
+                                                          "x": 40,
+                                                          "children": []
+                                                        }
+                                                      },
+                                                      "content": [
+                                                        {
+                                                          "type": "ModifiedComponent",
+                                                          "props": {
+                                                            "modifier": {
+                                                              "type": "frame",
+                                                              "props": {
+                                                                "width": 50,
+                                                                "height": 50,
+                                                                "children": []
+                                                              }
+                                                            },
+                                                            "content": [
+                                                              {
+                                                                "type": "Circle",
+                                                                "props": {
+                                                                  "children": [],
+                                                                  "fill": {
+                                                                    "style": {
+                                                                      "type": "Color",
+                                                                      "props": {
+                                                                        "r": 227,
+                                                                        "g": 227,
+                                                                        "b": 227,
+                                                                        "a": 1,
+                                                                        "children": []
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            ]
+                                                          }
+                                                        }
+                                                      ]
+                                                    }
+                                                  },
+                                                  "children": []
+                                                }
+                                              },
+                                              "content": [
+                                                {
+                                                  "type": "ModifiedComponent",
+                                                  "props": {
+                                                    "modifier": {
+                                                      "type": "overlay",
+                                                      "props": {
+                                                        "content": {
+                                                          "type": "ModifiedComponent",
+                                                          "props": {
+                                                            "modifier": {
+                                                              "type": "offset",
+                                                              "props": {
+                                                                "x": -40,
+                                                                "children": []
+                                                              }
+                                                            },
+                                                            "content": [
+                                                              {
+                                                                "type": "ModifiedComponent",
+                                                                "props": {
+                                                                  "modifier": {
+                                                                    "type": "frame",
+                                                                    "props": {
+                                                                      "width": 50,
+                                                                      "height": 50,
+                                                                      "children": []
+                                                                    }
+                                                                  },
+                                                                  "content": [
+                                                                    {
+                                                                      "type": "Circle",
+                                                                      "props": {
+                                                                        "children": [],
+                                                                        "fill": {
+                                                                          "style": {
+                                                                            "type": "Color",
+                                                                            "props": {
+                                                                              "r": 227,
+                                                                              "g": 227,
+                                                                              "b": 227,
+                                                                              "a": 1,
+                                                                              "children": []
+                                                                            }
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  ]
+                                                                }
+                                                              }
+                                                            ]
+                                                          }
+                                                        },
+                                                        "children": []
+                                                      }
+                                                    },
+                                                    "content": [
+                                                      {
+                                                        "type": "ModifiedComponent",
+                                                        "props": {
+                                                          "modifier": {
+                                                            "type": "overlay",
+                                                            "props": {
+                                                              "content": {
+                                                                "type": "Circle",
+                                                                "props": {
+                                                                  "children": [],
+                                                                  "fill": {
+                                                                    "style": {
+                                                                      "type": "Color",
+                                                                      "props": {
+                                                                        "rawValue": "purple",
+                                                                        "children": []
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              },
+                                                              "children": []
+                                                            }
+                                                          },
+                                                          "content": [
+                                                            {
+                                                              "type": "ModifiedComponent",
+                                                              "props": {
+                                                                "modifier": {
+                                                                  "type": "frame",
+                                                                  "props": {
+                                                                    "width": 200,
+                                                                    "height": 200,
+                                                                    "children": []
+                                                                  }
+                                                                },
+                                                                "content": [
+                                                                  {
+                                                                    "type": "RoundedRectangle",
+                                                                    "props": {
+                                                                      "children": [],
+                                                                      "fill": {
+                                                                        "style": {
+                                                                          "type": "Color",
+                                                                          "props": {
+                                                                            "r": 227,
+                                                                            "g": 227,
+                                                                            "b": 227,
+                                                                            "a": 1,
+                                                                            "children": []
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                ]
+                                                              }
+                                                            }
+                                                          ]
+                                                        }
+                                                      }
+                                                    ]
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "foregroundStyle",
+                              "props": {
+                                "rawValue": {
+                                  "type": "Color",
+                                  "props": {
+                                    "rawValue": "white",
+                                    "children": []
+                                  }
+                                },
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "overlay",
+                                    "props": {
+                                      "alignment": "bottomTrailing",
+                                      "content": {
+                                        "type": "Text",
+                                        "props": {
+                                          "rawValue": "Bottom Trailing",
+                                          "children": []
+                                        }
+                                      },
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "overlay",
+                                          "props": {
+                                            "alignment": "center",
+                                            "content": {
+                                              "type": "Text",
+                                              "props": {
+                                                "rawValue": "Center",
+                                                "children": []
+                                              }
+                                            },
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "ModifiedComponent",
+                                            "props": {
+                                              "modifier": {
+                                                "type": "overlay",
+                                                "props": {
+                                                  "alignment": "topLeading",
+                                                  "content": {
+                                                    "type": "Text",
+                                                    "props": {
+                                                      "rawValue": "Top Left",
+                                                      "children": []
+                                                    }
+                                                  },
+                                                  "children": []
+                                                }
+                                              },
+                                              "content": [
+                                                {
+                                                  "type": "ModifiedComponent",
+                                                  "props": {
+                                                    "modifier": {
+                                                      "type": "frame",
+                                                      "props": {
+                                                        "width": 200,
+                                                        "height": 200,
+                                                        "children": []
+                                                      }
+                                                    },
+                                                    "content": [
+                                                      {
+                                                        "type": "RoundedRectangle",
+                                                        "props": {
+                                                          "children": [],
+                                                          "fill": {
+                                                            "style": {
+                                                              "type": "Color",
+                                                              "props": {
+                                                                "rawValue": "blue",
+                                                                "children": []
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    ]
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "render": "preview 1: Shape overlays",
+      "errors": [],
+      "ast": {
+        "type": "ModifiedComponent",
+        "props": {
+          "modifier": {
+            "type": "previewName",
+            "props": {
+              "rawValue": "Shape overlays",
+              "children": []
+            }
+          },
+          "content": [
+            {
+              "type": "ModifiedComponent",
+              "props": {
+                "modifier": {
+                  "type": "overlay",
+                  "props": {
+                    "content": {
+                      "type": "ModifiedComponent",
+                      "props": {
+                        "modifier": {
+                          "type": "offset",
+                          "props": {
+                            "x": 40,
+                            "y": 8,
+                            "children": []
+                          }
+                        },
+                        "content": [
+                          {
+                            "type": "ModifiedComponent",
+                            "props": {
+                              "modifier": {
+                                "type": "frame",
+                                "props": {
+                                  "width": 25,
+                                  "height": 25,
+                                  "children": []
+                                }
+                              },
+                              "content": [
+                                {
+                                  "type": "Circle",
+                                  "props": {
+                                    "children": [],
+                                    "fill": {
+                                      "style": {
+                                        "type": "Color",
+                                        "props": {
+                                          "rawValue": "black",
+                                          "children": []
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "children": []
+                  }
+                },
+                "content": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "overlay",
+                        "props": {
+                          "content": {
+                            "type": "ModifiedComponent",
+                            "props": {
+                              "modifier": {
+                                "type": "offset",
+                                "props": {
+                                  "x": -40,
+                                  "y": 8,
+                                  "children": []
+                                }
+                              },
+                              "content": [
+                                {
+                                  "type": "ModifiedComponent",
+                                  "props": {
+                                    "modifier": {
+                                      "type": "frame",
+                                      "props": {
+                                        "width": 25,
+                                        "height": 25,
+                                        "children": []
+                                      }
+                                    },
+                                    "content": [
+                                      {
+                                        "type": "Circle",
+                                        "props": {
+                                          "children": [],
+                                          "fill": {
+                                            "style": {
+                                              "type": "Color",
+                                              "props": {
+                                                "rawValue": "black",
+                                                "children": []
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          },
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "overlay",
+                              "props": {
+                                "content": {
+                                  "type": "ModifiedComponent",
+                                  "props": {
+                                    "modifier": {
+                                      "type": "offset",
+                                      "props": {
+                                        "y": 60,
+                                        "children": []
+                                      }
+                                    },
+                                    "content": [
+                                      {
+                                        "type": "ModifiedComponent",
+                                        "props": {
+                                          "modifier": {
+                                            "type": "frame",
+                                            "props": {
+                                              "width": 40,
+                                              "height": 40,
+                                              "children": []
+                                            }
+                                          },
+                                          "content": [
+                                            {
+                                              "type": "Circle",
+                                              "props": {
+                                                "children": [],
+                                                "fill": {
+                                                  "style": {
+                                                    "type": "Color",
+                                                    "props": {
+                                                      "r": 227,
+                                                      "g": 227,
+                                                      "b": 227,
+                                                      "a": 1,
+                                                      "children": []
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          ]
+                                        }
+                                      }
+                                    ]
+                                  }
+                                },
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "overlay",
+                                    "props": {
+                                      "content": {
+                                        "type": "ModifiedComponent",
+                                        "props": {
+                                          "modifier": {
+                                            "type": "offset",
+                                            "props": {
+                                              "x": 40,
+                                              "children": []
+                                            }
+                                          },
+                                          "content": [
+                                            {
+                                              "type": "ModifiedComponent",
+                                              "props": {
+                                                "modifier": {
+                                                  "type": "frame",
+                                                  "props": {
+                                                    "width": 50,
+                                                    "height": 50,
+                                                    "children": []
+                                                  }
+                                                },
+                                                "content": [
+                                                  {
+                                                    "type": "Circle",
+                                                    "props": {
+                                                      "children": [],
+                                                      "fill": {
+                                                        "style": {
+                                                          "type": "Color",
+                                                          "props": {
+                                                            "r": 227,
+                                                            "g": 227,
+                                                            "b": 227,
+                                                            "a": 1,
+                                                            "children": []
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                ]
+                                              }
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "overlay",
+                                          "props": {
+                                            "content": {
+                                              "type": "ModifiedComponent",
+                                              "props": {
+                                                "modifier": {
+                                                  "type": "offset",
+                                                  "props": {
+                                                    "x": -40,
+                                                    "children": []
+                                                  }
+                                                },
+                                                "content": [
+                                                  {
+                                                    "type": "ModifiedComponent",
+                                                    "props": {
+                                                      "modifier": {
+                                                        "type": "frame",
+                                                        "props": {
+                                                          "width": 50,
+                                                          "height": 50,
+                                                          "children": []
+                                                        }
+                                                      },
+                                                      "content": [
+                                                        {
+                                                          "type": "Circle",
+                                                          "props": {
+                                                            "children": [],
+                                                            "fill": {
+                                                              "style": {
+                                                                "type": "Color",
+                                                                "props": {
+                                                                  "r": 227,
+                                                                  "g": 227,
+                                                                  "b": 227,
+                                                                  "a": 1,
+                                                                  "children": []
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      ]
+                                                    }
+                                                  }
+                                                ]
+                                              }
+                                            },
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "ModifiedComponent",
+                                            "props": {
+                                              "modifier": {
+                                                "type": "overlay",
+                                                "props": {
+                                                  "content": {
+                                                    "type": "Circle",
+                                                    "props": {
+                                                      "children": [],
+                                                      "fill": {
+                                                        "style": {
+                                                          "type": "Color",
+                                                          "props": {
+                                                            "rawValue": "purple",
+                                                            "children": []
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  },
+                                                  "children": []
+                                                }
+                                              },
+                                              "content": [
+                                                {
+                                                  "type": "ModifiedComponent",
+                                                  "props": {
+                                                    "modifier": {
+                                                      "type": "frame",
+                                                      "props": {
+                                                        "width": 200,
+                                                        "height": 200,
+                                                        "children": []
+                                                      }
+                                                    },
+                                                    "content": [
+                                                      {
+                                                        "type": "RoundedRectangle",
+                                                        "props": {
+                                                          "children": [],
+                                                          "fill": {
+                                                            "style": {
+                                                              "type": "Color",
+                                                              "props": {
+                                                                "r": 227,
+                                                                "g": 227,
+                                                                "b": 227,
+                                                                "a": 1,
+                                                                "children": []
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    ]
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "render": "preview 2: Aligned text overlays",
+      "errors": [],
+      "ast": {
+        "type": "ModifiedComponent",
+        "props": {
+          "modifier": {
+            "type": "previewName",
+            "props": {
+              "rawValue": "Aligned text overlays",
+              "children": []
+            }
+          },
+          "content": [
+            {
+              "type": "ModifiedComponent",
+              "props": {
+                "modifier": {
+                  "type": "foregroundStyle",
+                  "props": {
+                    "rawValue": {
+                      "type": "Color",
+                      "props": {
+                        "rawValue": "white",
+                        "children": []
+                      }
+                    },
+                    "children": []
+                  }
+                },
+                "content": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "overlay",
+                        "props": {
+                          "alignment": "bottomTrailing",
+                          "content": {
+                            "type": "Text",
+                            "props": {
+                              "rawValue": "Bottom Trailing",
+                              "children": []
+                            }
+                          },
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "overlay",
+                              "props": {
+                                "alignment": "center",
+                                "content": {
+                                  "type": "Text",
+                                  "props": {
+                                    "rawValue": "Center",
+                                    "children": []
+                                  }
+                                },
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "overlay",
+                                    "props": {
+                                      "alignment": "topLeading",
+                                      "content": {
+                                        "type": "Text",
+                                        "props": {
+                                          "rawValue": "Top Left",
+                                          "children": []
+                                        }
+                                      },
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "frame",
+                                          "props": {
+                                            "width": 200,
+                                            "height": 200,
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "RoundedRectangle",
+                                            "props": {
+                                              "children": [],
+                                              "fill": {
+                                                "style": {
+                                                  "type": "Color",
+                                                  "props": {
+                                                    "rawValue": "blue",
+                                                    "children": []
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

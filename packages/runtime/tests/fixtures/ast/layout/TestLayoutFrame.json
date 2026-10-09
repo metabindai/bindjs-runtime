@@ -1,0 +1,987 @@
+{
+  "fixture": "layout/TestLayoutFrame",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestLayoutFrame",
+          "props": {},
+          "children": [
+            {
+              "type": "Group",
+              "props": {
+                "children": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "background",
+                        "props": {
+                          "content": {
+                            "type": "Color",
+                            "props": {
+                              "rawValue": "blue",
+                              "children": [],
+                              "opacity": 0.1
+                            }
+                          },
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "frame",
+                              "props": {
+                                "width": 200,
+                                "height": 200,
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "background",
+                                    "props": {
+                                      "content": {
+                                        "type": "Color",
+                                        "props": {
+                                          "rawValue": "red",
+                                          "children": [],
+                                          "opacity": 0.5
+                                        }
+                                      },
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "padding",
+                                          "props": {
+                                            "top": 20,
+                                            "leading": 20,
+                                            "bottom": 20,
+                                            "trailing": 20,
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "Rectangle",
+                                            "props": {
+                                              "children": [],
+                                              "fill": {
+                                                "style": {
+                                                  "type": "Color",
+                                                  "props": {
+                                                    "rawValue": "green",
+                                                    "children": []
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "render": "preview 0: Default",
+      "errors": [],
+      "ast": {
+        "type": "ModifiedComponent",
+        "props": {
+          "modifier": {
+            "type": "previewName",
+            "props": {
+              "rawValue": "Default",
+              "children": []
+            }
+          },
+          "content": [
+            {
+              "type": "ComponentCall",
+              "props": {
+                "name": "TestLayoutFrame",
+                "props": {},
+                "children": [
+                  {
+                    "type": "Group",
+                    "props": {
+                      "children": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "background",
+                              "props": {
+                                "content": {
+                                  "type": "Color",
+                                  "props": {
+                                    "rawValue": "blue",
+                                    "children": [],
+                                    "opacity": 0.1
+                                  }
+                                },
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "frame",
+                                    "props": {
+                                      "width": 200,
+                                      "height": 200,
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "background",
+                                          "props": {
+                                            "content": {
+                                              "type": "Color",
+                                              "props": {
+                                                "rawValue": "red",
+                                                "children": [],
+                                                "opacity": 0.5
+                                              }
+                                            },
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "ModifiedComponent",
+                                            "props": {
+                                              "modifier": {
+                                                "type": "padding",
+                                                "props": {
+                                                  "top": 20,
+                                                  "leading": 20,
+                                                  "bottom": 20,
+                                                  "trailing": 20,
+                                                  "children": []
+                                                }
+                                              },
+                                              "content": [
+                                                {
+                                                  "type": "Rectangle",
+                                                  "props": {
+                                                    "children": [],
+                                                    "fill": {
+                                                      "style": {
+                                                        "type": "Color",
+                                                        "props": {
+                                                          "rawValue": "green",
+                                                          "children": []
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "render": "preview 1: Baseline",
+      "errors": [],
+      "ast": {
+        "type": "ModifiedComponent",
+        "props": {
+          "modifier": {
+            "type": "previewName",
+            "props": {
+              "rawValue": "Baseline",
+              "children": []
+            }
+          },
+          "content": [
+            {
+              "type": "ModifiedComponent",
+              "props": {
+                "modifier": {
+                  "type": "background",
+                  "props": {
+                    "content": {
+                      "type": "Color",
+                      "props": {
+                        "rawValue": "blue",
+                        "children": [],
+                        "opacity": 0.1
+                      }
+                    },
+                    "children": []
+                  }
+                },
+                "content": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "frame",
+                        "props": {
+                          "width": 400,
+                          "height": 800,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "background",
+                              "props": {
+                                "content": {
+                                  "type": "Color",
+                                  "props": {
+                                    "rawValue": "red",
+                                    "children": [],
+                                    "opacity": 0.5
+                                  }
+                                },
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "VStack",
+                                "props": {
+                                  "children": [
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "frame",
+                                          "props": {
+                                            "width": 200,
+                                            "height": 150,
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "Circle",
+                                            "props": {
+                                              "children": [],
+                                              "fill": {
+                                                "style": {
+                                                  "type": "Color",
+                                                  "props": {
+                                                    "rawValue": "green",
+                                                    "children": [],
+                                                    "opacity": 0.5
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "render": "preview 2: Min / Max",
+      "errors": [],
+      "ast": {
+        "type": "ModifiedComponent",
+        "props": {
+          "modifier": {
+            "type": "previewName",
+            "props": {
+              "rawValue": "Min / Max",
+              "children": []
+            }
+          },
+          "content": [
+            {
+              "type": "ModifiedComponent",
+              "props": {
+                "modifier": {
+                  "type": "background",
+                  "props": {
+                    "content": {
+                      "type": "Color",
+                      "props": {
+                        "rawValue": "blue",
+                        "children": [],
+                        "opacity": 0.1
+                      }
+                    },
+                    "children": []
+                  }
+                },
+                "content": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "frame",
+                        "props": {
+                          "width": 300,
+                          "height": 200,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "background",
+                              "props": {
+                                "content": {
+                                  "type": "Color",
+                                  "props": {
+                                    "rawValue": "red",
+                                    "children": [],
+                                    "opacity": 0.5
+                                  }
+                                },
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "frame",
+                                    "props": {
+                                      "minWidth": 100,
+                                      "maxWidth": 200,
+                                      "minHeight": 80,
+                                      "maxHeight": 120,
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "padding",
+                                          "props": {
+                                            "top": 10,
+                                            "leading": 10,
+                                            "bottom": 10,
+                                            "trailing": 10,
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "Rectangle",
+                                            "props": {
+                                              "children": [],
+                                              "fill": {
+                                                "style": {
+                                                  "type": "Color",
+                                                  "props": {
+                                                    "rawValue": "green",
+                                                    "children": [],
+                                                    "opacity": 0.45
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "render": "preview 3: Unbounded Expansion",
+      "errors": [],
+      "ast": {
+        "type": "ModifiedComponent",
+        "props": {
+          "modifier": {
+            "type": "previewName",
+            "props": {
+              "rawValue": "Unbounded Expansion",
+              "children": []
+            }
+          },
+          "content": [
+            {
+              "type": "ModifiedComponent",
+              "props": {
+                "modifier": {
+                  "type": "background",
+                  "props": {
+                    "content": {
+                      "type": "Color",
+                      "props": {
+                        "rawValue": "blue",
+                        "children": [],
+                        "opacity": 0.1
+                      }
+                    },
+                    "children": []
+                  }
+                },
+                "content": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "frame",
+                        "props": {
+                          "width": 300,
+                          "height": 200,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "VStack",
+                          "props": {
+                            "children": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "frame",
+                                    "props": {
+                                      "width": "Infinity",
+                                      "height": "Infinity",
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "Rectangle",
+                                      "props": {
+                                        "children": [],
+                                        "fill": {
+                                          "style": {
+                                            "type": "Color",
+                                            "props": {
+                                              "rawValue": "green",
+                                              "children": [],
+                                              "opacity": 0.5
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "render": "preview 4: Background Before / After Frame",
+      "errors": [],
+      "ast": {
+        "type": "ModifiedComponent",
+        "props": {
+          "modifier": {
+            "type": "previewName",
+            "props": {
+              "rawValue": "Background Before / After Frame",
+              "children": []
+            }
+          },
+          "content": [
+            {
+              "type": "ModifiedComponent",
+              "props": {
+                "modifier": {
+                  "type": "background",
+                  "props": {
+                    "content": {
+                      "type": "Color",
+                      "props": {
+                        "rawValue": "blue",
+                        "children": [],
+                        "opacity": 0.1
+                      }
+                    },
+                    "children": []
+                  }
+                },
+                "content": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "frame",
+                        "props": {
+                          "width": 200,
+                          "height": 100,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "background",
+                              "props": {
+                                "content": {
+                                  "type": "Color",
+                                  "props": {
+                                    "rawValue": "red",
+                                    "children": [],
+                                    "opacity": 0.5
+                                  }
+                                },
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "Rectangle",
+                                "props": {
+                                  "children": [],
+                                  "fill": {
+                                    "style": {
+                                      "type": "Color",
+                                      "props": {
+                                        "rawValue": "green",
+                                        "children": []
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "render": "preview 5: Aspect Ratio",
+      "errors": [],
+      "ast": {
+        "type": "ModifiedComponent",
+        "props": {
+          "modifier": {
+            "type": "previewName",
+            "props": {
+              "rawValue": "Aspect Ratio",
+              "children": []
+            }
+          },
+          "content": [
+            {
+              "type": "ModifiedComponent",
+              "props": {
+                "modifier": {
+                  "type": "background",
+                  "props": {
+                    "content": {
+                      "type": "Color",
+                      "props": {
+                        "rawValue": "blue",
+                        "children": [],
+                        "opacity": 0.1
+                      }
+                    },
+                    "children": []
+                  }
+                },
+                "content": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "frame",
+                        "props": {
+                          "width": 400,
+                          "height": 300,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "background",
+                              "props": {
+                                "content": {
+                                  "type": "Color",
+                                  "props": {
+                                    "rawValue": "red",
+                                    "children": [],
+                                    "opacity": 0.5
+                                  }
+                                },
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "frame",
+                                    "props": {
+                                      "width": 320,
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "aspectRatio",
+                                          "props": {
+                                            "aspectRatio": 1.7777777777777777,
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "Rectangle",
+                                            "props": {
+                                              "children": [],
+                                              "fill": {
+                                                "style": {
+                                                  "type": "Color",
+                                                  "props": {
+                                                    "rawValue": "green",
+                                                    "children": []
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "render": "preview 6: Nested Centering",
+      "errors": [],
+      "ast": {
+        "type": "ModifiedComponent",
+        "props": {
+          "modifier": {
+            "type": "previewName",
+            "props": {
+              "rawValue": "Nested Centering",
+              "children": []
+            }
+          },
+          "content": [
+            {
+              "type": "ModifiedComponent",
+              "props": {
+                "modifier": {
+                  "type": "background",
+                  "props": {
+                    "content": {
+                      "type": "Color",
+                      "props": {
+                        "rawValue": "blue",
+                        "children": [],
+                        "opacity": 0.1
+                      }
+                    },
+                    "children": []
+                  }
+                },
+                "content": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "frame",
+                        "props": {
+                          "width": 300,
+                          "height": 200,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "background",
+                              "props": {
+                                "content": {
+                                  "type": "Color",
+                                  "props": {
+                                    "rawValue": "red",
+                                    "children": [],
+                                    "opacity": 0.5
+                                  }
+                                },
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "frame",
+                                    "props": {
+                                      "width": 100,
+                                      "height": 100,
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "Rectangle",
+                                      "props": {
+                                        "children": [],
+                                        "fill": {
+                                          "style": {
+                                            "type": "Color",
+                                            "props": {
+                                              "rawValue": "green",
+                                              "children": []
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "render": "preview 7: Padding Interaction",
+      "errors": [],
+      "ast": {
+        "type": "ModifiedComponent",
+        "props": {
+          "modifier": {
+            "type": "previewName",
+            "props": {
+              "rawValue": "Padding Interaction",
+              "children": []
+            }
+          },
+          "content": [
+            {
+              "type": "ModifiedComponent",
+              "props": {
+                "modifier": {
+                  "type": "background",
+                  "props": {
+                    "content": {
+                      "type": "Color",
+                      "props": {
+                        "rawValue": "blue",
+                        "children": [],
+                        "opacity": 0.1
+                      }
+                    },
+                    "children": []
+                  }
+                },
+                "content": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "frame",
+                        "props": {
+                          "width": 200,
+                          "height": 200,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "background",
+                              "props": {
+                                "content": {
+                                  "type": "Color",
+                                  "props": {
+                                    "rawValue": "red",
+                                    "children": [],
+                                    "opacity": 0.5
+                                  }
+                                },
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "padding",
+                                    "props": {
+                                      "top": 20,
+                                      "leading": 20,
+                                      "bottom": 20,
+                                      "trailing": 20,
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "Rectangle",
+                                      "props": {
+                                        "children": [],
+                                        "fill": {
+                                          "style": {
+                                            "type": "Color",
+                                            "props": {
+                                              "rawValue": "green",
+                                              "children": []
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

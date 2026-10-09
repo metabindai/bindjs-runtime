@@ -1,0 +1,1517 @@
+{
+  "fixture": "shapes/TestClipShape",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestClipShape",
+          "props": {},
+          "children": [
+            {
+              "type": "VStack",
+              "props": {
+                "children": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "clipShape",
+                        "props": {
+                          "rawValue": {
+                            "type": "Circle",
+                            "props": {
+                              "children": []
+                            }
+                          },
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "frame",
+                              "props": {
+                                "width": 250,
+                                "height": 250,
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "AngularGradient",
+                                "props": {
+                                  "colors": [
+                                    {
+                                      "type": "Color",
+                                      "props": {
+                                        "rawValue": "red",
+                                        "children": []
+                                      }
+                                    },
+                                    {
+                                      "type": "Color",
+                                      "props": {
+                                        "rawValue": "orange",
+                                        "children": []
+                                      }
+                                    },
+                                    {
+                                      "type": "Color",
+                                      "props": {
+                                        "rawValue": "yellow",
+                                        "children": []
+                                      }
+                                    },
+                                    {
+                                      "type": "Color",
+                                      "props": {
+                                        "rawValue": "green",
+                                        "children": []
+                                      }
+                                    },
+                                    {
+                                      "type": "Color",
+                                      "props": {
+                                        "rawValue": "blue",
+                                        "children": []
+                                      }
+                                    },
+                                    {
+                                      "type": "Color",
+                                      "props": {
+                                        "rawValue": "indigo",
+                                        "children": []
+                                      }
+                                    },
+                                    {
+                                      "type": "Color",
+                                      "props": {
+                                        "rawValue": "red",
+                                        "children": []
+                                      }
+                                    }
+                                  ],
+                                  "children": []
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "clipShape",
+                        "props": {
+                          "rawValue": {
+                            "type": "Circle",
+                            "props": {
+                              "children": []
+                            }
+                          },
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "frame",
+                              "props": {
+                                "width": 250,
+                                "height": 100,
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "AngularGradient",
+                                "props": {
+                                  "colors": [
+                                    {
+                                      "type": "Color",
+                                      "props": {
+                                        "rawValue": "red",
+                                        "children": []
+                                      }
+                                    },
+                                    {
+                                      "type": "Color",
+                                      "props": {
+                                        "rawValue": "orange",
+                                        "children": []
+                                      }
+                                    },
+                                    {
+                                      "type": "Color",
+                                      "props": {
+                                        "rawValue": "yellow",
+                                        "children": []
+                                      }
+                                    },
+                                    {
+                                      "type": "Color",
+                                      "props": {
+                                        "rawValue": "green",
+                                        "children": []
+                                      }
+                                    },
+                                    {
+                                      "type": "Color",
+                                      "props": {
+                                        "rawValue": "blue",
+                                        "children": []
+                                      }
+                                    },
+                                    {
+                                      "type": "Color",
+                                      "props": {
+                                        "rawValue": "indigo",
+                                        "children": []
+                                      }
+                                    },
+                                    {
+                                      "type": "Color",
+                                      "props": {
+                                        "rawValue": "red",
+                                        "children": []
+                                      }
+                                    }
+                                  ],
+                                  "children": []
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "clipShape",
+                        "props": {
+                          "rawValue": {
+                            "type": "Ellipse",
+                            "props": {
+                              "children": []
+                            }
+                          },
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "frame",
+                              "props": {
+                                "width": 250,
+                                "height": 125,
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "AngularGradient",
+                                "props": {
+                                  "colors": [
+                                    {
+                                      "type": "Color",
+                                      "props": {
+                                        "rawValue": "red",
+                                        "children": []
+                                      }
+                                    },
+                                    {
+                                      "type": "Color",
+                                      "props": {
+                                        "rawValue": "orange",
+                                        "children": []
+                                      }
+                                    },
+                                    {
+                                      "type": "Color",
+                                      "props": {
+                                        "rawValue": "yellow",
+                                        "children": []
+                                      }
+                                    },
+                                    {
+                                      "type": "Color",
+                                      "props": {
+                                        "rawValue": "green",
+                                        "children": []
+                                      }
+                                    },
+                                    {
+                                      "type": "Color",
+                                      "props": {
+                                        "rawValue": "blue",
+                                        "children": []
+                                      }
+                                    },
+                                    {
+                                      "type": "Color",
+                                      "props": {
+                                        "rawValue": "indigo",
+                                        "children": []
+                                      }
+                                    },
+                                    {
+                                      "type": "Color",
+                                      "props": {
+                                        "rawValue": "red",
+                                        "children": []
+                                      }
+                                    }
+                                  ],
+                                  "children": []
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "clipShape",
+                        "props": {
+                          "rawValue": {
+                            "type": "Capsule",
+                            "props": {
+                              "children": []
+                            }
+                          },
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "frame",
+                              "props": {
+                                "width": 250,
+                                "height": 50,
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "AngularGradient",
+                                "props": {
+                                  "colors": [
+                                    {
+                                      "type": "Color",
+                                      "props": {
+                                        "rawValue": "red",
+                                        "children": []
+                                      }
+                                    },
+                                    {
+                                      "type": "Color",
+                                      "props": {
+                                        "rawValue": "orange",
+                                        "children": []
+                                      }
+                                    },
+                                    {
+                                      "type": "Color",
+                                      "props": {
+                                        "rawValue": "yellow",
+                                        "children": []
+                                      }
+                                    },
+                                    {
+                                      "type": "Color",
+                                      "props": {
+                                        "rawValue": "green",
+                                        "children": []
+                                      }
+                                    },
+                                    {
+                                      "type": "Color",
+                                      "props": {
+                                        "rawValue": "blue",
+                                        "children": []
+                                      }
+                                    },
+                                    {
+                                      "type": "Color",
+                                      "props": {
+                                        "rawValue": "indigo",
+                                        "children": []
+                                      }
+                                    },
+                                    {
+                                      "type": "Color",
+                                      "props": {
+                                        "rawValue": "red",
+                                        "children": []
+                                      }
+                                    }
+                                  ],
+                                  "children": []
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "clipShape",
+                        "props": {
+                          "rawValue": {
+                            "type": "RoundedRectangle",
+                            "props": {
+                              "cornerRadius": 20,
+                              "children": []
+                            }
+                          },
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "frame",
+                              "props": {
+                                "width": 250,
+                                "height": 50,
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "AngularGradient",
+                                "props": {
+                                  "colors": [
+                                    {
+                                      "type": "Color",
+                                      "props": {
+                                        "rawValue": "red",
+                                        "children": []
+                                      }
+                                    },
+                                    {
+                                      "type": "Color",
+                                      "props": {
+                                        "rawValue": "orange",
+                                        "children": []
+                                      }
+                                    },
+                                    {
+                                      "type": "Color",
+                                      "props": {
+                                        "rawValue": "yellow",
+                                        "children": []
+                                      }
+                                    },
+                                    {
+                                      "type": "Color",
+                                      "props": {
+                                        "rawValue": "green",
+                                        "children": []
+                                      }
+                                    },
+                                    {
+                                      "type": "Color",
+                                      "props": {
+                                        "rawValue": "blue",
+                                        "children": []
+                                      }
+                                    },
+                                    {
+                                      "type": "Color",
+                                      "props": {
+                                        "rawValue": "indigo",
+                                        "children": []
+                                      }
+                                    },
+                                    {
+                                      "type": "Color",
+                                      "props": {
+                                        "rawValue": "red",
+                                        "children": []
+                                      }
+                                    }
+                                  ],
+                                  "children": []
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "render": "preview 0: All shapes",
+      "errors": [],
+      "ast": {
+        "type": "ModifiedComponent",
+        "props": {
+          "modifier": {
+            "type": "previewName",
+            "props": {
+              "rawValue": "All shapes",
+              "children": []
+            }
+          },
+          "content": [
+            {
+              "type": "ComponentCall",
+              "props": {
+                "name": "TestClipShape",
+                "props": {},
+                "children": [
+                  {
+                    "type": "VStack",
+                    "props": {
+                      "children": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "clipShape",
+                              "props": {
+                                "rawValue": {
+                                  "type": "Circle",
+                                  "props": {
+                                    "children": []
+                                  }
+                                },
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "frame",
+                                    "props": {
+                                      "width": 250,
+                                      "height": 250,
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "AngularGradient",
+                                      "props": {
+                                        "colors": [
+                                          {
+                                            "type": "Color",
+                                            "props": {
+                                              "rawValue": "red",
+                                              "children": []
+                                            }
+                                          },
+                                          {
+                                            "type": "Color",
+                                            "props": {
+                                              "rawValue": "orange",
+                                              "children": []
+                                            }
+                                          },
+                                          {
+                                            "type": "Color",
+                                            "props": {
+                                              "rawValue": "yellow",
+                                              "children": []
+                                            }
+                                          },
+                                          {
+                                            "type": "Color",
+                                            "props": {
+                                              "rawValue": "green",
+                                              "children": []
+                                            }
+                                          },
+                                          {
+                                            "type": "Color",
+                                            "props": {
+                                              "rawValue": "blue",
+                                              "children": []
+                                            }
+                                          },
+                                          {
+                                            "type": "Color",
+                                            "props": {
+                                              "rawValue": "indigo",
+                                              "children": []
+                                            }
+                                          },
+                                          {
+                                            "type": "Color",
+                                            "props": {
+                                              "rawValue": "red",
+                                              "children": []
+                                            }
+                                          }
+                                        ],
+                                        "children": []
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "clipShape",
+                              "props": {
+                                "rawValue": {
+                                  "type": "Circle",
+                                  "props": {
+                                    "children": []
+                                  }
+                                },
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "frame",
+                                    "props": {
+                                      "width": 250,
+                                      "height": 100,
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "AngularGradient",
+                                      "props": {
+                                        "colors": [
+                                          {
+                                            "type": "Color",
+                                            "props": {
+                                              "rawValue": "red",
+                                              "children": []
+                                            }
+                                          },
+                                          {
+                                            "type": "Color",
+                                            "props": {
+                                              "rawValue": "orange",
+                                              "children": []
+                                            }
+                                          },
+                                          {
+                                            "type": "Color",
+                                            "props": {
+                                              "rawValue": "yellow",
+                                              "children": []
+                                            }
+                                          },
+                                          {
+                                            "type": "Color",
+                                            "props": {
+                                              "rawValue": "green",
+                                              "children": []
+                                            }
+                                          },
+                                          {
+                                            "type": "Color",
+                                            "props": {
+                                              "rawValue": "blue",
+                                              "children": []
+                                            }
+                                          },
+                                          {
+                                            "type": "Color",
+                                            "props": {
+                                              "rawValue": "indigo",
+                                              "children": []
+                                            }
+                                          },
+                                          {
+                                            "type": "Color",
+                                            "props": {
+                                              "rawValue": "red",
+                                              "children": []
+                                            }
+                                          }
+                                        ],
+                                        "children": []
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "clipShape",
+                              "props": {
+                                "rawValue": {
+                                  "type": "Ellipse",
+                                  "props": {
+                                    "children": []
+                                  }
+                                },
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "frame",
+                                    "props": {
+                                      "width": 250,
+                                      "height": 125,
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "AngularGradient",
+                                      "props": {
+                                        "colors": [
+                                          {
+                                            "type": "Color",
+                                            "props": {
+                                              "rawValue": "red",
+                                              "children": []
+                                            }
+                                          },
+                                          {
+                                            "type": "Color",
+                                            "props": {
+                                              "rawValue": "orange",
+                                              "children": []
+                                            }
+                                          },
+                                          {
+                                            "type": "Color",
+                                            "props": {
+                                              "rawValue": "yellow",
+                                              "children": []
+                                            }
+                                          },
+                                          {
+                                            "type": "Color",
+                                            "props": {
+                                              "rawValue": "green",
+                                              "children": []
+                                            }
+                                          },
+                                          {
+                                            "type": "Color",
+                                            "props": {
+                                              "rawValue": "blue",
+                                              "children": []
+                                            }
+                                          },
+                                          {
+                                            "type": "Color",
+                                            "props": {
+                                              "rawValue": "indigo",
+                                              "children": []
+                                            }
+                                          },
+                                          {
+                                            "type": "Color",
+                                            "props": {
+                                              "rawValue": "red",
+                                              "children": []
+                                            }
+                                          }
+                                        ],
+                                        "children": []
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "clipShape",
+                              "props": {
+                                "rawValue": {
+                                  "type": "Capsule",
+                                  "props": {
+                                    "children": []
+                                  }
+                                },
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "frame",
+                                    "props": {
+                                      "width": 250,
+                                      "height": 50,
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "AngularGradient",
+                                      "props": {
+                                        "colors": [
+                                          {
+                                            "type": "Color",
+                                            "props": {
+                                              "rawValue": "red",
+                                              "children": []
+                                            }
+                                          },
+                                          {
+                                            "type": "Color",
+                                            "props": {
+                                              "rawValue": "orange",
+                                              "children": []
+                                            }
+                                          },
+                                          {
+                                            "type": "Color",
+                                            "props": {
+                                              "rawValue": "yellow",
+                                              "children": []
+                                            }
+                                          },
+                                          {
+                                            "type": "Color",
+                                            "props": {
+                                              "rawValue": "green",
+                                              "children": []
+                                            }
+                                          },
+                                          {
+                                            "type": "Color",
+                                            "props": {
+                                              "rawValue": "blue",
+                                              "children": []
+                                            }
+                                          },
+                                          {
+                                            "type": "Color",
+                                            "props": {
+                                              "rawValue": "indigo",
+                                              "children": []
+                                            }
+                                          },
+                                          {
+                                            "type": "Color",
+                                            "props": {
+                                              "rawValue": "red",
+                                              "children": []
+                                            }
+                                          }
+                                        ],
+                                        "children": []
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "clipShape",
+                              "props": {
+                                "rawValue": {
+                                  "type": "RoundedRectangle",
+                                  "props": {
+                                    "cornerRadius": 20,
+                                    "children": []
+                                  }
+                                },
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "frame",
+                                    "props": {
+                                      "width": 250,
+                                      "height": 50,
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "AngularGradient",
+                                      "props": {
+                                        "colors": [
+                                          {
+                                            "type": "Color",
+                                            "props": {
+                                              "rawValue": "red",
+                                              "children": []
+                                            }
+                                          },
+                                          {
+                                            "type": "Color",
+                                            "props": {
+                                              "rawValue": "orange",
+                                              "children": []
+                                            }
+                                          },
+                                          {
+                                            "type": "Color",
+                                            "props": {
+                                              "rawValue": "yellow",
+                                              "children": []
+                                            }
+                                          },
+                                          {
+                                            "type": "Color",
+                                            "props": {
+                                              "rawValue": "green",
+                                              "children": []
+                                            }
+                                          },
+                                          {
+                                            "type": "Color",
+                                            "props": {
+                                              "rawValue": "blue",
+                                              "children": []
+                                            }
+                                          },
+                                          {
+                                            "type": "Color",
+                                            "props": {
+                                              "rawValue": "indigo",
+                                              "children": []
+                                            }
+                                          },
+                                          {
+                                            "type": "Color",
+                                            "props": {
+                                              "rawValue": "red",
+                                              "children": []
+                                            }
+                                          }
+                                        ],
+                                        "children": []
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "render": "preview 1: Circle",
+      "errors": [],
+      "ast": {
+        "type": "ModifiedComponent",
+        "props": {
+          "modifier": {
+            "type": "previewName",
+            "props": {
+              "rawValue": "Circle",
+              "children": []
+            }
+          },
+          "content": [
+            {
+              "type": "ModifiedComponent",
+              "props": {
+                "modifier": {
+                  "type": "clipShape",
+                  "props": {
+                    "rawValue": {
+                      "type": "Circle",
+                      "props": {
+                        "children": []
+                      }
+                    },
+                    "children": []
+                  }
+                },
+                "content": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "frame",
+                        "props": {
+                          "width": 250,
+                          "height": 250,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "AngularGradient",
+                          "props": {
+                            "colors": [
+                              {
+                                "type": "Color",
+                                "props": {
+                                  "rawValue": "red",
+                                  "children": []
+                                }
+                              },
+                              {
+                                "type": "Color",
+                                "props": {
+                                  "rawValue": "orange",
+                                  "children": []
+                                }
+                              },
+                              {
+                                "type": "Color",
+                                "props": {
+                                  "rawValue": "yellow",
+                                  "children": []
+                                }
+                              },
+                              {
+                                "type": "Color",
+                                "props": {
+                                  "rawValue": "green",
+                                  "children": []
+                                }
+                              },
+                              {
+                                "type": "Color",
+                                "props": {
+                                  "rawValue": "blue",
+                                  "children": []
+                                }
+                              },
+                              {
+                                "type": "Color",
+                                "props": {
+                                  "rawValue": "indigo",
+                                  "children": []
+                                }
+                              },
+                              {
+                                "type": "Color",
+                                "props": {
+                                  "rawValue": "red",
+                                  "children": []
+                                }
+                              }
+                            ],
+                            "children": []
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "render": "preview 2: Circle in wide frame",
+      "errors": [],
+      "ast": {
+        "type": "ModifiedComponent",
+        "props": {
+          "modifier": {
+            "type": "previewName",
+            "props": {
+              "rawValue": "Circle in wide frame",
+              "children": []
+            }
+          },
+          "content": [
+            {
+              "type": "ModifiedComponent",
+              "props": {
+                "modifier": {
+                  "type": "clipShape",
+                  "props": {
+                    "rawValue": {
+                      "type": "Circle",
+                      "props": {
+                        "children": []
+                      }
+                    },
+                    "children": []
+                  }
+                },
+                "content": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "frame",
+                        "props": {
+                          "width": 250,
+                          "height": 100,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "AngularGradient",
+                          "props": {
+                            "colors": [
+                              {
+                                "type": "Color",
+                                "props": {
+                                  "rawValue": "red",
+                                  "children": []
+                                }
+                              },
+                              {
+                                "type": "Color",
+                                "props": {
+                                  "rawValue": "orange",
+                                  "children": []
+                                }
+                              },
+                              {
+                                "type": "Color",
+                                "props": {
+                                  "rawValue": "yellow",
+                                  "children": []
+                                }
+                              },
+                              {
+                                "type": "Color",
+                                "props": {
+                                  "rawValue": "green",
+                                  "children": []
+                                }
+                              },
+                              {
+                                "type": "Color",
+                                "props": {
+                                  "rawValue": "blue",
+                                  "children": []
+                                }
+                              },
+                              {
+                                "type": "Color",
+                                "props": {
+                                  "rawValue": "indigo",
+                                  "children": []
+                                }
+                              },
+                              {
+                                "type": "Color",
+                                "props": {
+                                  "rawValue": "red",
+                                  "children": []
+                                }
+                              }
+                            ],
+                            "children": []
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "render": "preview 3: Ellipse",
+      "errors": [],
+      "ast": {
+        "type": "ModifiedComponent",
+        "props": {
+          "modifier": {
+            "type": "previewName",
+            "props": {
+              "rawValue": "Ellipse",
+              "children": []
+            }
+          },
+          "content": [
+            {
+              "type": "ModifiedComponent",
+              "props": {
+                "modifier": {
+                  "type": "clipShape",
+                  "props": {
+                    "rawValue": {
+                      "type": "Ellipse",
+                      "props": {
+                        "children": []
+                      }
+                    },
+                    "children": []
+                  }
+                },
+                "content": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "frame",
+                        "props": {
+                          "width": 250,
+                          "height": 125,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "AngularGradient",
+                          "props": {
+                            "colors": [
+                              {
+                                "type": "Color",
+                                "props": {
+                                  "rawValue": "red",
+                                  "children": []
+                                }
+                              },
+                              {
+                                "type": "Color",
+                                "props": {
+                                  "rawValue": "orange",
+                                  "children": []
+                                }
+                              },
+                              {
+                                "type": "Color",
+                                "props": {
+                                  "rawValue": "yellow",
+                                  "children": []
+                                }
+                              },
+                              {
+                                "type": "Color",
+                                "props": {
+                                  "rawValue": "green",
+                                  "children": []
+                                }
+                              },
+                              {
+                                "type": "Color",
+                                "props": {
+                                  "rawValue": "blue",
+                                  "children": []
+                                }
+                              },
+                              {
+                                "type": "Color",
+                                "props": {
+                                  "rawValue": "indigo",
+                                  "children": []
+                                }
+                              },
+                              {
+                                "type": "Color",
+                                "props": {
+                                  "rawValue": "red",
+                                  "children": []
+                                }
+                              }
+                            ],
+                            "children": []
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "render": "preview 4: Capsule",
+      "errors": [],
+      "ast": {
+        "type": "ModifiedComponent",
+        "props": {
+          "modifier": {
+            "type": "previewName",
+            "props": {
+              "rawValue": "Capsule",
+              "children": []
+            }
+          },
+          "content": [
+            {
+              "type": "ModifiedComponent",
+              "props": {
+                "modifier": {
+                  "type": "clipShape",
+                  "props": {
+                    "rawValue": {
+                      "type": "Capsule",
+                      "props": {
+                        "children": []
+                      }
+                    },
+                    "children": []
+                  }
+                },
+                "content": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "frame",
+                        "props": {
+                          "width": 250,
+                          "height": 50,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "AngularGradient",
+                          "props": {
+                            "colors": [
+                              {
+                                "type": "Color",
+                                "props": {
+                                  "rawValue": "red",
+                                  "children": []
+                                }
+                              },
+                              {
+                                "type": "Color",
+                                "props": {
+                                  "rawValue": "orange",
+                                  "children": []
+                                }
+                              },
+                              {
+                                "type": "Color",
+                                "props": {
+                                  "rawValue": "yellow",
+                                  "children": []
+                                }
+                              },
+                              {
+                                "type": "Color",
+                                "props": {
+                                  "rawValue": "green",
+                                  "children": []
+                                }
+                              },
+                              {
+                                "type": "Color",
+                                "props": {
+                                  "rawValue": "blue",
+                                  "children": []
+                                }
+                              },
+                              {
+                                "type": "Color",
+                                "props": {
+                                  "rawValue": "indigo",
+                                  "children": []
+                                }
+                              },
+                              {
+                                "type": "Color",
+                                "props": {
+                                  "rawValue": "red",
+                                  "children": []
+                                }
+                              }
+                            ],
+                            "children": []
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "render": "preview 5: Rounded rectangle",
+      "errors": [],
+      "ast": {
+        "type": "ModifiedComponent",
+        "props": {
+          "modifier": {
+            "type": "previewName",
+            "props": {
+              "rawValue": "Rounded rectangle",
+              "children": []
+            }
+          },
+          "content": [
+            {
+              "type": "ModifiedComponent",
+              "props": {
+                "modifier": {
+                  "type": "clipShape",
+                  "props": {
+                    "rawValue": {
+                      "type": "RoundedRectangle",
+                      "props": {
+                        "cornerRadius": 20,
+                        "children": []
+                      }
+                    },
+                    "children": []
+                  }
+                },
+                "content": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "frame",
+                        "props": {
+                          "width": 250,
+                          "height": 50,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "AngularGradient",
+                          "props": {
+                            "colors": [
+                              {
+                                "type": "Color",
+                                "props": {
+                                  "rawValue": "red",
+                                  "children": []
+                                }
+                              },
+                              {
+                                "type": "Color",
+                                "props": {
+                                  "rawValue": "orange",
+                                  "children": []
+                                }
+                              },
+                              {
+                                "type": "Color",
+                                "props": {
+                                  "rawValue": "yellow",
+                                  "children": []
+                                }
+                              },
+                              {
+                                "type": "Color",
+                                "props": {
+                                  "rawValue": "green",
+                                  "children": []
+                                }
+                              },
+                              {
+                                "type": "Color",
+                                "props": {
+                                  "rawValue": "blue",
+                                  "children": []
+                                }
+                              },
+                              {
+                                "type": "Color",
+                                "props": {
+                                  "rawValue": "indigo",
+                                  "children": []
+                                }
+                              },
+                              {
+                                "type": "Color",
+                                "props": {
+                                  "rawValue": "red",
+                                  "children": []
+                                }
+                              }
+                            ],
+                            "children": []
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

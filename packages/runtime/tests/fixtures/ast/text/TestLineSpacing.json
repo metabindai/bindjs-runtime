@@ -1,0 +1,143 @@
+{
+  "fixture": "text/TestLineSpacing",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestLineSpacing",
+          "props": {},
+          "children": [
+            {
+              "type": "VStack",
+              "props": {
+                "spacing": 10,
+                "children": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "lineSpacing",
+                        "props": {
+                          "rawValue": -4,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "frame",
+                              "props": {
+                                "width": 200,
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "Text",
+                                "props": {
+                                  "rawValue": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+                                  "children": []
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "Divider",
+                    "props": {
+                      "children": []
+                    }
+                  },
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "lineSpacing",
+                        "props": {
+                          "rawValue": 0,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "frame",
+                              "props": {
+                                "width": 200,
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "Text",
+                                "props": {
+                                  "rawValue": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+                                  "children": []
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "Divider",
+                    "props": {
+                      "children": []
+                    }
+                  },
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "lineSpacing",
+                        "props": {
+                          "rawValue": 12,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "frame",
+                              "props": {
+                                "width": 200,
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "Text",
+                                "props": {
+                                  "rawValue": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+                                  "children": []
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

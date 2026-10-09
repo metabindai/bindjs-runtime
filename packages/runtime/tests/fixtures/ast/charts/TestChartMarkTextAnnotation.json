@@ -1,0 +1,165 @@
+{
+  "fixture": "charts/TestChartMarkTextAnnotation",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestChartMarkTextAnnotation",
+          "props": {},
+          "children": [
+            {
+              "type": "ModifiedComponent",
+              "props": {
+                "modifier": {
+                  "type": "frame",
+                  "props": {
+                    "height": 280,
+                    "children": []
+                  }
+                },
+                "content": [
+                  {
+                    "type": "Chart",
+                    "props": {
+                      "children": [
+                        {
+                          "type": "LineMark",
+                          "props": {
+                            "x": {
+                              "value": "Jan"
+                            },
+                            "y": {
+                              "value": 12
+                            },
+                            "children": []
+                          }
+                        },
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "annotation",
+                              "props": {
+                                "text": "Peak",
+                                "position": "top",
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "PointMark",
+                                "props": {
+                                  "x": {
+                                    "value": "Feb"
+                                  },
+                                  "y": {
+                                    "value": 18
+                                  },
+                                  "children": []
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "render": "preview 0: Default",
+      "errors": [],
+      "ast": {
+        "type": "ModifiedComponent",
+        "props": {
+          "modifier": {
+            "type": "previewName",
+            "props": {
+              "rawValue": "Default",
+              "children": []
+            }
+          },
+          "content": [
+            {
+              "type": "ComponentCall",
+              "props": {
+                "name": "TestChartMarkTextAnnotation",
+                "props": {},
+                "children": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "frame",
+                        "props": {
+                          "height": 280,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "Chart",
+                          "props": {
+                            "children": [
+                              {
+                                "type": "LineMark",
+                                "props": {
+                                  "x": {
+                                    "value": "Jan"
+                                  },
+                                  "y": {
+                                    "value": 12
+                                  },
+                                  "children": []
+                                }
+                              },
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "annotation",
+                                    "props": {
+                                      "text": "Peak",
+                                      "position": "top",
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "PointMark",
+                                      "props": {
+                                        "x": {
+                                          "value": "Feb"
+                                        },
+                                        "y": {
+                                          "value": 18
+                                        },
+                                        "children": []
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

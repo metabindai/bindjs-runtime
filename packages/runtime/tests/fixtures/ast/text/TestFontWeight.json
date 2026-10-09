@@ -1,0 +1,214 @@
+{
+  "fixture": "text/TestFontWeight",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestFontWeight",
+          "props": {},
+          "children": [
+            {
+              "type": "VStack",
+              "props": {
+                "children": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "fontWeight",
+                        "props": {
+                          "rawValue": "ultraLight",
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "Text",
+                          "props": {
+                            "rawValue": "ultraLight",
+                            "children": []
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "fontWeight",
+                        "props": {
+                          "rawValue": "thin",
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "Text",
+                          "props": {
+                            "rawValue": "thin",
+                            "children": []
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "fontWeight",
+                        "props": {
+                          "rawValue": "light",
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "Text",
+                          "props": {
+                            "rawValue": "light",
+                            "children": []
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "fontWeight",
+                        "props": {
+                          "rawValue": "regular",
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "Text",
+                          "props": {
+                            "rawValue": "regular",
+                            "children": []
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "fontWeight",
+                        "props": {
+                          "rawValue": "medium",
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "Text",
+                          "props": {
+                            "rawValue": "medium",
+                            "children": []
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "fontWeight",
+                        "props": {
+                          "rawValue": "semibold",
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "Text",
+                          "props": {
+                            "rawValue": "semibold",
+                            "children": []
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "fontWeight",
+                        "props": {
+                          "rawValue": "bold",
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "Text",
+                          "props": {
+                            "rawValue": "bold",
+                            "children": []
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "fontWeight",
+                        "props": {
+                          "rawValue": "heavy",
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "Text",
+                          "props": {
+                            "rawValue": "heavy",
+                            "children": []
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "fontWeight",
+                        "props": {
+                          "rawValue": "black",
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "Text",
+                          "props": {
+                            "rawValue": "black",
+                            "children": []
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

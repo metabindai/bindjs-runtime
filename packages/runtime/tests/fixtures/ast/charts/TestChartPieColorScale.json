@@ -1,0 +1,267 @@
+{
+  "fixture": "charts/TestChartPieColorScale",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestChartPieColorScale",
+          "props": {},
+          "children": [
+            {
+              "type": "ModifiedComponent",
+              "props": {
+                "modifier": {
+                  "type": "frame",
+                  "props": {
+                    "height": 280,
+                    "children": []
+                  }
+                },
+                "content": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "chartForegroundStyleScale",
+                        "props": {
+                          "Product": "blue",
+                          "Services": "green",
+                          "Support": "orange",
+                          "__bindjsScaleDomain": [
+                            "Product",
+                            "Services",
+                            "Support"
+                          ],
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "PieChart",
+                          "props": {
+                            "children": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "foregroundStyle",
+                                    "props": {
+                                      "by": "Product",
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "PieSliceMark",
+                                      "props": {
+                                        "id": "product",
+                                        "value": 45,
+                                        "label": "Product",
+                                        "children": []
+                                      }
+                                    }
+                                  ]
+                                }
+                              },
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "foregroundStyle",
+                                    "props": {
+                                      "by": "Services",
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "PieSliceMark",
+                                      "props": {
+                                        "id": "services",
+                                        "value": 35,
+                                        "label": "Services",
+                                        "children": []
+                                      }
+                                    }
+                                  ]
+                                }
+                              },
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "foregroundStyle",
+                                    "props": {
+                                      "by": "Support",
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "PieSliceMark",
+                                      "props": {
+                                        "id": "support",
+                                        "value": 20,
+                                        "label": "Support",
+                                        "children": []
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "render": "preview 0: Default",
+      "errors": [],
+      "ast": {
+        "type": "ModifiedComponent",
+        "props": {
+          "modifier": {
+            "type": "previewName",
+            "props": {
+              "rawValue": "Default",
+              "children": []
+            }
+          },
+          "content": [
+            {
+              "type": "ComponentCall",
+              "props": {
+                "name": "TestChartPieColorScale",
+                "props": {},
+                "children": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "frame",
+                        "props": {
+                          "height": 280,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "chartForegroundStyleScale",
+                              "props": {
+                                "Product": "blue",
+                                "Services": "green",
+                                "Support": "orange",
+                                "__bindjsScaleDomain": [
+                                  "Product",
+                                  "Services",
+                                  "Support"
+                                ],
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "PieChart",
+                                "props": {
+                                  "children": [
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "foregroundStyle",
+                                          "props": {
+                                            "by": "Product",
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "PieSliceMark",
+                                            "props": {
+                                              "id": "product",
+                                              "value": 45,
+                                              "label": "Product",
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "foregroundStyle",
+                                          "props": {
+                                            "by": "Services",
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "PieSliceMark",
+                                            "props": {
+                                              "id": "services",
+                                              "value": 35,
+                                              "label": "Services",
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "foregroundStyle",
+                                          "props": {
+                                            "by": "Support",
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "PieSliceMark",
+                                            "props": {
+                                              "id": "support",
+                                              "value": 20,
+                                              "label": "Support",
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

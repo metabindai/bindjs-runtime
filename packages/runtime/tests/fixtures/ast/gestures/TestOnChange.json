@@ -1,0 +1,68 @@
+{
+  "fixture": "gestures/TestOnChange",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestOnChange",
+          "props": {},
+          "children": [
+            {
+              "type": "ModifiedComponent",
+              "props": {
+                "modifier": {
+                  "type": "onChange",
+                  "props": {
+                    "value": "a",
+                    "handlerId": "0,TestOnChange_0,onChange,0",
+                    "children": []
+                  }
+                },
+                "content": [
+                  {
+                    "type": "VStack",
+                    "props": {
+                      "children": [
+                        {
+                          "type": "Text",
+                          "props": {
+                            "rawValue": "Has Not Changed",
+                            "children": []
+                          }
+                        },
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "onTapGesture",
+                              "props": {
+                                "handlerId": "0,TestOnChange_0,VStack_0,onTapGesture,1",
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "Text",
+                                "props": {
+                                  "rawValue": "Change a",
+                                  "children": []
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

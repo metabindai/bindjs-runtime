@@ -1,0 +1,110 @@
+{
+  "fixture": "layout/TestIgnoreSafeArea",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestIgnoreSafeArea",
+          "props": {},
+          "children": [
+            {
+              "type": "Group",
+              "props": {
+                "children": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "ignoresSafeArea",
+                        "props": {
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "background",
+                              "props": {
+                                "content": {
+                                  "type": "ModifiedComponent",
+                                  "props": {
+                                    "modifier": {
+                                      "type": "ignoresSafeArea",
+                                      "props": {
+                                        "children": []
+                                      }
+                                    },
+                                    "content": [
+                                      {
+                                        "type": "Color",
+                                        "props": {
+                                          "rawValue": "green",
+                                          "children": []
+                                        }
+                                      }
+                                    ]
+                                  }
+                                },
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "VStack",
+                                "props": {
+                                  "children": [
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "padding",
+                                          "props": {
+                                            "top": 20,
+                                            "leading": 20,
+                                            "bottom": 20,
+                                            "trailing": 20,
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "Rectangle",
+                                            "props": {
+                                              "children": [],
+                                              "fill": {
+                                                "style": {
+                                                  "type": "Color",
+                                                  "props": {
+                                                    "rawValue": "blue",
+                                                    "children": []
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -8,6 +8,8 @@
   "scripts": {
     "build": "pnpm -r build",
     "test": "pnpm -r test",
+    "test:fixtures": "pnpm --filter @metabindai/bindjs-runtime exec vitest run tests/fixtures",
+    "fixtures:accept": "pnpm --filter @metabindai/bindjs-runtime exec vitest run tests/fixtures -u",
     "clean": "pnpm -r exec rm -rf dist"
   },
   "devDependencies": {

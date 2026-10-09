@@ -1,0 +1,229 @@
+{
+  "fixture": "charts/TestChartXRuleReference",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestChartXRuleReference",
+          "props": {},
+          "children": [
+            {
+              "type": "ModifiedComponent",
+              "props": {
+                "modifier": {
+                  "type": "frame",
+                  "props": {
+                    "height": 280,
+                    "children": []
+                  }
+                },
+                "content": [
+                  {
+                    "type": "Chart",
+                    "props": {
+                      "children": [
+                        {
+                          "type": "BarMark",
+                          "props": {
+                            "x": {
+                              "value": "Jan"
+                            },
+                            "y": {
+                              "value": 12
+                            },
+                            "children": []
+                          }
+                        },
+                        {
+                          "type": "BarMark",
+                          "props": {
+                            "x": {
+                              "value": "Feb"
+                            },
+                            "y": {
+                              "value": 18
+                            },
+                            "children": []
+                          }
+                        },
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "lineStyle",
+                              "props": {
+                                "dash": [
+                                  4,
+                                  2
+                                ],
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "foregroundStyle",
+                                    "props": {
+                                      "rawValue": {
+                                        "type": "Color",
+                                        "props": {
+                                          "rawValue": "red",
+                                          "children": []
+                                        }
+                                      },
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "RuleMark",
+                                      "props": {
+                                        "x": {
+                                          "value": "Feb",
+                                          "label": "Release"
+                                        },
+                                        "children": []
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "render": "preview 0: Default",
+      "errors": [],
+      "ast": {
+        "type": "ModifiedComponent",
+        "props": {
+          "modifier": {
+            "type": "previewName",
+            "props": {
+              "rawValue": "Default",
+              "children": []
+            }
+          },
+          "content": [
+            {
+              "type": "ComponentCall",
+              "props": {
+                "name": "TestChartXRuleReference",
+                "props": {},
+                "children": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "frame",
+                        "props": {
+                          "height": 280,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "Chart",
+                          "props": {
+                            "children": [
+                              {
+                                "type": "BarMark",
+                                "props": {
+                                  "x": {
+                                    "value": "Jan"
+                                  },
+                                  "y": {
+                                    "value": 12
+                                  },
+                                  "children": []
+                                }
+                              },
+                              {
+                                "type": "BarMark",
+                                "props": {
+                                  "x": {
+                                    "value": "Feb"
+                                  },
+                                  "y": {
+                                    "value": 18
+                                  },
+                                  "children": []
+                                }
+                              },
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "lineStyle",
+                                    "props": {
+                                      "dash": [
+                                        4,
+                                        2
+                                      ],
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "foregroundStyle",
+                                          "props": {
+                                            "rawValue": {
+                                              "type": "Color",
+                                              "props": {
+                                                "rawValue": "red",
+                                                "children": []
+                                              }
+                                            },
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "RuleMark",
+                                            "props": {
+                                              "x": {
+                                                "value": "Feb",
+                                                "label": "Release"
+                                              },
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

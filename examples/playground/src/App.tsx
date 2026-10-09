@@ -1,59 +1,141 @@
-import { useCallback, useMemo, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Panel, PanelGroup, PanelResizeHandle } from 'react-resizable-panels'
 import { BindJSRuntime } from '@metabindai/bindjs-runtime'
 import styled from 'styled-components'
 
-import { CodeEditor, type CompileResult } from './components/CodeEditor'
+import { CodeEditor, modelUri, type CodeEditorHandle, type CompileResult } from './components/CodeEditor'
 import { Preview } from './components/Preview'
-import { SAMPLE_COMPONENT } from './lib/sample'
-
-const COMPONENT_NAME = '_playground'
+import { Sidebar } from './components/Sidebar'
+import { findFixture, FIXTURES, SCRATCH } from './lib/fixtures'
 
 interface PreviewMeta {
     title: string
 }
 
+// Fixtures call each other by name (e.g. `LabeledRectangle(...)`), and the
+// runtime registers them all as globals — tell the editor about them too.
+const FIXTURE_DECLARATIONS = FIXTURES.map((f) => {
+    const type = /export\s+default\s+defineButtonStyle\b/.test(f.source) ? 'ButtonStyleComponent' : 'Component'
+    return `declare function ${f.name}(props?: Record<string, any>, children?: Component[]): ${type};`
+}).join('\n')
+
+function idFromHash(): string {
+    return decodeURIComponent(window.location.hash.replace(/^#\/?/, '')) || SCRATCH.id
+}
+
 export function App() {
-    // One runtime instance for the lifetime of the app. The constructor already
-    // registers all the built-in components/modifiers, so it's ready to use.
-    const runtime = useMemo(() => new BindJSRuntime(), [])
+    // Runtime errors are caught and logged inside the runtime (a broken
+    // component renders nothing), so route them into the UI as well.
+    const [runtimeErrors, setRuntimeErrors] = useState<string[]>([])
+    const pendingErrors = useRef<string[]>([])
+
+    // One runtime instance for the lifetime of the app, with every fixture
+    // registered up front so cross-fixture calls resolve before either is opened.
+    const runtime = useMemo(() => {
+        const rt = new BindJSRuntime({
+            logger: {
+                error: (...args: unknown[]) => {
+                    console.error(...args)
+                    pendingErrors.current.push(args.map(formatLogArg).join(' '))
+                    // Errors arrive mid-render; flush them after it.
+                    queueMicrotask(() => {
+                        if (pendingErrors.current.length === 0) return
+                        const next = pendingErrors.current
+                        pendingErrors.current = []
+                        setRuntimeErrors((prev) => [...new Set([...prev, ...next])])
+                    })
+                },
+            },
+        })
+        for (const f of FIXTURES) rt.registerComponent(f.name, f.js)
+        return rt
+    }, [])
+
+    const [selectedId, setSelectedId] = useState(idFromHash)
+    const fixture = findFixture(selectedId)
 
     const [version, setVersion] = useState(0)
     const [previews, setPreviews] = useState<PreviewMeta[]>([])
     const [previewIndex, setPreviewIndex] = useState(0)
-    const [error, setError] = useState<string | null>(null)
+    const [description, setDescription] = useState<string | null>(null)
+    const [compileError, setCompileError] = useState<string | null>(null)
+    const [modifiedIds, setModifiedIds] = useState<Set<string>>(() => new Set())
     const [colorScheme, setColorScheme] = useState<'light' | 'dark'>('light')
 
-    // Avoid re-registering identical JS (the editor fires onChange generously).
-    const lastJsRef = useRef<string | null>(null)
+    const editorRef = useRef<CodeEditorHandle | null>(null)
+    // Avoid re-registering identical JS per component (the editor fires onChange generously).
+    const lastJsRef = useRef<Record<string, string>>({})
 
-    const handleCompile = useCallback(
-        ({ javascript }: CompileResult) => {
-            if (javascript === lastJsRef.current) return
-            lastJsRef.current = javascript
+    useEffect(() => {
+        const onHashChange = () => setSelectedId(idFromHash())
+        window.addEventListener('hashchange', onHashChange)
+        return () => window.removeEventListener('hashchange', onHashChange)
+    }, [])
 
-            try {
-                runtime.registerComponent(COMPONENT_NAME, javascript)
+    const select = useCallback((id: string) => {
+        window.location.hash = `/${id}`
+    }, [])
 
-                const metas: PreviewMeta[] =
-                    runtime.getComponentPreviewsWithMetadata?.(COMPONENT_NAME)?.map(
-                        (p: { title?: string }, i: number) => ({
-                            title: p?.title ?? `Preview ${i + 1}`,
-                        }),
-                    ) ?? []
+    // Re-read metadata and previews for the current registration of a component.
+    const refresh = useCallback(
+        (name: string) => {
+            const metas: PreviewMeta[] =
+                runtime.getComponentPreviewsWithMetadata?.(name)?.map(
+                    (p: { title?: string }, i: number) => ({
+                        title: p?.title?.trim() || `Preview ${i + 1}`,
+                    }),
+                ) ?? []
+            const metadata = runtime.getComponentMetadata?.(name)
 
-                setPreviews(metas)
-                setPreviewIndex((prev) => (prev >= metas.length ? 0 : prev))
-                setError(null)
-                setVersion((v) => v + 1)
-            } catch (err) {
-                setError(err instanceof Error ? err.message : String(err))
-            }
+            setPreviews(metas)
+            setPreviewIndex((prev) => (prev >= metas.length ? 0 : prev))
+            setDescription(typeof metadata?.description === 'string' ? metadata.description : null)
+            setRuntimeErrors([])
+            setVersion((v) => v + 1)
         },
         [runtime],
     )
 
-    const usePreviews = previews.length > 0
+    // Switching fixtures shows the registered version immediately; the editor's
+    // compile of the opened model follows and only re-registers if it differs.
+    useEffect(() => {
+        setPreviewIndex(0)
+        setCompileError(null)
+        if (fixture !== SCRATCH) refresh(fixture.name)
+    }, [fixture, refresh])
+
+    const handleCompile = useCallback(
+        ({ path, typescript, javascript }: CompileResult) => {
+            // Drop results for a document that's no longer open.
+            if (path !== modelUri(fixture.id)) return
+
+            if (fixture !== SCRATCH) {
+                setModifiedIds((prev) => {
+                    const modified = typescript !== fixture.source
+                    if (modified === prev.has(fixture.id)) return prev
+                    const next = new Set(prev)
+                    if (modified) next.add(fixture.id)
+                    else next.delete(fixture.id)
+                    return next
+                })
+            }
+
+            if (javascript === lastJsRef.current[fixture.name]) return
+            lastJsRef.current[fixture.name] = javascript
+
+            try {
+                runtime.registerComponent(fixture.name, javascript)
+                setCompileError(null)
+                refresh(fixture.name)
+            } catch (err) {
+                setCompileError(err instanceof Error ? err.message : String(err))
+            }
+        },
+        [fixture, runtime, refresh],
+    )
+
+    const isModified = modifiedIds.has(fixture.id)
+    const errors = compileError ? [compileError] : runtimeErrors
 
     return (
         <Shell>
@@ -89,11 +171,25 @@ export function App() {
             </Header>
 
             <Body>
-                <PanelGroup direction="horizontal" autoSaveId="bindjs-playground">
-                    <Panel defaultSize={50} minSize={25}>
+                <PanelGroup direction="horizontal" autoSaveId="bindjs-playground-catalog">
+                    <Panel defaultSize={16} minSize={10}>
+                        <Sidebar
+                            fixtures={FIXTURES}
+                            selectedId={fixture.id}
+                            modifiedIds={modifiedIds}
+                            onSelect={select}
+                        />
+                    </Panel>
+
+                    <Handle />
+
+                    <Panel defaultSize={42} minSize={20}>
                         <PaneFill>
                             <CodeEditor
-                                initialValue={SAMPLE_COMPONENT}
+                                ref={editorRef}
+                                path={fixture.id}
+                                initialValue={fixture.source}
+                                extraDeclarations={FIXTURE_DECLARATIONS}
                                 onCompile={handleCompile}
                             />
                         </PaneFill>
@@ -101,23 +197,49 @@ export function App() {
 
                     <Handle />
 
-                    <Panel defaultSize={50} minSize={25}>
+                    <Panel defaultSize={42} minSize={20}>
                         <PaneFill>
+                            {fixture !== SCRATCH && (
+                                <Notes>
+                                    <NotesText>
+                                        <NotesTitle>{fixture.id}</NotesTitle>
+                                        {description && <div>{description}</div>}
+                                    </NotesText>
+                                    {isModified && (
+                                        <Toggle
+                                            onClick={() => editorRef.current?.setValue(fixture.source)}
+                                            title="Discard edits and restore the fixture file"
+                                        >
+                                            Reset
+                                        </Toggle>
+                                    )}
+                                </Notes>
+                            )}
                             <Preview
                                 runtime={runtime}
-                                componentName={COMPONENT_NAME}
+                                componentName={fixture.name}
                                 version={version}
-                                usePreviews={usePreviews}
+                                usePreviews={previews.length > 0}
                                 previewIndex={previewIndex}
                                 colorScheme={colorScheme}
                             />
-                            {error && <ErrorBar>⚠ {error}</ErrorBar>}
+                            {errors.length > 0 && <ErrorBar>⚠ {errors.join('\n')}</ErrorBar>}
                         </PaneFill>
                     </Panel>
                 </PanelGroup>
             </Body>
         </Shell>
     )
+}
+
+function formatLogArg(arg: unknown): string {
+    if (arg instanceof Error) return arg.message
+    if (typeof arg === 'string') return arg
+    try {
+        return JSON.stringify(arg)
+    } catch {
+        return String(arg)
+    }
 }
 
 const Shell = styled.div`
@@ -212,6 +334,30 @@ const Handle = styled(PanelResizeHandle)`
     &[data-resize-handle-active]::before {
         background: #4a90d9;
     }
+`
+
+const Notes = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    flex: 0 0 auto;
+    border-bottom: 1px solid #e0e0e0;
+    background: #fafafa;
+    font-size: 12px;
+    line-height: 1.45;
+    color: #555555;
+`
+
+const NotesText = styled.div`
+    flex: 1;
+    min-width: 0;
+`
+
+const NotesTitle = styled.div`
+    font-family: ui-monospace, monospace;
+    font-weight: 600;
+    color: #1a1a1a;
 `
 
 const ErrorBar = styled.div`

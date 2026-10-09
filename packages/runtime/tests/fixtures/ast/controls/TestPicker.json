@@ -1,0 +1,110 @@
+{
+  "fixture": "controls/TestPicker",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestPicker",
+          "props": {},
+          "children": [
+            {
+              "type": "VStack",
+              "props": {
+                "children": [
+                  {
+                    "type": "Picker",
+                    "props": {
+                      "label": "Size",
+                      "selection": [
+                        "m",
+                        "[Function]"
+                      ],
+                      "currentValueId": "0,TestPicker_0,VStack_0,Picker_0,Picker,0",
+                      "setterId": "0,TestPicker_0,VStack_0,Picker_0,Picker,0",
+                      "environmentId": "0,TestPicker_0,VStack_0,Picker_0,Picker,0",
+                      "children": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "tag",
+                              "props": {
+                                "rawValue": "s",
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "Text",
+                                "props": {
+                                  "rawValue": "Small",
+                                  "children": []
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "tag",
+                              "props": {
+                                "rawValue": "m",
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "Text",
+                                "props": {
+                                  "rawValue": "Medium",
+                                  "children": []
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "tag",
+                              "props": {
+                                "rawValue": "l",
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "Text",
+                                "props": {
+                                  "rawValue": "Large",
+                                  "children": []
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "Text",
+                    "props": {
+                      "rawValue": "Selected: m",
+                      "children": []
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

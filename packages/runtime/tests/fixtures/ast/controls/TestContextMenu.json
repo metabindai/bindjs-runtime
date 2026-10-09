@@ -1,0 +1,337 @@
+{
+  "fixture": "controls/TestContextMenu",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestContextMenu",
+          "props": {},
+          "children": [
+            {
+              "type": "VStack",
+              "props": {
+                "spacing": 20,
+                "children": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "contextMenu",
+                        "props": {
+                          "content": {
+                            "type": "Group",
+                            "props": {
+                              "children": [
+                                {
+                                  "type": "Button",
+                                  "props": {
+                                    "handlerId": "0,TestContextMenu_0,VStack_0,Button_0,,0",
+                                    "label": {
+                                      "type": "Text",
+                                      "props": {
+                                        "rawValue": "Copy",
+                                        "children": []
+                                      }
+                                    },
+                                    "environmentId": "0,TestContextMenu_0,VStack_0,Button_0,,0",
+                                    "children": []
+                                  }
+                                },
+                                {
+                                  "type": "Button",
+                                  "props": {
+                                    "handlerId": "0,TestContextMenu_0,VStack_0,Button_0,,0",
+                                    "label": {
+                                      "type": "Text",
+                                      "props": {
+                                        "rawValue": "Paste",
+                                        "children": []
+                                      }
+                                    },
+                                    "environmentId": "0,TestContextMenu_0,VStack_0,Button_0,,0",
+                                    "children": []
+                                  }
+                                },
+                                {
+                                  "type": "Button",
+                                  "props": {
+                                    "handlerId": "0,TestContextMenu_0,VStack_0,Button_0,,0",
+                                    "label": {
+                                      "type": "Text",
+                                      "props": {
+                                        "rawValue": "Delete",
+                                        "children": []
+                                      }
+                                    },
+                                    "environmentId": "0,TestContextMenu_0,VStack_0,Button_0,,0",
+                                    "children": []
+                                  }
+                                }
+                              ]
+                            }
+                          },
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "Text",
+                          "props": {
+                            "rawValue": "Long press me",
+                            "children": []
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "Divider",
+                    "props": {
+                      "children": []
+                    }
+                  },
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "contextMenu",
+                        "props": {
+                          "content": {
+                            "type": "Group",
+                            "props": {
+                              "children": [
+                                {
+                                  "type": "Button",
+                                  "props": {
+                                    "handlerId": "0,TestContextMenu_0,VStack_0,Group_2,Button_0,,0",
+                                    "label": {
+                                      "type": "Text",
+                                      "props": {
+                                        "rawValue": "Save to Photos",
+                                        "children": []
+                                      }
+                                    },
+                                    "environmentId": "0,TestContextMenu_0,VStack_0,Group_2,Button_0,,0",
+                                    "children": []
+                                  }
+                                },
+                                {
+                                  "type": "Button",
+                                  "props": {
+                                    "handlerId": "0,TestContextMenu_0,VStack_0,Group_2,Button_1,,1",
+                                    "label": {
+                                      "type": "Text",
+                                      "props": {
+                                        "rawValue": "Copy Image",
+                                        "children": []
+                                      }
+                                    },
+                                    "environmentId": "0,TestContextMenu_0,VStack_0,Group_2,Button_1,,1",
+                                    "children": []
+                                  }
+                                },
+                                {
+                                  "type": "Divider",
+                                  "props": {
+                                    "children": []
+                                  }
+                                },
+                                {
+                                  "type": "ModifiedComponent",
+                                  "props": {
+                                    "modifier": {
+                                      "type": "foregroundStyle",
+                                      "props": {
+                                        "rawValue": {
+                                          "type": "Color",
+                                          "props": {
+                                            "rawValue": "red",
+                                            "children": []
+                                          }
+                                        },
+                                        "children": []
+                                      }
+                                    },
+                                    "content": [
+                                      {
+                                        "type": "Button",
+                                        "props": {
+                                          "handlerId": "0,TestContextMenu_0,VStack_0,Group_2,Button_3,,3",
+                                          "label": {
+                                            "type": "Text",
+                                            "props": {
+                                              "rawValue": "Delete",
+                                              "children": []
+                                            }
+                                          },
+                                          "environmentId": "0,TestContextMenu_0,VStack_0,Group_2,Button_3,,3",
+                                          "children": []
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          },
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "Image",
+                          "props": {
+                            "systemName": "photo",
+                            "children": []
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "Divider",
+                    "props": {
+                      "children": []
+                    }
+                  },
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "contextMenu",
+                        "props": {
+                          "content": {
+                            "type": "Group",
+                            "props": {
+                              "children": [
+                                {
+                                  "type": "Button",
+                                  "props": {
+                                    "handlerId": "0,TestContextMenu_0,VStack_0,Group_4,Button_0,,0",
+                                    "label": {
+                                      "type": "Text",
+                                      "props": {
+                                        "rawValue": "Edit",
+                                        "children": []
+                                      }
+                                    },
+                                    "environmentId": "0,TestContextMenu_0,VStack_0,Group_4,Button_0,,0",
+                                    "children": []
+                                  }
+                                },
+                                {
+                                  "type": "Button",
+                                  "props": {
+                                    "handlerId": "0,TestContextMenu_0,VStack_0,Group_4,Button_1,,1",
+                                    "label": {
+                                      "type": "Text",
+                                      "props": {
+                                        "rawValue": "Divider",
+                                        "children": []
+                                      }
+                                    },
+                                    "environmentId": "0,TestContextMenu_0,VStack_0,Group_4,Button_1,,1",
+                                    "children": []
+                                  }
+                                },
+                                {
+                                  "type": "Menu",
+                                  "props": {
+                                    "label": {
+                                      "type": "Text",
+                                      "props": {
+                                        "rawValue": "More Options",
+                                        "children": []
+                                      }
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "Button",
+                                        "props": {
+                                          "handlerId": "0,TestContextMenu_0,VStack_0,Group_4,Menu_2,Button_0,,0",
+                                          "label": {
+                                            "type": "Text",
+                                            "props": {
+                                              "rawValue": "Archive",
+                                              "children": []
+                                            }
+                                          },
+                                          "environmentId": "0,TestContextMenu_0,VStack_0,Group_4,Menu_2,Button_0,,0",
+                                          "children": []
+                                        }
+                                      },
+                                      {
+                                        "type": "Button",
+                                        "props": {
+                                          "handlerId": "0,TestContextMenu_0,VStack_0,Group_4,Menu_2,Button_1,,1",
+                                          "label": {
+                                            "type": "Text",
+                                            "props": {
+                                              "rawValue": "Export",
+                                              "children": []
+                                            }
+                                          },
+                                          "environmentId": "0,TestContextMenu_0,VStack_0,Group_4,Menu_2,Button_1,,1",
+                                          "children": []
+                                        }
+                                      }
+                                    ]
+                                  }
+                                },
+                                {
+                                  "type": "Divider",
+                                  "props": {
+                                    "children": []
+                                  }
+                                },
+                                {
+                                  "type": "Button",
+                                  "props": {
+                                    "handlerId": "0,TestContextMenu_0,VStack_0,Group_4,Button_4,,4",
+                                    "label": {
+                                      "type": "Text",
+                                      "props": {
+                                        "rawValue": "Delete",
+                                        "children": []
+                                      }
+                                    },
+                                    "environmentId": "0,TestContextMenu_0,VStack_0,Group_4,Button_4,,4",
+                                    "children": []
+                                  }
+                                }
+                              ]
+                            }
+                          },
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "VStack",
+                          "props": {
+                            "children": [
+                              {
+                                "type": "Text",
+                                "props": {
+                                  "rawValue": "Item with context menu",
+                                  "children": []
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

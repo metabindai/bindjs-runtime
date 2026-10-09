@@ -1,0 +1,613 @@
+{
+  "fixture": "layout/TestPadding",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestPadding",
+          "props": {},
+          "children": [
+            {
+              "type": "ModifiedComponent",
+              "props": {
+                "modifier": {
+                  "type": "frame",
+                  "props": {
+                    "maxWidth": "Infinity",
+                    "maxHeight": "Infinity",
+                    "children": []
+                  }
+                },
+                "content": [
+                  {
+                    "type": "VStack",
+                    "props": {
+                      "children": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "background",
+                              "props": {
+                                "content": {
+                                  "type": "Color",
+                                  "props": {
+                                    "rawValue": "blue",
+                                    "children": []
+                                  }
+                                },
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "padding",
+                                    "props": {
+                                      "top": 8,
+                                      "leading": 8,
+                                      "bottom": 8,
+                                      "trailing": 8,
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "frame",
+                                          "props": {
+                                            "width": 40,
+                                            "height": 40,
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "Rectangle",
+                                            "props": {
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "background",
+                              "props": {
+                                "content": {
+                                  "type": "Color",
+                                  "props": {
+                                    "rawValue": "blue",
+                                    "children": []
+                                  }
+                                },
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "padding",
+                                    "props": {
+                                      "top": 20,
+                                      "leading": 20,
+                                      "bottom": 20,
+                                      "trailing": 20,
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "frame",
+                                          "props": {
+                                            "width": 40,
+                                            "height": 40,
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "Rectangle",
+                                            "props": {
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "background",
+                              "props": {
+                                "content": {
+                                  "type": "Color",
+                                  "props": {
+                                    "rawValue": "blue",
+                                    "children": []
+                                  }
+                                },
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "padding",
+                                    "props": {
+                                      "top": 0,
+                                      "leading": 20,
+                                      "bottom": 0,
+                                      "trailing": 20,
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "frame",
+                                          "props": {
+                                            "width": 40,
+                                            "height": 40,
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "Rectangle",
+                                            "props": {
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "background",
+                              "props": {
+                                "content": {
+                                  "type": "Color",
+                                  "props": {
+                                    "rawValue": "blue",
+                                    "children": []
+                                  }
+                                },
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "padding",
+                                    "props": {
+                                      "top": 20,
+                                      "leading": 0,
+                                      "bottom": 20,
+                                      "trailing": 0,
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "frame",
+                                          "props": {
+                                            "width": 40,
+                                            "height": 40,
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "Rectangle",
+                                            "props": {
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "background",
+                              "props": {
+                                "content": {
+                                  "type": "Color",
+                                  "props": {
+                                    "rawValue": "blue",
+                                    "children": []
+                                  }
+                                },
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "padding",
+                                    "props": {
+                                      "top": 0,
+                                      "leading": 20,
+                                      "bottom": 0,
+                                      "trailing": 0,
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "frame",
+                                          "props": {
+                                            "width": 40,
+                                            "height": 40,
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "Rectangle",
+                                            "props": {
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "background",
+                              "props": {
+                                "content": {
+                                  "type": "Color",
+                                  "props": {
+                                    "rawValue": "blue",
+                                    "children": []
+                                  }
+                                },
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "padding",
+                                    "props": {
+                                      "top": 0,
+                                      "leading": 0,
+                                      "bottom": 0,
+                                      "trailing": 20,
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "frame",
+                                          "props": {
+                                            "width": 40,
+                                            "height": 40,
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "Rectangle",
+                                            "props": {
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "background",
+                              "props": {
+                                "content": {
+                                  "type": "Color",
+                                  "props": {
+                                    "rawValue": "blue",
+                                    "children": []
+                                  }
+                                },
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "padding",
+                                    "props": {
+                                      "top": 20,
+                                      "leading": 0,
+                                      "bottom": 0,
+                                      "trailing": 0,
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "frame",
+                                          "props": {
+                                            "width": 40,
+                                            "height": 40,
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "Rectangle",
+                                            "props": {
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "background",
+                              "props": {
+                                "content": {
+                                  "type": "Color",
+                                  "props": {
+                                    "rawValue": "blue",
+                                    "children": []
+                                  }
+                                },
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "padding",
+                                    "props": {
+                                      "top": 0,
+                                      "leading": 0,
+                                      "bottom": 20,
+                                      "trailing": 0,
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "frame",
+                                          "props": {
+                                            "width": 40,
+                                            "height": 40,
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "Rectangle",
+                                            "props": {
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "background",
+                              "props": {
+                                "content": {
+                                  "type": "Color",
+                                  "props": {
+                                    "rawValue": "blue",
+                                    "children": []
+                                  }
+                                },
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "padding",
+                                    "props": {
+                                      "top": 0,
+                                      "leading": 0,
+                                      "bottom": 0,
+                                      "trailing": 15,
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "padding",
+                                          "props": {
+                                            "top": 0,
+                                            "leading": 0,
+                                            "bottom": 0,
+                                            "trailing": 5,
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "ModifiedComponent",
+                                            "props": {
+                                              "modifier": {
+                                                "type": "padding",
+                                                "props": {
+                                                  "top": 0,
+                                                  "leading": 15,
+                                                  "bottom": 0,
+                                                  "trailing": 0,
+                                                  "children": []
+                                                }
+                                              },
+                                              "content": [
+                                                {
+                                                  "type": "ModifiedComponent",
+                                                  "props": {
+                                                    "modifier": {
+                                                      "type": "padding",
+                                                      "props": {
+                                                        "top": 0,
+                                                        "leading": 5,
+                                                        "bottom": 0,
+                                                        "trailing": 0,
+                                                        "children": []
+                                                      }
+                                                    },
+                                                    "content": [
+                                                      {
+                                                        "type": "ModifiedComponent",
+                                                        "props": {
+                                                          "modifier": {
+                                                            "type": "frame",
+                                                            "props": {
+                                                              "width": 40,
+                                                              "height": 40,
+                                                              "children": []
+                                                            }
+                                                          },
+                                                          "content": [
+                                                            {
+                                                              "type": "Rectangle",
+                                                              "props": {
+                                                                "children": []
+                                                              }
+                                                            }
+                                                          ]
+                                                        }
+                                                      }
+                                                    ]
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

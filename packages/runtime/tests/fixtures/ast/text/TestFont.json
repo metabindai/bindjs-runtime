@@ -1,0 +1,396 @@
+{
+  "fixture": "text/TestFont",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestFont",
+          "props": {},
+          "children": [
+            {
+              "type": "VStack",
+              "props": {
+                "spacing": 32,
+                "children": [
+                  {
+                    "type": "VStack",
+                    "props": {
+                      "spacing": 8,
+                      "children": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "font",
+                              "props": {
+                                "custom": {
+                                  "url": "https://fonts.gstatic.com/s/robotoslab/v36/BngMUXZYTXPIvIBgJJSb6ufN5qWr4xCC.woff2",
+                                  "family": "Roboto Slab",
+                                  "relativeToTextStyle": "largeTitle",
+                                  "size": 24,
+                                  "children": []
+                                },
+                                "rawValue": {
+                                  "type": "CustomFont",
+                                  "props": {
+                                    "url": "https://fonts.gstatic.com/s/robotoslab/v36/BngMUXZYTXPIvIBgJJSb6ufN5qWr4xCC.woff2",
+                                    "family": "Roboto Slab",
+                                    "relativeToTextStyle": "largeTitle",
+                                    "size": 24,
+                                    "children": []
+                                  }
+                                },
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "frame",
+                                    "props": {
+                                      "maxWidth": "Infinity",
+                                      "alignment": "leading",
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "Text",
+                                      "props": {
+                                        "rawValue": "Custom Google Font",
+                                        "children": []
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "font",
+                              "props": {
+                                "custom": {
+                                  "url": "https://fonts.gstatic.com/s/robotoslab/v36/BngMUXZYTXPIvIBgJJSb6ufN5qWr4xCC.woff2",
+                                  "family": "Roboto Slab",
+                                  "relativeToTextStyle": "largeTitle",
+                                  "size": 24,
+                                  "children": []
+                                },
+                                "rawValue": {
+                                  "type": "CustomFont",
+                                  "props": {
+                                    "url": "https://fonts.gstatic.com/s/robotoslab/v36/BngMUXZYTXPIvIBgJJSb6ufN5qWr4xCC.woff2",
+                                    "family": "Roboto Slab",
+                                    "relativeToTextStyle": "largeTitle",
+                                    "size": 24,
+                                    "children": []
+                                  }
+                                },
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "frame",
+                                    "props": {
+                                      "maxWidth": "Infinity",
+                                      "alignment": "leading",
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "fontWeight",
+                                          "props": {
+                                            "rawValue": "semibold",
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "Text",
+                                            "props": {
+                                              "rawValue": "Custom Google Font Semibold",
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "VStack",
+                    "props": {
+                      "spacing": 8,
+                      "children": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "font",
+                              "props": {
+                                "custom": {
+                                  "family": "CheltenhamStd-BoldCond",
+                                  "size": 24,
+                                  "url": "https://firebasestorage.googleapis.com/v0/b/content-builder-aa1f5.appspot.com/o/Statue%20of%20Liberty%2FCheltenhamStd-BoldCond.otf?alt=media&token=3e183679-e2f2-42ba-b8be-b768c58b047f",
+                                  "children": []
+                                },
+                                "rawValue": {
+                                  "type": "CustomFont",
+                                  "props": {
+                                    "family": "CheltenhamStd-BoldCond",
+                                    "size": 24,
+                                    "url": "https://firebasestorage.googleapis.com/v0/b/content-builder-aa1f5.appspot.com/o/Statue%20of%20Liberty%2FCheltenhamStd-BoldCond.otf?alt=media&token=3e183679-e2f2-42ba-b8be-b768c58b047f",
+                                    "children": []
+                                  }
+                                },
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "frame",
+                                    "props": {
+                                      "maxWidth": "Infinity",
+                                      "alignment": "leading",
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "Text",
+                                      "props": {
+                                        "rawValue": "Custom OTF Font",
+                                        "children": []
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "fontWeight",
+                              "props": {
+                                "rawValue": "semibold",
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "font",
+                                    "props": {
+                                      "custom": {
+                                        "family": "CheltenhamStd-BoldCond",
+                                        "size": 24,
+                                        "url": "https://firebasestorage.googleapis.com/v0/b/content-builder-aa1f5.appspot.com/o/Statue%20of%20Liberty%2FCheltenhamStd-BoldCond.otf?alt=media&token=3e183679-e2f2-42ba-b8be-b768c58b047f",
+                                        "children": []
+                                      },
+                                      "rawValue": {
+                                        "type": "CustomFont",
+                                        "props": {
+                                          "family": "CheltenhamStd-BoldCond",
+                                          "size": 24,
+                                          "url": "https://firebasestorage.googleapis.com/v0/b/content-builder-aa1f5.appspot.com/o/Statue%20of%20Liberty%2FCheltenhamStd-BoldCond.otf?alt=media&token=3e183679-e2f2-42ba-b8be-b768c58b047f",
+                                          "children": []
+                                        }
+                                      },
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "frame",
+                                          "props": {
+                                            "maxWidth": "Infinity",
+                                            "alignment": "leading",
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "Text",
+                                            "props": {
+                                              "rawValue": "Custom OTF Font Semibold",
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "VStack",
+                    "props": {
+                      "spacing": 8,
+                      "children": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "font",
+                              "props": {
+                                "custom": {
+                                  "family": "CheltenhamStd-BoldCond",
+                                  "size": 24,
+                                  "url": "https://firebasestorage.googleapis.com/v0/b/content-builder-aa1f5.appspot.com/o/Statue%20of%20Liberty%2FCheltenhamStd-BoldCond.otf?alt=media&token=3e183679-e2f2-42ba-b8be-b768c58b047f",
+                                  "children": []
+                                },
+                                "rawValue": {
+                                  "type": "CustomFont",
+                                  "props": {
+                                    "family": "CheltenhamStd-BoldCond",
+                                    "size": 24,
+                                    "url": "https://firebasestorage.googleapis.com/v0/b/content-builder-aa1f5.appspot.com/o/Statue%20of%20Liberty%2FCheltenhamStd-BoldCond.otf?alt=media&token=3e183679-e2f2-42ba-b8be-b768c58b047f",
+                                    "children": []
+                                  }
+                                },
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "frame",
+                                    "props": {
+                                      "maxWidth": "Infinity",
+                                      "alignment": "leading",
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "Text",
+                                      "props": {
+                                        "rawValue": "Custom OTF Font (External Component)",
+                                        "children": []
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "fontWeight",
+                              "props": {
+                                "rawValue": "semibold",
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "font",
+                                    "props": {
+                                      "custom": {
+                                        "family": "CheltenhamStd-BoldCond",
+                                        "size": 24,
+                                        "url": "https://firebasestorage.googleapis.com/v0/b/content-builder-aa1f5.appspot.com/o/Statue%20of%20Liberty%2FCheltenhamStd-BoldCond.otf?alt=media&token=3e183679-e2f2-42ba-b8be-b768c58b047f",
+                                        "children": []
+                                      },
+                                      "rawValue": {
+                                        "type": "CustomFont",
+                                        "props": {
+                                          "family": "CheltenhamStd-BoldCond",
+                                          "size": 24,
+                                          "url": "https://firebasestorage.googleapis.com/v0/b/content-builder-aa1f5.appspot.com/o/Statue%20of%20Liberty%2FCheltenhamStd-BoldCond.otf?alt=media&token=3e183679-e2f2-42ba-b8be-b768c58b047f",
+                                          "children": []
+                                        }
+                                      },
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "frame",
+                                          "props": {
+                                            "maxWidth": "Infinity",
+                                            "alignment": "leading",
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "Text",
+                                            "props": {
+                                              "rawValue": "Custom OTF Font Semibold (External Component)",
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

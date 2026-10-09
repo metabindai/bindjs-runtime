@@ -1,0 +1,265 @@
+{
+  "fixture": "charts/TestChartInterpolationMonotone",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestChartInterpolationMonotone",
+          "props": {},
+          "children": [
+            {
+              "type": "ModifiedComponent",
+              "props": {
+                "modifier": {
+                  "type": "frame",
+                  "props": {
+                    "height": 280,
+                    "children": []
+                  }
+                },
+                "content": [
+                  {
+                    "type": "Chart",
+                    "props": {
+                      "children": [
+                        {
+                          "type": "ForEach",
+                          "props": {
+                            "dataId": "0,TestChartInterpolationMonotone_0,Chart_0,ForEach_0,ForEach,0",
+                            "functionId": "0,TestChartInterpolationMonotone_0,Chart_0,ForEach_0,ForEach,0",
+                            "count": 3,
+                            "environmentId": "0,TestChartInterpolationMonotone_0,Chart_0,ForEach_0,ForEach,0",
+                            "$items": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "interpolationMethod",
+                                    "props": {
+                                      "rawValue": "monotone",
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "LineMark",
+                                      "props": {
+                                        "x": {
+                                          "value": "Jan"
+                                        },
+                                        "y": {
+                                          "value": 12
+                                        },
+                                        "children": []
+                                      }
+                                    }
+                                  ]
+                                }
+                              },
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "interpolationMethod",
+                                    "props": {
+                                      "rawValue": "monotone",
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "LineMark",
+                                      "props": {
+                                        "x": {
+                                          "value": "Feb"
+                                        },
+                                        "y": {
+                                          "value": 18
+                                        },
+                                        "children": []
+                                      }
+                                    }
+                                  ]
+                                }
+                              },
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "interpolationMethod",
+                                    "props": {
+                                      "rawValue": "monotone",
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "LineMark",
+                                      "props": {
+                                        "x": {
+                                          "value": "Mar"
+                                        },
+                                        "y": {
+                                          "value": 14
+                                        },
+                                        "children": []
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "render": "preview 0: Default",
+      "errors": [],
+      "ast": {
+        "type": "ModifiedComponent",
+        "props": {
+          "modifier": {
+            "type": "previewName",
+            "props": {
+              "rawValue": "Default",
+              "children": []
+            }
+          },
+          "content": [
+            {
+              "type": "ComponentCall",
+              "props": {
+                "name": "TestChartInterpolationMonotone",
+                "props": {},
+                "children": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "frame",
+                        "props": {
+                          "height": 280,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "Chart",
+                          "props": {
+                            "children": [
+                              {
+                                "type": "ForEach",
+                                "props": {
+                                  "dataId": "0,TestChartInterpolationMonotone_0,Chart_0,ForEach_0,ForEach,0",
+                                  "functionId": "0,TestChartInterpolationMonotone_0,Chart_0,ForEach_0,ForEach,0",
+                                  "count": 3,
+                                  "environmentId": "0,TestChartInterpolationMonotone_0,Chart_0,ForEach_0,ForEach,0",
+                                  "$items": [
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "interpolationMethod",
+                                          "props": {
+                                            "rawValue": "monotone",
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "LineMark",
+                                            "props": {
+                                              "x": {
+                                                "value": "Jan"
+                                              },
+                                              "y": {
+                                                "value": 12
+                                              },
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "interpolationMethod",
+                                          "props": {
+                                            "rawValue": "monotone",
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "LineMark",
+                                            "props": {
+                                              "x": {
+                                                "value": "Feb"
+                                              },
+                                              "y": {
+                                                "value": 18
+                                              },
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "interpolationMethod",
+                                          "props": {
+                                            "rawValue": "monotone",
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "LineMark",
+                                            "props": {
+                                              "x": {
+                                                "value": "Mar"
+                                              },
+                                              "y": {
+                                                "value": 14
+                                              },
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "fixture": "controls/TestToggle",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestToggle",
+          "props": {},
+          "children": [
+            {
+              "type": "ModifiedComponent",
+              "props": {
+                "modifier": {
+                  "type": "padding",
+                  "props": {
+                    "top": 20,
+                    "leading": 20,
+                    "bottom": 20,
+                    "trailing": 20,
+                    "children": []
+                  }
+                },
+                "content": [
+                  {
+                    "type": "HStack",
+                    "props": {
+                      "children": [
+                        {
+                          "type": "Text",
+                          "props": {
+                            "rawValue": "is off false",
+                            "children": []
+                          }
+                        },
+                        {
+                          "type": "Spacer",
+                          "props": {
+                            "children": []
+                          }
+                        },
+                        {
+                          "type": "Toggle",
+                          "props": {
+                            "isOn": false,
+                            "setIsOnId": "0,TestToggle_0,HStack_0,Toggle_2,setIsOn,2",
+                            "children": []
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

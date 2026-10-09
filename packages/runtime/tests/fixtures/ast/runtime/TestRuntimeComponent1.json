@@ -1,0 +1,55 @@
+{
+  "fixture": "runtime/TestRuntimeComponent1",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestRuntimeComponent1",
+          "props": {},
+          "children": [
+            {
+              "type": "VStack",
+              "props": {
+                "children": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "frame",
+                        "props": {
+                          "width": 40,
+                          "height": 40,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "Rectangle",
+                          "props": {
+                            "children": [],
+                            "fill": {
+                              "style": {
+                                "type": "Color",
+                                "props": {
+                                  "rawValue": "red",
+                                  "children": []
+                                }
+                              }
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

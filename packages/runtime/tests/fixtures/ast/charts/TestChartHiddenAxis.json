@@ -1,0 +1,185 @@
+{
+  "fixture": "charts/TestChartHiddenAxis",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestChartHiddenAxis",
+          "props": {},
+          "children": [
+            {
+              "type": "ModifiedComponent",
+              "props": {
+                "modifier": {
+                  "type": "frame",
+                  "props": {
+                    "height": 280,
+                    "children": []
+                  }
+                },
+                "content": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "chartXAxis",
+                        "props": {
+                          "hidden": true,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "Chart",
+                          "props": {
+                            "children": [
+                              {
+                                "type": "ForEach",
+                                "props": {
+                                  "dataId": "0,TestChartHiddenAxis_0,Chart_0,ForEach_0,ForEach,0",
+                                  "functionId": "0,TestChartHiddenAxis_0,Chart_0,ForEach_0,ForEach,0",
+                                  "count": 2,
+                                  "environmentId": "0,TestChartHiddenAxis_0,Chart_0,ForEach_0,ForEach,0",
+                                  "$items": [
+                                    {
+                                      "type": "LineMark",
+                                      "props": {
+                                        "x": {
+                                          "value": "Jan"
+                                        },
+                                        "y": {
+                                          "value": 12
+                                        },
+                                        "children": []
+                                      }
+                                    },
+                                    {
+                                      "type": "LineMark",
+                                      "props": {
+                                        "x": {
+                                          "value": "Feb"
+                                        },
+                                        "y": {
+                                          "value": 18
+                                        },
+                                        "children": []
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "render": "preview 0: Default",
+      "errors": [],
+      "ast": {
+        "type": "ModifiedComponent",
+        "props": {
+          "modifier": {
+            "type": "previewName",
+            "props": {
+              "rawValue": "Default",
+              "children": []
+            }
+          },
+          "content": [
+            {
+              "type": "ComponentCall",
+              "props": {
+                "name": "TestChartHiddenAxis",
+                "props": {},
+                "children": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "frame",
+                        "props": {
+                          "height": 280,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "chartXAxis",
+                              "props": {
+                                "hidden": true,
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "Chart",
+                                "props": {
+                                  "children": [
+                                    {
+                                      "type": "ForEach",
+                                      "props": {
+                                        "dataId": "0,TestChartHiddenAxis_0,Chart_0,ForEach_0,ForEach,0",
+                                        "functionId": "0,TestChartHiddenAxis_0,Chart_0,ForEach_0,ForEach,0",
+                                        "count": 2,
+                                        "environmentId": "0,TestChartHiddenAxis_0,Chart_0,ForEach_0,ForEach,0",
+                                        "$items": [
+                                          {
+                                            "type": "LineMark",
+                                            "props": {
+                                              "x": {
+                                                "value": "Jan"
+                                              },
+                                              "y": {
+                                                "value": 12
+                                              },
+                                              "children": []
+                                            }
+                                          },
+                                          {
+                                            "type": "LineMark",
+                                            "props": {
+                                              "x": {
+                                                "value": "Feb"
+                                              },
+                                              "y": {
+                                                "value": 18
+                                              },
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

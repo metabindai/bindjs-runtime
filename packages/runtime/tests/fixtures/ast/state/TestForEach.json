@@ -1,0 +1,684 @@
+{
+  "fixture": "state/TestForEach",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestForEach",
+          "props": {},
+          "children": [
+            {
+              "type": "VStack",
+              "props": {
+                "spacing": 12,
+                "children": [
+                  {
+                    "type": "Text",
+                    "props": {
+                      "rawValue": "ForEach",
+                      "children": []
+                    }
+                  },
+                  {
+                    "type": "ForEach",
+                    "props": {
+                      "dataId": "0,TestForEach_0,VStack_0,ForEach_1,ForEach,1",
+                      "functionId": "0,TestForEach_0,VStack_0,ForEach_1,ForEach,1",
+                      "count": 10,
+                      "environmentId": "0,TestForEach_0,VStack_0,ForEach_1,ForEach,1",
+                      "$items": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "padding",
+                              "props": {
+                                "top": 0,
+                                "leading": 20,
+                                "bottom": 0,
+                                "trailing": 20,
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "HStack",
+                                "props": {
+                                  "children": [
+                                    {
+                                      "type": "Text",
+                                      "props": {
+                                        "rawValue": "Row 0",
+                                        "children": []
+                                      }
+                                    },
+                                    {
+                                      "type": "Spacer",
+                                      "props": {
+                                        "children": []
+                                      }
+                                    },
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "foregroundStyle",
+                                          "props": {
+                                            "rawValue": {
+                                              "type": "Color",
+                                              "props": {
+                                                "rawValue": "secondary",
+                                                "children": []
+                                              }
+                                            },
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "Text",
+                                            "props": {
+                                              "rawValue": "A",
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "padding",
+                              "props": {
+                                "top": 0,
+                                "leading": 20,
+                                "bottom": 0,
+                                "trailing": 20,
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "HStack",
+                                "props": {
+                                  "children": [
+                                    {
+                                      "type": "Text",
+                                      "props": {
+                                        "rawValue": "Row 1",
+                                        "children": []
+                                      }
+                                    },
+                                    {
+                                      "type": "Spacer",
+                                      "props": {
+                                        "children": []
+                                      }
+                                    },
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "foregroundStyle",
+                                          "props": {
+                                            "rawValue": {
+                                              "type": "Color",
+                                              "props": {
+                                                "rawValue": "secondary",
+                                                "children": []
+                                              }
+                                            },
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "Text",
+                                            "props": {
+                                              "rawValue": "B",
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "padding",
+                              "props": {
+                                "top": 0,
+                                "leading": 20,
+                                "bottom": 0,
+                                "trailing": 20,
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "HStack",
+                                "props": {
+                                  "children": [
+                                    {
+                                      "type": "Text",
+                                      "props": {
+                                        "rawValue": "Row 2",
+                                        "children": []
+                                      }
+                                    },
+                                    {
+                                      "type": "Spacer",
+                                      "props": {
+                                        "children": []
+                                      }
+                                    },
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "foregroundStyle",
+                                          "props": {
+                                            "rawValue": {
+                                              "type": "Color",
+                                              "props": {
+                                                "rawValue": "secondary",
+                                                "children": []
+                                              }
+                                            },
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "Text",
+                                            "props": {
+                                              "rawValue": "C",
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "padding",
+                              "props": {
+                                "top": 0,
+                                "leading": 20,
+                                "bottom": 0,
+                                "trailing": 20,
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "HStack",
+                                "props": {
+                                  "children": [
+                                    {
+                                      "type": "Text",
+                                      "props": {
+                                        "rawValue": "Row 3",
+                                        "children": []
+                                      }
+                                    },
+                                    {
+                                      "type": "Spacer",
+                                      "props": {
+                                        "children": []
+                                      }
+                                    },
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "foregroundStyle",
+                                          "props": {
+                                            "rawValue": {
+                                              "type": "Color",
+                                              "props": {
+                                                "rawValue": "secondary",
+                                                "children": []
+                                              }
+                                            },
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "Text",
+                                            "props": {
+                                              "rawValue": "D",
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "padding",
+                              "props": {
+                                "top": 0,
+                                "leading": 20,
+                                "bottom": 0,
+                                "trailing": 20,
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "HStack",
+                                "props": {
+                                  "children": [
+                                    {
+                                      "type": "Text",
+                                      "props": {
+                                        "rawValue": "Row 4",
+                                        "children": []
+                                      }
+                                    },
+                                    {
+                                      "type": "Spacer",
+                                      "props": {
+                                        "children": []
+                                      }
+                                    },
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "foregroundStyle",
+                                          "props": {
+                                            "rawValue": {
+                                              "type": "Color",
+                                              "props": {
+                                                "rawValue": "secondary",
+                                                "children": []
+                                              }
+                                            },
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "Text",
+                                            "props": {
+                                              "rawValue": "E",
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "padding",
+                              "props": {
+                                "top": 0,
+                                "leading": 20,
+                                "bottom": 0,
+                                "trailing": 20,
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "HStack",
+                                "props": {
+                                  "children": [
+                                    {
+                                      "type": "Text",
+                                      "props": {
+                                        "rawValue": "Row 5",
+                                        "children": []
+                                      }
+                                    },
+                                    {
+                                      "type": "Spacer",
+                                      "props": {
+                                        "children": []
+                                      }
+                                    },
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "foregroundStyle",
+                                          "props": {
+                                            "rawValue": {
+                                              "type": "Color",
+                                              "props": {
+                                                "rawValue": "secondary",
+                                                "children": []
+                                              }
+                                            },
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "Text",
+                                            "props": {
+                                              "rawValue": "F",
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "padding",
+                              "props": {
+                                "top": 0,
+                                "leading": 20,
+                                "bottom": 0,
+                                "trailing": 20,
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "HStack",
+                                "props": {
+                                  "children": [
+                                    {
+                                      "type": "Text",
+                                      "props": {
+                                        "rawValue": "Row 6",
+                                        "children": []
+                                      }
+                                    },
+                                    {
+                                      "type": "Spacer",
+                                      "props": {
+                                        "children": []
+                                      }
+                                    },
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "foregroundStyle",
+                                          "props": {
+                                            "rawValue": {
+                                              "type": "Color",
+                                              "props": {
+                                                "rawValue": "secondary",
+                                                "children": []
+                                              }
+                                            },
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "Text",
+                                            "props": {
+                                              "rawValue": "G",
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "padding",
+                              "props": {
+                                "top": 0,
+                                "leading": 20,
+                                "bottom": 0,
+                                "trailing": 20,
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "HStack",
+                                "props": {
+                                  "children": [
+                                    {
+                                      "type": "Text",
+                                      "props": {
+                                        "rawValue": "Row 7",
+                                        "children": []
+                                      }
+                                    },
+                                    {
+                                      "type": "Spacer",
+                                      "props": {
+                                        "children": []
+                                      }
+                                    },
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "foregroundStyle",
+                                          "props": {
+                                            "rawValue": {
+                                              "type": "Color",
+                                              "props": {
+                                                "rawValue": "secondary",
+                                                "children": []
+                                              }
+                                            },
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "Text",
+                                            "props": {
+                                              "rawValue": "H",
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "padding",
+                              "props": {
+                                "top": 0,
+                                "leading": 20,
+                                "bottom": 0,
+                                "trailing": 20,
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "HStack",
+                                "props": {
+                                  "children": [
+                                    {
+                                      "type": "Text",
+                                      "props": {
+                                        "rawValue": "Row 8",
+                                        "children": []
+                                      }
+                                    },
+                                    {
+                                      "type": "Spacer",
+                                      "props": {
+                                        "children": []
+                                      }
+                                    },
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "foregroundStyle",
+                                          "props": {
+                                            "rawValue": {
+                                              "type": "Color",
+                                              "props": {
+                                                "rawValue": "secondary",
+                                                "children": []
+                                              }
+                                            },
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "Text",
+                                            "props": {
+                                              "rawValue": "I",
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "padding",
+                              "props": {
+                                "top": 0,
+                                "leading": 20,
+                                "bottom": 0,
+                                "trailing": 20,
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "HStack",
+                                "props": {
+                                  "children": [
+                                    {
+                                      "type": "Text",
+                                      "props": {
+                                        "rawValue": "Row 9",
+                                        "children": []
+                                      }
+                                    },
+                                    {
+                                      "type": "Spacer",
+                                      "props": {
+                                        "children": []
+                                      }
+                                    },
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "foregroundStyle",
+                                          "props": {
+                                            "rawValue": {
+                                              "type": "Color",
+                                              "props": {
+                                                "rawValue": "secondary",
+                                                "children": []
+                                              }
+                                            },
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "Text",
+                                            "props": {
+                                              "rawValue": "J",
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

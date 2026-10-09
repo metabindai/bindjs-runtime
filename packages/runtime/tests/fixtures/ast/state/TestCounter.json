@@ -1,0 +1,367 @@
+{
+  "fixture": "state/TestCounter",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestCounter",
+          "props": {},
+          "children": [
+            {
+              "type": "ModifiedComponent",
+              "props": {
+                "modifier": {
+                  "type": "padding",
+                  "props": {
+                    "top": 24,
+                    "leading": 24,
+                    "bottom": 24,
+                    "trailing": 24,
+                    "children": []
+                  }
+                },
+                "content": [
+                  {
+                    "type": "VStack",
+                    "props": {
+                      "spacing": 16,
+                      "children": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "bold",
+                              "props": {
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "font",
+                                    "props": {
+                                      "rawValue": "title",
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "Text",
+                                      "props": {
+                                        "rawValue": "Counter",
+                                        "children": []
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "fontWeight",
+                              "props": {
+                                "rawValue": "bold",
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "font",
+                                    "props": {
+                                      "rawValue": "largeTitle",
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "Text",
+                                      "props": {
+                                        "rawValue": "0",
+                                        "children": []
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "type": "HStack",
+                          "props": {
+                            "spacing": 12,
+                            "children": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "font",
+                                    "props": {
+                                      "rawValue": "title2",
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "Button",
+                                      "props": {
+                                        "handlerId": "0,TestCounter_0,VStack_0,HStack_2,Button_0,,0",
+                                        "label": {
+                                          "type": "Text",
+                                          "props": {
+                                            "rawValue": "−",
+                                            "children": []
+                                          }
+                                        },
+                                        "environmentId": "0,TestCounter_0,VStack_0,HStack_2,Button_0,,0",
+                                        "children": []
+                                      }
+                                    }
+                                  ]
+                                }
+                              },
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "font",
+                                    "props": {
+                                      "rawValue": "title2",
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "Button",
+                                      "props": {
+                                        "handlerId": "0,TestCounter_0,VStack_0,HStack_2,Button_1,,1",
+                                        "label": {
+                                          "type": "Text",
+                                          "props": {
+                                            "rawValue": "+",
+                                            "children": []
+                                          }
+                                        },
+                                        "environmentId": "0,TestCounter_0,VStack_0,HStack_2,Button_1,,1",
+                                        "children": []
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "render": "preview 0: Starts at 10",
+      "errors": [],
+      "ast": {
+        "type": "ModifiedComponent",
+        "props": {
+          "modifier": {
+            "type": "previewName",
+            "props": {
+              "rawValue": "Starts at 10",
+              "children": []
+            }
+          },
+          "content": [
+            {
+              "type": "ComponentCall",
+              "props": {
+                "name": "TestCounter",
+                "props": {
+                  "initialValue": 10
+                },
+                "children": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "padding",
+                        "props": {
+                          "top": 24,
+                          "leading": 24,
+                          "bottom": 24,
+                          "trailing": 24,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "VStack",
+                          "props": {
+                            "spacing": 16,
+                            "children": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "bold",
+                                    "props": {
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "font",
+                                          "props": {
+                                            "rawValue": "title",
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "Text",
+                                            "props": {
+                                              "rawValue": "Counter",
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              },
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "fontWeight",
+                                    "props": {
+                                      "rawValue": "bold",
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "font",
+                                          "props": {
+                                            "rawValue": "largeTitle",
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "Text",
+                                            "props": {
+                                              "rawValue": "10",
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              },
+                              {
+                                "type": "HStack",
+                                "props": {
+                                  "spacing": 12,
+                                  "children": [
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "font",
+                                          "props": {
+                                            "rawValue": "title2",
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "Button",
+                                            "props": {
+                                              "handlerId": "0,TestCounter_0,VStack_0,HStack_2,Button_0,,0",
+                                              "label": {
+                                                "type": "Text",
+                                                "props": {
+                                                  "rawValue": "−",
+                                                  "children": []
+                                                }
+                                              },
+                                              "environmentId": "0,TestCounter_0,VStack_0,HStack_2,Button_0,,0",
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "font",
+                                          "props": {
+                                            "rawValue": "title2",
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "Button",
+                                            "props": {
+                                              "handlerId": "0,TestCounter_0,VStack_0,HStack_2,Button_1,,1",
+                                              "label": {
+                                                "type": "Text",
+                                                "props": {
+                                                  "rawValue": "+",
+                                                  "children": []
+                                                }
+                                              },
+                                              "environmentId": "0,TestCounter_0,VStack_0,HStack_2,Button_1,,1",
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

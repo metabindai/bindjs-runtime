@@ -1,0 +1,335 @@
+{
+  "fixture": "effects/TestScaleEffect",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestScaleEffect",
+          "props": {},
+          "children": [
+            {
+              "type": "VStack",
+              "props": {
+                "spacing": 40,
+                "children": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "scaleEffect",
+                        "props": {
+                          "rawValue": 0.5,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "ComponentCall",
+                          "props": {
+                            "name": "LabeledRectangle",
+                            "props": {
+                              "text": "0.5"
+                            },
+                            "children": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "frame",
+                                    "props": {
+                                      "width": 125,
+                                      "height": 50,
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "ZStack",
+                                      "props": {
+                                        "children": [
+                                          {
+                                            "type": "RoundedRectangle",
+                                            "props": {
+                                              "children": [],
+                                              "fill": {
+                                                "style": {
+                                                  "type": "Color",
+                                                  "props": {
+                                                    "rawValue": "blue",
+                                                    "children": []
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          },
+                                          {
+                                            "type": "ModifiedComponent",
+                                            "props": {
+                                              "modifier": {
+                                                "type": "foregroundStyle",
+                                                "props": {
+                                                  "rawValue": {
+                                                    "type": "Color",
+                                                    "props": {
+                                                      "rawValue": "white",
+                                                      "children": []
+                                                    }
+                                                  },
+                                                  "children": []
+                                                }
+                                              },
+                                              "content": [
+                                                {
+                                                  "type": "ModifiedComponent",
+                                                  "props": {
+                                                    "modifier": {
+                                                      "type": "font",
+                                                      "props": {
+                                                        "rawValue": "caption",
+                                                        "children": []
+                                                      }
+                                                    },
+                                                    "content": [
+                                                      {
+                                                        "type": "Text",
+                                                        "props": {
+                                                          "rawValue": "0.5",
+                                                          "children": []
+                                                        }
+                                                      }
+                                                    ]
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "scaleEffect",
+                        "props": {
+                          "rawValue": 1,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "ComponentCall",
+                          "props": {
+                            "name": "LabeledRectangle",
+                            "props": {
+                              "text": "1"
+                            },
+                            "children": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "frame",
+                                    "props": {
+                                      "width": 125,
+                                      "height": 50,
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "ZStack",
+                                      "props": {
+                                        "children": [
+                                          {
+                                            "type": "RoundedRectangle",
+                                            "props": {
+                                              "children": [],
+                                              "fill": {
+                                                "style": {
+                                                  "type": "Color",
+                                                  "props": {
+                                                    "rawValue": "blue",
+                                                    "children": []
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          },
+                                          {
+                                            "type": "ModifiedComponent",
+                                            "props": {
+                                              "modifier": {
+                                                "type": "foregroundStyle",
+                                                "props": {
+                                                  "rawValue": {
+                                                    "type": "Color",
+                                                    "props": {
+                                                      "rawValue": "white",
+                                                      "children": []
+                                                    }
+                                                  },
+                                                  "children": []
+                                                }
+                                              },
+                                              "content": [
+                                                {
+                                                  "type": "ModifiedComponent",
+                                                  "props": {
+                                                    "modifier": {
+                                                      "type": "font",
+                                                      "props": {
+                                                        "rawValue": "caption",
+                                                        "children": []
+                                                      }
+                                                    },
+                                                    "content": [
+                                                      {
+                                                        "type": "Text",
+                                                        "props": {
+                                                          "rawValue": "1",
+                                                          "children": []
+                                                        }
+                                                      }
+                                                    ]
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "scaleEffect",
+                        "props": {
+                          "rawValue": 1.5,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "ComponentCall",
+                          "props": {
+                            "name": "LabeledRectangle",
+                            "props": {
+                              "text": "1.5"
+                            },
+                            "children": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "frame",
+                                    "props": {
+                                      "width": 125,
+                                      "height": 50,
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "ZStack",
+                                      "props": {
+                                        "children": [
+                                          {
+                                            "type": "RoundedRectangle",
+                                            "props": {
+                                              "children": [],
+                                              "fill": {
+                                                "style": {
+                                                  "type": "Color",
+                                                  "props": {
+                                                    "rawValue": "blue",
+                                                    "children": []
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          },
+                                          {
+                                            "type": "ModifiedComponent",
+                                            "props": {
+                                              "modifier": {
+                                                "type": "foregroundStyle",
+                                                "props": {
+                                                  "rawValue": {
+                                                    "type": "Color",
+                                                    "props": {
+                                                      "rawValue": "white",
+                                                      "children": []
+                                                    }
+                                                  },
+                                                  "children": []
+                                                }
+                                              },
+                                              "content": [
+                                                {
+                                                  "type": "ModifiedComponent",
+                                                  "props": {
+                                                    "modifier": {
+                                                      "type": "font",
+                                                      "props": {
+                                                        "rawValue": "caption",
+                                                        "children": []
+                                                      }
+                                                    },
+                                                    "content": [
+                                                      {
+                                                        "type": "Text",
+                                                        "props": {
+                                                          "rawValue": "1.5",
+                                                          "children": []
+                                                        }
+                                                      }
+                                                    ]
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

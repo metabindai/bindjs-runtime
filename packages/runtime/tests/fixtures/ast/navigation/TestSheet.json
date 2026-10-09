@@ -1,0 +1,63 @@
+{
+  "fixture": "navigation/TestSheet",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestSheet",
+          "props": {},
+          "children": [
+            {
+              "type": "ModifiedComponent",
+              "props": {
+                "modifier": {
+                  "type": "sheet",
+                  "props": {
+                    "isPresented": false,
+                    "setIsPresentedHandlerId": "0,TestSheet_0,setIsPresented,0",
+                    "dismissHandlerId": "0,TestSheet_0,onDismiss,0",
+                    "contentHandlerId": "0,TestSheet_0,sheet_content,0",
+                    "children": []
+                  }
+                },
+                "content": [
+                  {
+                    "type": "VStack",
+                    "props": {
+                      "children": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "onTapGesture",
+                              "props": {
+                                "handlerId": "0,TestSheet_0,VStack_0,onTapGesture,0",
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "Text",
+                                "props": {
+                                  "rawValue": "TestSheet false",
+                                  "children": []
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

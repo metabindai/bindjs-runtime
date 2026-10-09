@@ -1,0 +1,570 @@
+{
+  "fixture": "shaders/ProjectThumbnail",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "ProjectThumbnail",
+          "props": {},
+          "children": [
+            {
+              "type": "ZStack",
+              "props": {
+                "children": [
+                  {
+                    "type": "ComponentCall",
+                    "props": {
+                      "name": "ProjectThumbnail",
+                      "props": {},
+                      "children": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "background",
+                              "props": {
+                                "content": {
+                                  "type": "Color",
+                                  "props": {
+                                    "rawValue": "black",
+                                    "children": []
+                                  }
+                                },
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "Shader",
+                                "props": {
+                                  "fragmentShader": "\n        precision highp float;\n        uniform float time;\n        uniform vec2 resolution;\n\n        float metaball(vec2 p, vec2 c, float r) {\n          float d = length(p - c);\n          return r * r / (d * d + 0.0001);\n        }\n\n        // Noise function for extra visual complexity\n        float noise(vec2 p) {\n          return fract(sin(dot(p, vec2(12.9898, 78.233))) * 43758.5453);\n        }\n\n        // Smooth noise\n        float smoothNoise(vec2 p) {\n          vec2 i = floor(p);\n          vec2 f = fract(p);\n          f = f * f * (3.0 - 2.0 * f);\n          \n          float a = noise(i);\n          float b = noise(i + vec2(1.0, 0.0));\n          float c = noise(i + vec2(0.0, 1.0));\n          float d = noise(i + vec2(1.0, 1.0));\n          \n          return mix(mix(a, b, f.x), mix(c, d, f.x), f.y);\n        }\n\n        void main() {\n          vec2 uv = (gl_FragCoord.xy - 0.5 * resolution.xy) / resolution.y;\n          float t = time * 1.200;\n          float field = 0.0;\n\n          \n          {\n            float baseAngle0 = t * (0.8 + 0.0 * 0.15) + 0.000000;\n            float phase0 = sin(t * (0.4 + 0.0 * 0.12)) * 0.300;\n            float turbPhase0 = sin(t * (1.2 + 0.0 * 0.3)) * 0.200;\n            \n            // Complex orbital motion with turbulence\n            float angle0 = baseAngle0 + phase0 + turbPhase0;\n            float orbitRadius0 = 0.800 * (1.0 + 0.3 * sin(t * (0.6 + 0.0 * 0.1)));\n            \n            vec2 c0 = vec2(\n              sin(angle0) * orbitRadius0 + sin(t * (2.0 + 0.0 * 0.2)) * 0.1,\n              cos(angle0 * 0.9) * 0.500 + cos(t * (1.5 + 0.0 * 0.15)) * 0.08\n            );\n            \n            // Dynamic radius with pulsing\n            float dynamicRadius0 = 0.200 * (1.0 + 0.4 * sin(t * (3.0 + 0.0 * 0.5)));\n            \n            field += metaball(uv, c0, dynamicRadius0);\n          }\n        \n          {\n            float baseAngle1 = t * (0.8 + 1.0 * 0.15) + 1.256637;\n            float phase1 = sin(t * (0.4 + 1.0 * 0.12)) * 0.300;\n            float turbPhase1 = sin(t * (1.2 + 1.0 * 0.3)) * 0.200;\n            \n            // Complex orbital motion with turbulence\n            float angle1 = baseAngle1 + phase1 + turbPhase1;\n            float orbitRadius1 = 0.800 * (1.0 + 0.3 * sin(t * (0.6 + 1.0 * 0.1)));\n            \n            vec2 c1 = vec2(\n              sin(angle1) * orbitRadius1 + sin(t * (2.0 + 1.0 * 0.2)) * 0.1,\n              cos(angle1 * 0.9) * 0.500 + cos(t * (1.5 + 1.0 * 0.15)) * 0.08\n            );\n            \n            // Dynamic radius with pulsing\n            float dynamicRadius1 = 0.200 * (1.0 + 0.4 * sin(t * (3.0 + 1.0 * 0.5)));\n            \n            field += metaball(uv, c1, dynamicRadius1);\n          }\n        \n          {\n            float baseAngle2 = t * (0.8 + 2.0 * 0.15) + 2.513274;\n            float phase2 = sin(t * (0.4 + 2.0 * 0.12)) * 0.300;\n            float turbPhase2 = sin(t * (1.2 + 2.0 * 0.3)) * 0.200;\n            \n            // Complex orbital motion with turbulence\n            float angle2 = baseAngle2 + phase2 + turbPhase2;\n            float orbitRadius2 = 0.800 * (1.0 + 0.3 * sin(t * (0.6 + 2.0 * 0.1)));\n            \n            vec2 c2 = vec2(\n              sin(angle2) * orbitRadius2 + sin(t * (2.0 + 2.0 * 0.2)) * 0.1,\n              cos(angle2 * 0.9) * 0.500 + cos(t * (1.5 + 2.0 * 0.15)) * 0.08\n            );\n            \n            // Dynamic radius with pulsing\n            float dynamicRadius2 = 0.200 * (1.0 + 0.4 * sin(t * (3.0 + 2.0 * 0.5)));\n            \n            field += metaball(uv, c2, dynamicRadius2);\n          }\n        \n          {\n            float baseAngle3 = t * (0.8 + 3.0 * 0.15) + 3.769911;\n            float phase3 = sin(t * (0.4 + 3.0 * 0.12)) * 0.300;\n            float turbPhase3 = sin(t * (1.2 + 3.0 * 0.3)) * 0.200;\n            \n            // Complex orbital motion with turbulence\n            float angle3 = baseAngle3 + phase3 + turbPhase3;\n            float orbitRadius3 = 0.800 * (1.0 + 0.3 * sin(t * (0.6 + 3.0 * 0.1)));\n            \n            vec2 c3 = vec2(\n              sin(angle3) * orbitRadius3 + sin(t * (2.0 + 3.0 * 0.2)) * 0.1,\n              cos(angle3 * 0.9) * 0.500 + cos(t * (1.5 + 3.0 * 0.15)) * 0.08\n            );\n            \n            // Dynamic radius with pulsing\n            float dynamicRadius3 = 0.200 * (1.0 + 0.4 * sin(t * (3.0 + 3.0 * 0.5)));\n            \n            field += metaball(uv, c3, dynamicRadius3);\n          }\n        \n          {\n            float baseAngle4 = t * (0.8 + 4.0 * 0.15) + 5.026548;\n            float phase4 = sin(t * (0.4 + 4.0 * 0.12)) * 0.300;\n            float turbPhase4 = sin(t * (1.2 + 4.0 * 0.3)) * 0.200;\n            \n            // Complex orbital motion with turbulence\n            float angle4 = baseAngle4 + phase4 + turbPhase4;\n            float orbitRadius4 = 0.800 * (1.0 + 0.3 * sin(t * (0.6 + 4.0 * 0.1)));\n            \n            vec2 c4 = vec2(\n              sin(angle4) * orbitRadius4 + sin(t * (2.0 + 4.0 * 0.2)) * 0.1,\n              cos(angle4 * 0.9) * 0.500 + cos(t * (1.5 + 4.0 * 0.15)) * 0.08\n            );\n            \n            // Dynamic radius with pulsing\n            float dynamicRadius4 = 0.200 * (1.0 + 0.4 * sin(t * (3.0 + 4.0 * 0.5)));\n            \n            field += metaball(uv, c4, dynamicRadius4);\n          }\n        \n\n          \n\n          // Enhanced color mixing with dynamic shifts\n          float colorTime = t * 0.500;\n          float noiseValue = smoothNoise(uv * 3.0 + t * 0.5) * 0.3;\n          \n          // Multiple threshold levels for richer visuals\n          float threshold1 = smoothstep(0.8, 1.4, field + noiseValue);\n          float threshold2 = smoothstep(1.2, 1.8, field);\n          float threshold3 = smoothstep(1.6, 2.2, field);\n          float edge = smoothstep(0.6, 1.0, field) - threshold1;\n\n          // Dynamic color palette\n          vec3 startColor = vec3(0.0, 0.028, 0.25);\n          vec3 midColor = vec3(\n            0.2 + 0.3 * sin(colorTime * 0.7),\n            0.1 + 0.4 * sin(colorTime * 0.9 + 2.0),\n            0.6 + 0.3 * sin(colorTime * 1.1 + 4.0)\n          );\n          vec3 endColor = vec3(\n              0.1 + 0.4 * sin(colorTime + 1.0),\n              0.3 + 0.5 * sin(colorTime * 1.3 + 3.0),\n              0.8 + 0.2 * sin(colorTime * 0.8 + 5.0)\n            );\n\n          // Multi-layer color blending\n          vec3 color = mix(startColor, midColor, threshold1);\n          color = mix(color, endColor, threshold2);\n          color += threshold3 * vec3(1.0, 0.8, 0.6) * 0.5;\n          \n          // Enhanced glow with multiple layers\n          color += edge * midColor * 2.00;\n          color += threshold1 * 0.1 * vec3(1.0, 0.9, 0.7);\n          \n          // Animated brightness modulation\n          float brightness = 0.85 + 0.15 * sin(time * 2.5) + 0.1 * sin(time * 4.7);\n          color *= brightness;\n          \n          // Subtle vignette effect\n          float vignette = 1.0 - 0.3 * length(uv);\n          color *= vignette;\n\n          gl_FragColor = vec4(color, 1.0);\n        }\n      ",
+                                  "mouseEnabled": false,
+                                  "children": []
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "render": "preview 0: Plasma Storm",
+      "errors": [],
+      "ast": {
+        "type": "ModifiedComponent",
+        "props": {
+          "modifier": {
+            "type": "previewName",
+            "props": {
+              "rawValue": "Plasma Storm",
+              "children": []
+            }
+          },
+          "content": [
+            {
+              "type": "ComponentCall",
+              "props": {
+                "name": "ProjectThumbnail",
+                "props": {
+                  "plasmaMode": true,
+                  "multiplyMode": true,
+                  "radius": 0.25,
+                  "distance": 0.6,
+                  "count": 4,
+                  "speed": 1.5,
+                  "glow": 3,
+                  "colorShift": 1
+                },
+                "children": [
+                  {
+                    "type": "ZStack",
+                    "props": {
+                      "children": [
+                        {
+                          "type": "ComponentCall",
+                          "props": {
+                            "name": "ProjectThumbnail",
+                            "props": {
+                              "plasmaMode": true,
+                              "multiplyMode": true,
+                              "radius": 0.25,
+                              "distance": 0.6,
+                              "count": 4,
+                              "speed": 1.5,
+                              "glow": 3,
+                              "colorShift": 1
+                            },
+                            "children": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "background",
+                                    "props": {
+                                      "content": {
+                                        "type": "Color",
+                                        "props": {
+                                          "rawValue": "black",
+                                          "children": []
+                                        }
+                                      },
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "Shader",
+                                      "props": {
+                                        "fragmentShader": "\n        precision highp float;\n        uniform float time;\n        uniform vec2 resolution;\n\n        float metaball(vec2 p, vec2 c, float r) {\n          float d = length(p - c);\n          return r * r / (d * d + 0.0001);\n        }\n\n        // Noise function for extra visual complexity\n        float noise(vec2 p) {\n          return fract(sin(dot(p, vec2(12.9898, 78.233))) * 43758.5453);\n        }\n\n        // Smooth noise\n        float smoothNoise(vec2 p) {\n          vec2 i = floor(p);\n          vec2 f = fract(p);\n          f = f * f * (3.0 - 2.0 * f);\n          \n          float a = noise(i);\n          float b = noise(i + vec2(1.0, 0.0));\n          float c = noise(i + vec2(0.0, 1.0));\n          float d = noise(i + vec2(1.0, 1.0));\n          \n          return mix(mix(a, b, f.x), mix(c, d, f.x), f.y);\n        }\n\n        void main() {\n          vec2 uv = (gl_FragCoord.xy - 0.5 * resolution.xy) / resolution.y;\n          float t = time * 1.500;\n          float field = 5.0;\n\n          \n          {\n            float baseAngle0 = t * (0.8 + 0.0 * 0.15) + 0.000000;\n            float phase0 = sin(t * (0.4 + 0.0 * 0.12)) * 0.300;\n            float turbPhase0 = sin(t * (1.2 + 0.0 * 0.3)) * 0.200;\n            \n            // Complex orbital motion with turbulence\n            float angle0 = baseAngle0 + phase0 + turbPhase0;\n            float orbitRadius0 = 0.600 * (1.0 + 0.3 * sin(t * (0.6 + 0.0 * 0.1)));\n            \n            vec2 c0 = vec2(\n              sin(angle0) * orbitRadius0 + sin(t * (2.0 + 0.0 * 0.2)) * 0.1,\n              cos(angle0 * 0.9) * 0.500 + cos(t * (1.5 + 0.0 * 0.15)) * 0.08\n            );\n            \n            // Dynamic radius with pulsing\n            float dynamicRadius0 = 0.250 * (1.0 + 0.4 * sin(t * (3.0 + 0.0 * 0.5)));\n            \n            field *= metaball(uv, c0, dynamicRadius0);\n          }\n        \n          {\n            float baseAngle1 = t * (0.8 + 1.0 * 0.15) + 1.570796;\n            float phase1 = sin(t * (0.4 + 1.0 * 0.12)) * 0.300;\n            float turbPhase1 = sin(t * (1.2 + 1.0 * 0.3)) * 0.200;\n            \n            // Complex orbital motion with turbulence\n            float angle1 = baseAngle1 + phase1 + turbPhase1;\n            float orbitRadius1 = 0.600 * (1.0 + 0.3 * sin(t * (0.6 + 1.0 * 0.1)));\n            \n            vec2 c1 = vec2(\n              sin(angle1) * orbitRadius1 + sin(t * (2.0 + 1.0 * 0.2)) * 0.1,\n              cos(angle1 * 0.9) * 0.500 + cos(t * (1.5 + 1.0 * 0.15)) * 0.08\n            );\n            \n            // Dynamic radius with pulsing\n            float dynamicRadius1 = 0.250 * (1.0 + 0.4 * sin(t * (3.0 + 1.0 * 0.5)));\n            \n            field *= metaball(uv, c1, dynamicRadius1);\n          }\n        \n          {\n            float baseAngle2 = t * (0.8 + 2.0 * 0.15) + 3.141593;\n            float phase2 = sin(t * (0.4 + 2.0 * 0.12)) * 0.300;\n            float turbPhase2 = sin(t * (1.2 + 2.0 * 0.3)) * 0.200;\n            \n            // Complex orbital motion with turbulence\n            float angle2 = baseAngle2 + phase2 + turbPhase2;\n            float orbitRadius2 = 0.600 * (1.0 + 0.3 * sin(t * (0.6 + 2.0 * 0.1)));\n            \n            vec2 c2 = vec2(\n              sin(angle2) * orbitRadius2 + sin(t * (2.0 + 2.0 * 0.2)) * 0.1,\n              cos(angle2 * 0.9) * 0.500 + cos(t * (1.5 + 2.0 * 0.15)) * 0.08\n            );\n            \n            // Dynamic radius with pulsing\n            float dynamicRadius2 = 0.250 * (1.0 + 0.4 * sin(t * (3.0 + 2.0 * 0.5)));\n            \n            field *= metaball(uv, c2, dynamicRadius2);\n          }\n        \n          {\n            float baseAngle3 = t * (0.8 + 3.0 * 0.15) + 4.712389;\n            float phase3 = sin(t * (0.4 + 3.0 * 0.12)) * 0.300;\n            float turbPhase3 = sin(t * (1.2 + 3.0 * 0.3)) * 0.200;\n            \n            // Complex orbital motion with turbulence\n            float angle3 = baseAngle3 + phase3 + turbPhase3;\n            float orbitRadius3 = 0.600 * (1.0 + 0.3 * sin(t * (0.6 + 3.0 * 0.1)));\n            \n            vec2 c3 = vec2(\n              sin(angle3) * orbitRadius3 + sin(t * (2.0 + 3.0 * 0.2)) * 0.1,\n              cos(angle3 * 0.9) * 0.500 + cos(t * (1.5 + 3.0 * 0.15)) * 0.08\n            );\n            \n            // Dynamic radius with pulsing\n            float dynamicRadius3 = 0.250 * (1.0 + 0.4 * sin(t * (3.0 + 3.0 * 0.5)));\n            \n            field *= metaball(uv, c3, dynamicRadius3);\n          }\n        \n\n          field = 1.0 - clamp(field, 0.0, 1.0);\n\n          // Enhanced color mixing with dynamic shifts\n          float colorTime = t * 1.000;\n          float noiseValue = smoothNoise(uv * 3.0 + t * 0.5) * 0.3;\n          \n          // Multiple threshold levels for richer visuals\n          float threshold1 = smoothstep(0.8, 1.4, field + noiseValue);\n          float threshold2 = smoothstep(1.2, 1.8, field);\n          float threshold3 = smoothstep(1.6, 2.2, field);\n          float edge = smoothstep(0.6, 1.0, field) - threshold1;\n\n          // Dynamic color palette\n          vec3 startColor = vec3(0.0, 0.028, 0.25);\n          vec3 midColor = vec3(\n            0.2 + 0.3 * sin(colorTime * 0.7),\n            0.1 + 0.4 * sin(colorTime * 0.9 + 2.0),\n            0.6 + 0.3 * sin(colorTime * 1.1 + 4.0)\n          );\n          vec3 endColor = vec3(\n              0.8 + 0.2 * sin(colorTime),\n              0.1 + 0.3 * sin(colorTime * 1.2),\n              0.0\n            );\n\n          // Multi-layer color blending\n          vec3 color = mix(startColor, midColor, threshold1);\n          color = mix(color, endColor, threshold2);\n          color += threshold3 * vec3(1.0, 0.8, 0.6) * 0.5;\n          \n          // Enhanced glow with multiple layers\n          color += edge * midColor * 3.00;\n          color += threshold1 * 0.1 * vec3(1.0, 0.9, 0.7);\n          \n          // Animated brightness modulation\n          float brightness = 0.85 + 0.15 * sin(time * 2.5) + 0.1 * sin(time * 4.7);\n          color *= brightness;\n          \n          // Subtle vignette effect\n          float vignette = 1.0 - 0.3 * length(uv);\n          color *= vignette;\n\n          gl_FragColor = vec4(color, 1.0);\n        }\n      ",
+                                        "mouseEnabled": false,
+                                        "children": []
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "render": "preview 1: Pulsing Orbs",
+      "errors": [],
+      "ast": {
+        "type": "ModifiedComponent",
+        "props": {
+          "modifier": {
+            "type": "previewName",
+            "props": {
+              "rawValue": "Pulsing Orbs",
+              "children": []
+            }
+          },
+          "content": [
+            {
+              "type": "ComponentCall",
+              "props": {
+                "name": "ProjectThumbnail",
+                "props": {
+                  "count": 3,
+                  "speed": 0.8,
+                  "distance": 0.7,
+                  "radius": 0.3,
+                  "pulseIntensity": 0.5,
+                  "glow": 2.5
+                },
+                "children": [
+                  {
+                    "type": "ZStack",
+                    "props": {
+                      "children": [
+                        {
+                          "type": "ComponentCall",
+                          "props": {
+                            "name": "ProjectThumbnail",
+                            "props": {
+                              "count": 3,
+                              "speed": 0.8,
+                              "distance": 0.7,
+                              "radius": 0.3,
+                              "pulseIntensity": 0.5,
+                              "glow": 2.5
+                            },
+                            "children": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "background",
+                                    "props": {
+                                      "content": {
+                                        "type": "Color",
+                                        "props": {
+                                          "rawValue": "black",
+                                          "children": []
+                                        }
+                                      },
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "Shader",
+                                      "props": {
+                                        "fragmentShader": "\n        precision highp float;\n        uniform float time;\n        uniform vec2 resolution;\n\n        float metaball(vec2 p, vec2 c, float r) {\n          float d = length(p - c);\n          return r * r / (d * d + 0.0001);\n        }\n\n        // Noise function for extra visual complexity\n        float noise(vec2 p) {\n          return fract(sin(dot(p, vec2(12.9898, 78.233))) * 43758.5453);\n        }\n\n        // Smooth noise\n        float smoothNoise(vec2 p) {\n          vec2 i = floor(p);\n          vec2 f = fract(p);\n          f = f * f * (3.0 - 2.0 * f);\n          \n          float a = noise(i);\n          float b = noise(i + vec2(1.0, 0.0));\n          float c = noise(i + vec2(0.0, 1.0));\n          float d = noise(i + vec2(1.0, 1.0));\n          \n          return mix(mix(a, b, f.x), mix(c, d, f.x), f.y);\n        }\n\n        void main() {\n          vec2 uv = (gl_FragCoord.xy - 0.5 * resolution.xy) / resolution.y;\n          float t = time * 0.800;\n          float field = 0.0;\n\n          \n          {\n            float baseAngle0 = t * (0.8 + 0.0 * 0.15) + 0.000000;\n            float phase0 = sin(t * (0.4 + 0.0 * 0.12)) * 0.500;\n            float turbPhase0 = sin(t * (1.2 + 0.0 * 0.3)) * 0.200;\n            \n            // Complex orbital motion with turbulence\n            float angle0 = baseAngle0 + phase0 + turbPhase0;\n            float orbitRadius0 = 0.700 * (1.0 + 0.3 * sin(t * (0.6 + 0.0 * 0.1)));\n            \n            vec2 c0 = vec2(\n              sin(angle0) * orbitRadius0 + sin(t * (2.0 + 0.0 * 0.2)) * 0.1,\n              cos(angle0 * 0.9) * 0.500 + cos(t * (1.5 + 0.0 * 0.15)) * 0.08\n            );\n            \n            // Dynamic radius with pulsing\n            float dynamicRadius0 = 0.300 * (1.0 + 0.4 * sin(t * (3.0 + 0.0 * 0.5)));\n            \n            field += metaball(uv, c0, dynamicRadius0);\n          }\n        \n          {\n            float baseAngle1 = t * (0.8 + 1.0 * 0.15) + 2.094395;\n            float phase1 = sin(t * (0.4 + 1.0 * 0.12)) * 0.500;\n            float turbPhase1 = sin(t * (1.2 + 1.0 * 0.3)) * 0.200;\n            \n            // Complex orbital motion with turbulence\n            float angle1 = baseAngle1 + phase1 + turbPhase1;\n            float orbitRadius1 = 0.700 * (1.0 + 0.3 * sin(t * (0.6 + 1.0 * 0.1)));\n            \n            vec2 c1 = vec2(\n              sin(angle1) * orbitRadius1 + sin(t * (2.0 + 1.0 * 0.2)) * 0.1,\n              cos(angle1 * 0.9) * 0.500 + cos(t * (1.5 + 1.0 * 0.15)) * 0.08\n            );\n            \n            // Dynamic radius with pulsing\n            float dynamicRadius1 = 0.300 * (1.0 + 0.4 * sin(t * (3.0 + 1.0 * 0.5)));\n            \n            field += metaball(uv, c1, dynamicRadius1);\n          }\n        \n          {\n            float baseAngle2 = t * (0.8 + 2.0 * 0.15) + 4.188790;\n            float phase2 = sin(t * (0.4 + 2.0 * 0.12)) * 0.500;\n            float turbPhase2 = sin(t * (1.2 + 2.0 * 0.3)) * 0.200;\n            \n            // Complex orbital motion with turbulence\n            float angle2 = baseAngle2 + phase2 + turbPhase2;\n            float orbitRadius2 = 0.700 * (1.0 + 0.3 * sin(t * (0.6 + 2.0 * 0.1)));\n            \n            vec2 c2 = vec2(\n              sin(angle2) * orbitRadius2 + sin(t * (2.0 + 2.0 * 0.2)) * 0.1,\n              cos(angle2 * 0.9) * 0.500 + cos(t * (1.5 + 2.0 * 0.15)) * 0.08\n            );\n            \n            // Dynamic radius with pulsing\n            float dynamicRadius2 = 0.300 * (1.0 + 0.4 * sin(t * (3.0 + 2.0 * 0.5)));\n            \n            field += metaball(uv, c2, dynamicRadius2);\n          }\n        \n\n          \n\n          // Enhanced color mixing with dynamic shifts\n          float colorTime = t * 0.500;\n          float noiseValue = smoothNoise(uv * 3.0 + t * 0.5) * 0.3;\n          \n          // Multiple threshold levels for richer visuals\n          float threshold1 = smoothstep(0.8, 1.4, field + noiseValue);\n          float threshold2 = smoothstep(1.2, 1.8, field);\n          float threshold3 = smoothstep(1.6, 2.2, field);\n          float edge = smoothstep(0.6, 1.0, field) - threshold1;\n\n          // Dynamic color palette\n          vec3 startColor = vec3(0.0, 0.028, 0.25);\n          vec3 midColor = vec3(\n            0.2 + 0.3 * sin(colorTime * 0.7),\n            0.1 + 0.4 * sin(colorTime * 0.9 + 2.0),\n            0.6 + 0.3 * sin(colorTime * 1.1 + 4.0)\n          );\n          vec3 endColor = vec3(\n              0.1 + 0.4 * sin(colorTime + 1.0),\n              0.3 + 0.5 * sin(colorTime * 1.3 + 3.0),\n              0.8 + 0.2 * sin(colorTime * 0.8 + 5.0)\n            );\n\n          // Multi-layer color blending\n          vec3 color = mix(startColor, midColor, threshold1);\n          color = mix(color, endColor, threshold2);\n          color += threshold3 * vec3(1.0, 0.8, 0.6) * 0.5;\n          \n          // Enhanced glow with multiple layers\n          color += edge * midColor * 2.50;\n          color += threshold1 * 0.1 * vec3(1.0, 0.9, 0.7);\n          \n          // Animated brightness modulation\n          float brightness = 0.85 + 0.15 * sin(time * 2.5) + 0.1 * sin(time * 4.7);\n          color *= brightness;\n          \n          // Subtle vignette effect\n          float vignette = 1.0 - 0.3 * length(uv);\n          color *= vignette;\n\n          gl_FragColor = vec4(color, 1.0);\n        }\n      ",
+                                        "mouseEnabled": false,
+                                        "children": []
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "render": "preview 2: Chaotic Field",
+      "errors": [],
+      "ast": {
+        "type": "ModifiedComponent",
+        "props": {
+          "modifier": {
+            "type": "previewName",
+            "props": {
+              "rawValue": "Chaotic Field",
+              "children": []
+            }
+          },
+          "content": [
+            {
+              "type": "ComponentCall",
+              "props": {
+                "name": "ProjectThumbnail",
+                "props": {
+                  "count": 7,
+                  "multiplyMode": true,
+                  "distance": 1,
+                  "radius": 0.15,
+                  "turbulence": 0.4,
+                  "speed": 1.8
+                },
+                "children": [
+                  {
+                    "type": "ZStack",
+                    "props": {
+                      "children": [
+                        {
+                          "type": "ComponentCall",
+                          "props": {
+                            "name": "ProjectThumbnail",
+                            "props": {
+                              "count": 7,
+                              "multiplyMode": true,
+                              "distance": 1,
+                              "radius": 0.15,
+                              "turbulence": 0.4,
+                              "speed": 1.8
+                            },
+                            "children": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "background",
+                                    "props": {
+                                      "content": {
+                                        "type": "Color",
+                                        "props": {
+                                          "rawValue": "black",
+                                          "children": []
+                                        }
+                                      },
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "Shader",
+                                      "props": {
+                                        "fragmentShader": "\n        precision highp float;\n        uniform float time;\n        uniform vec2 resolution;\n\n        float metaball(vec2 p, vec2 c, float r) {\n          float d = length(p - c);\n          return r * r / (d * d + 0.0001);\n        }\n\n        // Noise function for extra visual complexity\n        float noise(vec2 p) {\n          return fract(sin(dot(p, vec2(12.9898, 78.233))) * 43758.5453);\n        }\n\n        // Smooth noise\n        float smoothNoise(vec2 p) {\n          vec2 i = floor(p);\n          vec2 f = fract(p);\n          f = f * f * (3.0 - 2.0 * f);\n          \n          float a = noise(i);\n          float b = noise(i + vec2(1.0, 0.0));\n          float c = noise(i + vec2(0.0, 1.0));\n          float d = noise(i + vec2(1.0, 1.0));\n          \n          return mix(mix(a, b, f.x), mix(c, d, f.x), f.y);\n        }\n\n        void main() {\n          vec2 uv = (gl_FragCoord.xy - 0.5 * resolution.xy) / resolution.y;\n          float t = time * 1.800;\n          float field = 5.0;\n\n          \n          {\n            float baseAngle0 = t * (0.8 + 0.0 * 0.15) + 0.000000;\n            float phase0 = sin(t * (0.4 + 0.0 * 0.12)) * 0.300;\n            float turbPhase0 = sin(t * (1.2 + 0.0 * 0.3)) * 0.400;\n            \n            // Complex orbital motion with turbulence\n            float angle0 = baseAngle0 + phase0 + turbPhase0;\n            float orbitRadius0 = 1.000 * (1.0 + 0.3 * sin(t * (0.6 + 0.0 * 0.1)));\n            \n            vec2 c0 = vec2(\n              sin(angle0) * orbitRadius0 + sin(t * (2.0 + 0.0 * 0.2)) * 0.1,\n              cos(angle0 * 0.9) * 0.500 + cos(t * (1.5 + 0.0 * 0.15)) * 0.08\n            );\n            \n            // Dynamic radius with pulsing\n            float dynamicRadius0 = 0.150 * (1.0 + 0.4 * sin(t * (3.0 + 0.0 * 0.5)));\n            \n            field *= metaball(uv, c0, dynamicRadius0);\n          }\n        \n          {\n            float baseAngle1 = t * (0.8 + 1.0 * 0.15) + 0.897598;\n            float phase1 = sin(t * (0.4 + 1.0 * 0.12)) * 0.300;\n            float turbPhase1 = sin(t * (1.2 + 1.0 * 0.3)) * 0.400;\n            \n            // Complex orbital motion with turbulence\n            float angle1 = baseAngle1 + phase1 + turbPhase1;\n            float orbitRadius1 = 1.000 * (1.0 + 0.3 * sin(t * (0.6 + 1.0 * 0.1)));\n            \n            vec2 c1 = vec2(\n              sin(angle1) * orbitRadius1 + sin(t * (2.0 + 1.0 * 0.2)) * 0.1,\n              cos(angle1 * 0.9) * 0.500 + cos(t * (1.5 + 1.0 * 0.15)) * 0.08\n            );\n            \n            // Dynamic radius with pulsing\n            float dynamicRadius1 = 0.150 * (1.0 + 0.4 * sin(t * (3.0 + 1.0 * 0.5)));\n            \n            field *= metaball(uv, c1, dynamicRadius1);\n          }\n        \n          {\n            float baseAngle2 = t * (0.8 + 2.0 * 0.15) + 1.795196;\n            float phase2 = sin(t * (0.4 + 2.0 * 0.12)) * 0.300;\n            float turbPhase2 = sin(t * (1.2 + 2.0 * 0.3)) * 0.400;\n            \n            // Complex orbital motion with turbulence\n            float angle2 = baseAngle2 + phase2 + turbPhase2;\n            float orbitRadius2 = 1.000 * (1.0 + 0.3 * sin(t * (0.6 + 2.0 * 0.1)));\n            \n            vec2 c2 = vec2(\n              sin(angle2) * orbitRadius2 + sin(t * (2.0 + 2.0 * 0.2)) * 0.1,\n              cos(angle2 * 0.9) * 0.500 + cos(t * (1.5 + 2.0 * 0.15)) * 0.08\n            );\n            \n            // Dynamic radius with pulsing\n            float dynamicRadius2 = 0.150 * (1.0 + 0.4 * sin(t * (3.0 + 2.0 * 0.5)));\n            \n            field *= metaball(uv, c2, dynamicRadius2);\n          }\n        \n          {\n            float baseAngle3 = t * (0.8 + 3.0 * 0.15) + 2.692794;\n            float phase3 = sin(t * (0.4 + 3.0 * 0.12)) * 0.300;\n            float turbPhase3 = sin(t * (1.2 + 3.0 * 0.3)) * 0.400;\n            \n            // Complex orbital motion with turbulence\n            float angle3 = baseAngle3 + phase3 + turbPhase3;\n            float orbitRadius3 = 1.000 * (1.0 + 0.3 * sin(t * (0.6 + 3.0 * 0.1)));\n            \n            vec2 c3 = vec2(\n              sin(angle3) * orbitRadius3 + sin(t * (2.0 + 3.0 * 0.2)) * 0.1,\n              cos(angle3 * 0.9) * 0.500 + cos(t * (1.5 + 3.0 * 0.15)) * 0.08\n            );\n            \n            // Dynamic radius with pulsing\n            float dynamicRadius3 = 0.150 * (1.0 + 0.4 * sin(t * (3.0 + 3.0 * 0.5)));\n            \n            field *= metaball(uv, c3, dynamicRadius3);\n          }\n        \n          {\n            float baseAngle4 = t * (0.8 + 4.0 * 0.15) + 3.590392;\n            float phase4 = sin(t * (0.4 + 4.0 * 0.12)) * 0.300;\n            float turbPhase4 = sin(t * (1.2 + 4.0 * 0.3)) * 0.400;\n            \n            // Complex orbital motion with turbulence\n            float angle4 = baseAngle4 + phase4 + turbPhase4;\n            float orbitRadius4 = 1.000 * (1.0 + 0.3 * sin(t * (0.6 + 4.0 * 0.1)));\n            \n            vec2 c4 = vec2(\n              sin(angle4) * orbitRadius4 + sin(t * (2.0 + 4.0 * 0.2)) * 0.1,\n              cos(angle4 * 0.9) * 0.500 + cos(t * (1.5 + 4.0 * 0.15)) * 0.08\n            );\n            \n            // Dynamic radius with pulsing\n            float dynamicRadius4 = 0.150 * (1.0 + 0.4 * sin(t * (3.0 + 4.0 * 0.5)));\n            \n            field *= metaball(uv, c4, dynamicRadius4);\n          }\n        \n          {\n            float baseAngle5 = t * (0.8 + 5.0 * 0.15) + 4.487990;\n            float phase5 = sin(t * (0.4 + 5.0 * 0.12)) * 0.300;\n            float turbPhase5 = sin(t * (1.2 + 5.0 * 0.3)) * 0.400;\n            \n            // Complex orbital motion with turbulence\n            float angle5 = baseAngle5 + phase5 + turbPhase5;\n            float orbitRadius5 = 1.000 * (1.0 + 0.3 * sin(t * (0.6 + 5.0 * 0.1)));\n            \n            vec2 c5 = vec2(\n              sin(angle5) * orbitRadius5 + sin(t * (2.0 + 5.0 * 0.2)) * 0.1,\n              cos(angle5 * 0.9) * 0.500 + cos(t * (1.5 + 5.0 * 0.15)) * 0.08\n            );\n            \n            // Dynamic radius with pulsing\n            float dynamicRadius5 = 0.150 * (1.0 + 0.4 * sin(t * (3.0 + 5.0 * 0.5)));\n            \n            field *= metaball(uv, c5, dynamicRadius5);\n          }\n        \n          {\n            float baseAngle6 = t * (0.8 + 6.0 * 0.15) + 5.385587;\n            float phase6 = sin(t * (0.4 + 6.0 * 0.12)) * 0.300;\n            float turbPhase6 = sin(t * (1.2 + 6.0 * 0.3)) * 0.400;\n            \n            // Complex orbital motion with turbulence\n            float angle6 = baseAngle6 + phase6 + turbPhase6;\n            float orbitRadius6 = 1.000 * (1.0 + 0.3 * sin(t * (0.6 + 6.0 * 0.1)));\n            \n            vec2 c6 = vec2(\n              sin(angle6) * orbitRadius6 + sin(t * (2.0 + 6.0 * 0.2)) * 0.1,\n              cos(angle6 * 0.9) * 0.500 + cos(t * (1.5 + 6.0 * 0.15)) * 0.08\n            );\n            \n            // Dynamic radius with pulsing\n            float dynamicRadius6 = 0.150 * (1.0 + 0.4 * sin(t * (3.0 + 6.0 * 0.5)));\n            \n            field *= metaball(uv, c6, dynamicRadius6);\n          }\n        \n\n          \n\n          // Enhanced color mixing with dynamic shifts\n          float colorTime = t * 0.500;\n          float noiseValue = smoothNoise(uv * 3.0 + t * 0.5) * 0.3;\n          \n          // Multiple threshold levels for richer visuals\n          float threshold1 = smoothstep(0.8, 1.4, field + noiseValue);\n          float threshold2 = smoothstep(1.2, 1.8, field);\n          float threshold3 = smoothstep(1.6, 2.2, field);\n          float edge = smoothstep(0.6, 1.0, field) - threshold1;\n\n          // Dynamic color palette\n          vec3 startColor = vec3(0.0, 0.028, 0.25);\n          vec3 midColor = vec3(\n            0.2 + 0.3 * sin(colorTime * 0.7),\n            0.1 + 0.4 * sin(colorTime * 0.9 + 2.0),\n            0.6 + 0.3 * sin(colorTime * 1.1 + 4.0)\n          );\n          vec3 endColor = vec3(\n              0.1 + 0.4 * sin(colorTime + 1.0),\n              0.3 + 0.5 * sin(colorTime * 1.3 + 3.0),\n              0.8 + 0.2 * sin(colorTime * 0.8 + 5.0)\n            );\n\n          // Multi-layer color blending\n          vec3 color = mix(startColor, midColor, threshold1);\n          color = mix(color, endColor, threshold2);\n          color += threshold3 * vec3(1.0, 0.8, 0.6) * 0.5;\n          \n          // Enhanced glow with multiple layers\n          color += edge * midColor * 2.00;\n          color += threshold1 * 0.1 * vec3(1.0, 0.9, 0.7);\n          \n          // Animated brightness modulation\n          float brightness = 0.85 + 0.15 * sin(time * 2.5) + 0.1 * sin(time * 4.7);\n          color *= brightness;\n          \n          // Subtle vignette effect\n          float vignette = 1.0 - 0.3 * length(uv);\n          color *= vignette;\n\n          gl_FragColor = vec4(color, 1.0);\n        }\n      ",
+                                        "mouseEnabled": false,
+                                        "children": []
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "render": "preview 3: Twin Suns",
+      "errors": [],
+      "ast": {
+        "type": "ModifiedComponent",
+        "props": {
+          "modifier": {
+            "type": "previewName",
+            "props": {
+              "rawValue": "Twin Suns",
+              "children": []
+            }
+          },
+          "content": [
+            {
+              "type": "ComponentCall",
+              "props": {
+                "name": "ProjectThumbnail",
+                "props": {
+                  "count": 2,
+                  "glow": 4,
+                  "radius": 0.4,
+                  "wobble": 0.8,
+                  "colorShift": 0.8
+                },
+                "children": [
+                  {
+                    "type": "ZStack",
+                    "props": {
+                      "children": [
+                        {
+                          "type": "ComponentCall",
+                          "props": {
+                            "name": "ProjectThumbnail",
+                            "props": {
+                              "count": 2,
+                              "glow": 4,
+                              "radius": 0.4,
+                              "wobble": 0.8,
+                              "colorShift": 0.8
+                            },
+                            "children": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "background",
+                                    "props": {
+                                      "content": {
+                                        "type": "Color",
+                                        "props": {
+                                          "rawValue": "black",
+                                          "children": []
+                                        }
+                                      },
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "Shader",
+                                      "props": {
+                                        "fragmentShader": "\n        precision highp float;\n        uniform float time;\n        uniform vec2 resolution;\n\n        float metaball(vec2 p, vec2 c, float r) {\n          float d = length(p - c);\n          return r * r / (d * d + 0.0001);\n        }\n\n        // Noise function for extra visual complexity\n        float noise(vec2 p) {\n          return fract(sin(dot(p, vec2(12.9898, 78.233))) * 43758.5453);\n        }\n\n        // Smooth noise\n        float smoothNoise(vec2 p) {\n          vec2 i = floor(p);\n          vec2 f = fract(p);\n          f = f * f * (3.0 - 2.0 * f);\n          \n          float a = noise(i);\n          float b = noise(i + vec2(1.0, 0.0));\n          float c = noise(i + vec2(0.0, 1.0));\n          float d = noise(i + vec2(1.0, 1.0));\n          \n          return mix(mix(a, b, f.x), mix(c, d, f.x), f.y);\n        }\n\n        void main() {\n          vec2 uv = (gl_FragCoord.xy - 0.5 * resolution.xy) / resolution.y;\n          float t = time * 1.200;\n          float field = 0.0;\n\n          \n          {\n            float baseAngle0 = t * (0.8 + 0.0 * 0.15) + 0.000000;\n            float phase0 = sin(t * (0.4 + 0.0 * 0.12)) * 0.300;\n            float turbPhase0 = sin(t * (1.2 + 0.0 * 0.3)) * 0.200;\n            \n            // Complex orbital motion with turbulence\n            float angle0 = baseAngle0 + phase0 + turbPhase0;\n            float orbitRadius0 = 0.800 * (1.0 + 0.3 * sin(t * (0.6 + 0.0 * 0.1)));\n            \n            vec2 c0 = vec2(\n              sin(angle0) * orbitRadius0 + sin(t * (2.0 + 0.0 * 0.2)) * 0.1,\n              cos(angle0 * 0.9) * 0.800 + cos(t * (1.5 + 0.0 * 0.15)) * 0.08\n            );\n            \n            // Dynamic radius with pulsing\n            float dynamicRadius0 = 0.400 * (1.0 + 0.4 * sin(t * (3.0 + 0.0 * 0.5)));\n            \n            field += metaball(uv, c0, dynamicRadius0);\n          }\n        \n          {\n            float baseAngle1 = t * (0.8 + 1.0 * 0.15) + 3.141593;\n            float phase1 = sin(t * (0.4 + 1.0 * 0.12)) * 0.300;\n            float turbPhase1 = sin(t * (1.2 + 1.0 * 0.3)) * 0.200;\n            \n            // Complex orbital motion with turbulence\n            float angle1 = baseAngle1 + phase1 + turbPhase1;\n            float orbitRadius1 = 0.800 * (1.0 + 0.3 * sin(t * (0.6 + 1.0 * 0.1)));\n            \n            vec2 c1 = vec2(\n              sin(angle1) * orbitRadius1 + sin(t * (2.0 + 1.0 * 0.2)) * 0.1,\n              cos(angle1 * 0.9) * 0.800 + cos(t * (1.5 + 1.0 * 0.15)) * 0.08\n            );\n            \n            // Dynamic radius with pulsing\n            float dynamicRadius1 = 0.400 * (1.0 + 0.4 * sin(t * (3.0 + 1.0 * 0.5)));\n            \n            field += metaball(uv, c1, dynamicRadius1);\n          }\n        \n\n          \n\n          // Enhanced color mixing with dynamic shifts\n          float colorTime = t * 0.800;\n          float noiseValue = smoothNoise(uv * 3.0 + t * 0.5) * 0.3;\n          \n          // Multiple threshold levels for richer visuals\n          float threshold1 = smoothstep(0.8, 1.4, field + noiseValue);\n          float threshold2 = smoothstep(1.2, 1.8, field);\n          float threshold3 = smoothstep(1.6, 2.2, field);\n          float edge = smoothstep(0.6, 1.0, field) - threshold1;\n\n          // Dynamic color palette\n          vec3 startColor = vec3(0.0, 0.028, 0.25);\n          vec3 midColor = vec3(\n            0.2 + 0.3 * sin(colorTime * 0.7),\n            0.1 + 0.4 * sin(colorTime * 0.9 + 2.0),\n            0.6 + 0.3 * sin(colorTime * 1.1 + 4.0)\n          );\n          vec3 endColor = vec3(\n              0.1 + 0.4 * sin(colorTime + 1.0),\n              0.3 + 0.5 * sin(colorTime * 1.3 + 3.0),\n              0.8 + 0.2 * sin(colorTime * 0.8 + 5.0)\n            );\n\n          // Multi-layer color blending\n          vec3 color = mix(startColor, midColor, threshold1);\n          color = mix(color, endColor, threshold2);\n          color += threshold3 * vec3(1.0, 0.8, 0.6) * 0.5;\n          \n          // Enhanced glow with multiple layers\n          color += edge * midColor * 4.00;\n          color += threshold1 * 0.1 * vec3(1.0, 0.9, 0.7);\n          \n          // Animated brightness modulation\n          float brightness = 0.85 + 0.15 * sin(time * 2.5) + 0.1 * sin(time * 4.7);\n          color *= brightness;\n          \n          // Subtle vignette effect\n          float vignette = 1.0 - 0.3 * length(uv);\n          color *= vignette;\n\n          gl_FragColor = vec4(color, 1.0);\n        }\n      ",
+                                        "mouseEnabled": false,
+                                        "children": []
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "render": "preview 4: Swarm Dance",
+      "errors": [],
+      "ast": {
+        "type": "ModifiedComponent",
+        "props": {
+          "modifier": {
+            "type": "previewName",
+            "props": {
+              "rawValue": "Swarm Dance",
+              "children": []
+            }
+          },
+          "content": [
+            {
+              "type": "ComponentCall",
+              "props": {
+                "name": "ProjectThumbnail",
+                "props": {
+                  "count": 8,
+                  "radius": 0.1,
+                  "speed": 2,
+                  "distance": 1.2,
+                  "pulseIntensity": 0.6
+                },
+                "children": [
+                  {
+                    "type": "ZStack",
+                    "props": {
+                      "children": [
+                        {
+                          "type": "ComponentCall",
+                          "props": {
+                            "name": "ProjectThumbnail",
+                            "props": {
+                              "count": 8,
+                              "radius": 0.1,
+                              "speed": 2,
+                              "distance": 1.2,
+                              "pulseIntensity": 0.6
+                            },
+                            "children": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "background",
+                                    "props": {
+                                      "content": {
+                                        "type": "Color",
+                                        "props": {
+                                          "rawValue": "black",
+                                          "children": []
+                                        }
+                                      },
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "Shader",
+                                      "props": {
+                                        "fragmentShader": "\n        precision highp float;\n        uniform float time;\n        uniform vec2 resolution;\n\n        float metaball(vec2 p, vec2 c, float r) {\n          float d = length(p - c);\n          return r * r / (d * d + 0.0001);\n        }\n\n        // Noise function for extra visual complexity\n        float noise(vec2 p) {\n          return fract(sin(dot(p, vec2(12.9898, 78.233))) * 43758.5453);\n        }\n\n        // Smooth noise\n        float smoothNoise(vec2 p) {\n          vec2 i = floor(p);\n          vec2 f = fract(p);\n          f = f * f * (3.0 - 2.0 * f);\n          \n          float a = noise(i);\n          float b = noise(i + vec2(1.0, 0.0));\n          float c = noise(i + vec2(0.0, 1.0));\n          float d = noise(i + vec2(1.0, 1.0));\n          \n          return mix(mix(a, b, f.x), mix(c, d, f.x), f.y);\n        }\n\n        void main() {\n          vec2 uv = (gl_FragCoord.xy - 0.5 * resolution.xy) / resolution.y;\n          float t = time * 2.000;\n          float field = 0.0;\n\n          \n          {\n            float baseAngle0 = t * (0.8 + 0.0 * 0.15) + 0.000000;\n            float phase0 = sin(t * (0.4 + 0.0 * 0.12)) * 0.600;\n            float turbPhase0 = sin(t * (1.2 + 0.0 * 0.3)) * 0.200;\n            \n            // Complex orbital motion with turbulence\n            float angle0 = baseAngle0 + phase0 + turbPhase0;\n            float orbitRadius0 = 1.200 * (1.0 + 0.3 * sin(t * (0.6 + 0.0 * 0.1)));\n            \n            vec2 c0 = vec2(\n              sin(angle0) * orbitRadius0 + sin(t * (2.0 + 0.0 * 0.2)) * 0.1,\n              cos(angle0 * 0.9) * 0.500 + cos(t * (1.5 + 0.0 * 0.15)) * 0.08\n            );\n            \n            // Dynamic radius with pulsing\n            float dynamicRadius0 = 0.100 * (1.0 + 0.4 * sin(t * (3.0 + 0.0 * 0.5)));\n            \n            field += metaball(uv, c0, dynamicRadius0);\n          }\n        \n          {\n            float baseAngle1 = t * (0.8 + 1.0 * 0.15) + 0.785398;\n            float phase1 = sin(t * (0.4 + 1.0 * 0.12)) * 0.600;\n            float turbPhase1 = sin(t * (1.2 + 1.0 * 0.3)) * 0.200;\n            \n            // Complex orbital motion with turbulence\n            float angle1 = baseAngle1 + phase1 + turbPhase1;\n            float orbitRadius1 = 1.200 * (1.0 + 0.3 * sin(t * (0.6 + 1.0 * 0.1)));\n            \n            vec2 c1 = vec2(\n              sin(angle1) * orbitRadius1 + sin(t * (2.0 + 1.0 * 0.2)) * 0.1,\n              cos(angle1 * 0.9) * 0.500 + cos(t * (1.5 + 1.0 * 0.15)) * 0.08\n            );\n            \n            // Dynamic radius with pulsing\n            float dynamicRadius1 = 0.100 * (1.0 + 0.4 * sin(t * (3.0 + 1.0 * 0.5)));\n            \n            field += metaball(uv, c1, dynamicRadius1);\n          }\n        \n          {\n            float baseAngle2 = t * (0.8 + 2.0 * 0.15) + 1.570796;\n            float phase2 = sin(t * (0.4 + 2.0 * 0.12)) * 0.600;\n            float turbPhase2 = sin(t * (1.2 + 2.0 * 0.3)) * 0.200;\n            \n            // Complex orbital motion with turbulence\n            float angle2 = baseAngle2 + phase2 + turbPhase2;\n            float orbitRadius2 = 1.200 * (1.0 + 0.3 * sin(t * (0.6 + 2.0 * 0.1)));\n            \n            vec2 c2 = vec2(\n              sin(angle2) * orbitRadius2 + sin(t * (2.0 + 2.0 * 0.2)) * 0.1,\n              cos(angle2 * 0.9) * 0.500 + cos(t * (1.5 + 2.0 * 0.15)) * 0.08\n            );\n            \n            // Dynamic radius with pulsing\n            float dynamicRadius2 = 0.100 * (1.0 + 0.4 * sin(t * (3.0 + 2.0 * 0.5)));\n            \n            field += metaball(uv, c2, dynamicRadius2);\n          }\n        \n          {\n            float baseAngle3 = t * (0.8 + 3.0 * 0.15) + 2.356194;\n            float phase3 = sin(t * (0.4 + 3.0 * 0.12)) * 0.600;\n            float turbPhase3 = sin(t * (1.2 + 3.0 * 0.3)) * 0.200;\n            \n            // Complex orbital motion with turbulence\n            float angle3 = baseAngle3 + phase3 + turbPhase3;\n            float orbitRadius3 = 1.200 * (1.0 + 0.3 * sin(t * (0.6 + 3.0 * 0.1)));\n            \n            vec2 c3 = vec2(\n              sin(angle3) * orbitRadius3 + sin(t * (2.0 + 3.0 * 0.2)) * 0.1,\n              cos(angle3 * 0.9) * 0.500 + cos(t * (1.5 + 3.0 * 0.15)) * 0.08\n            );\n            \n            // Dynamic radius with pulsing\n            float dynamicRadius3 = 0.100 * (1.0 + 0.4 * sin(t * (3.0 + 3.0 * 0.5)));\n            \n            field += metaball(uv, c3, dynamicRadius3);\n          }\n        \n          {\n            float baseAngle4 = t * (0.8 + 4.0 * 0.15) + 3.141593;\n            float phase4 = sin(t * (0.4 + 4.0 * 0.12)) * 0.600;\n            float turbPhase4 = sin(t * (1.2 + 4.0 * 0.3)) * 0.200;\n            \n            // Complex orbital motion with turbulence\n            float angle4 = baseAngle4 + phase4 + turbPhase4;\n            float orbitRadius4 = 1.200 * (1.0 + 0.3 * sin(t * (0.6 + 4.0 * 0.1)));\n            \n            vec2 c4 = vec2(\n              sin(angle4) * orbitRadius4 + sin(t * (2.0 + 4.0 * 0.2)) * 0.1,\n              cos(angle4 * 0.9) * 0.500 + cos(t * (1.5 + 4.0 * 0.15)) * 0.08\n            );\n            \n            // Dynamic radius with pulsing\n            float dynamicRadius4 = 0.100 * (1.0 + 0.4 * sin(t * (3.0 + 4.0 * 0.5)));\n            \n            field += metaball(uv, c4, dynamicRadius4);\n          }\n        \n          {\n            float baseAngle5 = t * (0.8 + 5.0 * 0.15) + 3.926991;\n            float phase5 = sin(t * (0.4 + 5.0 * 0.12)) * 0.600;\n            float turbPhase5 = sin(t * (1.2 + 5.0 * 0.3)) * 0.200;\n            \n            // Complex orbital motion with turbulence\n            float angle5 = baseAngle5 + phase5 + turbPhase5;\n            float orbitRadius5 = 1.200 * (1.0 + 0.3 * sin(t * (0.6 + 5.0 * 0.1)));\n            \n            vec2 c5 = vec2(\n              sin(angle5) * orbitRadius5 + sin(t * (2.0 + 5.0 * 0.2)) * 0.1,\n              cos(angle5 * 0.9) * 0.500 + cos(t * (1.5 + 5.0 * 0.15)) * 0.08\n            );\n            \n            // Dynamic radius with pulsing\n            float dynamicRadius5 = 0.100 * (1.0 + 0.4 * sin(t * (3.0 + 5.0 * 0.5)));\n            \n            field += metaball(uv, c5, dynamicRadius5);\n          }\n        \n          {\n            float baseAngle6 = t * (0.8 + 6.0 * 0.15) + 4.712389;\n            float phase6 = sin(t * (0.4 + 6.0 * 0.12)) * 0.600;\n            float turbPhase6 = sin(t * (1.2 + 6.0 * 0.3)) * 0.200;\n            \n            // Complex orbital motion with turbulence\n            float angle6 = baseAngle6 + phase6 + turbPhase6;\n            float orbitRadius6 = 1.200 * (1.0 + 0.3 * sin(t * (0.6 + 6.0 * 0.1)));\n            \n            vec2 c6 = vec2(\n              sin(angle6) * orbitRadius6 + sin(t * (2.0 + 6.0 * 0.2)) * 0.1,\n              cos(angle6 * 0.9) * 0.500 + cos(t * (1.5 + 6.0 * 0.15)) * 0.08\n            );\n            \n            // Dynamic radius with pulsing\n            float dynamicRadius6 = 0.100 * (1.0 + 0.4 * sin(t * (3.0 + 6.0 * 0.5)));\n            \n            field += metaball(uv, c6, dynamicRadius6);\n          }\n        \n          {\n            float baseAngle7 = t * (0.8 + 7.0 * 0.15) + 5.497787;\n            float phase7 = sin(t * (0.4 + 7.0 * 0.12)) * 0.600;\n            float turbPhase7 = sin(t * (1.2 + 7.0 * 0.3)) * 0.200;\n            \n            // Complex orbital motion with turbulence\n            float angle7 = baseAngle7 + phase7 + turbPhase7;\n            float orbitRadius7 = 1.200 * (1.0 + 0.3 * sin(t * (0.6 + 7.0 * 0.1)));\n            \n            vec2 c7 = vec2(\n              sin(angle7) * orbitRadius7 + sin(t * (2.0 + 7.0 * 0.2)) * 0.1,\n              cos(angle7 * 0.9) * 0.500 + cos(t * (1.5 + 7.0 * 0.15)) * 0.08\n            );\n            \n            // Dynamic radius with pulsing\n            float dynamicRadius7 = 0.100 * (1.0 + 0.4 * sin(t * (3.0 + 7.0 * 0.5)));\n            \n            field += metaball(uv, c7, dynamicRadius7);\n          }\n        \n\n          \n\n          // Enhanced color mixing with dynamic shifts\n          float colorTime = t * 0.500;\n          float noiseValue = smoothNoise(uv * 3.0 + t * 0.5) * 0.3;\n          \n          // Multiple threshold levels for richer visuals\n          float threshold1 = smoothstep(0.8, 1.4, field + noiseValue);\n          float threshold2 = smoothstep(1.2, 1.8, field);\n          float threshold3 = smoothstep(1.6, 2.2, field);\n          float edge = smoothstep(0.6, 1.0, field) - threshold1;\n\n          // Dynamic color palette\n          vec3 startColor = vec3(0.0, 0.028, 0.25);\n          vec3 midColor = vec3(\n            0.2 + 0.3 * sin(colorTime * 0.7),\n            0.1 + 0.4 * sin(colorTime * 0.9 + 2.0),\n            0.6 + 0.3 * sin(colorTime * 1.1 + 4.0)\n          );\n          vec3 endColor = vec3(\n              0.1 + 0.4 * sin(colorTime + 1.0),\n              0.3 + 0.5 * sin(colorTime * 1.3 + 3.0),\n              0.8 + 0.2 * sin(colorTime * 0.8 + 5.0)\n            );\n\n          // Multi-layer color blending\n          vec3 color = mix(startColor, midColor, threshold1);\n          color = mix(color, endColor, threshold2);\n          color += threshold3 * vec3(1.0, 0.8, 0.6) * 0.5;\n          \n          // Enhanced glow with multiple layers\n          color += edge * midColor * 2.00;\n          color += threshold1 * 0.1 * vec3(1.0, 0.9, 0.7);\n          \n          // Animated brightness modulation\n          float brightness = 0.85 + 0.15 * sin(time * 2.5) + 0.1 * sin(time * 4.7);\n          color *= brightness;\n          \n          // Subtle vignette effect\n          float vignette = 1.0 - 0.3 * length(uv);\n          color *= vignette;\n\n          gl_FragColor = vec4(color, 1.0);\n        }\n      ",
+                                        "mouseEnabled": false,
+                                        "children": []
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "render": "preview 5: Particle Cloud",
+      "errors": [],
+      "ast": {
+        "type": "ModifiedComponent",
+        "props": {
+          "modifier": {
+            "type": "previewName",
+            "props": {
+              "rawValue": "Particle Cloud",
+              "children": []
+            }
+          },
+          "content": [
+            {
+              "type": "ComponentCall",
+              "props": {
+                "name": "ProjectThumbnail",
+                "props": {
+                  "count": 12,
+                  "radius": 0.08,
+                  "speed": 1,
+                  "multiplyMode": true,
+                  "turbulence": 0.6
+                },
+                "children": [
+                  {
+                    "type": "ZStack",
+                    "props": {
+                      "children": [
+                        {
+                          "type": "ComponentCall",
+                          "props": {
+                            "name": "ProjectThumbnail",
+                            "props": {
+                              "count": 12,
+                              "radius": 0.08,
+                              "speed": 1,
+                              "multiplyMode": true,
+                              "turbulence": 0.6
+                            },
+                            "children": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "background",
+                                    "props": {
+                                      "content": {
+                                        "type": "Color",
+                                        "props": {
+                                          "rawValue": "black",
+                                          "children": []
+                                        }
+                                      },
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "Shader",
+                                      "props": {
+                                        "fragmentShader": "\n        precision highp float;\n        uniform float time;\n        uniform vec2 resolution;\n\n        float metaball(vec2 p, vec2 c, float r) {\n          float d = length(p - c);\n          return r * r / (d * d + 0.0001);\n        }\n\n        // Noise function for extra visual complexity\n        float noise(vec2 p) {\n          return fract(sin(dot(p, vec2(12.9898, 78.233))) * 43758.5453);\n        }\n\n        // Smooth noise\n        float smoothNoise(vec2 p) {\n          vec2 i = floor(p);\n          vec2 f = fract(p);\n          f = f * f * (3.0 - 2.0 * f);\n          \n          float a = noise(i);\n          float b = noise(i + vec2(1.0, 0.0));\n          float c = noise(i + vec2(0.0, 1.0));\n          float d = noise(i + vec2(1.0, 1.0));\n          \n          return mix(mix(a, b, f.x), mix(c, d, f.x), f.y);\n        }\n\n        void main() {\n          vec2 uv = (gl_FragCoord.xy - 0.5 * resolution.xy) / resolution.y;\n          float t = time * 1.000;\n          float field = 5.0;\n\n          \n          {\n            float baseAngle0 = t * (0.8 + 0.0 * 0.15) + 0.000000;\n            float phase0 = sin(t * (0.4 + 0.0 * 0.12)) * 0.300;\n            float turbPhase0 = sin(t * (1.2 + 0.0 * 0.3)) * 0.600;\n            \n            // Complex orbital motion with turbulence\n            float angle0 = baseAngle0 + phase0 + turbPhase0;\n            float orbitRadius0 = 0.800 * (1.0 + 0.3 * sin(t * (0.6 + 0.0 * 0.1)));\n            \n            vec2 c0 = vec2(\n              sin(angle0) * orbitRadius0 + sin(t * (2.0 + 0.0 * 0.2)) * 0.1,\n              cos(angle0 * 0.9) * 0.500 + cos(t * (1.5 + 0.0 * 0.15)) * 0.08\n            );\n            \n            // Dynamic radius with pulsing\n            float dynamicRadius0 = 0.080 * (1.0 + 0.4 * sin(t * (3.0 + 0.0 * 0.5)));\n            \n            field *= metaball(uv, c0, dynamicRadius0);\n          }\n        \n          {\n            float baseAngle1 = t * (0.8 + 1.0 * 0.15) + 0.523599;\n            float phase1 = sin(t * (0.4 + 1.0 * 0.12)) * 0.300;\n            float turbPhase1 = sin(t * (1.2 + 1.0 * 0.3)) * 0.600;\n            \n            // Complex orbital motion with turbulence\n            float angle1 = baseAngle1 + phase1 + turbPhase1;\n            float orbitRadius1 = 0.800 * (1.0 + 0.3 * sin(t * (0.6 + 1.0 * 0.1)));\n            \n            vec2 c1 = vec2(\n              sin(angle1) * orbitRadius1 + sin(t * (2.0 + 1.0 * 0.2)) * 0.1,\n              cos(angle1 * 0.9) * 0.500 + cos(t * (1.5 + 1.0 * 0.15)) * 0.08\n            );\n            \n            // Dynamic radius with pulsing\n            float dynamicRadius1 = 0.080 * (1.0 + 0.4 * sin(t * (3.0 + 1.0 * 0.5)));\n            \n            field *= metaball(uv, c1, dynamicRadius1);\n          }\n        \n          {\n            float baseAngle2 = t * (0.8 + 2.0 * 0.15) + 1.047198;\n            float phase2 = sin(t * (0.4 + 2.0 * 0.12)) * 0.300;\n            float turbPhase2 = sin(t * (1.2 + 2.0 * 0.3)) * 0.600;\n            \n            // Complex orbital motion with turbulence\n            float angle2 = baseAngle2 + phase2 + turbPhase2;\n            float orbitRadius2 = 0.800 * (1.0 + 0.3 * sin(t * (0.6 + 2.0 * 0.1)));\n            \n            vec2 c2 = vec2(\n              sin(angle2) * orbitRadius2 + sin(t * (2.0 + 2.0 * 0.2)) * 0.1,\n              cos(angle2 * 0.9) * 0.500 + cos(t * (1.5 + 2.0 * 0.15)) * 0.08\n            );\n            \n            // Dynamic radius with pulsing\n            float dynamicRadius2 = 0.080 * (1.0 + 0.4 * sin(t * (3.0 + 2.0 * 0.5)));\n            \n            field *= metaball(uv, c2, dynamicRadius2);\n          }\n        \n          {\n            float baseAngle3 = t * (0.8 + 3.0 * 0.15) + 1.570796;\n            float phase3 = sin(t * (0.4 + 3.0 * 0.12)) * 0.300;\n            float turbPhase3 = sin(t * (1.2 + 3.0 * 0.3)) * 0.600;\n            \n            // Complex orbital motion with turbulence\n            float angle3 = baseAngle3 + phase3 + turbPhase3;\n            float orbitRadius3 = 0.800 * (1.0 + 0.3 * sin(t * (0.6 + 3.0 * 0.1)));\n            \n            vec2 c3 = vec2(\n              sin(angle3) * orbitRadius3 + sin(t * (2.0 + 3.0 * 0.2)) * 0.1,\n              cos(angle3 * 0.9) * 0.500 + cos(t * (1.5 + 3.0 * 0.15)) * 0.08\n            );\n            \n            // Dynamic radius with pulsing\n            float dynamicRadius3 = 0.080 * (1.0 + 0.4 * sin(t * (3.0 + 3.0 * 0.5)));\n            \n            field *= metaball(uv, c3, dynamicRadius3);\n          }\n        \n          {\n            float baseAngle4 = t * (0.8 + 4.0 * 0.15) + 2.094395;\n            float phase4 = sin(t * (0.4 + 4.0 * 0.12)) * 0.300;\n            float turbPhase4 = sin(t * (1.2 + 4.0 * 0.3)) * 0.600;\n            \n            // Complex orbital motion with turbulence\n            float angle4 = baseAngle4 + phase4 + turbPhase4;\n            float orbitRadius4 = 0.800 * (1.0 + 0.3 * sin(t * (0.6 + 4.0 * 0.1)));\n            \n            vec2 c4 = vec2(\n              sin(angle4) * orbitRadius4 + sin(t * (2.0 + 4.0 * 0.2)) * 0.1,\n              cos(angle4 * 0.9) * 0.500 + cos(t * (1.5 + 4.0 * 0.15)) * 0.08\n            );\n            \n            // Dynamic radius with pulsing\n            float dynamicRadius4 = 0.080 * (1.0 + 0.4 * sin(t * (3.0 + 4.0 * 0.5)));\n            \n            field *= metaball(uv, c4, dynamicRadius4);\n          }\n        \n          {\n            float baseAngle5 = t * (0.8 + 5.0 * 0.15) + 2.617994;\n            float phase5 = sin(t * (0.4 + 5.0 * 0.12)) * 0.300;\n            float turbPhase5 = sin(t * (1.2 + 5.0 * 0.3)) * 0.600;\n            \n            // Complex orbital motion with turbulence\n            float angle5 = baseAngle5 + phase5 + turbPhase5;\n            float orbitRadius5 = 0.800 * (1.0 + 0.3 * sin(t * (0.6 + 5.0 * 0.1)));\n            \n            vec2 c5 = vec2(\n              sin(angle5) * orbitRadius5 + sin(t * (2.0 + 5.0 * 0.2)) * 0.1,\n              cos(angle5 * 0.9) * 0.500 + cos(t * (1.5 + 5.0 * 0.15)) * 0.08\n            );\n            \n            // Dynamic radius with pulsing\n            float dynamicRadius5 = 0.080 * (1.0 + 0.4 * sin(t * (3.0 + 5.0 * 0.5)));\n            \n            field *= metaball(uv, c5, dynamicRadius5);\n          }\n        \n          {\n            float baseAngle6 = t * (0.8 + 6.0 * 0.15) + 3.141593;\n            float phase6 = sin(t * (0.4 + 6.0 * 0.12)) * 0.300;\n            float turbPhase6 = sin(t * (1.2 + 6.0 * 0.3)) * 0.600;\n            \n            // Complex orbital motion with turbulence\n            float angle6 = baseAngle6 + phase6 + turbPhase6;\n            float orbitRadius6 = 0.800 * (1.0 + 0.3 * sin(t * (0.6 + 6.0 * 0.1)));\n            \n            vec2 c6 = vec2(\n              sin(angle6) * orbitRadius6 + sin(t * (2.0 + 6.0 * 0.2)) * 0.1,\n              cos(angle6 * 0.9) * 0.500 + cos(t * (1.5 + 6.0 * 0.15)) * 0.08\n            );\n            \n            // Dynamic radius with pulsing\n            float dynamicRadius6 = 0.080 * (1.0 + 0.4 * sin(t * (3.0 + 6.0 * 0.5)));\n            \n            field *= metaball(uv, c6, dynamicRadius6);\n          }\n        \n          {\n            float baseAngle7 = t * (0.8 + 7.0 * 0.15) + 3.665191;\n            float phase7 = sin(t * (0.4 + 7.0 * 0.12)) * 0.300;\n            float turbPhase7 = sin(t * (1.2 + 7.0 * 0.3)) * 0.600;\n            \n            // Complex orbital motion with turbulence\n            float angle7 = baseAngle7 + phase7 + turbPhase7;\n            float orbitRadius7 = 0.800 * (1.0 + 0.3 * sin(t * (0.6 + 7.0 * 0.1)));\n            \n            vec2 c7 = vec2(\n              sin(angle7) * orbitRadius7 + sin(t * (2.0 + 7.0 * 0.2)) * 0.1,\n              cos(angle7 * 0.9) * 0.500 + cos(t * (1.5 + 7.0 * 0.15)) * 0.08\n            );\n            \n            // Dynamic radius with pulsing\n            float dynamicRadius7 = 0.080 * (1.0 + 0.4 * sin(t * (3.0 + 7.0 * 0.5)));\n            \n            field *= metaball(uv, c7, dynamicRadius7);\n          }\n        \n          {\n            float baseAngle8 = t * (0.8 + 8.0 * 0.15) + 4.188790;\n            float phase8 = sin(t * (0.4 + 8.0 * 0.12)) * 0.300;\n            float turbPhase8 = sin(t * (1.2 + 8.0 * 0.3)) * 0.600;\n            \n            // Complex orbital motion with turbulence\n            float angle8 = baseAngle8 + phase8 + turbPhase8;\n            float orbitRadius8 = 0.800 * (1.0 + 0.3 * sin(t * (0.6 + 8.0 * 0.1)));\n            \n            vec2 c8 = vec2(\n              sin(angle8) * orbitRadius8 + sin(t * (2.0 + 8.0 * 0.2)) * 0.1,\n              cos(angle8 * 0.9) * 0.500 + cos(t * (1.5 + 8.0 * 0.15)) * 0.08\n            );\n            \n            // Dynamic radius with pulsing\n            float dynamicRadius8 = 0.080 * (1.0 + 0.4 * sin(t * (3.0 + 8.0 * 0.5)));\n            \n            field *= metaball(uv, c8, dynamicRadius8);\n          }\n        \n          {\n            float baseAngle9 = t * (0.8 + 9.0 * 0.15) + 4.712389;\n            float phase9 = sin(t * (0.4 + 9.0 * 0.12)) * 0.300;\n            float turbPhase9 = sin(t * (1.2 + 9.0 * 0.3)) * 0.600;\n            \n            // Complex orbital motion with turbulence\n            float angle9 = baseAngle9 + phase9 + turbPhase9;\n            float orbitRadius9 = 0.800 * (1.0 + 0.3 * sin(t * (0.6 + 9.0 * 0.1)));\n            \n            vec2 c9 = vec2(\n              sin(angle9) * orbitRadius9 + sin(t * (2.0 + 9.0 * 0.2)) * 0.1,\n              cos(angle9 * 0.9) * 0.500 + cos(t * (1.5 + 9.0 * 0.15)) * 0.08\n            );\n            \n            // Dynamic radius with pulsing\n            float dynamicRadius9 = 0.080 * (1.0 + 0.4 * sin(t * (3.0 + 9.0 * 0.5)));\n            \n            field *= metaball(uv, c9, dynamicRadius9);\n          }\n        \n          {\n            float baseAngle10 = t * (0.8 + 10.0 * 0.15) + 5.235988;\n            float phase10 = sin(t * (0.4 + 10.0 * 0.12)) * 0.300;\n            float turbPhase10 = sin(t * (1.2 + 10.0 * 0.3)) * 0.600;\n            \n            // Complex orbital motion with turbulence\n            float angle10 = baseAngle10 + phase10 + turbPhase10;\n            float orbitRadius10 = 0.800 * (1.0 + 0.3 * sin(t * (0.6 + 10.0 * 0.1)));\n            \n            vec2 c10 = vec2(\n              sin(angle10) * orbitRadius10 + sin(t * (2.0 + 10.0 * 0.2)) * 0.1,\n              cos(angle10 * 0.9) * 0.500 + cos(t * (1.5 + 10.0 * 0.15)) * 0.08\n            );\n            \n            // Dynamic radius with pulsing\n            float dynamicRadius10 = 0.080 * (1.0 + 0.4 * sin(t * (3.0 + 10.0 * 0.5)));\n            \n            field *= metaball(uv, c10, dynamicRadius10);\n          }\n        \n          {\n            float baseAngle11 = t * (0.8 + 11.0 * 0.15) + 5.759587;\n            float phase11 = sin(t * (0.4 + 11.0 * 0.12)) * 0.300;\n            float turbPhase11 = sin(t * (1.2 + 11.0 * 0.3)) * 0.600;\n            \n            // Complex orbital motion with turbulence\n            float angle11 = baseAngle11 + phase11 + turbPhase11;\n            float orbitRadius11 = 0.800 * (1.0 + 0.3 * sin(t * (0.6 + 11.0 * 0.1)));\n            \n            vec2 c11 = vec2(\n              sin(angle11) * orbitRadius11 + sin(t * (2.0 + 11.0 * 0.2)) * 0.1,\n              cos(angle11 * 0.9) * 0.500 + cos(t * (1.5 + 11.0 * 0.15)) * 0.08\n            );\n            \n            // Dynamic radius with pulsing\n            float dynamicRadius11 = 0.080 * (1.0 + 0.4 * sin(t * (3.0 + 11.0 * 0.5)));\n            \n            field *= metaball(uv, c11, dynamicRadius11);\n          }\n        \n\n          \n\n          // Enhanced color mixing with dynamic shifts\n          float colorTime = t * 0.500;\n          float noiseValue = smoothNoise(uv * 3.0 + t * 0.5) * 0.3;\n          \n          // Multiple threshold levels for richer visuals\n          float threshold1 = smoothstep(0.8, 1.4, field + noiseValue);\n          float threshold2 = smoothstep(1.2, 1.8, field);\n          float threshold3 = smoothstep(1.6, 2.2, field);\n          float edge = smoothstep(0.6, 1.0, field) - threshold1;\n\n          // Dynamic color palette\n          vec3 startColor = vec3(0.0, 0.028, 0.25);\n          vec3 midColor = vec3(\n            0.2 + 0.3 * sin(colorTime * 0.7),\n            0.1 + 0.4 * sin(colorTime * 0.9 + 2.0),\n            0.6 + 0.3 * sin(colorTime * 1.1 + 4.0)\n          );\n          vec3 endColor = vec3(\n              0.1 + 0.4 * sin(colorTime + 1.0),\n              0.3 + 0.5 * sin(colorTime * 1.3 + 3.0),\n              0.8 + 0.2 * sin(colorTime * 0.8 + 5.0)\n            );\n\n          // Multi-layer color blending\n          vec3 color = mix(startColor, midColor, threshold1);\n          color = mix(color, endColor, threshold2);\n          color += threshold3 * vec3(1.0, 0.8, 0.6) * 0.5;\n          \n          // Enhanced glow with multiple layers\n          color += edge * midColor * 2.00;\n          color += threshold1 * 0.1 * vec3(1.0, 0.9, 0.7);\n          \n          // Animated brightness modulation\n          float brightness = 0.85 + 0.15 * sin(time * 2.5) + 0.1 * sin(time * 4.7);\n          color *= brightness;\n          \n          // Subtle vignette effect\n          float vignette = 1.0 - 0.3 * length(uv);\n          color *= vignette;\n\n          gl_FragColor = vec4(color, 1.0);\n        }\n      ",
+                                        "mouseEnabled": false,
+                                        "children": []
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

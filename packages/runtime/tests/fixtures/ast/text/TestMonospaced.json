@@ -1,0 +1,38 @@
+{
+  "fixture": "text/TestMonospaced",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestMonospaced",
+          "props": {},
+          "children": [
+            {
+              "type": "ModifiedComponent",
+              "props": {
+                "modifier": {
+                  "type": "monospaced",
+                  "props": {
+                    "children": []
+                  }
+                },
+                "content": [
+                  {
+                    "type": "Text",
+                    "props": {
+                      "rawValue": "Monospaced text",
+                      "children": []
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

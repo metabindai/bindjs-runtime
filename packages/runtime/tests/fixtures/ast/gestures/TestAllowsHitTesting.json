@@ -1,0 +1,384 @@
+{
+  "fixture": "gestures/TestAllowsHitTesting",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestAllowsHitTesting",
+          "props": {},
+          "children": [
+            {
+              "type": "VStack",
+              "props": {
+                "spacing": 10,
+                "children": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "allowsHitTesting",
+                        "props": {
+                          "rawValue": true,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "onTapGesture",
+                              "props": {
+                                "handlerId": "0,TestAllowsHitTesting_0,VStack_0,onTapGesture,0",
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "bold",
+                                    "props": {
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "foregroundStyle",
+                                          "props": {
+                                            "rawValue": {
+                                              "type": "Color",
+                                              "props": {
+                                                "rawValue": "white",
+                                                "children": []
+                                              }
+                                            },
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "ModifiedComponent",
+                                            "props": {
+                                              "modifier": {
+                                                "type": "frame",
+                                                "props": {
+                                                  "width": 150,
+                                                  "height": 80,
+                                                  "children": []
+                                                }
+                                              },
+                                              "content": [
+                                                {
+                                                  "type": "ZStack",
+                                                  "props": {
+                                                    "children": [
+                                                      {
+                                                        "type": "RoundedRectangle",
+                                                        "props": {
+                                                          "children": [],
+                                                          "fill": {
+                                                            "style": {
+                                                              "type": "Color",
+                                                              "props": {
+                                                                "rawValue": "blue",
+                                                                "children": []
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      },
+                                                      {
+                                                        "type": "Text",
+                                                        "props": {
+                                                          "rawValue": "Enabled",
+                                                          "children": []
+                                                        }
+                                                      }
+                                                    ]
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "allowsHitTesting",
+                        "props": {
+                          "rawValue": false,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "onTapGesture",
+                              "props": {
+                                "handlerId": "0,TestAllowsHitTesting_0,VStack_0,onTapGesture,1",
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "bold",
+                                    "props": {
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "foregroundStyle",
+                                          "props": {
+                                            "rawValue": {
+                                              "type": "Color",
+                                              "props": {
+                                                "rawValue": "white",
+                                                "children": []
+                                              }
+                                            },
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "ModifiedComponent",
+                                            "props": {
+                                              "modifier": {
+                                                "type": "frame",
+                                                "props": {
+                                                  "width": 150,
+                                                  "height": 80,
+                                                  "children": []
+                                                }
+                                              },
+                                              "content": [
+                                                {
+                                                  "type": "ZStack",
+                                                  "props": {
+                                                    "children": [
+                                                      {
+                                                        "type": "RoundedRectangle",
+                                                        "props": {
+                                                          "children": [],
+                                                          "fill": {
+                                                            "style": {
+                                                              "type": "Color",
+                                                              "props": {
+                                                                "rawValue": "blue",
+                                                                "children": [],
+                                                                "opacity": 0.5
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      },
+                                                      {
+                                                        "type": "Text",
+                                                        "props": {
+                                                          "rawValue": "Disabled",
+                                                          "children": []
+                                                        }
+                                                      }
+                                                    ]
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "ZStack",
+                    "props": {
+                      "children": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "onTapGesture",
+                              "props": {
+                                "handlerId": "0,TestAllowsHitTesting_0,VStack_0,ZStack_2,onTapGesture,0",
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "bold",
+                                    "props": {
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "foregroundStyle",
+                                          "props": {
+                                            "rawValue": {
+                                              "type": "Color",
+                                              "props": {
+                                                "rawValue": "white",
+                                                "children": []
+                                              }
+                                            },
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "ModifiedComponent",
+                                            "props": {
+                                              "modifier": {
+                                                "type": "frame",
+                                                "props": {
+                                                  "width": 150,
+                                                  "height": 80,
+                                                  "children": []
+                                                }
+                                              },
+                                              "content": [
+                                                {
+                                                  "type": "ZStack",
+                                                  "props": {
+                                                    "children": [
+                                                      {
+                                                        "type": "RoundedRectangle",
+                                                        "props": {
+                                                          "children": [],
+                                                          "fill": {
+                                                            "style": {
+                                                              "type": "Color",
+                                                              "props": {
+                                                                "rawValue": "blue",
+                                                                "children": []
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      },
+                                                      {
+                                                        "type": "Text",
+                                                        "props": {
+                                                          "rawValue": "Enabled",
+                                                          "children": []
+                                                        }
+                                                      }
+                                                    ]
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "allowsHitTesting",
+                              "props": {
+                                "rawValue": false,
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "opacity",
+                                    "props": {
+                                      "rawValue": 0.5,
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "frame",
+                                          "props": {
+                                            "width": 150,
+                                            "height": 80,
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "Rectangle",
+                                            "props": {
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

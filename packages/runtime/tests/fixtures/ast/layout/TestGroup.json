@@ -1,0 +1,121 @@
+{
+  "fixture": "layout/TestGroup",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestGroup",
+          "props": {},
+          "children": [
+            {
+              "type": "VStack",
+              "props": {
+                "children": [
+                  {
+                    "type": "Group",
+                    "props": {
+                      "children": [
+                        {
+                          "type": "Text",
+                          "props": {
+                            "rawValue": "This is in a group",
+                            "children": []
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "Group",
+                    "props": {
+                      "children": [
+                        {
+                          "type": "Text",
+                          "props": {
+                            "rawValue": "This is also in a group",
+                            "children": []
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "bold",
+                        "props": {
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "foregroundStyle",
+                              "props": {
+                                "rawValue": {
+                                  "type": "Color",
+                                  "props": {
+                                    "rawValue": "blue",
+                                    "children": []
+                                  }
+                                },
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "font",
+                                    "props": {
+                                      "rawValue": "title3",
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "Group",
+                                      "props": {
+                                        "children": [
+                                          {
+                                            "type": "Text",
+                                            "props": {
+                                              "rawValue": "These should have same modifiers applied",
+                                              "children": []
+                                            }
+                                          },
+                                          {
+                                            "type": "Text",
+                                            "props": {
+                                              "rawValue": "These should have same modifiers applied",
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

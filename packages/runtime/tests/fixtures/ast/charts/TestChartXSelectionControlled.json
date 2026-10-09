@@ -1,0 +1,271 @@
+{
+  "fixture": "charts/TestChartXSelectionControlled",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestChartXSelectionControlled",
+          "props": {},
+          "children": [
+            {
+              "type": "VStack",
+              "props": {
+                "spacing": 12,
+                "children": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "frame",
+                        "props": {
+                          "height": 280,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "chartXSelection",
+                              "props": {
+                                "value": "Jan",
+                                "onChangeId": "0,TestChartXSelectionControlled_0,VStack_0,onChange,0",
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "Chart",
+                                "props": {
+                                  "children": [
+                                    {
+                                      "type": "PointMark",
+                                      "props": {
+                                        "x": {
+                                          "value": "Jan",
+                                          "label": "Month"
+                                        },
+                                        "y": {
+                                          "value": 12,
+                                          "label": "Revenue"
+                                        },
+                                        "children": []
+                                      }
+                                    },
+                                    {
+                                      "type": "PointMark",
+                                      "props": {
+                                        "x": {
+                                          "value": "Feb",
+                                          "label": "Month"
+                                        },
+                                        "y": {
+                                          "value": 18,
+                                          "label": "Revenue"
+                                        },
+                                        "children": []
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "foregroundStyle",
+                        "props": {
+                          "rawValue": {
+                            "type": "Color",
+                            "props": {
+                              "rawValue": "secondary",
+                              "children": []
+                            }
+                          },
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "font",
+                              "props": {
+                                "rawValue": "caption",
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "Text",
+                                "props": {
+                                  "rawValue": "Selected: Jan",
+                                  "children": []
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "render": "preview 0: Default",
+      "errors": [],
+      "ast": {
+        "type": "ModifiedComponent",
+        "props": {
+          "modifier": {
+            "type": "previewName",
+            "props": {
+              "rawValue": "Default",
+              "children": []
+            }
+          },
+          "content": [
+            {
+              "type": "ComponentCall",
+              "props": {
+                "name": "TestChartXSelectionControlled",
+                "props": {},
+                "children": [
+                  {
+                    "type": "VStack",
+                    "props": {
+                      "spacing": 12,
+                      "children": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "frame",
+                              "props": {
+                                "height": 280,
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "chartXSelection",
+                                    "props": {
+                                      "value": "Jan",
+                                      "onChangeId": "0,TestChartXSelectionControlled_0,VStack_0,onChange,0",
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "Chart",
+                                      "props": {
+                                        "children": [
+                                          {
+                                            "type": "PointMark",
+                                            "props": {
+                                              "x": {
+                                                "value": "Jan",
+                                                "label": "Month"
+                                              },
+                                              "y": {
+                                                "value": 12,
+                                                "label": "Revenue"
+                                              },
+                                              "children": []
+                                            }
+                                          },
+                                          {
+                                            "type": "PointMark",
+                                            "props": {
+                                              "x": {
+                                                "value": "Feb",
+                                                "label": "Month"
+                                              },
+                                              "y": {
+                                                "value": 18,
+                                                "label": "Revenue"
+                                              },
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "foregroundStyle",
+                              "props": {
+                                "rawValue": {
+                                  "type": "Color",
+                                  "props": {
+                                    "rawValue": "secondary",
+                                    "children": []
+                                  }
+                                },
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "font",
+                                    "props": {
+                                      "rawValue": "caption",
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "Text",
+                                      "props": {
+                                        "rawValue": "Selected: Jan",
+                                        "children": []
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

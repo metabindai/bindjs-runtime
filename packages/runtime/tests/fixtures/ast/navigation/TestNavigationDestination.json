@@ -1,0 +1,56 @@
+{
+  "fixture": "navigation/TestNavigationDestination",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestNavigationDestination",
+          "props": {},
+          "children": [
+            {
+              "type": "ModifiedComponent",
+              "props": {
+                "modifier": {
+                  "type": "navigationDestination",
+                  "props": {
+                    "isPresented": false,
+                    "setIsPresentedHandlerId": "0,TestNavigationDestination_0,setIsPresented,0",
+                    "destinationHandlerId": "0,TestNavigationDestination_0,navigationDestination_destination,0",
+                    "children": []
+                  }
+                },
+                "content": [
+                  {
+                    "type": "VStack",
+                    "props": {
+                      "children": [
+                        {
+                          "type": "Button",
+                          "props": {
+                            "handlerId": "0,TestNavigationDestination_0,VStack_0,Button_0,,0",
+                            "label": {
+                              "type": "Text",
+                              "props": {
+                                "rawValue": "Show",
+                                "children": []
+                              }
+                            },
+                            "environmentId": "0,TestNavigationDestination_0,VStack_0,Button_0,,0",
+                            "children": []
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "fixture": "effects/TestBlendMode",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestBlendMode",
+          "props": {},
+          "children": [
+            {
+              "type": "ZStack",
+              "props": {
+                "children": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "frame",
+                        "props": {
+                          "width": 100,
+                          "height": 100,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "offset",
+                              "props": {
+                                "x": -20,
+                                "y": 20,
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "RoundedRectangle",
+                                "props": {
+                                  "children": [],
+                                  "fill": {
+                                    "style": {
+                                      "type": "Color",
+                                      "props": {
+                                        "rawValue": "blue",
+                                        "children": []
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "frame",
+                        "props": {
+                          "width": 100,
+                          "height": 100,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "blendMode",
+                              "props": {
+                                "rawValue": "difference",
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "RoundedRectangle",
+                                "props": {
+                                  "children": [],
+                                  "fill": {
+                                    "style": {
+                                      "type": "Color",
+                                      "props": {
+                                        "rawValue": "red",
+                                        "children": []
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

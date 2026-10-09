@@ -1,0 +1,511 @@
+{
+  "fixture": "charts/TestChartSymbolScaleSeries",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestChartSymbolScaleSeries",
+          "props": {},
+          "children": [
+            {
+              "type": "ModifiedComponent",
+              "props": {
+                "modifier": {
+                  "type": "frame",
+                  "props": {
+                    "height": 280,
+                    "children": []
+                  }
+                },
+                "content": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "chartSymbolScale",
+                        "props": {
+                          "circle": "circle",
+                          "square": "square",
+                          "diamond": "diamond",
+                          "triangle": "triangle",
+                          "plus": "plus",
+                          "cross": "cross",
+                          "__bindjsScaleDomain": [
+                            "circle",
+                            "square",
+                            "diamond",
+                            "triangle",
+                            "plus",
+                            "cross"
+                          ],
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "Chart",
+                          "props": {
+                            "children": [
+                              {
+                                "type": "ForEach",
+                                "props": {
+                                  "dataId": "0,TestChartSymbolScaleSeries_0,Chart_0,ForEach_0,ForEach,0",
+                                  "functionId": "0,TestChartSymbolScaleSeries_0,Chart_0,ForEach_0,ForEach,0",
+                                  "count": 6,
+                                  "environmentId": "0,TestChartSymbolScaleSeries_0,Chart_0,ForEach_0,ForEach,0",
+                                  "$items": [
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "foregroundStyle",
+                                          "props": {
+                                            "by": {
+                                              "value": "circle",
+                                              "label": "Symbol"
+                                            },
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "PointMark",
+                                            "props": {
+                                              "x": {
+                                                "value": "Jan"
+                                              },
+                                              "y": {
+                                                "value": 10
+                                              },
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "foregroundStyle",
+                                          "props": {
+                                            "by": {
+                                              "value": "square",
+                                              "label": "Symbol"
+                                            },
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "PointMark",
+                                            "props": {
+                                              "x": {
+                                                "value": "Feb"
+                                              },
+                                              "y": {
+                                                "value": 12
+                                              },
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "foregroundStyle",
+                                          "props": {
+                                            "by": {
+                                              "value": "diamond",
+                                              "label": "Symbol"
+                                            },
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "PointMark",
+                                            "props": {
+                                              "x": {
+                                                "value": "Mar"
+                                              },
+                                              "y": {
+                                                "value": 14
+                                              },
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "foregroundStyle",
+                                          "props": {
+                                            "by": {
+                                              "value": "triangle",
+                                              "label": "Symbol"
+                                            },
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "PointMark",
+                                            "props": {
+                                              "x": {
+                                                "value": "Apr"
+                                              },
+                                              "y": {
+                                                "value": 16
+                                              },
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "foregroundStyle",
+                                          "props": {
+                                            "by": {
+                                              "value": "plus",
+                                              "label": "Symbol"
+                                            },
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "PointMark",
+                                            "props": {
+                                              "x": {
+                                                "value": "May"
+                                              },
+                                              "y": {
+                                                "value": 18
+                                              },
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "foregroundStyle",
+                                          "props": {
+                                            "by": {
+                                              "value": "cross",
+                                              "label": "Symbol"
+                                            },
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "PointMark",
+                                            "props": {
+                                              "x": {
+                                                "value": "Jun"
+                                              },
+                                              "y": {
+                                                "value": 20
+                                              },
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "render": "preview 0: Default",
+      "errors": [],
+      "ast": {
+        "type": "ModifiedComponent",
+        "props": {
+          "modifier": {
+            "type": "previewName",
+            "props": {
+              "rawValue": "Default",
+              "children": []
+            }
+          },
+          "content": [
+            {
+              "type": "ComponentCall",
+              "props": {
+                "name": "TestChartSymbolScaleSeries",
+                "props": {},
+                "children": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "frame",
+                        "props": {
+                          "height": 280,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "chartSymbolScale",
+                              "props": {
+                                "circle": "circle",
+                                "square": "square",
+                                "diamond": "diamond",
+                                "triangle": "triangle",
+                                "plus": "plus",
+                                "cross": "cross",
+                                "__bindjsScaleDomain": [
+                                  "circle",
+                                  "square",
+                                  "diamond",
+                                  "triangle",
+                                  "plus",
+                                  "cross"
+                                ],
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "Chart",
+                                "props": {
+                                  "children": [
+                                    {
+                                      "type": "ForEach",
+                                      "props": {
+                                        "dataId": "0,TestChartSymbolScaleSeries_0,Chart_0,ForEach_0,ForEach,0",
+                                        "functionId": "0,TestChartSymbolScaleSeries_0,Chart_0,ForEach_0,ForEach,0",
+                                        "count": 6,
+                                        "environmentId": "0,TestChartSymbolScaleSeries_0,Chart_0,ForEach_0,ForEach,0",
+                                        "$items": [
+                                          {
+                                            "type": "ModifiedComponent",
+                                            "props": {
+                                              "modifier": {
+                                                "type": "foregroundStyle",
+                                                "props": {
+                                                  "by": {
+                                                    "value": "circle",
+                                                    "label": "Symbol"
+                                                  },
+                                                  "children": []
+                                                }
+                                              },
+                                              "content": [
+                                                {
+                                                  "type": "PointMark",
+                                                  "props": {
+                                                    "x": {
+                                                      "value": "Jan"
+                                                    },
+                                                    "y": {
+                                                      "value": 10
+                                                    },
+                                                    "children": []
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          {
+                                            "type": "ModifiedComponent",
+                                            "props": {
+                                              "modifier": {
+                                                "type": "foregroundStyle",
+                                                "props": {
+                                                  "by": {
+                                                    "value": "square",
+                                                    "label": "Symbol"
+                                                  },
+                                                  "children": []
+                                                }
+                                              },
+                                              "content": [
+                                                {
+                                                  "type": "PointMark",
+                                                  "props": {
+                                                    "x": {
+                                                      "value": "Feb"
+                                                    },
+                                                    "y": {
+                                                      "value": 12
+                                                    },
+                                                    "children": []
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          {
+                                            "type": "ModifiedComponent",
+                                            "props": {
+                                              "modifier": {
+                                                "type": "foregroundStyle",
+                                                "props": {
+                                                  "by": {
+                                                    "value": "diamond",
+                                                    "label": "Symbol"
+                                                  },
+                                                  "children": []
+                                                }
+                                              },
+                                              "content": [
+                                                {
+                                                  "type": "PointMark",
+                                                  "props": {
+                                                    "x": {
+                                                      "value": "Mar"
+                                                    },
+                                                    "y": {
+                                                      "value": 14
+                                                    },
+                                                    "children": []
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          {
+                                            "type": "ModifiedComponent",
+                                            "props": {
+                                              "modifier": {
+                                                "type": "foregroundStyle",
+                                                "props": {
+                                                  "by": {
+                                                    "value": "triangle",
+                                                    "label": "Symbol"
+                                                  },
+                                                  "children": []
+                                                }
+                                              },
+                                              "content": [
+                                                {
+                                                  "type": "PointMark",
+                                                  "props": {
+                                                    "x": {
+                                                      "value": "Apr"
+                                                    },
+                                                    "y": {
+                                                      "value": 16
+                                                    },
+                                                    "children": []
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          {
+                                            "type": "ModifiedComponent",
+                                            "props": {
+                                              "modifier": {
+                                                "type": "foregroundStyle",
+                                                "props": {
+                                                  "by": {
+                                                    "value": "plus",
+                                                    "label": "Symbol"
+                                                  },
+                                                  "children": []
+                                                }
+                                              },
+                                              "content": [
+                                                {
+                                                  "type": "PointMark",
+                                                  "props": {
+                                                    "x": {
+                                                      "value": "May"
+                                                    },
+                                                    "y": {
+                                                      "value": 18
+                                                    },
+                                                    "children": []
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          {
+                                            "type": "ModifiedComponent",
+                                            "props": {
+                                              "modifier": {
+                                                "type": "foregroundStyle",
+                                                "props": {
+                                                  "by": {
+                                                    "value": "cross",
+                                                    "label": "Symbol"
+                                                  },
+                                                  "children": []
+                                                }
+                                              },
+                                              "content": [
+                                                {
+                                                  "type": "PointMark",
+                                                  "props": {
+                                                    "x": {
+                                                      "value": "Jun"
+                                                    },
+                                                    "y": {
+                                                      "value": 20
+                                                    },
+                                                    "children": []
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

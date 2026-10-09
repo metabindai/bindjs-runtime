@@ -17,7 +17,7 @@ The canonical BindJS runtime and React renderer — a pnpm monorepo publishing t
 ```sh
 pnpm install
 pnpm build      # topological: runtime first, then react (react imports the runtime's dist/)
-pnpm test       # the runtime vitest suite
+pnpm test       # the runtime vitest suite (includes fixture AST snapshots)
 ```
 
 Build order matters: `packages/react` and the playground consume `packages/runtime`'s `dist/` — always `pnpm build` after runtime changes before judging renderer or playground behavior.
@@ -29,6 +29,12 @@ Do not start the playground dev server (`pnpm --filter @metabindai/bindjs-playgr
 The runtime's AST output is consumed by three renderers: `packages/react` here, and the native engines in [`bindjs-apple`](https://github.com/metabindai/bindjs-apple) (SwiftUI) and [`bindjs-android`](https://github.com/metabindai/bindjs-android) (Jetpack Compose). The native engines embed this runtime's bundled output (`packages/runtime`'s `build-runtime` rollup → `dist-runtime/runtime.js`), synced by maintainers.
 
 Treat any change to the AST output shape, hook path semantics, or the component/modifier name registry (`packages/runtime/src/runtime/ComponentNames.js` — keep it alphabetically sorted) as a **breaking, cross-platform change**: it must land in all three renderers, not just the web one. Flag such changes prominently in your PR description.
+
+## Fixtures and AST snapshots
+
+`fixtures/<category>/<Name>.ts` holds hand-written components covering the API (see `fixtures/README.md`). The playground lists them in its sidebar, and `packages/runtime/tests/fixtures` snapshots each one's AST to `tests/fixtures/ast/**.json` (`pnpm test:fixtures`).
+
+A snapshot diff is an AST output change, so the cross-platform rule above applies. Never accept snapshots (`pnpm fixtures:accept`) just to make tests pass. Confirm the diff is intended, then say what changed in the PR.
 
 ## Types
 
