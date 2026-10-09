@@ -1,0 +1,243 @@
+{
+  "fixture": "navigation/TestAppSheet",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestAppSheet",
+          "props": {},
+          "children": [
+            {
+              "type": "ModifiedComponent",
+              "props": {
+                "modifier": {
+                  "type": "overlay",
+                  "props": {
+                    "alignment": "bottom",
+                    "content": {
+                      "type": "ModifiedComponent",
+                      "props": {
+                        "modifier": {
+                          "type": "offset",
+                          "props": {
+                            "y": 400,
+                            "children": []
+                          }
+                        },
+                        "content": [
+                          {
+                            "type": "ModifiedComponent",
+                            "props": {
+                              "modifier": {
+                                "type": "frame",
+                                "props": {
+                                  "maxWidth": "Infinity",
+                                  "children": []
+                                }
+                              },
+                              "content": [
+                                {
+                                  "type": "ModifiedComponent",
+                                  "props": {
+                                    "modifier": {
+                                      "type": "frame",
+                                      "props": {
+                                        "height": 300,
+                                        "children": []
+                                      }
+                                    },
+                                    "content": [
+                                      {
+                                        "type": "ModifiedComponent",
+                                        "props": {
+                                          "modifier": {
+                                            "type": "padding",
+                                            "props": {
+                                              "top": 20,
+                                              "leading": 20,
+                                              "bottom": 20,
+                                              "trailing": 20,
+                                              "children": []
+                                            }
+                                          },
+                                          "content": [
+                                            {
+                                              "type": "ZStack",
+                                              "props": {
+                                                "alignment": "topLeading",
+                                                "children": [
+                                                  {
+                                                    "type": "ModifiedComponent",
+                                                    "props": {
+                                                      "modifier": {
+                                                        "type": "frame",
+                                                        "props": {
+                                                          "maxWidth": "Infinity",
+                                                          "maxHeight": "Infinity",
+                                                          "children": []
+                                                        }
+                                                      },
+                                                      "content": [
+                                                        {
+                                                          "type": "ModifiedComponent",
+                                                          "props": {
+                                                            "modifier": {
+                                                              "type": "glassEffect",
+                                                              "props": {
+                                                                "rawValue": "normal",
+                                                                "children": []
+                                                              }
+                                                            },
+                                                            "content": [
+                                                              {
+                                                                "type": "RoundedRectangle",
+                                                                "props": {
+                                                                  "cornerRadius": 30,
+                                                                  "children": []
+                                                                }
+                                                              }
+                                                            ]
+                                                          }
+                                                        }
+                                                      ]
+                                                    }
+                                                  },
+                                                  {
+                                                    "type": "Group",
+                                                    "props": {
+                                                      "children": [
+                                                        {
+                                                          "type": "ModifiedComponent",
+                                                          "props": {
+                                                            "modifier": {
+                                                              "type": "padding",
+                                                              "props": {
+                                                                "top": 30,
+                                                                "leading": 30,
+                                                                "bottom": 30,
+                                                                "trailing": 30,
+                                                                "children": []
+                                                              }
+                                                            },
+                                                            "content": [
+                                                              {
+                                                                "type": "VStack",
+                                                                "props": {
+                                                                  "children": [
+                                                                    {
+                                                                      "type": "ModifiedComponent",
+                                                                      "props": {
+                                                                        "modifier": {
+                                                                          "type": "bold",
+                                                                          "props": {
+                                                                            "children": []
+                                                                          }
+                                                                        },
+                                                                        "content": [
+                                                                          {
+                                                                            "type": "ModifiedComponent",
+                                                                            "props": {
+                                                                              "modifier": {
+                                                                                "type": "font",
+                                                                                "props": {
+                                                                                  "rawValue": "headline",
+                                                                                  "children": []
+                                                                                }
+                                                                              },
+                                                                              "content": [
+                                                                                {
+                                                                                  "type": "Text",
+                                                                                  "props": {
+                                                                                    "rawValue": "My Sheet",
+                                                                                    "children": []
+                                                                                  }
+                                                                                }
+                                                                              ]
+                                                                            }
+                                                                          }
+                                                                        ]
+                                                                      }
+                                                                    }
+                                                                  ]
+                                                                }
+                                                              }
+                                                            ]
+                                                          }
+                                                        }
+                                                      ]
+                                                    }
+                                                  }
+                                                ]
+                                              }
+                                            }
+                                          ]
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "children": []
+                  }
+                },
+                "content": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "frame",
+                        "props": {
+                          "maxWidth": "Infinity",
+                          "maxHeight": "Infinity",
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "VStack",
+                          "props": {
+                            "children": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "onTapGesture",
+                                    "props": {
+                                      "handlerId": "0,TestAppSheet_0,VStack_0,onTapGesture,0",
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "Text",
+                                      "props": {
+                                        "rawValue": "Show",
+                                        "children": []
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

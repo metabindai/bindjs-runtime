@@ -1,0 +1,149 @@
+{
+  "fixture": "controls/TestButtonStyle",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestButtonStyle",
+          "props": {},
+          "children": [
+            {
+              "type": "VStack",
+              "props": {
+                "children": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "buttonStyle",
+                        "props": {
+                          "props": {},
+                          "handlerId": "0,TestButtonStyle_0,VStack_0,undefined_0,buttonStyle,0",
+                          "environmentId": "0,TestButtonStyle_0,VStack_0,undefined_0,buttonStyle,0",
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "Button",
+                          "props": {
+                            "handlerId": "0,TestButtonStyle_0,VStack_0,Button_0,,0",
+                            "label": {
+                              "type": "Text",
+                              "props": {
+                                "rawValue": "My Button 34",
+                                "children": []
+                              }
+                            },
+                            "environmentId": "0,TestButtonStyle_0,VStack_0,Button_0,,0",
+                            "children": []
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "buttonStyle",
+                        "props": {
+                          "props": {},
+                          "handlerId": "0,TestButtonStyle_0,VStack_0,undefined_1,buttonStyle,1",
+                          "environmentId": "0,TestButtonStyle_0,VStack_0,undefined_1,buttonStyle,1",
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "Button",
+                          "props": {
+                            "handlerId": "0,TestButtonStyle_0,VStack_0,Button_1,,1",
+                            "label": {
+                              "type": "Text",
+                              "props": {
+                                "rawValue": "My Button 34",
+                                "children": []
+                              }
+                            },
+                            "environmentId": "0,TestButtonStyle_0,VStack_0,Button_1,,1",
+                            "children": []
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "buttonStyle",
+                        "props": {
+                          "props": {},
+                          "handlerId": "0,TestButtonStyle_0,VStack_0,ButtonStyleTest_2,buttonStyle,2",
+                          "environmentId": "0,TestButtonStyle_0,VStack_0,ButtonStyleTest_2,buttonStyle,2",
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "Button",
+                          "props": {
+                            "handlerId": "0,TestButtonStyle_0,VStack_0,Button_2,,2",
+                            "label": {
+                              "type": "Text",
+                              "props": {
+                                "rawValue": "My Button 3434",
+                                "children": []
+                              }
+                            },
+                            "environmentId": "0,TestButtonStyle_0,VStack_0,Button_2,,2",
+                            "children": []
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "buttonStyle",
+                        "props": {
+                          "props": {},
+                          "handlerId": "0,TestButtonStyle_0,VStack_0,ButtonStyleTest_3,buttonStyle,3",
+                          "environmentId": "0,TestButtonStyle_0,VStack_0,ButtonStyleTest_3,buttonStyle,3",
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "Button",
+                          "props": {
+                            "handlerId": "0,TestButtonStyle_0,VStack_0,Button_3,,3",
+                            "label": {
+                              "type": "Text",
+                              "props": {
+                                "rawValue": "My Button 3434",
+                                "children": []
+                              }
+                            },
+                            "environmentId": "0,TestButtonStyle_0,VStack_0,Button_3,,3",
+                            "children": []
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "fixture": "runtime/TestError",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [
+        "Error running component TestError thisHasAnError is not defined"
+      ],
+      "ast": null
+    }
+  ]
+}

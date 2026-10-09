@@ -1,0 +1,69 @@
+{
+  "fixture": "controls/TestMenu",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestMenu",
+          "props": {},
+          "children": [
+            {
+              "type": "Menu",
+              "props": {
+                "label": {
+                  "type": "Text",
+                  "props": {
+                    "rawValue": "Hello",
+                    "children": []
+                  }
+                },
+                "children": [
+                  {
+                    "type": "Button",
+                    "props": {
+                      "handlerId": "0,TestMenu_0,Menu_0,Button_0,,0",
+                      "label": {
+                        "type": "Text",
+                        "props": {
+                          "rawValue": "Menu Option 1",
+                          "children": []
+                        }
+                      },
+                      "environmentId": "0,TestMenu_0,Menu_0,Button_0,,0",
+                      "children": []
+                    }
+                  },
+                  {
+                    "type": "Button",
+                    "props": {
+                      "handlerId": "0,TestMenu_0,Menu_0,Button_1,,1",
+                      "label": {
+                        "type": "Label",
+                        "props": {
+                          "systemImage": "info.circle.fill",
+                          "title": {
+                            "type": "Text",
+                            "props": {
+                              "rawValue": "Hello",
+                              "children": []
+                            }
+                          },
+                          "children": []
+                        }
+                      },
+                      "environmentId": "0,TestMenu_0,Menu_0,Button_1,,1",
+                      "children": []
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

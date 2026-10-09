@@ -1,0 +1,223 @@
+{
+  "fixture": "controls/TestButton",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestButton",
+          "props": {},
+          "children": [
+            {
+              "type": "VStack",
+              "props": {
+                "children": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "shadow",
+                        "props": {
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "cornerRadius",
+                              "props": {
+                                "rawValue": 12,
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "background",
+                                    "props": {
+                                      "content": {
+                                        "type": "Color",
+                                        "props": {
+                                          "rawValue": "blue",
+                                          "children": []
+                                        }
+                                      },
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "padding",
+                                          "props": {
+                                            "top": 10,
+                                            "leading": 10,
+                                            "bottom": 10,
+                                            "trailing": 10,
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "ModifiedComponent",
+                                            "props": {
+                                              "modifier": {
+                                                "type": "foregroundStyle",
+                                                "props": {
+                                                  "rawValue": {
+                                                    "type": "Color",
+                                                    "props": {
+                                                      "rawValue": "white",
+                                                      "children": []
+                                                    }
+                                                  },
+                                                  "children": []
+                                                }
+                                              },
+                                              "content": [
+                                                {
+                                                  "type": "Button",
+                                                  "props": {
+                                                    "handlerId": "0,TestButton_0,VStack_0,Button_0,,0",
+                                                    "label": {
+                                                      "type": "Text",
+                                                      "props": {
+                                                        "rawValue": "Press Me",
+                                                        "children": []
+                                                      }
+                                                    },
+                                                    "environmentId": "0,TestButton_0,VStack_0,Button_0,,0",
+                                                    "children": []
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "Divider",
+                    "props": {
+                      "children": []
+                    }
+                  },
+                  {
+                    "type": "Button",
+                    "props": {
+                      "handlerId": "0,TestButton_0,VStack_0,Button_2,,2",
+                      "label": {
+                        "type": "ModifiedComponent",
+                        "props": {
+                          "modifier": {
+                            "type": "background",
+                            "props": {
+                              "content": {
+                                "type": "Color",
+                                "props": {
+                                  "rawValue": "green",
+                                  "children": []
+                                }
+                              },
+                              "children": []
+                            }
+                          },
+                          "content": [
+                            {
+                              "type": "Text",
+                              "props": {
+                                "rawValue": "Simple Button",
+                                "children": []
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "environmentId": "0,TestButton_0,VStack_0,Button_2,,2",
+                      "children": []
+                    }
+                  },
+                  {
+                    "type": "Divider",
+                    "props": {
+                      "children": []
+                    }
+                  },
+                  {
+                    "type": "Button",
+                    "props": {
+                      "handlerId": "0,TestButton_0,VStack_0,Button_4,,4",
+                      "label": {
+                        "type": "Text",
+                        "props": {
+                          "rawValue": "Simple Button ABCD",
+                          "children": []
+                        }
+                      },
+                      "environmentId": "0,TestButton_0,VStack_0,Button_4,,4",
+                      "children": []
+                    }
+                  },
+                  {
+                    "type": "Divider",
+                    "props": {
+                      "children": []
+                    }
+                  },
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "buttonStyle",
+                        "props": {
+                          "props": {},
+                          "handlerId": "0,TestButton_0,VStack_0,ButtonStyleTest_6,buttonStyle,6",
+                          "environmentId": "0,TestButton_0,VStack_0,ButtonStyleTest_6,buttonStyle,6",
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "Button",
+                          "props": {
+                            "handlerId": "0,TestButton_0,VStack_0,Button_6,,6",
+                            "label": {
+                              "type": "Text",
+                              "props": {
+                                "rawValue": "Button Style 1234",
+                                "children": []
+                              }
+                            },
+                            "environmentId": "0,TestButton_0,VStack_0,Button_6,,6",
+                            "children": []
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

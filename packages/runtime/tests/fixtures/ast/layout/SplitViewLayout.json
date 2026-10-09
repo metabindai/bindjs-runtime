@@ -1,0 +1,243 @@
+{
+  "fixture": "layout/SplitViewLayout",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "SplitViewLayout",
+          "props": {},
+          "children": [
+            {
+              "type": "VStack",
+              "props": {
+                "spacing": 0,
+                "children": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "layoutPriority",
+                        "props": {
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "Empty",
+                          "props": {
+                            "children": []
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "Empty",
+                    "props": {
+                      "children": []
+                    }
+                  },
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "layoutPriority",
+                        "props": {
+                          "rawValue": "NaN",
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "Empty",
+                          "props": {
+                            "children": []
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "render": "preview 0: Horizontal",
+      "errors": [],
+      "ast": {
+        "type": "ModifiedComponent",
+        "props": {
+          "modifier": {
+            "type": "previewName",
+            "props": {
+              "rawValue": "Horizontal",
+              "children": []
+            }
+          },
+          "content": [
+            {
+              "type": "ComponentCall",
+              "props": {
+                "name": "SplitViewLayout",
+                "props": {},
+                "children": [
+                  {
+                    "type": "VStack",
+                    "props": {
+                      "spacing": 0,
+                      "children": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "layoutPriority",
+                              "props": {
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "Color",
+                                "props": {
+                                  "rawValue": "blue",
+                                  "children": [],
+                                  "opacity": 0.2
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "type": "Empty",
+                          "props": {
+                            "children": []
+                          }
+                        },
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "layoutPriority",
+                              "props": {
+                                "rawValue": "NaN",
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "Color",
+                                "props": {
+                                  "rawValue": "green",
+                                  "children": [],
+                                  "opacity": 0.2
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "render": "preview 1: Vertical, thick red divider",
+      "errors": [],
+      "ast": {
+        "type": "ModifiedComponent",
+        "props": {
+          "modifier": {
+            "type": "previewName",
+            "props": {
+              "rawValue": "Vertical, thick red divider",
+              "children": []
+            }
+          },
+          "content": [
+            {
+              "type": "ComponentCall",
+              "props": {
+                "name": "SplitViewLayout",
+                "props": {
+                  "orientation": "vertical",
+                  "dividerColor": "red",
+                  "dividerWidth": 4
+                },
+                "children": [
+                  {
+                    "type": "VStack",
+                    "props": {
+                      "spacing": 0,
+                      "children": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "layoutPriority",
+                              "props": {
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "Color",
+                                "props": {
+                                  "rawValue": "blue",
+                                  "children": [],
+                                  "opacity": 0.2
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "type": "Empty",
+                          "props": {
+                            "children": []
+                          }
+                        },
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "layoutPriority",
+                              "props": {
+                                "rawValue": "NaN",
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "Color",
+                                "props": {
+                                  "rawValue": "green",
+                                  "children": [],
+                                  "opacity": 0.2
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

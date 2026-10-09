@@ -1,0 +1,82 @@
+{
+  "fixture": "color/TestAngularGradient",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestAngularGradient",
+          "props": {},
+          "children": [
+            {
+              "type": "VStack",
+              "props": {
+                "children": [
+                  {
+                    "type": "AngularGradient",
+                    "props": {
+                      "colors": [
+                        {
+                          "type": "Color",
+                          "props": {
+                            "rawValue": "red",
+                            "children": []
+                          }
+                        },
+                        {
+                          "type": "Color",
+                          "props": {
+                            "rawValue": "orange",
+                            "children": []
+                          }
+                        },
+                        {
+                          "type": "Color",
+                          "props": {
+                            "rawValue": "yellow",
+                            "children": []
+                          }
+                        },
+                        {
+                          "type": "Color",
+                          "props": {
+                            "rawValue": "green",
+                            "children": []
+                          }
+                        },
+                        {
+                          "type": "Color",
+                          "props": {
+                            "rawValue": "blue",
+                            "children": []
+                          }
+                        },
+                        {
+                          "type": "Color",
+                          "props": {
+                            "rawValue": "indigo",
+                            "children": []
+                          }
+                        },
+                        {
+                          "type": "Color",
+                          "props": {
+                            "rawValue": "red",
+                            "children": []
+                          }
+                        }
+                      ],
+                      "children": []
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

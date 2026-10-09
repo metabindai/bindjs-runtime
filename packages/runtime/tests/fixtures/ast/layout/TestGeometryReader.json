@@ -1,0 +1,26 @@
+{
+  "fixture": "layout/TestGeometryReader",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestGeometryReader",
+          "props": {},
+          "children": [
+            {
+              "type": "GeometryReader",
+              "props": {
+                "handlerId": "0,TestGeometryReader_0,GeometryReader_0,CallbackComponent_GeometryReader,0",
+                "environmentId": "0,TestGeometryReader_0,GeometryReader_0,CallbackComponent_GeometryReader,0",
+                "children": []
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

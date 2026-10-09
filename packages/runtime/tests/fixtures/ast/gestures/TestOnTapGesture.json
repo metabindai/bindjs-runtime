@@ -1,0 +1,308 @@
+{
+  "fixture": "gestures/TestOnTapGesture",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestOnTapGesture",
+          "props": {},
+          "children": [
+            {
+              "type": "ModifiedComponent",
+              "props": {
+                "modifier": {
+                  "type": "onTapGesture",
+                  "props": {
+                    "handlerId": "0,TestOnTapGesture_0,onTapGesture,0",
+                    "children": []
+                  }
+                },
+                "content": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "offset",
+                        "props": {
+                          "y": 0,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "multilineTextAlignment",
+                              "props": {
+                                "rawValue": "leading",
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "bold",
+                                    "props": {
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "font",
+                                          "props": {
+                                            "rawValue": "largeTitle",
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "ModifiedComponent",
+                                            "props": {
+                                              "modifier": {
+                                                "type": "shadow",
+                                                "props": {
+                                                  "radius": 20,
+                                                  "color": {
+                                                    "type": "Color",
+                                                    "props": {
+                                                      "rawValue": "black",
+                                                      "children": [],
+                                                      "opacity": 0.1
+                                                    }
+                                                  },
+                                                  "children": []
+                                                }
+                                              },
+                                              "content": [
+                                                {
+                                                  "type": "ModifiedComponent",
+                                                  "props": {
+                                                    "modifier": {
+                                                      "type": "cornerRadius",
+                                                      "props": {
+                                                        "rawValue": 20,
+                                                        "children": []
+                                                      }
+                                                    },
+                                                    "content": [
+                                                      {
+                                                        "type": "ModifiedComponent",
+                                                        "props": {
+                                                          "modifier": {
+                                                            "type": "background",
+                                                            "props": {
+                                                              "content": {
+                                                                "type": "Color",
+                                                                "props": {
+                                                                  "rawValue": "background",
+                                                                  "children": []
+                                                                }
+                                                              },
+                                                              "children": []
+                                                            }
+                                                          },
+                                                          "content": [
+                                                            {
+                                                              "type": "ModifiedComponent",
+                                                              "props": {
+                                                                "modifier": {
+                                                                  "type": "frame",
+                                                                  "props": {
+                                                                    "maxWidth": 300,
+                                                                    "children": []
+                                                                  }
+                                                                },
+                                                                "content": [
+                                                                  {
+                                                                    "type": "ModifiedComponent",
+                                                                    "props": {
+                                                                      "modifier": {
+                                                                        "type": "padding",
+                                                                        "props": {
+                                                                          "top": 20,
+                                                                          "leading": 20,
+                                                                          "bottom": 20,
+                                                                          "trailing": 20,
+                                                                          "children": []
+                                                                        }
+                                                                      },
+                                                                      "content": [
+                                                                        {
+                                                                          "type": "VStack",
+                                                                          "props": {
+                                                                            "alignment": "leading",
+                                                                            "children": [
+                                                                              {
+                                                                                "type": "ModifiedComponent",
+                                                                                "props": {
+                                                                                  "modifier": {
+                                                                                    "type": "font",
+                                                                                    "props": {
+                                                                                      "rawValue": "title2",
+                                                                                      "children": []
+                                                                                    }
+                                                                                  },
+                                                                                  "content": [
+                                                                                    {
+                                                                                      "type": "Text",
+                                                                                      "props": {
+                                                                                        "rawValue": "Tap Count",
+                                                                                        "children": []
+                                                                                      }
+                                                                                    }
+                                                                                  ]
+                                                                                }
+                                                                              },
+                                                                              {
+                                                                                "type": "ModifiedComponent",
+                                                                                "props": {
+                                                                                  "modifier": {
+                                                                                    "type": "padding",
+                                                                                    "props": {
+                                                                                      "top": 0,
+                                                                                      "leading": 0,
+                                                                                      "bottom": 20,
+                                                                                      "trailing": 0,
+                                                                                      "children": []
+                                                                                    }
+                                                                                  },
+                                                                                  "content": [
+                                                                                    {
+                                                                                      "type": "Divider",
+                                                                                      "props": {
+                                                                                        "children": []
+                                                                                      }
+                                                                                    }
+                                                                                  ]
+                                                                                }
+                                                                              },
+                                                                              {
+                                                                                "type": "ModifiedComponent",
+                                                                                "props": {
+                                                                                  "modifier": {
+                                                                                    "type": "foregroundStyle",
+                                                                                    "props": {
+                                                                                      "rawValue": {
+                                                                                        "type": "Color",
+                                                                                        "props": {
+                                                                                          "rawValue": "blue",
+                                                                                          "children": []
+                                                                                        }
+                                                                                      },
+                                                                                      "children": []
+                                                                                    }
+                                                                                  },
+                                                                                  "content": [
+                                                                                    {
+                                                                                      "type": "ModifiedComponent",
+                                                                                      "props": {
+                                                                                        "modifier": {
+                                                                                          "type": "fontDesign",
+                                                                                          "props": {
+                                                                                            "rawValue": "rounded",
+                                                                                            "children": []
+                                                                                          }
+                                                                                        },
+                                                                                        "content": [
+                                                                                          {
+                                                                                            "type": "Text",
+                                                                                            "props": {
+                                                                                              "rawValue": "0",
+                                                                                              "children": []
+                                                                                            }
+                                                                                          }
+                                                                                        ]
+                                                                                      }
+                                                                                    }
+                                                                                  ]
+                                                                                }
+                                                                              },
+                                                                              {
+                                                                                "type": "ModifiedComponent",
+                                                                                "props": {
+                                                                                  "modifier": {
+                                                                                    "type": "font",
+                                                                                    "props": {
+                                                                                      "rawValue": "headline",
+                                                                                      "children": []
+                                                                                    }
+                                                                                  },
+                                                                                  "content": [
+                                                                                    {
+                                                                                      "type": "ModifiedComponent",
+                                                                                      "props": {
+                                                                                        "modifier": {
+                                                                                          "type": "foregroundStyle",
+                                                                                          "props": {
+                                                                                            "rawValue": {
+                                                                                              "type": "Color",
+                                                                                              "props": {
+                                                                                                "rawValue": "secondary",
+                                                                                                "children": []
+                                                                                              }
+                                                                                            },
+                                                                                            "children": []
+                                                                                          }
+                                                                                        },
+                                                                                        "content": [
+                                                                                          {
+                                                                                            "type": "Text",
+                                                                                            "props": {
+                                                                                              "rawValue": "Taps",
+                                                                                              "children": []
+                                                                                            }
+                                                                                          }
+                                                                                        ]
+                                                                                      }
+                                                                                    }
+                                                                                  ]
+                                                                                }
+                                                                              }
+                                                                            ]
+                                                                          }
+                                                                        }
+                                                                      ]
+                                                                    }
+                                                                  }
+                                                                ]
+                                                              }
+                                                            }
+                                                          ]
+                                                        }
+                                                      }
+                                                    ]
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

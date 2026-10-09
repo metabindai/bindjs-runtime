@@ -1,0 +1,50 @@
+{
+  "fixture": "state/TestProperties",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestProperties",
+          "props": {},
+          "children": [
+            {
+              "type": "VStack",
+              "props": {
+                "children": [
+                  {
+                    "type": "Text",
+                    "props": {
+                      "rawValue": "TestProperties",
+                      "children": []
+                    }
+                  },
+                  {
+                    "type": "ComponentCall",
+                    "props": {
+                      "name": "TestProperties",
+                      "props": {
+                        "title": "Test"
+                      },
+                      "children": [
+                        {
+                          "type": "Text",
+                          "props": {
+                            "rawValue": "Body",
+                            "children": []
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

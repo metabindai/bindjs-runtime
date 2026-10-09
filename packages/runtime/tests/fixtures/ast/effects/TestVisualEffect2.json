@@ -1,0 +1,185 @@
+{
+  "fixture": "effects/TestVisualEffect2",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestVisualEffect2",
+          "props": {},
+          "children": [
+            {
+              "type": "ScrollView",
+              "props": {
+                "children": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "padding",
+                        "props": {
+                          "top": 150,
+                          "leading": 0,
+                          "bottom": 0,
+                          "trailing": 0,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "frame",
+                              "props": {
+                                "height": 1500,
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "frame",
+                                    "props": {
+                                      "maxWidth": "Infinity",
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "VStack",
+                                      "props": {
+                                        "children": [
+                                          {
+                                            "type": "ModifiedComponent",
+                                            "props": {
+                                              "modifier": {
+                                                "type": "clipShape",
+                                                "props": {
+                                                  "rawValue": {
+                                                    "type": "RoundedRectangle",
+                                                    "props": {
+                                                      "children": []
+                                                    }
+                                                  },
+                                                  "children": []
+                                                }
+                                              },
+                                              "content": [
+                                                {
+                                                  "type": "ModifiedComponent",
+                                                  "props": {
+                                                    "modifier": {
+                                                      "type": "frame",
+                                                      "props": {
+                                                        "width": 400,
+                                                        "height": 400,
+                                                        "alignment": "center",
+                                                        "children": []
+                                                      }
+                                                    },
+                                                    "content": [
+                                                      {
+                                                        "type": "VStack",
+                                                        "props": {
+                                                          "children": [
+                                                            {
+                                                              "type": "ComponentCall",
+                                                              "props": {
+                                                                "name": "TestVisualEffect2",
+                                                                "props": {},
+                                                                "children": [
+                                                                  {
+                                                                    "type": "ModifiedComponent",
+                                                                    "props": {
+                                                                      "modifier": {
+                                                                        "type": "visualEffect",
+                                                                        "props": {
+                                                                          "handlerId": "0,TestVisualEffect2_0,ScrollView_0,VStack_0,VStack_0,TestVisualEffect2_0,visualEffect,0",
+                                                                          "children": []
+                                                                        }
+                                                                      },
+                                                                      "content": [
+                                                                        {
+                                                                          "type": "ZStack",
+                                                                          "props": {
+                                                                            "children": [
+                                                                              {
+                                                                                "type": "ModifiedComponent",
+                                                                                "props": {
+                                                                                  "modifier": {
+                                                                                    "type": "frame",
+                                                                                    "props": {
+                                                                                      "maxWidth": "Infinity",
+                                                                                      "maxHeight": "Infinity",
+                                                                                      "children": []
+                                                                                    }
+                                                                                  },
+                                                                                  "content": [
+                                                                                    {
+                                                                                      "type": "Image",
+                                                                                      "props": {
+                                                                                        "url": "https://cdn.metabind.ai/N9qb1ir3Fst1ree94WHW/FbAs1nDGM5lioi2hjNRR/assets/TUCBWff2SsFBsn14GQwj/Content-Lawn-Inspection-2.jpg",
+                                                                                        "children": [],
+                                                                                        "resizable": true
+                                                                                      }
+                                                                                    }
+                                                                                  ]
+                                                                                }
+                                                                              }
+                                                                            ]
+                                                                          }
+                                                                        }
+                                                                      ]
+                                                                    }
+                                                                  }
+                                                                ]
+                                                              }
+                                                            }
+                                                          ]
+                                                        }
+                                                      }
+                                                    ]
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          {
+                                            "type": "Spacer",
+                                            "props": {
+                                              "children": []
+                                            }
+                                          },
+                                          {
+                                            "type": "Text",
+                                            "props": {
+                                              "rawValue": "Hi",
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

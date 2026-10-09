@@ -1,0 +1,183 @@
+{
+  "fixture": "navigation/TestToolbar",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestToolbar",
+          "props": {},
+          "children": [
+            {
+              "type": "NavigationStack",
+              "props": {
+                "children": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "navigationTitle",
+                        "props": {
+                          "rawValue": "Hello",
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "toolbar",
+                              "props": {
+                                "content": {
+                                  "type": "Group",
+                                  "props": {
+                                    "children": [
+                                      {
+                                        "type": "ToolbarItem",
+                                        "props": {
+                                          "placement": "navigationBarLeading",
+                                          "children": [
+                                            {
+                                              "type": "Button",
+                                              "props": {
+                                                "handlerId": "0,TestToolbar_0,NavigationStack_0,ToolbarItem_0,Button_0,,0",
+                                                "label": {
+                                                  "type": "Image",
+                                                  "props": {
+                                                    "systemName": "info.circle.fill",
+                                                    "children": []
+                                                  }
+                                                },
+                                                "environmentId": "0,TestToolbar_0,NavigationStack_0,ToolbarItem_0,Button_0,,0",
+                                                "children": []
+                                              }
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      {
+                                        "type": "ToolbarItemGroup",
+                                        "props": {
+                                          "placement": "bottomBar",
+                                          "children": [
+                                            {
+                                              "type": "Button",
+                                              "props": {
+                                                "handlerId": "0,TestToolbar_0,NavigationStack_0,ToolbarItemGroup_0,Button_0,,0",
+                                                "label": {
+                                                  "type": "Image",
+                                                  "props": {
+                                                    "systemName": "info.circle.fill",
+                                                    "children": []
+                                                  }
+                                                },
+                                                "environmentId": "0,TestToolbar_0,NavigationStack_0,ToolbarItemGroup_0,Button_0,,0",
+                                                "children": []
+                                              }
+                                            },
+                                            {
+                                              "type": "Spacer",
+                                              "props": {
+                                                "children": []
+                                              }
+                                            },
+                                            {
+                                              "type": "Button",
+                                              "props": {
+                                                "handlerId": "0,TestToolbar_0,NavigationStack_0,ToolbarItemGroup_0,Button_2,,2",
+                                                "label": {
+                                                  "type": "Image",
+                                                  "props": {
+                                                    "systemName": "info.circle.fill",
+                                                    "children": []
+                                                  }
+                                                },
+                                                "environmentId": "0,TestToolbar_0,NavigationStack_0,ToolbarItemGroup_0,Button_2,,2",
+                                                "children": []
+                                              }
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      {
+                                        "type": "ToolbarItem",
+                                        "props": {
+                                          "placement": "navigationBarTrailing",
+                                          "children": [
+                                            {
+                                              "type": "Button",
+                                              "props": {
+                                                "handlerId": "0,TestToolbar_0,NavigationStack_0,ToolbarItem_0,Button_0,,0",
+                                                "label": {
+                                                  "type": "Image",
+                                                  "props": {
+                                                    "systemName": "info.circle.fill",
+                                                    "children": []
+                                                  }
+                                                },
+                                                "environmentId": "0,TestToolbar_0,NavigationStack_0,ToolbarItem_0,Button_0,,0",
+                                                "children": []
+                                              }
+                                            }
+                                          ]
+                                        }
+                                      }
+                                    ]
+                                  }
+                                },
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "background",
+                                    "props": {
+                                      "content": {
+                                        "type": "Color",
+                                        "props": {
+                                          "rawValue": "red",
+                                          "children": []
+                                        }
+                                      },
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "VStack",
+                                      "props": {
+                                        "children": [
+                                          {
+                                            "type": "Text",
+                                            "props": {
+                                              "rawValue": "TestToolbar",
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

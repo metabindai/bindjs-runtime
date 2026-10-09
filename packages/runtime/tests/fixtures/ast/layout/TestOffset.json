@@ -1,0 +1,159 @@
+{
+  "fixture": "layout/TestOffset",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestOffset",
+          "props": {},
+          "children": [
+            {
+              "type": "ZStack",
+              "props": {
+                "children": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "offset",
+                        "props": {
+                          "y": -30,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "frame",
+                              "props": {
+                                "width": 50,
+                                "height": 50,
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "Circle",
+                                "props": {
+                                  "children": [],
+                                  "fill": {
+                                    "style": {
+                                      "type": "Color",
+                                      "props": {
+                                        "rawValue": "red",
+                                        "children": []
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "offset",
+                        "props": {
+                          "x": 30,
+                          "y": 30,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "frame",
+                              "props": {
+                                "width": 50,
+                                "height": 50,
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "Circle",
+                                "props": {
+                                  "children": [],
+                                  "fill": {
+                                    "style": {
+                                      "type": "Color",
+                                      "props": {
+                                        "rawValue": "green",
+                                        "children": []
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "offset",
+                        "props": {
+                          "x": -30,
+                          "y": 30,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "frame",
+                              "props": {
+                                "width": 50,
+                                "height": 50,
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "Circle",
+                                "props": {
+                                  "children": [],
+                                  "fill": {
+                                    "style": {
+                                      "type": "Color",
+                                      "props": {
+                                        "rawValue": "blue",
+                                        "children": []
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

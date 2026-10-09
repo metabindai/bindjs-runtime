@@ -1,0 +1,1763 @@
+{
+  "fixture": "media/TestLayoutImage",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestLayoutImage",
+          "props": {},
+          "children": [
+            {
+              "type": "Group",
+              "props": {
+                "children": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "frame",
+                        "props": {
+                          "height": 550,
+                          "width": 200,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "VStack",
+                          "props": {
+                            "spacing": 0,
+                            "children": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "scaledToFit",
+                                    "props": {
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "Image",
+                                      "props": {
+                                        "url": "https://cdn-dev.metabind.com/213236ac-f3a9-416a-b371-d13bee51593e/2f2a2d30-f894-43f9-a2b5-17569b90fbf8/assets/00b83b5d-73d5-479c-b276-9590f751f82a/1.2-C.png",
+                                        "children": [],
+                                        "resizable": true
+                                      }
+                                    }
+                                  ]
+                                }
+                              },
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "scaledToFit",
+                                    "props": {
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "Image",
+                                      "props": {
+                                        "url": "https://cdn-dev.metabind.com/213236ac-f3a9-416a-b371-d13bee51593e/2f2a2d30-f894-43f9-a2b5-17569b90fbf8/assets/42b52fa7-e943-4ec4-bafb-14c27db28464/1.5-C-3.png",
+                                        "children": [],
+                                        "resizable": true
+                                      }
+                                    }
+                                  ]
+                                }
+                              },
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "scaledToFit",
+                                    "props": {
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "Image",
+                                      "props": {
+                                        "url": "https://cdn-dev.metabind.com/213236ac-f3a9-416a-b371-d13bee51593e/2f2a2d30-f894-43f9-a2b5-17569b90fbf8/assets/42b52fa7-e943-4ec4-bafb-14c27db28464/1.5-C-3.png",
+                                        "children": [],
+                                        "resizable": true
+                                      }
+                                    }
+                                  ]
+                                }
+                              },
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "scaledToFit",
+                                    "props": {
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "Image",
+                                      "props": {
+                                        "url": "https://cdn-dev.metabind.com/213236ac-f3a9-416a-b371-d13bee51593e/2f2a2d30-f894-43f9-a2b5-17569b90fbf8/assets/055ac835-c09d-4ceb-8f9e-e04ed5632a20/1.6-C.png",
+                                        "children": [],
+                                        "resizable": true
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "render": "preview 0: Default (case 8)",
+      "errors": [],
+      "ast": {
+        "type": "ModifiedComponent",
+        "props": {
+          "modifier": {
+            "type": "previewName",
+            "props": {
+              "rawValue": "Default (case 8)",
+              "children": []
+            }
+          },
+          "content": [
+            {
+              "type": "ComponentCall",
+              "props": {
+                "name": "TestLayoutImage",
+                "props": {},
+                "children": [
+                  {
+                    "type": "Group",
+                    "props": {
+                      "children": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "frame",
+                              "props": {
+                                "height": 550,
+                                "width": 200,
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "VStack",
+                                "props": {
+                                  "spacing": 0,
+                                  "children": [
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "scaledToFit",
+                                          "props": {
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "Image",
+                                            "props": {
+                                              "url": "https://cdn-dev.metabind.com/213236ac-f3a9-416a-b371-d13bee51593e/2f2a2d30-f894-43f9-a2b5-17569b90fbf8/assets/00b83b5d-73d5-479c-b276-9590f751f82a/1.2-C.png",
+                                              "children": [],
+                                              "resizable": true
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "scaledToFit",
+                                          "props": {
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "Image",
+                                            "props": {
+                                              "url": "https://cdn-dev.metabind.com/213236ac-f3a9-416a-b371-d13bee51593e/2f2a2d30-f894-43f9-a2b5-17569b90fbf8/assets/42b52fa7-e943-4ec4-bafb-14c27db28464/1.5-C-3.png",
+                                              "children": [],
+                                              "resizable": true
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "scaledToFit",
+                                          "props": {
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "Image",
+                                            "props": {
+                                              "url": "https://cdn-dev.metabind.com/213236ac-f3a9-416a-b371-d13bee51593e/2f2a2d30-f894-43f9-a2b5-17569b90fbf8/assets/42b52fa7-e943-4ec4-bafb-14c27db28464/1.5-C-3.png",
+                                              "children": [],
+                                              "resizable": true
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "scaledToFit",
+                                          "props": {
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "Image",
+                                            "props": {
+                                              "url": "https://cdn-dev.metabind.com/213236ac-f3a9-416a-b371-d13bee51593e/2f2a2d30-f894-43f9-a2b5-17569b90fbf8/assets/055ac835-c09d-4ceb-8f9e-e04ed5632a20/1.6-C.png",
+                                              "children": [],
+                                              "resizable": true
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "render": "preview 1: 0 Intrinsic size",
+      "errors": [],
+      "ast": {
+        "type": "ModifiedComponent",
+        "props": {
+          "modifier": {
+            "type": "previewName",
+            "props": {
+              "rawValue": "0 Intrinsic size",
+              "children": []
+            }
+          },
+          "content": [
+            {
+              "type": "ModifiedComponent",
+              "props": {
+                "modifier": {
+                  "type": "background",
+                  "props": {
+                    "content": {
+                      "type": "Color",
+                      "props": {
+                        "rawValue": "blue",
+                        "children": [],
+                        "opacity": 0.1
+                      }
+                    },
+                    "children": []
+                  }
+                },
+                "content": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "frame",
+                        "props": {
+                          "width": 400,
+                          "height": 400,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "background",
+                              "props": {
+                                "content": {
+                                  "type": "Color",
+                                  "props": {
+                                    "rawValue": "red",
+                                    "children": [],
+                                    "opacity": 0.5
+                                  }
+                                },
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "padding",
+                                    "props": {
+                                      "top": 4,
+                                      "leading": 4,
+                                      "bottom": 4,
+                                      "trailing": 4,
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "opacity",
+                                          "props": {
+                                            "rawValue": 1,
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "Image",
+                                            "props": {
+                                              "url": "https://cdn-dev.metabind.com/213236ac-f3a9-416a-b371-d13bee51593e/0205c6f5-2d89-4ccf-963a-01c8ee7215b6/assets/8a8ba7ac-2570-4b97-a5be-000455bc8399/Research.jpg",
+                                              "dimensions": {
+                                                "width": 613,
+                                                "height": 287
+                                              },
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "render": "preview 2: 1 Resizable scale",
+      "errors": [],
+      "ast": {
+        "type": "ModifiedComponent",
+        "props": {
+          "modifier": {
+            "type": "previewName",
+            "props": {
+              "rawValue": "1 Resizable scale",
+              "children": []
+            }
+          },
+          "content": [
+            {
+              "type": "ModifiedComponent",
+              "props": {
+                "modifier": {
+                  "type": "frame",
+                  "props": {
+                    "width": 400,
+                    "height": 400,
+                    "children": []
+                  }
+                },
+                "content": [
+                  {
+                    "type": "VStack",
+                    "props": {
+                      "children": [
+                        {
+                          "type": "Image",
+                          "props": {
+                            "url": "https://cdn-dev.metabind.com/213236ac-f3a9-416a-b371-d13bee51593e/0205c6f5-2d89-4ccf-963a-01c8ee7215b6/assets/8a8ba7ac-2570-4b97-a5be-000455bc8399/Research.jpg",
+                            "dimensions": {
+                              "width": 613,
+                              "height": 287
+                            },
+                            "children": [],
+                            "resizable": true
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "render": "preview 3: 2 Fill extends width",
+      "errors": [],
+      "ast": {
+        "type": "ModifiedComponent",
+        "props": {
+          "modifier": {
+            "type": "previewName",
+            "props": {
+              "rawValue": "2 Fill extends width",
+              "children": []
+            }
+          },
+          "content": [
+            {
+              "type": "ModifiedComponent",
+              "props": {
+                "modifier": {
+                  "type": "background",
+                  "props": {
+                    "content": {
+                      "type": "Color",
+                      "props": {
+                        "rawValue": "red",
+                        "children": [],
+                        "opacity": 0.5
+                      }
+                    },
+                    "children": []
+                  }
+                },
+                "content": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "frame",
+                        "props": {
+                          "width": 200,
+                          "height": 200,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "opacity",
+                              "props": {
+                                "rawValue": 0.5,
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "Image",
+                                "props": {
+                                  "url": "https://cdn-dev.metabind.com/213236ac-f3a9-416a-b371-d13bee51593e/0205c6f5-2d89-4ccf-963a-01c8ee7215b6/assets/8a8ba7ac-2570-4b97-a5be-000455bc8399/Research.jpg",
+                                  "dimensions": {
+                                    "width": 613,
+                                    "height": 287
+                                  },
+                                  "contentMode": "fill",
+                                  "children": [],
+                                  "resizable": true
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "render": "preview 4: 3 Fill extends height",
+      "errors": [],
+      "ast": {
+        "type": "ModifiedComponent",
+        "props": {
+          "modifier": {
+            "type": "previewName",
+            "props": {
+              "rawValue": "3 Fill extends height",
+              "children": []
+            }
+          },
+          "content": [
+            {
+              "type": "ModifiedComponent",
+              "props": {
+                "modifier": {
+                  "type": "background",
+                  "props": {
+                    "content": {
+                      "type": "Color",
+                      "props": {
+                        "rawValue": "red",
+                        "children": [],
+                        "opacity": 0.5
+                      }
+                    },
+                    "children": []
+                  }
+                },
+                "content": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "frame",
+                        "props": {
+                          "width": 400,
+                          "height": 100,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "opacity",
+                              "props": {
+                                "rawValue": 0.5,
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "Image",
+                                "props": {
+                                  "url": "https://cdn-dev.metabind.com/213236ac-f3a9-416a-b371-d13bee51593e/0205c6f5-2d89-4ccf-963a-01c8ee7215b6/assets/8a8ba7ac-2570-4b97-a5be-000455bc8399/Research.jpg",
+                                  "dimensions": {
+                                    "width": 613,
+                                    "height": 287
+                                  },
+                                  "contentMode": "fill",
+                                  "children": [],
+                                  "resizable": true
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "render": "preview 5: 4 Resizable fit",
+      "errors": [],
+      "ast": {
+        "type": "ModifiedComponent",
+        "props": {
+          "modifier": {
+            "type": "previewName",
+            "props": {
+              "rawValue": "4 Resizable fit",
+              "children": []
+            }
+          },
+          "content": [
+            {
+              "type": "ModifiedComponent",
+              "props": {
+                "modifier": {
+                  "type": "background",
+                  "props": {
+                    "content": {
+                      "type": "Color",
+                      "props": {
+                        "rawValue": "red",
+                        "children": [],
+                        "opacity": 0.5
+                      }
+                    },
+                    "children": []
+                  }
+                },
+                "content": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "frame",
+                        "props": {
+                          "width": 300,
+                          "height": 200,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "Image",
+                          "props": {
+                            "url": "https://cdn-dev.metabind.com/213236ac-f3a9-416a-b371-d13bee51593e/0205c6f5-2d89-4ccf-963a-01c8ee7215b6/assets/8a8ba7ac-2570-4b97-a5be-000455bc8399/Research.jpg",
+                            "dimensions": {
+                              "width": 613,
+                              "height": 287
+                            },
+                            "contentMode": "fit",
+                            "children": [],
+                            "resizable": true
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "render": "preview 6: 5 Image as background",
+      "errors": [],
+      "ast": {
+        "type": "ModifiedComponent",
+        "props": {
+          "modifier": {
+            "type": "previewName",
+            "props": {
+              "rawValue": "5 Image as background",
+              "children": []
+            }
+          },
+          "content": [
+            {
+              "type": "ModifiedComponent",
+              "props": {
+                "modifier": {
+                  "type": "frame",
+                  "props": {
+                    "width": 250,
+                    "height": 200,
+                    "children": []
+                  }
+                },
+                "content": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "background",
+                        "props": {
+                          "content": {
+                            "type": "ModifiedComponent",
+                            "props": {
+                              "modifier": {
+                                "type": "opacity",
+                                "props": {
+                                  "rawValue": 0.5,
+                                  "children": []
+                                }
+                              },
+                              "content": [
+                                {
+                                  "type": "Image",
+                                  "props": {
+                                    "url": "https://cdn-dev.metabind.com/213236ac-f3a9-416a-b371-d13bee51593e/0205c6f5-2d89-4ccf-963a-01c8ee7215b6/assets/8a8ba7ac-2570-4b97-a5be-000455bc8399/Research.jpg",
+                                    "dimensions": {
+                                      "width": 613,
+                                      "height": 287
+                                    },
+                                    "children": [],
+                                    "resizable": true
+                                  }
+                                }
+                              ]
+                            }
+                          },
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "Rectangle",
+                          "props": {
+                            "children": [],
+                            "fill": {
+                              "style": {
+                                "type": "Color",
+                                "props": {
+                                  "rawValue": "red",
+                                  "children": [],
+                                  "opacity": 0.2
+                                }
+                              }
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "render": "preview 7: 6 HStack fit",
+      "errors": [],
+      "ast": {
+        "type": "ModifiedComponent",
+        "props": {
+          "modifier": {
+            "type": "previewName",
+            "props": {
+              "rawValue": "6 HStack fit",
+              "children": []
+            }
+          },
+          "content": [
+            {
+              "type": "ModifiedComponent",
+              "props": {
+                "modifier": {
+                  "type": "frame",
+                  "props": {
+                    "height": 150,
+                    "children": []
+                  }
+                },
+                "content": [
+                  {
+                    "type": "HStack",
+                    "props": {
+                      "children": [
+                        {
+                          "type": "Image",
+                          "props": {
+                            "url": "https://cdn-dev.metabind.com/213236ac-f3a9-416a-b371-d13bee51593e/2f2a2d30-f894-43f9-a2b5-17569b90fbf8/assets/00b83b5d-73d5-479c-b276-9590f751f82a/1.2-C.png",
+                            "contentMode": "fit",
+                            "children": [],
+                            "resizable": true
+                          }
+                        },
+                        {
+                          "type": "Image",
+                          "props": {
+                            "url": "https://cdn-dev.metabind.com/213236ac-f3a9-416a-b371-d13bee51593e/2f2a2d30-f894-43f9-a2b5-17569b90fbf8/assets/42b52fa7-e943-4ec4-bafb-14c27db28464/1.5-C-3.png",
+                            "contentMode": "fit",
+                            "children": [],
+                            "resizable": true
+                          }
+                        },
+                        {
+                          "type": "Image",
+                          "props": {
+                            "url": "https://cdn-dev.metabind.com/213236ac-f3a9-416a-b371-d13bee51593e/2f2a2d30-f894-43f9-a2b5-17569b90fbf8/assets/42b52fa7-e943-4ec4-bafb-14c27db28464/1.5-C-3.png",
+                            "contentMode": "fit",
+                            "children": [],
+                            "resizable": true
+                          }
+                        },
+                        {
+                          "type": "Image",
+                          "props": {
+                            "url": "https://cdn-dev.metabind.com/213236ac-f3a9-416a-b371-d13bee51593e/2f2a2d30-f894-43f9-a2b5-17569b90fbf8/assets/055ac835-c09d-4ceb-8f9e-e04ed5632a20/1.6-C.png",
+                            "contentMode": "fit",
+                            "children": [],
+                            "resizable": true
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "render": "preview 8: 7 HStack fill",
+      "errors": [],
+      "ast": {
+        "type": "ModifiedComponent",
+        "props": {
+          "modifier": {
+            "type": "previewName",
+            "props": {
+              "rawValue": "7 HStack fill",
+              "children": []
+            }
+          },
+          "content": [
+            {
+              "type": "ModifiedComponent",
+              "props": {
+                "modifier": {
+                  "type": "frame",
+                  "props": {
+                    "maxHeight": 200,
+                    "children": []
+                  }
+                },
+                "content": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "frame",
+                        "props": {
+                          "height": 100,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "HStack",
+                          "props": {
+                            "children": [
+                              {
+                                "type": "Image",
+                                "props": {
+                                  "url": "https://cdn-dev.metabind.com/213236ac-f3a9-416a-b371-d13bee51593e/2f2a2d30-f894-43f9-a2b5-17569b90fbf8/assets/00b83b5d-73d5-479c-b276-9590f751f82a/1.2-C.png",
+                                  "contentMode": "fill",
+                                  "children": [],
+                                  "resizable": true
+                                }
+                              },
+                              {
+                                "type": "Image",
+                                "props": {
+                                  "url": "https://cdn-dev.metabind.com/213236ac-f3a9-416a-b371-d13bee51593e/2f2a2d30-f894-43f9-a2b5-17569b90fbf8/assets/42b52fa7-e943-4ec4-bafb-14c27db28464/1.5-C-3.png",
+                                  "contentMode": "fill",
+                                  "children": [],
+                                  "resizable": true
+                                }
+                              },
+                              {
+                                "type": "Image",
+                                "props": {
+                                  "url": "https://cdn-dev.metabind.com/213236ac-f3a9-416a-b371-d13bee51593e/2f2a2d30-f894-43f9-a2b5-17569b90fbf8/assets/42b52fa7-e943-4ec4-bafb-14c27db28464/1.5-C-3.png",
+                                  "contentMode": "fill",
+                                  "children": [],
+                                  "resizable": true
+                                }
+                              },
+                              {
+                                "type": "Image",
+                                "props": {
+                                  "url": "https://cdn-dev.metabind.com/213236ac-f3a9-416a-b371-d13bee51593e/2f2a2d30-f894-43f9-a2b5-17569b90fbf8/assets/055ac835-c09d-4ceb-8f9e-e04ed5632a20/1.6-C.png",
+                                  "contentMode": "fill",
+                                  "children": [],
+                                  "resizable": true
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "render": "preview 9: 8 VStack fit",
+      "errors": [],
+      "ast": {
+        "type": "ModifiedComponent",
+        "props": {
+          "modifier": {
+            "type": "previewName",
+            "props": {
+              "rawValue": "8 VStack fit",
+              "children": []
+            }
+          },
+          "content": [
+            {
+              "type": "ModifiedComponent",
+              "props": {
+                "modifier": {
+                  "type": "frame",
+                  "props": {
+                    "height": 550,
+                    "width": 200,
+                    "children": []
+                  }
+                },
+                "content": [
+                  {
+                    "type": "VStack",
+                    "props": {
+                      "spacing": 0,
+                      "children": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "scaledToFit",
+                              "props": {
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "Image",
+                                "props": {
+                                  "url": "https://cdn-dev.metabind.com/213236ac-f3a9-416a-b371-d13bee51593e/2f2a2d30-f894-43f9-a2b5-17569b90fbf8/assets/00b83b5d-73d5-479c-b276-9590f751f82a/1.2-C.png",
+                                  "children": [],
+                                  "resizable": true
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "scaledToFit",
+                              "props": {
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "Image",
+                                "props": {
+                                  "url": "https://cdn-dev.metabind.com/213236ac-f3a9-416a-b371-d13bee51593e/2f2a2d30-f894-43f9-a2b5-17569b90fbf8/assets/42b52fa7-e943-4ec4-bafb-14c27db28464/1.5-C-3.png",
+                                  "children": [],
+                                  "resizable": true
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "scaledToFit",
+                              "props": {
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "Image",
+                                "props": {
+                                  "url": "https://cdn-dev.metabind.com/213236ac-f3a9-416a-b371-d13bee51593e/2f2a2d30-f894-43f9-a2b5-17569b90fbf8/assets/42b52fa7-e943-4ec4-bafb-14c27db28464/1.5-C-3.png",
+                                  "children": [],
+                                  "resizable": true
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "scaledToFit",
+                              "props": {
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "Image",
+                                "props": {
+                                  "url": "https://cdn-dev.metabind.com/213236ac-f3a9-416a-b371-d13bee51593e/2f2a2d30-f894-43f9-a2b5-17569b90fbf8/assets/055ac835-c09d-4ceb-8f9e-e04ed5632a20/1.6-C.png",
+                                  "children": [],
+                                  "resizable": true
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "render": "preview 10: 9 VStack fit (contentMode)",
+      "errors": [],
+      "ast": {
+        "type": "ModifiedComponent",
+        "props": {
+          "modifier": {
+            "type": "previewName",
+            "props": {
+              "rawValue": "9 VStack fit (contentMode)",
+              "children": []
+            }
+          },
+          "content": [
+            {
+              "type": "ModifiedComponent",
+              "props": {
+                "modifier": {
+                  "type": "background",
+                  "props": {
+                    "content": {
+                      "type": "Color",
+                      "props": {
+                        "rawValue": "red",
+                        "children": []
+                      }
+                    },
+                    "children": []
+                  }
+                },
+                "content": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "frame",
+                        "props": {
+                          "height": 700,
+                          "width": 50,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "VStack",
+                          "props": {
+                            "spacing": 0,
+                            "children": [
+                              {
+                                "type": "Image",
+                                "props": {
+                                  "url": "https://cdn-dev.metabind.com/213236ac-f3a9-416a-b371-d13bee51593e/2f2a2d30-f894-43f9-a2b5-17569b90fbf8/assets/00b83b5d-73d5-479c-b276-9590f751f82a/1.2-C.png",
+                                  "contentMode": "fit",
+                                  "children": [],
+                                  "resizable": true
+                                }
+                              },
+                              {
+                                "type": "Image",
+                                "props": {
+                                  "url": "https://cdn-dev.metabind.com/213236ac-f3a9-416a-b371-d13bee51593e/2f2a2d30-f894-43f9-a2b5-17569b90fbf8/assets/42b52fa7-e943-4ec4-bafb-14c27db28464/1.5-C-3.png",
+                                  "contentMode": "fit",
+                                  "children": [],
+                                  "resizable": true
+                                }
+                              },
+                              {
+                                "type": "Image",
+                                "props": {
+                                  "url": "https://cdn-dev.metabind.com/213236ac-f3a9-416a-b371-d13bee51593e/2f2a2d30-f894-43f9-a2b5-17569b90fbf8/assets/42b52fa7-e943-4ec4-bafb-14c27db28464/1.5-C-3.png",
+                                  "contentMode": "fit",
+                                  "children": [],
+                                  "resizable": true
+                                }
+                              },
+                              {
+                                "type": "Image",
+                                "props": {
+                                  "url": "https://cdn-dev.metabind.com/213236ac-f3a9-416a-b371-d13bee51593e/2f2a2d30-f894-43f9-a2b5-17569b90fbf8/assets/055ac835-c09d-4ceb-8f9e-e04ed5632a20/1.6-C.png",
+                                  "contentMode": "fit",
+                                  "children": [],
+                                  "resizable": true
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "render": "preview 11: 10 VStack fit (triangles)",
+      "errors": [],
+      "ast": {
+        "type": "ModifiedComponent",
+        "props": {
+          "modifier": {
+            "type": "previewName",
+            "props": {
+              "rawValue": "10 VStack fit (triangles)",
+              "children": []
+            }
+          },
+          "content": [
+            {
+              "type": "ModifiedComponent",
+              "props": {
+                "modifier": {
+                  "type": "background",
+                  "props": {
+                    "content": {
+                      "type": "Color",
+                      "props": {
+                        "rawValue": "red",
+                        "children": [],
+                        "opacity": 0.2
+                      }
+                    },
+                    "children": []
+                  }
+                },
+                "content": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "frame",
+                        "props": {
+                          "height": 400,
+                          "width": 400,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "VStack",
+                          "props": {
+                            "children": [
+                              {
+                                "type": "Image",
+                                "props": {
+                                  "contentMode": "fit",
+                                  "url": "https://cdn-dev.metabind.com/213236ac-f3a9-416a-b371-d13bee51593e/3a73ea8a-98f9-41df-9ad6-f413d1c5ea9e/assets/53e9b73d-89ae-443c-a91b-1b6c461c3f45/triangle%402x.png",
+                                  "children": [],
+                                  "resizable": true
+                                }
+                              },
+                              {
+                                "type": "Image",
+                                "props": {
+                                  "contentMode": "fit",
+                                  "url": "https://cdn-dev.metabind.com/213236ac-f3a9-416a-b371-d13bee51593e/3a73ea8a-98f9-41df-9ad6-f413d1c5ea9e/assets/53e9b73d-89ae-443c-a91b-1b6c461c3f45/triangle%402x.png",
+                                  "children": [],
+                                  "resizable": true
+                                }
+                              },
+                              {
+                                "type": "Image",
+                                "props": {
+                                  "contentMode": "fit",
+                                  "url": "https://cdn-dev.metabind.com/213236ac-f3a9-416a-b371-d13bee51593e/3a73ea8a-98f9-41df-9ad6-f413d1c5ea9e/assets/53e9b73d-89ae-443c-a91b-1b6c461c3f45/triangle%402x.png",
+                                  "children": [],
+                                  "resizable": true
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "render": "preview 12: 11 VStack fill",
+      "errors": [],
+      "ast": {
+        "type": "ModifiedComponent",
+        "props": {
+          "modifier": {
+            "type": "previewName",
+            "props": {
+              "rawValue": "11 VStack fill",
+              "children": []
+            }
+          },
+          "content": [
+            {
+              "type": "ModifiedComponent",
+              "props": {
+                "modifier": {
+                  "type": "frame",
+                  "props": {
+                    "width": 100,
+                    "height": 600,
+                    "children": []
+                  }
+                },
+                "content": [
+                  {
+                    "type": "VStack",
+                    "props": {
+                      "children": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "scaledToFill",
+                              "props": {
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "Image",
+                                "props": {
+                                  "url": "https://cdn-dev.metabind.com/213236ac-f3a9-416a-b371-d13bee51593e/2f2a2d30-f894-43f9-a2b5-17569b90fbf8/assets/00b83b5d-73d5-479c-b276-9590f751f82a/1.2-C.png",
+                                  "children": [],
+                                  "resizable": true
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "scaledToFill",
+                              "props": {
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "Image",
+                                "props": {
+                                  "url": "https://cdn-dev.metabind.com/213236ac-f3a9-416a-b371-d13bee51593e/2f2a2d30-f894-43f9-a2b5-17569b90fbf8/assets/42b52fa7-e943-4ec4-bafb-14c27db28464/1.5-C-3.png",
+                                  "children": [],
+                                  "resizable": true
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "scaledToFill",
+                              "props": {
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "Image",
+                                "props": {
+                                  "url": "https://cdn-dev.metabind.com/213236ac-f3a9-416a-b371-d13bee51593e/2f2a2d30-f894-43f9-a2b5-17569b90fbf8/assets/42b52fa7-e943-4ec4-bafb-14c27db28464/1.5-C-3.png",
+                                  "children": [],
+                                  "resizable": true
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "scaledToFill",
+                              "props": {
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "Image",
+                                "props": {
+                                  "url": "https://cdn-dev.metabind.com/213236ac-f3a9-416a-b371-d13bee51593e/2f2a2d30-f894-43f9-a2b5-17569b90fbf8/assets/055ac835-c09d-4ceb-8f9e-e04ed5632a20/1.6-C.png",
+                                  "children": [],
+                                  "resizable": true
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "render": "preview 13: 12 Frame order",
+      "errors": [],
+      "ast": {
+        "type": "ModifiedComponent",
+        "props": {
+          "modifier": {
+            "type": "previewName",
+            "props": {
+              "rawValue": "12 Frame order",
+              "children": []
+            }
+          },
+          "content": [
+            {
+              "type": "ModifiedComponent",
+              "props": {
+                "modifier": {
+                  "type": "background",
+                  "props": {
+                    "content": {
+                      "type": "Color",
+                      "props": {
+                        "rawValue": "blue",
+                        "children": [],
+                        "opacity": 0.1
+                      }
+                    },
+                    "children": []
+                  }
+                },
+                "content": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "frame",
+                        "props": {
+                          "width": 400,
+                          "height": 400,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "background",
+                              "props": {
+                                "content": {
+                                  "type": "Color",
+                                  "props": {
+                                    "rawValue": "red",
+                                    "children": [],
+                                    "opacity": 0.5
+                                  }
+                                },
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "Image",
+                                "props": {
+                                  "url": "https://cdn-dev.metabind.com/213236ac-f3a9-416a-b371-d13bee51593e/0205c6f5-2d89-4ccf-963a-01c8ee7215b6/assets/8a8ba7ac-2570-4b97-a5be-000455bc8399/Research.jpg",
+                                  "dimensions": {
+                                    "width": 613,
+                                    "height": 287
+                                  },
+                                  "children": []
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "render": "preview 14: 13 Inside stack",
+      "errors": [],
+      "ast": {
+        "type": "ModifiedComponent",
+        "props": {
+          "modifier": {
+            "type": "previewName",
+            "props": {
+              "rawValue": "13 Inside stack",
+              "children": []
+            }
+          },
+          "content": [
+            {
+              "type": "ModifiedComponent",
+              "props": {
+                "modifier": {
+                  "type": "background",
+                  "props": {
+                    "content": {
+                      "type": "Color",
+                      "props": {
+                        "rawValue": "blue",
+                        "children": [],
+                        "opacity": 0.1
+                      }
+                    },
+                    "children": []
+                  }
+                },
+                "content": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "frame",
+                        "props": {
+                          "width": 400,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "background",
+                              "props": {
+                                "content": {
+                                  "type": "Color",
+                                  "props": {
+                                    "rawValue": "red",
+                                    "children": [],
+                                    "opacity": 0.5
+                                  }
+                                },
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "VStack",
+                                "props": {
+                                  "spacing": 10,
+                                  "children": [
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "frame",
+                                          "props": {
+                                            "height": 100,
+                                            "width": 250,
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "Image",
+                                            "props": {
+                                              "url": "https://cdn-dev.metabind.com/213236ac-f3a9-416a-b371-d13bee51593e/0205c6f5-2d89-4ccf-963a-01c8ee7215b6/assets/8a8ba7ac-2570-4b97-a5be-000455bc8399/Research.jpg",
+                                              "dimensions": {
+                                                "width": 613,
+                                                "height": 287
+                                              },
+                                              "contentMode": "fit",
+                                              "children": [],
+                                              "resizable": true
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "frame",
+                                          "props": {
+                                            "height": 150,
+                                            "width": 250,
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "Image",
+                                            "props": {
+                                              "url": "https://cdn-dev.metabind.com/213236ac-f3a9-416a-b371-d13bee51593e/0205c6f5-2d89-4ccf-963a-01c8ee7215b6/assets/8a8ba7ac-2570-4b97-a5be-000455bc8399/Research.jpg",
+                                              "dimensions": {
+                                                "width": 613,
+                                                "height": 287
+                                              },
+                                              "contentMode": "fit",
+                                              "children": [],
+                                              "resizable": true
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "render": "preview 15: 14 Aspect ratio edge case",
+      "errors": [],
+      "ast": {
+        "type": "ModifiedComponent",
+        "props": {
+          "modifier": {
+            "type": "previewName",
+            "props": {
+              "rawValue": "14 Aspect ratio edge case",
+              "children": []
+            }
+          },
+          "content": [
+            {
+              "type": "ModifiedComponent",
+              "props": {
+                "modifier": {
+                  "type": "background",
+                  "props": {
+                    "content": {
+                      "type": "Color",
+                      "props": {
+                        "rawValue": "red",
+                        "children": [],
+                        "opacity": 0.5
+                      }
+                    },
+                    "children": []
+                  }
+                },
+                "content": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "frame",
+                        "props": {
+                          "width": 300,
+                          "height": 300,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "Image",
+                          "props": {
+                            "url": "https://cdn-dev.metabind.com/213236ac-f3a9-416a-b371-d13bee51593e/0205c6f5-2d89-4ccf-963a-01c8ee7215b6/assets/8a8ba7ac-2570-4b97-a5be-000455bc8399/Research.jpg",
+                            "dimensions": {
+                              "width": 613,
+                              "height": 287
+                            },
+                            "contentMode": "fit",
+                            "children": [],
+                            "resizable": true
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "render": "preview 16: 15 Fill and clip",
+      "errors": [],
+      "ast": {
+        "type": "ModifiedComponent",
+        "props": {
+          "modifier": {
+            "type": "previewName",
+            "props": {
+              "rawValue": "15 Fill and clip",
+              "children": []
+            }
+          },
+          "content": [
+            {
+              "type": "ModifiedComponent",
+              "props": {
+                "modifier": {
+                  "type": "background",
+                  "props": {
+                    "content": {
+                      "type": "Color",
+                      "props": {
+                        "rawValue": "red",
+                        "children": [],
+                        "opacity": 0.5
+                      }
+                    },
+                    "children": []
+                  }
+                },
+                "content": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "overlay",
+                        "props": {
+                          "content": {
+                            "type": "Circle",
+                            "props": {
+                              "children": [],
+                              "stroke": {
+                                "style": {
+                                  "type": "Color",
+                                  "props": {
+                                    "rawValue": "white",
+                                    "children": []
+                                  }
+                                },
+                                "lineWidth": 5
+                              }
+                            }
+                          },
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "clipShape",
+                              "props": {
+                                "rawValue": {
+                                  "type": "Circle",
+                                  "props": {
+                                    "children": []
+                                  }
+                                },
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "frame",
+                                    "props": {
+                                      "width": 200,
+                                      "height": 200,
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "Image",
+                                      "props": {
+                                        "url": "https://cdn-dev.metabind.com/213236ac-f3a9-416a-b371-d13bee51593e/0205c6f5-2d89-4ccf-963a-01c8ee7215b6/assets/8a8ba7ac-2570-4b97-a5be-000455bc8399/Research.jpg",
+                                        "dimensions": {
+                                          "width": 613,
+                                          "height": 287
+                                        },
+                                        "contentMode": "fill",
+                                        "children": [],
+                                        "resizable": true
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

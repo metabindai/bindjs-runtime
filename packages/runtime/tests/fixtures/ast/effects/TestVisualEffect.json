@@ -1,0 +1,68 @@
+{
+  "fixture": "effects/TestVisualEffect",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestVisualEffect",
+          "props": {},
+          "children": [
+            {
+              "type": "GeometryReader",
+              "props": {
+                "handlerId": "0,TestVisualEffect_0,GeometryReader_0,CallbackComponent_GeometryReader,0",
+                "environmentId": "0,TestVisualEffect_0,GeometryReader_0,CallbackComponent_GeometryReader,0",
+                "children": []
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "render": "preview 0: Scrolling",
+      "errors": [],
+      "ast": {
+        "type": "ModifiedComponent",
+        "props": {
+          "modifier": {
+            "type": "previewName",
+            "props": {
+              "rawValue": "Scrolling",
+              "children": []
+            }
+          },
+          "content": [
+            {
+              "type": "ScrollView",
+              "props": {
+                "children": [
+                  {
+                    "type": "ComponentCall",
+                    "props": {
+                      "name": "TestVisualEffect",
+                      "props": {},
+                      "children": [
+                        {
+                          "type": "GeometryReader",
+                          "props": {
+                            "handlerId": "0,ScrollView_0,TestVisualEffect_0,GeometryReader_0,CallbackComponent_GeometryReader,0",
+                            "environmentId": "0,ScrollView_0,TestVisualEffect_0,GeometryReader_0,CallbackComponent_GeometryReader,0",
+                            "children": []
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

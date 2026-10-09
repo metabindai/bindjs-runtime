@@ -1,0 +1,47 @@
+{
+  "fixture": "color/TestEllipticalGradient",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestEllipticalGradient",
+          "props": {},
+          "children": [
+            {
+              "type": "VStack",
+              "props": {
+                "children": [
+                  {
+                    "type": "EllipticalGradient",
+                    "props": {
+                      "colors": [
+                        {
+                          "type": "Color",
+                          "props": {
+                            "rawValue": "blue",
+                            "children": []
+                          }
+                        },
+                        {
+                          "type": "Color",
+                          "props": {
+                            "rawValue": "green",
+                            "children": []
+                          }
+                        }
+                      ],
+                      "children": []
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

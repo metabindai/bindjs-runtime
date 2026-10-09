@@ -1,0 +1,53 @@
+{
+  "fixture": "layout/TestLazyVStack",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestLazyVStack",
+          "props": {},
+          "children": [
+            {
+              "type": "LazyVStack",
+              "props": {
+                "children": [
+                  {
+                    "type": "Text",
+                    "props": {
+                      "rawValue": "TestLazyVStack 1",
+                      "children": []
+                    }
+                  },
+                  {
+                    "type": "Text",
+                    "props": {
+                      "rawValue": "TestLazyVStack 2",
+                      "children": []
+                    }
+                  },
+                  {
+                    "type": "Text",
+                    "props": {
+                      "rawValue": "TestLazyVStack 3",
+                      "children": []
+                    }
+                  },
+                  {
+                    "type": "Text",
+                    "props": {
+                      "rawValue": "TestLazyVStack 4",
+                      "children": []
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,613 @@
+{
+  "fixture": "gestures/TestOnDragGesture",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestOnDragGesture",
+          "props": {},
+          "children": [
+            {
+              "type": "ModifiedComponent",
+              "props": {
+                "modifier": {
+                  "type": "font",
+                  "props": {
+                    "rawValue": 80,
+                    "children": []
+                  }
+                },
+                "content": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "foregroundStyle",
+                        "props": {
+                          "rawValue": {
+                            "type": "Color",
+                            "props": {
+                              "rawValue": "primary",
+                              "children": []
+                            }
+                          },
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "VStack",
+                          "props": {
+                            "spacing": 32,
+                            "children": [
+                              {
+                                "type": "ComponentCall",
+                                "props": {
+                                  "name": "TestOnDragGesture",
+                                  "props": {
+                                    "rotation": 0
+                                  },
+                                  "children": [
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "offset",
+                                          "props": {
+                                            "x": 0,
+                                            "y": 0,
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "ModifiedComponent",
+                                            "props": {
+                                              "modifier": {
+                                                "type": "onTapGesture",
+                                                "props": {
+                                                  "handlerId": "0,TestOnDragGesture_0,VStack_0,TestOnDragGesture_0,onTapGesture,0",
+                                                  "children": []
+                                                }
+                                              },
+                                              "content": [
+                                                {
+                                                  "type": "ModifiedComponent",
+                                                  "props": {
+                                                    "modifier": {
+                                                      "type": "onDragGesture",
+                                                      "props": {
+                                                        "minimumDistance": 0,
+                                                        "handlerId": "0,TestOnDragGesture_0,VStack_0,TestOnDragGesture_0,onDragGesture,0",
+                                                        "children": []
+                                                      }
+                                                    },
+                                                    "content": [
+                                                      {
+                                                        "type": "ModifiedComponent",
+                                                        "props": {
+                                                          "modifier": {
+                                                            "type": "rotationEffect",
+                                                            "props": {
+                                                              "rawValue": 0,
+                                                              "children": []
+                                                            }
+                                                          },
+                                                          "content": [
+                                                            {
+                                                              "type": "ZStack",
+                                                              "props": {
+                                                                "children": [
+                                                                  {
+                                                                    "type": "Group",
+                                                                    "props": {
+                                                                      "children": [
+                                                                        {
+                                                                          "type": "ModifiedComponent",
+                                                                          "props": {
+                                                                            "modifier": {
+                                                                              "type": "font",
+                                                                              "props": {
+                                                                                "rawValue": 60,
+                                                                                "children": []
+                                                                              }
+                                                                            },
+                                                                            "content": [
+                                                                              {
+                                                                                "type": "ModifiedComponent",
+                                                                                "props": {
+                                                                                  "modifier": {
+                                                                                    "type": "frame",
+                                                                                    "props": {
+                                                                                      "width": 122,
+                                                                                      "height": 50,
+                                                                                      "children": []
+                                                                                    }
+                                                                                  },
+                                                                                  "content": [
+                                                                                    {
+                                                                                      "type": "Text",
+                                                                                      "props": {
+                                                                                        "rawValue": "🌈",
+                                                                                        "children": []
+                                                                                      }
+                                                                                    }
+                                                                                  ]
+                                                                                }
+                                                                              }
+                                                                            ]
+                                                                          }
+                                                                        }
+                                                                      ]
+                                                                    }
+                                                                  }
+                                                                ]
+                                                              }
+                                                            }
+                                                          ]
+                                                        }
+                                                      }
+                                                    ]
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              },
+                              {
+                                "type": "ComponentCall",
+                                "props": {
+                                  "name": "TestOnDragGesture",
+                                  "props": {
+                                    "rotation": 0
+                                  },
+                                  "children": [
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "offset",
+                                          "props": {
+                                            "x": 0,
+                                            "y": 0,
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "ModifiedComponent",
+                                            "props": {
+                                              "modifier": {
+                                                "type": "onTapGesture",
+                                                "props": {
+                                                  "handlerId": "0,TestOnDragGesture_0,VStack_0,TestOnDragGesture_1,onTapGesture,1",
+                                                  "children": []
+                                                }
+                                              },
+                                              "content": [
+                                                {
+                                                  "type": "ModifiedComponent",
+                                                  "props": {
+                                                    "modifier": {
+                                                      "type": "onDragGesture",
+                                                      "props": {
+                                                        "minimumDistance": 0,
+                                                        "handlerId": "0,TestOnDragGesture_0,VStack_0,TestOnDragGesture_1,onDragGesture,1",
+                                                        "children": []
+                                                      }
+                                                    },
+                                                    "content": [
+                                                      {
+                                                        "type": "ModifiedComponent",
+                                                        "props": {
+                                                          "modifier": {
+                                                            "type": "rotationEffect",
+                                                            "props": {
+                                                              "rawValue": 0,
+                                                              "children": []
+                                                            }
+                                                          },
+                                                          "content": [
+                                                            {
+                                                              "type": "ZStack",
+                                                              "props": {
+                                                                "children": [
+                                                                  {
+                                                                    "type": "Group",
+                                                                    "props": {
+                                                                      "children": [
+                                                                        {
+                                                                          "type": "ModifiedComponent",
+                                                                          "props": {
+                                                                            "modifier": {
+                                                                              "type": "font",
+                                                                              "props": {
+                                                                                "rawValue": 60,
+                                                                                "children": []
+                                                                              }
+                                                                            },
+                                                                            "content": [
+                                                                              {
+                                                                                "type": "ModifiedComponent",
+                                                                                "props": {
+                                                                                  "modifier": {
+                                                                                    "type": "frame",
+                                                                                    "props": {
+                                                                                      "width": 122,
+                                                                                      "height": 50,
+                                                                                      "children": []
+                                                                                    }
+                                                                                  },
+                                                                                  "content": [
+                                                                                    {
+                                                                                      "type": "Text",
+                                                                                      "props": {
+                                                                                        "rawValue": "🌈",
+                                                                                        "children": []
+                                                                                      }
+                                                                                    }
+                                                                                  ]
+                                                                                }
+                                                                              }
+                                                                            ]
+                                                                          }
+                                                                        }
+                                                                      ]
+                                                                    }
+                                                                  }
+                                                                ]
+                                                              }
+                                                            }
+                                                          ]
+                                                        }
+                                                      }
+                                                    ]
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              },
+                              {
+                                "type": "ComponentCall",
+                                "props": {
+                                  "name": "TestOnDragGesture",
+                                  "props": {
+                                    "rotation": 0
+                                  },
+                                  "children": [
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "offset",
+                                          "props": {
+                                            "x": 0,
+                                            "y": 0,
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "ModifiedComponent",
+                                            "props": {
+                                              "modifier": {
+                                                "type": "onTapGesture",
+                                                "props": {
+                                                  "handlerId": "0,TestOnDragGesture_0,VStack_0,TestOnDragGesture_2,onTapGesture,2",
+                                                  "children": []
+                                                }
+                                              },
+                                              "content": [
+                                                {
+                                                  "type": "ModifiedComponent",
+                                                  "props": {
+                                                    "modifier": {
+                                                      "type": "onDragGesture",
+                                                      "props": {
+                                                        "minimumDistance": 0,
+                                                        "handlerId": "0,TestOnDragGesture_0,VStack_0,TestOnDragGesture_2,onDragGesture,2",
+                                                        "children": []
+                                                      }
+                                                    },
+                                                    "content": [
+                                                      {
+                                                        "type": "ModifiedComponent",
+                                                        "props": {
+                                                          "modifier": {
+                                                            "type": "rotationEffect",
+                                                            "props": {
+                                                              "rawValue": 0,
+                                                              "children": []
+                                                            }
+                                                          },
+                                                          "content": [
+                                                            {
+                                                              "type": "ZStack",
+                                                              "props": {
+                                                                "children": [
+                                                                  {
+                                                                    "type": "Group",
+                                                                    "props": {
+                                                                      "children": [
+                                                                        {
+                                                                          "type": "ModifiedComponent",
+                                                                          "props": {
+                                                                            "modifier": {
+                                                                              "type": "frame",
+                                                                              "props": {
+                                                                                "width": 122,
+                                                                                "height": 50,
+                                                                                "children": []
+                                                                              }
+                                                                            },
+                                                                            "content": [
+                                                                              {
+                                                                                "type": "Text",
+                                                                                "props": {
+                                                                                  "rawValue": "🍁",
+                                                                                  "children": []
+                                                                                }
+                                                                              }
+                                                                            ]
+                                                                          }
+                                                                        }
+                                                                      ]
+                                                                    }
+                                                                  }
+                                                                ]
+                                                              }
+                                                            }
+                                                          ]
+                                                        }
+                                                      }
+                                                    ]
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              },
+                              {
+                                "type": "ComponentCall",
+                                "props": {
+                                  "name": "TestOnDragGesture",
+                                  "props": {
+                                    "rotation": 0
+                                  },
+                                  "children": [
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "offset",
+                                          "props": {
+                                            "x": 0,
+                                            "y": 0,
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "ModifiedComponent",
+                                            "props": {
+                                              "modifier": {
+                                                "type": "onTapGesture",
+                                                "props": {
+                                                  "handlerId": "0,TestOnDragGesture_0,VStack_0,TestOnDragGesture_3,onTapGesture,3",
+                                                  "children": []
+                                                }
+                                              },
+                                              "content": [
+                                                {
+                                                  "type": "ModifiedComponent",
+                                                  "props": {
+                                                    "modifier": {
+                                                      "type": "onDragGesture",
+                                                      "props": {
+                                                        "minimumDistance": 0,
+                                                        "handlerId": "0,TestOnDragGesture_0,VStack_0,TestOnDragGesture_3,onDragGesture,3",
+                                                        "children": []
+                                                      }
+                                                    },
+                                                    "content": [
+                                                      {
+                                                        "type": "ModifiedComponent",
+                                                        "props": {
+                                                          "modifier": {
+                                                            "type": "rotationEffect",
+                                                            "props": {
+                                                              "rawValue": 0,
+                                                              "children": []
+                                                            }
+                                                          },
+                                                          "content": [
+                                                            {
+                                                              "type": "ZStack",
+                                                              "props": {
+                                                                "children": [
+                                                                  {
+                                                                    "type": "Group",
+                                                                    "props": {
+                                                                      "children": [
+                                                                        {
+                                                                          "type": "ModifiedComponent",
+                                                                          "props": {
+                                                                            "modifier": {
+                                                                              "type": "frame",
+                                                                              "props": {
+                                                                                "width": 122,
+                                                                                "height": 50,
+                                                                                "children": []
+                                                                              }
+                                                                            },
+                                                                            "content": [
+                                                                              {
+                                                                                "type": "Text",
+                                                                                "props": {
+                                                                                  "rawValue": "☀️",
+                                                                                  "children": []
+                                                                                }
+                                                                              }
+                                                                            ]
+                                                                          }
+                                                                        }
+                                                                      ]
+                                                                    }
+                                                                  }
+                                                                ]
+                                                              }
+                                                            }
+                                                          ]
+                                                        }
+                                                      }
+                                                    ]
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              },
+                              {
+                                "type": "ComponentCall",
+                                "props": {
+                                  "name": "TestOnDragGesture",
+                                  "props": {
+                                    "rotation": 0
+                                  },
+                                  "children": [
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "offset",
+                                          "props": {
+                                            "x": 0,
+                                            "y": 0,
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "ModifiedComponent",
+                                            "props": {
+                                              "modifier": {
+                                                "type": "onTapGesture",
+                                                "props": {
+                                                  "handlerId": "0,TestOnDragGesture_0,VStack_0,TestOnDragGesture_4,onTapGesture,4",
+                                                  "children": []
+                                                }
+                                              },
+                                              "content": [
+                                                {
+                                                  "type": "ModifiedComponent",
+                                                  "props": {
+                                                    "modifier": {
+                                                      "type": "onDragGesture",
+                                                      "props": {
+                                                        "minimumDistance": 0,
+                                                        "handlerId": "0,TestOnDragGesture_0,VStack_0,TestOnDragGesture_4,onDragGesture,4",
+                                                        "children": []
+                                                      }
+                                                    },
+                                                    "content": [
+                                                      {
+                                                        "type": "ModifiedComponent",
+                                                        "props": {
+                                                          "modifier": {
+                                                            "type": "rotationEffect",
+                                                            "props": {
+                                                              "rawValue": 0,
+                                                              "children": []
+                                                            }
+                                                          },
+                                                          "content": [
+                                                            {
+                                                              "type": "ZStack",
+                                                              "props": {
+                                                                "children": [
+                                                                  {
+                                                                    "type": "Group",
+                                                                    "props": {
+                                                                      "children": [
+                                                                        {
+                                                                          "type": "ModifiedComponent",
+                                                                          "props": {
+                                                                            "modifier": {
+                                                                              "type": "frame",
+                                                                              "props": {
+                                                                                "width": 122,
+                                                                                "height": 50,
+                                                                                "children": []
+                                                                              }
+                                                                            },
+                                                                            "content": [
+                                                                              {
+                                                                                "type": "Text",
+                                                                                "props": {
+                                                                                  "rawValue": "⚽️",
+                                                                                  "children": []
+                                                                                }
+                                                                              }
+                                                                            ]
+                                                                          }
+                                                                        }
+                                                                      ]
+                                                                    }
+                                                                  }
+                                                                ]
+                                                              }
+                                                            }
+                                                          ]
+                                                        }
+                                                      }
+                                                    ]
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

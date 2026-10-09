@@ -1,0 +1,47 @@
+{
+  "fixture": "color/TestRadialGradient",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestRadialGradient",
+          "props": {},
+          "children": [
+            {
+              "type": "VStack",
+              "props": {
+                "children": [
+                  {
+                    "type": "RadialGradient",
+                    "props": {
+                      "colors": [
+                        {
+                          "type": "Color",
+                          "props": {
+                            "rawValue": "purple",
+                            "children": []
+                          }
+                        },
+                        {
+                          "type": "Color",
+                          "props": {
+                            "rawValue": "red",
+                            "children": []
+                          }
+                        }
+                      ],
+                      "children": []
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

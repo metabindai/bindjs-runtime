@@ -1,0 +1,519 @@
+{
+  "fixture": "color/TestForegroundStyle",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestForegroundStyle",
+          "props": {},
+          "children": [
+            {
+              "type": "ModifiedComponent",
+              "props": {
+                "modifier": {
+                  "type": "padding",
+                  "props": {
+                    "top": 20,
+                    "leading": 20,
+                    "bottom": 20,
+                    "trailing": 20,
+                    "children": []
+                  }
+                },
+                "content": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "font",
+                        "props": {
+                          "rawValue": 28,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "VStack",
+                          "props": {
+                            "spacing": 20,
+                            "children": [
+                              {
+                                "type": "VStack",
+                                "props": {
+                                  "children": [
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "foregroundStyle",
+                                          "props": {
+                                            "rawValue": {
+                                              "type": "Color",
+                                              "props": {
+                                                "rawValue": "red",
+                                                "children": []
+                                              }
+                                            },
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "Text",
+                                            "props": {
+                                              "rawValue": "TestForegroundStyle",
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "colorScheme",
+                                          "props": {
+                                            "rawValue": "dark",
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "ModifiedComponent",
+                                            "props": {
+                                              "modifier": {
+                                                "type": "foregroundStyle",
+                                                "props": {
+                                                  "rawValue": {
+                                                    "type": "Color",
+                                                    "props": {
+                                                      "rawValue": "secondary",
+                                                      "children": []
+                                                    }
+                                                  },
+                                                  "children": []
+                                                }
+                                              },
+                                              "content": [
+                                                {
+                                                  "type": "Text",
+                                                  "props": {
+                                                    "rawValue": "TestForegroundStyle",
+                                                    "children": []
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "foregroundStyle",
+                                          "props": {
+                                            "rawValue": {
+                                              "type": "LinearGradient",
+                                              "props": {
+                                                "colors": [
+                                                  {
+                                                    "type": "Color",
+                                                    "props": {
+                                                      "rawValue": "purple",
+                                                      "children": []
+                                                    }
+                                                  },
+                                                  {
+                                                    "type": "Color",
+                                                    "props": {
+                                                      "rawValue": "red",
+                                                      "children": []
+                                                    }
+                                                  }
+                                                ],
+                                                "children": []
+                                              }
+                                            },
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "Text",
+                                            "props": {
+                                              "rawValue": "TestForegroundStyle",
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              },
+                              {
+                                "type": "ComponentCall",
+                                "props": {
+                                  "name": "TestForegroundStyle",
+                                  "props": {},
+                                  "children": [
+                                    {
+                                      "type": "VStack",
+                                      "props": {
+                                        "children": [
+                                          {
+                                            "type": "ModifiedComponent",
+                                            "props": {
+                                              "modifier": {
+                                                "type": "foregroundStyle",
+                                                "props": {
+                                                  "rawValue": {
+                                                    "type": "Color",
+                                                    "props": {
+                                                      "rawValue": "red",
+                                                      "children": []
+                                                    }
+                                                  },
+                                                  "children": []
+                                                }
+                                              },
+                                              "content": [
+                                                {
+                                                  "type": "ModifiedComponent",
+                                                  "props": {
+                                                    "modifier": {
+                                                      "type": "frame",
+                                                      "props": {
+                                                        "height": 20,
+                                                        "children": []
+                                                      }
+                                                    },
+                                                    "content": [
+                                                      {
+                                                        "type": "RoundedRectangle",
+                                                        "props": {
+                                                          "children": []
+                                                        }
+                                                      }
+                                                    ]
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          {
+                                            "type": "ModifiedComponent",
+                                            "props": {
+                                              "modifier": {
+                                                "type": "foregroundStyle",
+                                                "props": {
+                                                  "rawValue": {
+                                                    "type": "Color",
+                                                    "props": {
+                                                      "rawValue": "secondary",
+                                                      "children": []
+                                                    }
+                                                  },
+                                                  "children": []
+                                                }
+                                              },
+                                              "content": [
+                                                {
+                                                  "type": "ModifiedComponent",
+                                                  "props": {
+                                                    "modifier": {
+                                                      "type": "frame",
+                                                      "props": {
+                                                        "height": 20,
+                                                        "children": []
+                                                      }
+                                                    },
+                                                    "content": [
+                                                      {
+                                                        "type": "RoundedRectangle",
+                                                        "props": {
+                                                          "children": []
+                                                        }
+                                                      }
+                                                    ]
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          {
+                                            "type": "ModifiedComponent",
+                                            "props": {
+                                              "modifier": {
+                                                "type": "foregroundStyle",
+                                                "props": {
+                                                  "rawValue": {
+                                                    "type": "LinearGradient",
+                                                    "props": {
+                                                      "colors": [
+                                                        {
+                                                          "type": "Color",
+                                                          "props": {
+                                                            "rawValue": "purple",
+                                                            "children": []
+                                                          }
+                                                        },
+                                                        {
+                                                          "type": "Color",
+                                                          "props": {
+                                                            "rawValue": "red",
+                                                            "children": []
+                                                          }
+                                                        }
+                                                      ],
+                                                      "children": []
+                                                    }
+                                                  },
+                                                  "children": []
+                                                }
+                                              },
+                                              "content": [
+                                                {
+                                                  "type": "ModifiedComponent",
+                                                  "props": {
+                                                    "modifier": {
+                                                      "type": "frame",
+                                                      "props": {
+                                                        "height": 20,
+                                                        "children": []
+                                                      }
+                                                    },
+                                                    "content": [
+                                                      {
+                                                        "type": "RoundedRectangle",
+                                                        "props": {
+                                                          "children": []
+                                                        }
+                                                      }
+                                                    ]
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              },
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "clipped",
+                                    "props": {
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "frame",
+                                          "props": {
+                                            "height": 200,
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "ModifiedComponent",
+                                            "props": {
+                                              "modifier": {
+                                                "type": "background",
+                                                "props": {
+                                                  "content": {
+                                                    "type": "ModifiedComponent",
+                                                    "props": {
+                                                      "modifier": {
+                                                        "type": "aspectRatio",
+                                                        "props": {
+                                                          "contentMode": "fill",
+                                                          "children": []
+                                                        }
+                                                      },
+                                                      "content": [
+                                                        {
+                                                          "type": "Image",
+                                                          "props": {
+                                                            "url": "https://cdn-dev.metabind.com/213236ac-f3a9-416a-b371-d13bee51593e/9279cab9-3f77-4b85-9cac-e7225f6ef208/assets/b54f4fec-f4fc-4626-ade4-6fba67a2a38b/iClarified-iOS26-LockScreen-Dark.jpg",
+                                                            "children": [],
+                                                            "resizable": true
+                                                          }
+                                                        }
+                                                      ]
+                                                    }
+                                                  },
+                                                  "children": []
+                                                }
+                                              },
+                                              "content": [
+                                                {
+                                                  "type": "ModifiedComponent",
+                                                  "props": {
+                                                    "modifier": {
+                                                      "type": "padding",
+                                                      "props": {
+                                                        "top": 20,
+                                                        "leading": 20,
+                                                        "bottom": 20,
+                                                        "trailing": 20,
+                                                        "children": []
+                                                      }
+                                                    },
+                                                    "content": [
+                                                      {
+                                                        "type": "VStack",
+                                                        "props": {
+                                                          "children": [
+                                                            {
+                                                              "type": "ModifiedComponent",
+                                                              "props": {
+                                                                "modifier": {
+                                                                  "type": "foregroundStyle",
+                                                                  "props": {
+                                                                    "rawValue": {
+                                                                      "type": "Color",
+                                                                      "props": {
+                                                                        "rawValue": "red",
+                                                                        "children": []
+                                                                      }
+                                                                    },
+                                                                    "children": []
+                                                                  }
+                                                                },
+                                                                "content": [
+                                                                  {
+                                                                    "type": "ModifiedComponent",
+                                                                    "props": {
+                                                                      "modifier": {
+                                                                        "type": "frame",
+                                                                        "props": {
+                                                                          "height": 20,
+                                                                          "children": []
+                                                                        }
+                                                                      },
+                                                                      "content": [
+                                                                        {
+                                                                          "type": "RoundedRectangle",
+                                                                          "props": {
+                                                                            "children": []
+                                                                          }
+                                                                        }
+                                                                      ]
+                                                                    }
+                                                                  }
+                                                                ]
+                                                              }
+                                                            },
+                                                            {
+                                                              "type": "ModifiedComponent",
+                                                              "props": {
+                                                                "modifier": {
+                                                                  "type": "foregroundStyle",
+                                                                  "props": {
+                                                                    "rawValue": {
+                                                                      "type": "Color",
+                                                                      "props": {
+                                                                        "rawValue": "green",
+                                                                        "children": []
+                                                                      }
+                                                                    },
+                                                                    "children": []
+                                                                  }
+                                                                },
+                                                                "content": [
+                                                                  {
+                                                                    "type": "ModifiedComponent",
+                                                                    "props": {
+                                                                      "modifier": {
+                                                                        "type": "frame",
+                                                                        "props": {
+                                                                          "width": 20,
+                                                                          "height": 20,
+                                                                          "children": []
+                                                                        }
+                                                                      },
+                                                                      "content": [
+                                                                        {
+                                                                          "type": "Circle",
+                                                                          "props": {
+                                                                            "children": []
+                                                                          }
+                                                                        }
+                                                                      ]
+                                                                    }
+                                                                  }
+                                                                ]
+                                                              }
+                                                            },
+                                                            {
+                                                              "type": "ModifiedComponent",
+                                                              "props": {
+                                                                "modifier": {
+                                                                  "type": "foregroundStyle",
+                                                                  "props": {
+                                                                    "rawValue": {
+                                                                      "type": "Color",
+                                                                      "props": {
+                                                                        "rawValue": "gray",
+                                                                        "children": []
+                                                                      }
+                                                                    },
+                                                                    "children": []
+                                                                  }
+                                                                },
+                                                                "content": [
+                                                                  {
+                                                                    "type": "Text",
+                                                                    "props": {
+                                                                      "rawValue": "TestForegroundStyle",
+                                                                      "children": []
+                                                                    }
+                                                                  }
+                                                                ]
+                                                              }
+                                                            }
+                                                          ]
+                                                        }
+                                                      }
+                                                    ]
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

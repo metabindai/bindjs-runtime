@@ -1,0 +1,143 @@
+{
+  "fixture": "charts/TestChartDonutBasic",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestChartDonutBasic",
+          "props": {},
+          "children": [
+            {
+              "type": "ModifiedComponent",
+              "props": {
+                "modifier": {
+                  "type": "frame",
+                  "props": {
+                    "height": 280,
+                    "children": []
+                  }
+                },
+                "content": [
+                  {
+                    "type": "PieChart",
+                    "props": {
+                      "innerRadius": 0.55,
+                      "children": [
+                        {
+                          "type": "PieSliceMark",
+                          "props": {
+                            "id": "north",
+                            "value": 40,
+                            "label": "North",
+                            "children": []
+                          }
+                        },
+                        {
+                          "type": "PieSliceMark",
+                          "props": {
+                            "id": "south",
+                            "value": 25,
+                            "label": "South",
+                            "children": []
+                          }
+                        },
+                        {
+                          "type": "PieSliceMark",
+                          "props": {
+                            "id": "west",
+                            "value": 35,
+                            "label": "West",
+                            "children": []
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "render": "preview 0: Default",
+      "errors": [],
+      "ast": {
+        "type": "ModifiedComponent",
+        "props": {
+          "modifier": {
+            "type": "previewName",
+            "props": {
+              "rawValue": "Default",
+              "children": []
+            }
+          },
+          "content": [
+            {
+              "type": "ComponentCall",
+              "props": {
+                "name": "TestChartDonutBasic",
+                "props": {},
+                "children": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "frame",
+                        "props": {
+                          "height": 280,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "PieChart",
+                          "props": {
+                            "innerRadius": 0.55,
+                            "children": [
+                              {
+                                "type": "PieSliceMark",
+                                "props": {
+                                  "id": "north",
+                                  "value": 40,
+                                  "label": "North",
+                                  "children": []
+                                }
+                              },
+                              {
+                                "type": "PieSliceMark",
+                                "props": {
+                                  "id": "south",
+                                  "value": 25,
+                                  "label": "South",
+                                  "children": []
+                                }
+                              },
+                              {
+                                "type": "PieSliceMark",
+                                "props": {
+                                  "id": "west",
+                                  "value": 35,
+                                  "label": "West",
+                                  "children": []
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "fixture": "controls/TestDisabled",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestDisabled",
+          "props": {},
+          "children": [
+            {
+              "type": "VStack",
+              "props": {
+                "children": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "disabled",
+                        "props": {
+                          "rawValue": true,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "Button",
+                          "props": {
+                            "handlerId": "0,TestDisabled_0,VStack_0,Button_0,,0",
+                            "label": {
+                              "type": "Text",
+                              "props": {
+                                "rawValue": "Disabled Button",
+                                "children": []
+                              }
+                            },
+                            "environmentId": "0,TestDisabled_0,VStack_0,Button_0,,0",
+                            "children": []
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "disabled",
+                        "props": {
+                          "rawValue": false,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "Button",
+                          "props": {
+                            "handlerId": "0,TestDisabled_0,VStack_0,Button_1,,1",
+                            "label": {
+                              "type": "Text",
+                              "props": {
+                                "rawValue": "Button",
+                                "children": []
+                              }
+                            },
+                            "environmentId": "0,TestDisabled_0,VStack_0,Button_1,,1",
+                            "children": []
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

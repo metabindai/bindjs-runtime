@@ -1,0 +1,460 @@
+{
+  "fixture": "runtime/TestThree",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestThree",
+          "props": {},
+          "children": [
+            {
+              "type": "ModifiedComponent",
+              "props": {
+                "modifier": {
+                  "type": "padding",
+                  "props": {
+                    "top": 20,
+                    "leading": 20,
+                    "bottom": 20,
+                    "trailing": 20,
+                    "children": []
+                  }
+                },
+                "content": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "shadow",
+                        "props": {
+                          "radius": 24,
+                          "y": 2,
+                          "color": {
+                            "type": "Color",
+                            "props": {
+                              "rawValue": "black",
+                              "children": [],
+                              "opacity": 0.1
+                            }
+                          },
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "cornerRadius",
+                              "props": {
+                                "rawValue": 12,
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "background",
+                                    "props": {
+                                      "content": {
+                                        "type": "Color",
+                                        "props": {
+                                          "rawValue": "white",
+                                          "children": []
+                                        }
+                                      },
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "padding",
+                                          "props": {
+                                            "top": 16,
+                                            "leading": 16,
+                                            "bottom": 16,
+                                            "trailing": 16,
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "VStack",
+                                            "props": {
+                                              "spacing": 8,
+                                              "alignment": "leading",
+                                              "children": [
+                                                {
+                                                  "type": "Empty",
+                                                  "props": {
+                                                    "children": []
+                                                  }
+                                                },
+                                                {
+                                                  "type": "ModifiedComponent",
+                                                  "props": {
+                                                    "modifier": {
+                                                      "type": "fontWeight",
+                                                      "props": {
+                                                        "rawValue": "bold",
+                                                        "children": []
+                                                      }
+                                                    },
+                                                    "content": [
+                                                      {
+                                                        "type": "ModifiedComponent",
+                                                        "props": {
+                                                          "modifier": {
+                                                            "type": "font",
+                                                            "props": {
+                                                              "rawValue": "headline",
+                                                              "children": []
+                                                            }
+                                                          },
+                                                          "content": [
+                                                            {
+                                                              "type": "Text",
+                                                              "props": {
+                                                                "rawValue": "Title",
+                                                                "children": []
+                                                              }
+                                                            }
+                                                          ]
+                                                        }
+                                                      }
+                                                    ]
+                                                  }
+                                                },
+                                                {
+                                                  "type": "ModifiedComponent",
+                                                  "props": {
+                                                    "modifier": {
+                                                      "type": "foregroundStyle",
+                                                      "props": {
+                                                        "rawValue": {
+                                                          "type": "Color",
+                                                          "props": {
+                                                            "rawValue": "gray",
+                                                            "children": []
+                                                          }
+                                                        },
+                                                        "children": []
+                                                      }
+                                                    },
+                                                    "content": [
+                                                      {
+                                                        "type": "ModifiedComponent",
+                                                        "props": {
+                                                          "modifier": {
+                                                            "type": "font",
+                                                            "props": {
+                                                              "rawValue": "subheadline",
+                                                              "children": []
+                                                            }
+                                                          },
+                                                          "content": [
+                                                            {
+                                                              "type": "Text",
+                                                              "props": {
+                                                                "children": []
+                                                              }
+                                                            }
+                                                          ]
+                                                        }
+                                                      }
+                                                    ]
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "render": "preview 0: Default Card",
+      "errors": [],
+      "ast": {
+        "type": "ModifiedComponent",
+        "props": {
+          "modifier": {
+            "type": "previewName",
+            "props": {
+              "rawValue": "Default Card",
+              "children": []
+            }
+          },
+          "content": [
+            {
+              "type": "ComponentCall",
+              "props": {
+                "name": "TestThree",
+                "props": {
+                  "title": "Beautiful Landscasdfpe",
+                  "subtitle": "A peaceful nature scene!!!",
+                  "asset": {
+                    "image": {
+                      "url": "https://picsum.photos/400/240"
+                    }
+                  }
+                },
+                "children": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "padding",
+                        "props": {
+                          "top": 20,
+                          "leading": 20,
+                          "bottom": 20,
+                          "trailing": 20,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "shadow",
+                              "props": {
+                                "radius": 24,
+                                "y": 2,
+                                "color": {
+                                  "type": "Color",
+                                  "props": {
+                                    "rawValue": "black",
+                                    "children": [],
+                                    "opacity": 0.1
+                                  }
+                                },
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "cornerRadius",
+                                    "props": {
+                                      "rawValue": 12,
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "background",
+                                          "props": {
+                                            "content": {
+                                              "type": "Color",
+                                              "props": {
+                                                "rawValue": "white",
+                                                "children": []
+                                              }
+                                            },
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "ModifiedComponent",
+                                            "props": {
+                                              "modifier": {
+                                                "type": "padding",
+                                                "props": {
+                                                  "top": 16,
+                                                  "leading": 16,
+                                                  "bottom": 16,
+                                                  "trailing": 16,
+                                                  "children": []
+                                                }
+                                              },
+                                              "content": [
+                                                {
+                                                  "type": "VStack",
+                                                  "props": {
+                                                    "spacing": 8,
+                                                    "alignment": "leading",
+                                                    "children": [
+                                                      {
+                                                        "type": "ModifiedComponent",
+                                                        "props": {
+                                                          "modifier": {
+                                                            "type": "cornerRadius",
+                                                            "props": {
+                                                              "rawValue": 8,
+                                                              "children": []
+                                                            }
+                                                          },
+                                                          "content": [
+                                                            {
+                                                              "type": "ModifiedComponent",
+                                                              "props": {
+                                                                "modifier": {
+                                                                  "type": "frame",
+                                                                  "props": {
+                                                                    "maxWidth": "Infinity",
+                                                                    "children": []
+                                                                  }
+                                                                },
+                                                                "content": [
+                                                                  {
+                                                                    "type": "ModifiedComponent",
+                                                                    "props": {
+                                                                      "modifier": {
+                                                                        "type": "frame",
+                                                                        "props": {
+                                                                          "height": 160,
+                                                                          "children": []
+                                                                        }
+                                                                      },
+                                                                      "content": [
+                                                                        {
+                                                                          "type": "Image",
+                                                                          "props": {
+                                                                            "url": "https://picsum.photos/400/240",
+                                                                            "children": [],
+                                                                            "resizable": true
+                                                                          }
+                                                                        }
+                                                                      ]
+                                                                    }
+                                                                  }
+                                                                ]
+                                                              }
+                                                            }
+                                                          ]
+                                                        }
+                                                      },
+                                                      {
+                                                        "type": "ModifiedComponent",
+                                                        "props": {
+                                                          "modifier": {
+                                                            "type": "fontWeight",
+                                                            "props": {
+                                                              "rawValue": "bold",
+                                                              "children": []
+                                                            }
+                                                          },
+                                                          "content": [
+                                                            {
+                                                              "type": "ModifiedComponent",
+                                                              "props": {
+                                                                "modifier": {
+                                                                  "type": "font",
+                                                                  "props": {
+                                                                    "rawValue": "headline",
+                                                                    "children": []
+                                                                  }
+                                                                },
+                                                                "content": [
+                                                                  {
+                                                                    "type": "Text",
+                                                                    "props": {
+                                                                      "rawValue": "Beautiful Landscasdfpe",
+                                                                      "children": []
+                                                                    }
+                                                                  }
+                                                                ]
+                                                              }
+                                                            }
+                                                          ]
+                                                        }
+                                                      },
+                                                      {
+                                                        "type": "ModifiedComponent",
+                                                        "props": {
+                                                          "modifier": {
+                                                            "type": "foregroundStyle",
+                                                            "props": {
+                                                              "rawValue": {
+                                                                "type": "Color",
+                                                                "props": {
+                                                                  "rawValue": "gray",
+                                                                  "children": []
+                                                                }
+                                                              },
+                                                              "children": []
+                                                            }
+                                                          },
+                                                          "content": [
+                                                            {
+                                                              "type": "ModifiedComponent",
+                                                              "props": {
+                                                                "modifier": {
+                                                                  "type": "font",
+                                                                  "props": {
+                                                                    "rawValue": "subheadline",
+                                                                    "children": []
+                                                                  }
+                                                                },
+                                                                "content": [
+                                                                  {
+                                                                    "type": "Text",
+                                                                    "props": {
+                                                                      "rawValue": "A peaceful nature scene!!!",
+                                                                      "children": []
+                                                                    }
+                                                                  }
+                                                                ]
+                                                              }
+                                                            }
+                                                          ]
+                                                        }
+                                                      }
+                                                    ]
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

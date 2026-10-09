@@ -1,0 +1,75 @@
+{
+  "fixture": "effects/TestAnimation",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestAnimation",
+          "props": {},
+          "children": [
+            {
+              "type": "ModifiedComponent",
+              "props": {
+                "modifier": {
+                  "type": "onTapGesture",
+                  "props": {
+                    "handlerId": "0,TestAnimation_0,onTapGesture,0",
+                    "children": []
+                  }
+                },
+                "content": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "animation",
+                        "props": {
+                          "animation": "{\"type\":\"Spring\",\"props\":{\"type\":\"spring\",\"children\":[],\"repeatCount\":2,\"repeatForever\":true}}",
+                          "value": "false",
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "scaleEffect",
+                              "props": {
+                                "rawValue": 1,
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "VStack",
+                                "props": {
+                                  "children": [
+                                    {
+                                      "type": "Text",
+                                      "props": {
+                                        "rawValue": "TestAnimation",
+                                        "children": []
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "fixture": "color/TestColor",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestColor",
+          "props": {},
+          "children": [
+            {
+              "type": "VStack",
+              "props": {
+                "spacing": 0,
+                "children": [
+                  {
+                    "type": "Color",
+                    "props": {
+                      "rawValue": "primary",
+                      "children": []
+                    }
+                  },
+                  {
+                    "type": "Color",
+                    "props": {
+                      "rawValue": "secondary",
+                      "children": []
+                    }
+                  },
+                  {
+                    "type": "Color",
+                    "props": {
+                      "rawValue": "tertiary",
+                      "children": []
+                    }
+                  },
+                  {
+                    "type": "Color",
+                    "props": {
+                      "rawValue": "blue",
+                      "children": []
+                    }
+                  },
+                  {
+                    "type": "Color",
+                    "props": {
+                      "r": 0,
+                      "g": 0,
+                      "b": 255,
+                      "a": 1,
+                      "children": []
+                    }
+                  },
+                  {
+                    "type": "Color",
+                    "props": {
+                      "r": 0,
+                      "g": 0,
+                      "b": 255,
+                      "a": 0.5,
+                      "children": []
+                    }
+                  },
+                  {
+                    "type": "Color",
+                    "props": {
+                      "r": 0,
+                      "g": 34,
+                      "b": 102,
+                      "a": 1,
+                      "children": []
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

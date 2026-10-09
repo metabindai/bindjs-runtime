@@ -1,0 +1,24 @@
+{
+  "fixture": "media/_3DModel",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "_3DModel",
+          "props": {},
+          "children": [
+            {
+              "type": "Model3D",
+              "props": {
+                "children": []
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

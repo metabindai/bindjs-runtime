@@ -1,0 +1,249 @@
+{
+  "fixture": "charts/TestChartHeatmapCells",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestChartHeatmapCells",
+          "props": {},
+          "children": [
+            {
+              "type": "ModifiedComponent",
+              "props": {
+                "modifier": {
+                  "type": "frame",
+                  "props": {
+                    "height": 280,
+                    "children": []
+                  }
+                },
+                "content": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "chartForegroundStyleScale",
+                        "props": {
+                          "High": "red",
+                          "Low": "blue",
+                          "__bindjsScaleDomain": [
+                            "High",
+                            "Low"
+                          ],
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "Chart",
+                          "props": {
+                            "children": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "foregroundStyle",
+                                    "props": {
+                                      "by": {
+                                        "value": "High",
+                                        "label": "Intensity"
+                                      },
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "RectangleMark",
+                                      "props": {
+                                        "x": {
+                                          "value": "Jan",
+                                          "label": "Month"
+                                        },
+                                        "y": {
+                                          "value": "North",
+                                          "label": "Region"
+                                        },
+                                        "children": []
+                                      }
+                                    }
+                                  ]
+                                }
+                              },
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "foregroundStyle",
+                                    "props": {
+                                      "by": {
+                                        "value": "Low",
+                                        "label": "Intensity"
+                                      },
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "RectangleMark",
+                                      "props": {
+                                        "x": {
+                                          "value": "Feb",
+                                          "label": "Month"
+                                        },
+                                        "y": {
+                                          "value": "South",
+                                          "label": "Region"
+                                        },
+                                        "children": []
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "render": "preview 0: Default",
+      "errors": [],
+      "ast": {
+        "type": "ModifiedComponent",
+        "props": {
+          "modifier": {
+            "type": "previewName",
+            "props": {
+              "rawValue": "Default",
+              "children": []
+            }
+          },
+          "content": [
+            {
+              "type": "ComponentCall",
+              "props": {
+                "name": "TestChartHeatmapCells",
+                "props": {},
+                "children": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "frame",
+                        "props": {
+                          "height": 280,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "chartForegroundStyleScale",
+                              "props": {
+                                "High": "red",
+                                "Low": "blue",
+                                "__bindjsScaleDomain": [
+                                  "High",
+                                  "Low"
+                                ],
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "Chart",
+                                "props": {
+                                  "children": [
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "foregroundStyle",
+                                          "props": {
+                                            "by": {
+                                              "value": "High",
+                                              "label": "Intensity"
+                                            },
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "RectangleMark",
+                                            "props": {
+                                              "x": {
+                                                "value": "Jan",
+                                                "label": "Month"
+                                              },
+                                              "y": {
+                                                "value": "North",
+                                                "label": "Region"
+                                              },
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "type": "ModifiedComponent",
+                                      "props": {
+                                        "modifier": {
+                                          "type": "foregroundStyle",
+                                          "props": {
+                                            "by": {
+                                              "value": "Low",
+                                              "label": "Intensity"
+                                            },
+                                            "children": []
+                                          }
+                                        },
+                                        "content": [
+                                          {
+                                            "type": "RectangleMark",
+                                            "props": {
+                                              "x": {
+                                                "value": "Feb",
+                                                "label": "Month"
+                                              },
+                                              "y": {
+                                                "value": "South",
+                                                "label": "Region"
+                                              },
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

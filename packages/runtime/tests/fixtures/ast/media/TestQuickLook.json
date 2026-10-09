@@ -1,0 +1,73 @@
+{
+  "fixture": "media/TestQuickLook",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestQuickLook",
+          "props": {},
+          "children": [
+            {
+              "type": "ModifiedComponent",
+              "props": {
+                "modifier": {
+                  "type": "quickLookPreview",
+                  "props": {
+                    "urls": [
+                      "https://cdn.metabind.ai/99f55fa7-ce68-4870-a983-08aa61d451a5/1RvBm8v1vA6SOlHzXhTr/assets/JaIU9q4g9Hf560xn5FYO/distortus_rex2.usdz",
+                      "https://help.apple.com/pdf/applestyleguide/en_US/apple-style-guide.pdf",
+                      "https://cdn-dev.metabind.ai/213236ac-f3a9-416a-b371-d13bee51593e/bSxSS25yiIRLSytQin9f/assets/FKdY2x1NepKQ1sR4iIZK/sample-1.m4a"
+                    ],
+                    "setURLId": "0,TestQuickLook_0,setURL,0",
+                    "onLoadingChangedId": "0,TestQuickLook_0,onLoadingChanged,0",
+                    "children": []
+                  }
+                },
+                "content": [
+                  {
+                    "type": "VStack",
+                    "props": {
+                      "children": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "onTapGesture",
+                              "props": {
+                                "handlerId": "0,TestQuickLook_0,VStack_0,onTapGesture,0",
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "Text",
+                                "props": {
+                                  "rawValue": "TestQuickLook",
+                                  "children": []
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "type": "Text",
+                          "props": {
+                            "rawValue": "No URL set.",
+                            "children": []
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

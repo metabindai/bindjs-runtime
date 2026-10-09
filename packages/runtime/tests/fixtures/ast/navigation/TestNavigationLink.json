@@ -1,0 +1,62 @@
+{
+  "fixture": "navigation/TestNavigationLink",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestNavigationLink",
+          "props": {},
+          "children": [
+            {
+              "type": "VStack",
+              "props": {
+                "children": [
+                  {
+                    "type": "Text",
+                    "props": {
+                      "rawValue": "This is a link Hello World",
+                      "children": []
+                    }
+                  },
+                  {
+                    "type": "NavigationLink",
+                    "props": {
+                      "destinationHandlerId": "0,TestNavigationLink_0,VStack_0,NavigationLink_1,NavigationLink_destination,1",
+                      "label": {
+                        "type": "Text",
+                        "props": {
+                          "rawValue": "Navigation Link 1234",
+                          "children": []
+                        }
+                      },
+                      "environmentId": "0,TestNavigationLink_0,VStack_0,NavigationLink_1,,1",
+                      "children": []
+                    }
+                  },
+                  {
+                    "type": "NavigationLink",
+                    "props": {
+                      "destinationHandlerId": "0,TestNavigationLink_0,VStack_0,NavigationLink_2,NavigationLink_destination,2",
+                      "label": {
+                        "type": "Text",
+                        "props": {
+                          "rawValue": "Navigation Link",
+                          "children": []
+                        }
+                      },
+                      "environmentId": "0,TestNavigationLink_0,VStack_0,NavigationLink_2,,2",
+                      "children": []
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

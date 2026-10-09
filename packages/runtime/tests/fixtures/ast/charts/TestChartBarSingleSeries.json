@@ -1,0 +1,221 @@
+{
+  "fixture": "charts/TestChartBarSingleSeries",
+  "renders": [
+    {
+      "render": "body",
+      "errors": [],
+      "ast": {
+        "type": "ComponentCall",
+        "props": {
+          "name": "TestChartBarSingleSeries",
+          "props": {},
+          "children": [
+            {
+              "type": "ModifiedComponent",
+              "props": {
+                "modifier": {
+                  "type": "frame",
+                  "props": {
+                    "height": 280,
+                    "children": []
+                  }
+                },
+                "content": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "chartYAxisLabel",
+                        "props": {
+                          "rawValue": "Revenue",
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "chartXAxisLabel",
+                              "props": {
+                                "rawValue": "Month",
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "Chart",
+                                "props": {
+                                  "children": [
+                                    {
+                                      "type": "ForEach",
+                                      "props": {
+                                        "dataId": "0,TestChartBarSingleSeries_0,Chart_0,ForEach_0,ForEach,0",
+                                        "functionId": "0,TestChartBarSingleSeries_0,Chart_0,ForEach_0,ForEach,0",
+                                        "count": 2,
+                                        "environmentId": "0,TestChartBarSingleSeries_0,Chart_0,ForEach_0,ForEach,0",
+                                        "$items": [
+                                          {
+                                            "type": "BarMark",
+                                            "props": {
+                                              "x": {
+                                                "value": "Jan",
+                                                "label": "Month"
+                                              },
+                                              "y": {
+                                                "value": 12,
+                                                "label": "Revenue"
+                                              },
+                                              "children": []
+                                            }
+                                          },
+                                          {
+                                            "type": "BarMark",
+                                            "props": {
+                                              "x": {
+                                                "value": "Feb",
+                                                "label": "Month"
+                                              },
+                                              "y": {
+                                                "value": 18,
+                                                "label": "Revenue"
+                                              },
+                                              "children": []
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "render": "preview 0: Default",
+      "errors": [],
+      "ast": {
+        "type": "ModifiedComponent",
+        "props": {
+          "modifier": {
+            "type": "previewName",
+            "props": {
+              "rawValue": "Default",
+              "children": []
+            }
+          },
+          "content": [
+            {
+              "type": "ComponentCall",
+              "props": {
+                "name": "TestChartBarSingleSeries",
+                "props": {},
+                "children": [
+                  {
+                    "type": "ModifiedComponent",
+                    "props": {
+                      "modifier": {
+                        "type": "frame",
+                        "props": {
+                          "height": 280,
+                          "children": []
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "ModifiedComponent",
+                          "props": {
+                            "modifier": {
+                              "type": "chartYAxisLabel",
+                              "props": {
+                                "rawValue": "Revenue",
+                                "children": []
+                              }
+                            },
+                            "content": [
+                              {
+                                "type": "ModifiedComponent",
+                                "props": {
+                                  "modifier": {
+                                    "type": "chartXAxisLabel",
+                                    "props": {
+                                      "rawValue": "Month",
+                                      "children": []
+                                    }
+                                  },
+                                  "content": [
+                                    {
+                                      "type": "Chart",
+                                      "props": {
+                                        "children": [
+                                          {
+                                            "type": "ForEach",
+                                            "props": {
+                                              "dataId": "0,TestChartBarSingleSeries_0,Chart_0,ForEach_0,ForEach,0",
+                                              "functionId": "0,TestChartBarSingleSeries_0,Chart_0,ForEach_0,ForEach,0",
+                                              "count": 2,
+                                              "environmentId": "0,TestChartBarSingleSeries_0,Chart_0,ForEach_0,ForEach,0",
+                                              "$items": [
+                                                {
+                                                  "type": "BarMark",
+                                                  "props": {
+                                                    "x": {
+                                                      "value": "Jan",
+                                                      "label": "Month"
+                                                    },
+                                                    "y": {
+                                                      "value": 12,
+                                                      "label": "Revenue"
+                                                    },
+                                                    "children": []
+                                                  }
+                                                },
+                                                {
+                                                  "type": "BarMark",
+                                                  "props": {
+                                                    "x": {
+                                                      "value": "Feb",
+                                                      "label": "Month"
+                                                    },
+                                                    "y": {
+                                                      "value": 18,
+                                                      "label": "Revenue"
+                                                    },
+                                                    "children": []
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
