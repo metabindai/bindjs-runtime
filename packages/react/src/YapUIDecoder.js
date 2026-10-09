@@ -1,5 +1,6 @@
 import React from 'react';
 import { shouldApplyChartModifierContext } from './YapUIDecoderChartScope';
+import { renderableChildren } from './YapUIDecoderChildren';
 
 // Modifiers
 import {
@@ -506,7 +507,7 @@ export function YapUIDecoder(json, viewCallback, resolvedDependanciesCallback) {
             }
 
             // Resolve children
-            const children = props?.children
+            const children = renderableChildren(props?.children)
 
             // Setup node
             const Node = componentsMap[type];
@@ -552,7 +553,7 @@ export function YapUIDecoder(json, viewCallback, resolvedDependanciesCallback) {
 
             const key = (parent?.type ?? 'Element') + "_" + type + "_" + modifierType + "_" + stack + "_" + index;
 
-            return <Node key={key}  {...modifierProps}>{content}</Node>
+            return <Node key={key}  {...modifierProps}>{renderableChildren(content)}</Node>
 
             /**
              * External view dependency
