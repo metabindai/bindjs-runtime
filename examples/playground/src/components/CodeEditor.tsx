@@ -1,4 +1,4 @@
-import { useCallback, useRef } from 'react'
+import { forwardRef, useCallback, useEffect, useImperativeHandle, useRef } from 'react'
 import Editor, { type Monaco, type OnMount } from '@monaco-editor/react'
 import type { editor } from 'monaco-editor'
 
@@ -12,20 +12,32 @@ import METABIND_TYPES from '@metabindai/bindjs-react/types/metabind.d.ts?raw'
 import BROWSER_GLOBALS from '@metabindai/bindjs-react/types/browser-globals.d.ts?raw'
 
 export interface CompileResult {
+    /** The model path the source came from, so stale async results can be dropped. */
+    path: string
     typescript: string
     javascript: string
 }
 
+export interface CodeEditorHandle {
+    /** Replace the current model's source, e.g. to reset a fixture. */
+    setValue: (value: string) => void
+}
+
 interface CodeEditorProps {
-    /** Initial TypeScript source to seed the editor with. */
+    /**
+     * Identifies the document. Each path gets its own Monaco model, so edits
+     * and cursor position survive switching away and back.
+     */
+    path: string
+    /** Source to seed a path's model with the first time it's opened. */
     initialValue: string
-    /** Fired whenever the source changes, with the transpiled JS. */
+    /** Extra global declarations, e.g. for fixtures other fixtures can call. */
+    extraDeclarations?: string
+    /** Fired whenever the source changes, and on opening a path, with the transpiled JS. */
     onCompile: (result: CompileResult) => void
 }
 
-const MODEL_PATH = 'file:///component.tsx'
-
-function configureMonaco(monaco: Monaco) {
+function configureMonaco(monaco: Monaco, extraDeclarations?: string) {
     const ts = monaco.languages.typescript
 
     ts.typescriptDefaults.setCompilerOptions({
@@ -55,6 +67,9 @@ function configureMonaco(monaco: Monaco) {
     // Register the type definitions (idempotent — Monaco dedupes by uri).
     ts.typescriptDefaults.addExtraLib(METABIND_TYPES, 'ts:metabind-core.d.ts')
     ts.typescriptDefaults.addExtraLib(BROWSER_GLOBALS, 'ts:browser-globals.d.ts')
+    if (extraDeclarations) {
+        ts.typescriptDefaults.addExtraLib(extraDeclarations, 'ts:extra-globals.d.ts')
+    }
 }
 
 // Ask Monaco's TypeScript worker to transpile the current model to JavaScript.
@@ -73,26 +88,43 @@ async function emitJavaScript(
     return jsFile?.text ?? ''
 }
 
-export function CodeEditor({ initialValue, onCompile }: CodeEditorProps) {
+export const CodeEditor = forwardRef<CodeEditorHandle, CodeEditorProps>(function CodeEditor(
+    { path, initialValue, extraDeclarations, onCompile },
+    ref,
+) {
     const editorRef = useRef<editor.IStandaloneCodeEditor | null>(null)
     const monacoRef = useRef<Monaco | null>(null)
 
     const compile = useCallback(async () => {
         const ed = editorRef.current
         const monaco = monacoRef.current
-        if (!ed || !monaco) return
+        const model = ed?.getModel()
+        if (!ed || !monaco || !model) return
 
+        const modelPath = model.uri.toString()
+        const typescript = model.getValue()
         const javascript = await emitJavaScript(ed, monaco)
         onCompile({
-            typescript: ed.getValue(),
+            path: modelPath,
+            typescript,
             javascript: processComponentJs(javascript),
         })
     }, [onCompile])
 
+    useImperativeHandle(ref, () => ({
+        setValue: (value: string) => editorRef.current?.getModel()?.setValue(value),
+    }))
+
+    // The Editor child swaps models in its own effect, which runs before this
+    // one, so the new path's model is current by the time we compile.
+    useEffect(() => {
+        void compile()
+    }, [path, compile])
+
     const handleMount: OnMount = (ed, monaco) => {
         editorRef.current = ed
         monacoRef.current = monaco
-        configureMonaco(monaco)
+        configureMonaco(monaco, extraDeclarations)
         // Initial compile once the worker has the model.
         void compile()
     }
@@ -101,7 +133,7 @@ export function CodeEditor({ initialValue, onCompile }: CodeEditorProps) {
         <Editor
             theme="vs"
             language="typescript"
-            path={MODEL_PATH}
+            path={modelUri(path)}
             defaultValue={initialValue}
             onMount={handleMount}
             onChange={() => void compile()}
@@ -116,4 +148,9 @@ export function CodeEditor({ initialValue, onCompile }: CodeEditorProps) {
             }}
         />
     )
+})
+
+/** The Monaco model URI for a document path; matches `CompileResult.path`. */
+export function modelUri(path: string): string {
+    return `file:///${path}.tsx`
 }
