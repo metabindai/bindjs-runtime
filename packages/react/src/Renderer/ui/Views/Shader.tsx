@@ -14,6 +14,13 @@ interface ShaderProps {
     updateInterval?: number; // FPS (0 = static, 1-60 = target FPS, undefined = requestAnimationFrame)
 }
 
+// Device pixels per CSS pixel for the canvas backing store. Above 2x the extra pixels
+// cost fill rate without a visible difference.
+const MAX_PIXEL_RATIO = 2;
+
+// Observed once per shader, not per render.
+const IN_VIEW_OPTIONS: IntersectionObserverInit = { rootMargin: "0px" };
+
 const DEFAULT_FRAGMENT_SHADER = `
     precision mediump float;
     uniform float time;
@@ -76,15 +83,11 @@ function Shader(props: ShaderProps): React.ReactNode {
 
     const layout = useLayout(props, Shader);
 
-    const { ref, inView } = useInView<HTMLDivElement>({
-        rootMargin: "0px"
-    });
+    const { ref, inView } = useInView<HTMLDivElement>(IN_VIEW_OPTIONS);
 
     // Get animation node - pass inView ref so animation uses same element
     const { style: animationStyle } = useAnimationNode(ref as React.RefObject<HTMLElement>);
 
-    const inViewRef = useRef(inView);
-    inViewRef.current = inView;
 
     // Let a coordinating host (see ShaderContext) know this page has a shader and
     // when it first paints. Inert when no provider is present.
@@ -99,7 +102,7 @@ function Shader(props: ShaderProps): React.ReactNode {
         shaderCoordinator?.reportFirstFrame(shaderId);
     }, [shaderCoordinator, shaderId]);
 
-    const canvasRef = useShaderCanvas(props, inViewRef, reportFirstFrame);
+    const canvasRef = useShaderCanvas(props, inView, reportFirstFrame);
 
     const style: React.CSSProperties = {
         ...currentStyle,
@@ -130,39 +133,20 @@ function Shader(props: ShaderProps): React.ReactNode {
     );
 }
 
-function useShaderCanvas(props: ShaderProps, inViewRef: React.MutableRefObject<boolean>, onFirstFrame?: () => void) {
+function useShaderCanvas(props: ShaderProps, inView: boolean, onFirstFrame?: () => void) {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const onFirstFrameRef = useRef(onFirstFrame);
     onFirstFrameRef.current = onFirstFrame;
 
+    const inViewRef = useRef(inView);
+    inViewRef.current = inView;
+
+    // Draws a frame if none is scheduled; set while the GL program is live.
+    const resumeRef = useRef<(() => void) | null>(null);
+
     useEffect(() => {
         const canvas = canvasRef.current;
         if (!canvas) return;
-
-        // Set canvas size to match container - with improved resizing logic
-        const resizeCanvas = () => {
-            if (canvas) {
-                const rect = canvas.parentElement?.getBoundingClientRect();
-                if (!rect) return;
-
-                const width = rect.width || canvas.clientWidth;
-                const height = rect.height || canvas.clientHeight;
-
-                // Set display size (css pixels)
-                Object.assign(canvas.style, {
-                    width: '100%',
-                    height: '100%',
-                });
-
-                // Set actual size in memory (scaled for high-DPI devices)
-                const dpr = window.devicePixelRatio || 1;
-                canvas.width = width * dpr;
-                canvas.height = height * dpr;
-            }
-        };
-
-        // Initial size setup
-        resizeCanvas();
 
         // Try to get WebGL 2.0 context first, fall back to WebGL 1.0 if not available
         const gl = canvas.getContext('webgl2') || canvas.getContext('webgl');
@@ -170,6 +154,32 @@ function useShaderCanvas(props: ShaderProps, inViewRef: React.MutableRefObject<b
             console.error('WebGL not supported');
             return;
         }
+
+        // Backing store pixels per CSS pixel, capped (see MAX_PIXEL_RATIO).
+        let pixelRatio = 1;
+
+        // Size the backing store to the container. Returns whether the size changed,
+        // which clears the canvas.
+        const resizeCanvas = () => {
+            const rect = canvas.parentElement?.getBoundingClientRect();
+            if (!rect) return false;
+
+            const width = rect.width || canvas.clientWidth;
+            const height = rect.height || canvas.clientHeight;
+
+            pixelRatio = Math.min(window.devicePixelRatio || 1, MAX_PIXEL_RATIO);
+            const backingWidth = Math.round(width * pixelRatio);
+            const backingHeight = Math.round(height * pixelRatio);
+            if (canvas.width === backingWidth && canvas.height === backingHeight) return false;
+
+            canvas.width = backingWidth;
+            canvas.height = backingHeight;
+            gl.viewport(0, 0, canvas.width, canvas.height);
+            return true;
+        };
+
+        // Initial size setup
+        resizeCanvas();
 
         // Check if we're using WebGL 2.0
         const isWebGL2 = gl instanceof WebGL2RenderingContext;
@@ -207,12 +217,17 @@ function useShaderCanvas(props: ShaderProps, inViewRef: React.MutableRefObject<b
         // Add WebGL 2.0 header and output declaration if needed
         let shaderCode = props.fragmentShader || DEFAULT_FRAGMENT_SHADER;
 
+        // Keep the precision the shader declares, unless the device can't do highp in fragment shaders.
+        const declaredPrecision = shaderCode.match(/precision\s+(highp|mediump|lowp)\s+float\s*;/)?.[1] ?? 'mediump';
+        const supportsHighp = (gl.getShaderPrecisionFormat(gl.FRAGMENT_SHADER, gl.HIGH_FLOAT)?.precision ?? 0) > 0;
+        const precision = declaredPrecision === 'highp' && !supportsHighp ? 'mediump' : declaredPrecision;
+
         if (isWebGL2) {
             // Add WebGL 2.0 header
             // For WebGL 2.0, we need to modify the shader to use 'in' instead of 'varying'
             // and declare an output variable for the fragment color
             shaderCode = `#version 300 es
-        precision mediump float;
+        precision ${precision} float;
         uniform float time;
         uniform vec2 resolution;
         uniform vec2 mouse;
@@ -230,6 +245,8 @@ function useShaderCanvas(props: ShaderProps, inViewRef: React.MutableRefObject<b
                     .replace(/gl_FragColor/g, 'fragColor')
                 }
       `;
+        } else if (precision !== declaredPrecision) {
+            shaderCode = shaderCode.replace(/precision\s+highp\s+float\s*;/g, `precision ${precision} float;`);
         }
 
         gl.shaderSource(fragmentShader, shaderCode);
@@ -288,6 +305,9 @@ function useShaderCanvas(props: ShaderProps, inViewRef: React.MutableRefObject<b
         const timeLocation = gl.getUniformLocation(program, 'time');
         const resolutionLocation = gl.getUniformLocation(program, 'resolution');
         const mouseLocation = gl.getUniformLocation(program, 'mouse');
+        // Backing store pixels per CSS pixel: gl_FragCoord / pixelRatio is in CSS pixels,
+        // so a shader can look the same on 1x, 2x and 3x screens.
+        const pixelRatioLocation = gl.getUniformLocation(program, 'pixelRatio');
 
         // Setup custom uniforms
         const uniformLocations: Record<string, WebGLUniformLocation | null> = {};
@@ -300,32 +320,38 @@ function useShaderCanvas(props: ShaderProps, inViewRef: React.MutableRefObject<b
         // Set up mouse tracking if enabled
         let mouseX = 0;
         let mouseY = 0;
+        let pointer: { x: number, y: number } | null = null;
 
-        // Define the mouse move handler
-        const handleMouseMove = (e: MouseEvent) => {
-            const rect = canvas.getBoundingClientRect();
-            mouseX = (e.clientX - rect.left) / rect.width;
-            mouseY = 1.0 - (e.clientY - rect.top) / rect.height; // Flip Y to match WebGL coordinates
+        // Pointer moves are read from the window, so the shader follows the pointer
+        // when it is a background under other content. Mapped into the canvas when drawn.
+        const handlePointerMove = (e: PointerEvent) => {
+            pointer = { x: e.clientX, y: e.clientY };
         };
 
         // Add mouse tracking listener if enabled
         // Always enable mouse tracking for the default shader, unless explicitly disabled
         const enableMouse = props.mouseEnabled !== false || props.fragmentShader === undefined;
         if (enableMouse) {
-            canvas.addEventListener('mousemove', handleMouseMove);
+            window.addEventListener('pointermove', handlePointerMove, { passive: true });
         }
+
+        // With Reduce Motion on, draw one frame and stop.
+        const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)');
 
         // Animation loop
         let startTime = Date.now();
-        let animationFrame: number;
+        let animationFrame: number | undefined;
         let intervalId: number | undefined;
+        let frameScheduled = false;
+        let frozenTime: number | null = null;
         let firstFrameReported = false;
         const isStatic = props.updateInterval === 0;
         const useCustomInterval = props.updateInterval && props.updateInterval > 0;
 
         // Consolidated scheduling function
         const scheduleNextRender = () => {
-            if (isStatic) return;
+            if (frameScheduled) return;
+            frameScheduled = true;
             if (useCustomInterval) {
                 // Use setTimeout for custom FPS (convert FPS to milliseconds)
                 const intervalMs = 1000 / props.updateInterval!;
@@ -337,16 +363,20 @@ function useShaderCanvas(props: ShaderProps, inViewRef: React.MutableRefObject<b
         };
 
         const render = () => {
+            frameScheduled = false;
             if (!gl) return;
-            if (!inViewRef.current) {
-                // Out of view - schedule next frame to check visibility but skip rendering
-                scheduleNextRender();
-                return;
-            }
+
+            // Off screen, stop; drawing resumes when the shader scrolls back into view.
+            if (!inViewRef.current) return;
+
+            const animating = !isStatic && !reduceMotion?.matches;
 
             // Update time uniform if enabled (default: true)
             if (props.timeEnabled !== false) {
-                const currentTime = isStatic ? 0 : (Date.now() - startTime) / 1000;
+                const elapsed = (Date.now() - startTime) / 1000;
+                // Reduce Motion holds the frame showing when it was turned on.
+                frozenTime = animating ? null : (frozenTime ?? elapsed);
+                const currentTime = isStatic ? 0 : (frozenTime ?? elapsed);
                 if (timeLocation) {
                     gl.uniform1f(timeLocation, currentTime);
                 }
@@ -357,9 +387,20 @@ function useShaderCanvas(props: ShaderProps, inViewRef: React.MutableRefObject<b
                 gl.uniform2f(resolutionLocation, canvas.width, canvas.height);
             }
 
+            if (pixelRatioLocation) {
+                gl.uniform1f(pixelRatioLocation, pixelRatio);
+            }
+
             // Update mouse uniform if enabled or using default shader
             const useMouseForShader = props.mouseEnabled !== false || props.fragmentShader === undefined;
             if (useMouseForShader && mouseLocation) {
+                if (pointer) {
+                    const rect = canvas.getBoundingClientRect();
+                    if (rect.width > 0 && rect.height > 0) {
+                        mouseX = (pointer.x - rect.left) / rect.width;
+                        mouseY = 1.0 - (pointer.y - rect.top) / rect.height; // Flip Y to match WebGL coordinates
+                    }
+                }
                 gl.uniform2f(mouseLocation, mouseX, mouseY);
             }
 
@@ -402,27 +443,42 @@ function useShaderCanvas(props: ShaderProps, inViewRef: React.MutableRefObject<b
             }
 
             // Schedule next render
-            scheduleNextRender();
+            if (animating) {
+                scheduleNextRender();
+            }
         };
+
+        // Draw now unless a frame is already on its way.
+        const resume = () => {
+            if (!frameScheduled) render();
+        };
+        resumeRef.current = resume;
 
         render();
 
-        // Observe parent container for size changes using ResizeObserver
+        // Turning Reduce Motion off restarts the animation.
+        reduceMotion?.addEventListener?.('change', resume);
+
+        // Observe parent container for size changes using ResizeObserver.
+        // Resizing clears the canvas, so draw again straight away.
         const parentElement = canvas.parentElement;
         let resizeObserver: ResizeObserver | undefined;
         if (parentElement) {
             resizeObserver = new ResizeObserver(() => {
-                resizeCanvas();
+                if (resizeCanvas()) {
+                    resume();
+                }
             });
             resizeObserver.observe(parentElement);
         }
 
         // Cleanup
         return () => {
+            resumeRef.current = null;
             resizeObserver?.disconnect();
-            const useMouseForShader = props.mouseEnabled !== false || props.fragmentShader === undefined;
-            if (useMouseForShader) {
-                canvas.removeEventListener('mousemove', handleMouseMove as any);
+            reduceMotion?.removeEventListener?.('change', resume);
+            if (enableMouse) {
+                window.removeEventListener('pointermove', handlePointerMove);
             }
             if (animationFrame) {
                 cancelAnimationFrame(animationFrame);
@@ -436,6 +492,13 @@ function useShaderCanvas(props: ShaderProps, inViewRef: React.MutableRefObject<b
             gl.deleteBuffer(buffer);
         };
     }, [props.fragmentShader, props.uniforms, props.timeEnabled, props.mouseEnabled, props.updateInterval]);
+
+    // Start drawing again when the shader comes back into view.
+    useEffect(() => {
+        if (inView) {
+            resumeRef.current?.();
+        }
+    }, [inView]);
 
     return canvasRef;
 }
