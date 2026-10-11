@@ -135,6 +135,14 @@ function useShaderCanvas(props: ShaderProps, inViewRef: React.MutableRefObject<b
     const onFirstFrameRef = useRef(onFirstFrame);
     onFirstFrameRef.current = onFirstFrame;
 
+    // Uniform values are read live by the render loop rather than being an effect dependency.
+    // Hosts usually pass a fresh uniforms object on every render, which as a dependency would
+    // recompile the program and restart `time` each time (e.g. on every slider tick).
+    const uniformsRef = useRef(props.uniforms);
+    uniformsRef.current = props.uniforms;
+    // Set by the effect; redraws one frame (used when static shaders' uniforms change).
+    const redrawRef = useRef<(() => void) | null>(null);
+
     useEffect(() => {
         const canvas = canvasRef.current;
         if (!canvas) return;
@@ -289,13 +297,12 @@ function useShaderCanvas(props: ShaderProps, inViewRef: React.MutableRefObject<b
         const resolutionLocation = gl.getUniformLocation(program, 'resolution');
         const mouseLocation = gl.getUniformLocation(program, 'mouse');
 
-        // Setup custom uniforms
+        // Custom uniform locations, looked up on first use so names added later still bind
         const uniformLocations: Record<string, WebGLUniformLocation | null> = {};
-        if (props.uniforms) {
-            Object.keys(props.uniforms).forEach(name => {
-                uniformLocations[name] = gl.getUniformLocation(program, name);
-            });
-        }
+        const uniformLocation = (name: string) => {
+            if (!(name in uniformLocations)) uniformLocations[name] = gl.getUniformLocation(program, name);
+            return uniformLocations[name];
+        };
 
         // Set up mouse tracking if enabled
         let mouseX = 0;
@@ -364,9 +371,10 @@ function useShaderCanvas(props: ShaderProps, inViewRef: React.MutableRefObject<b
             }
 
             // Update custom uniforms
-            if (props.uniforms) {
-                Object.entries(props.uniforms).forEach(([name, value]) => {
-                    const location = uniformLocations[name];
+            const uniforms = uniformsRef.current;
+            if (uniforms) {
+                Object.entries(uniforms).forEach(([name, value]) => {
+                    const location = uniformLocation(name);
                     if (location) {
                         if (typeof value === 'number') {
                             gl.uniform1f(location, value);
@@ -406,6 +414,7 @@ function useShaderCanvas(props: ShaderProps, inViewRef: React.MutableRefObject<b
         };
 
         render();
+        redrawRef.current = render;
 
         // Observe parent container for size changes using ResizeObserver
         const parentElement = canvas.parentElement;
@@ -419,6 +428,7 @@ function useShaderCanvas(props: ShaderProps, inViewRef: React.MutableRefObject<b
 
         // Cleanup
         return () => {
+            redrawRef.current = null;
             resizeObserver?.disconnect();
             const useMouseForShader = props.mouseEnabled !== false || props.fragmentShader === undefined;
             if (useMouseForShader) {
@@ -435,7 +445,14 @@ function useShaderCanvas(props: ShaderProps, inViewRef: React.MutableRefObject<b
             gl.deleteShader(fragmentShader);
             gl.deleteBuffer(buffer);
         };
-    }, [props.fragmentShader, props.uniforms, props.timeEnabled, props.mouseEnabled, props.updateInterval]);
+    }, [props.fragmentShader, props.timeEnabled, props.mouseEnabled, props.updateInterval]);
+
+    // Animated shaders pick up new uniform values on their next frame; a static one
+    // (updateInterval 0) draws once, so redraw it when the values actually change.
+    const uniformsKey = JSON.stringify(props.uniforms ?? {});
+    useEffect(() => {
+        if (props.updateInterval === 0) redrawRef.current?.();
+    }, [uniformsKey, props.updateInterval]);
 
     return canvasRef;
 }
