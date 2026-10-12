@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
-import { useStyle } from '../Style';
+import { useStyle, useElementProps } from '../Style';
 import { ClearStyle } from '../Style';
 import { useEnvironmentStyle } from '../Style';
 import { useForegroundStyleContext, foregroundStyleToCSS } from '../Modifiers/ForegroundStyle';
@@ -30,6 +30,9 @@ export default function Text({ text, value, rawValue, markdown, children }: Text
 
     // Get animation node - provides ref and animation styles
     const { ref: animationRef, style: animationStyle } = useAnimationNode();
+
+    // Element semantics (Button, Link, accessibility modifiers)
+    const { as, 'aria-label': accessibilityLabel, ...elementProps } = useElementProps();
 
     let elementStyle: React.CSSProperties = {
         margin: '0px',
@@ -66,8 +69,12 @@ export default function Text({ text, value, rawValue, markdown, children }: Text
             /** TODO: Handle font resolution globally and semantically */
             <MarkdownInlineTextStyle
                 ref={animationRef as React.Ref<HTMLDivElement>}
+                as={as}
                 className="text"
                 style={combinedStyle}
+                aria-label={accessibilityLabel}
+                role={accessibilityLabel && !as && !elementProps.role ? 'group' : undefined}
+                {...elementProps}
             >
                 <ClearStyle>
                     <ReactMarkdown
@@ -80,19 +87,45 @@ export default function Text({ text, value, rawValue, markdown, children }: Text
             </MarkdownInlineTextStyle>
         );
     } else {
+        const Element = as ?? 'p';
+
+        // A paragraph can't take an aria-label, so a label replaces the text for
+        // assistive technology instead: read the label, hide the visible text.
+        const replacesText = accessibilityLabel && !as;
+
         return (
-            <p
-                ref={animationRef as React.Ref<HTMLParagraphElement>}
+            <Element
+                ref={animationRef as React.Ref<any>}
                 className="text"
                 style={combinedStyle}
+                aria-label={replacesText ? undefined : accessibilityLabel}
+                {...elementProps}
             >
                 <ClearStyle>
-                    <TextWithLineBreaks content={content} />
+                    {replacesText ? (
+                        <>
+                            <span aria-hidden="true"><TextWithLineBreaks content={content} /></span>
+                            <span style={visuallyHiddenStyle}>{accessibilityLabel}</span>
+                        </>
+                    ) : (
+                        <TextWithLineBreaks content={content} />
+                    )}
                 </ClearStyle>
-            </p>
+            </Element>
         );
     }
 }
+
+// Read by assistive technology, not drawn, and left out of copied text.
+const visuallyHiddenStyle: React.CSSProperties = {
+    position: 'absolute',
+    width: '1px',
+    height: '1px',
+    overflow: 'hidden',
+    clipPath: 'inset(50%)',
+    whiteSpace: 'nowrap',
+    userSelect: 'none',
+};
 
 function TextWithLineBreaks({ content }: { content: string | React.ReactNode }) {
     if (typeof content !== 'string') return <>{content}</>;

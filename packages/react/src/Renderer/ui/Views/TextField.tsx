@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleProvider, useStyle } from '../Style';
+import { StyleProvider, useStyle, useControlAttributes } from '../Style';
 import { useRendererContext } from '../../RendererContext';
 import { Variables } from '../Variable';
 import { useAnimationNode } from '../AnimatableStyle';
@@ -106,8 +106,12 @@ function TextFieldInput({ placeholder, text, setTextId, secure, style: outerStyl
         }
     } : setLocalText;
 
+    // accessibilityLabel, accessibilityHint
+    const controlAttributes = useControlAttributes();
+
     return (
         <input
+            {...controlAttributes}
             ref={animationRef as React.Ref<HTMLInputElement>}
             type={secure ? 'password' : 'text'}
             placeholder={placeholder}

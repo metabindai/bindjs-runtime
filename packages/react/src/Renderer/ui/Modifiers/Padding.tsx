@@ -1,5 +1,5 @@
 import React from 'react';
-import { useStyle, ClearStyle, useEnvironmentStyle, EnvironmentStyleProvider } from '../Style';
+import { useStyle, ClearStyle, useEnvironmentStyle, EnvironmentStyleProvider, useElementProps } from '../Style';
 import { px, asNumber } from '../../Utils'
 import { useLayout } from '../Layout/useLayout';
 import { layoutStyle } from '../Layout/layoutStyle';
@@ -157,16 +157,19 @@ export function Padding(props: PaddingProps) {
         scrollPadding: paddingValues
     };
 
+    // Element semantics (Button, Link, accessibility modifiers)
+    const { as: Element = 'div', ...elementProps } = useElementProps({ labelRole: 'group' });
+
     return (
         <LayoutNode layout={layout}>
             <ClearStyle>
-                <div ref={animationRef as React.Ref<HTMLDivElement>} style={style}>
+                <Element ref={animationRef as React.Ref<any>} style={style} {...elementProps}>
                     <EnvironmentStyleProvider style={childEnvStyle}>
                         <TextInputPaddingProvider insets={textInputPadding}>
                             {children}
                         </TextInputPaddingProvider>
                     </EnvironmentStyleProvider>
-                </div>
+                </Element>
             </ClearStyle>
         </LayoutNode>
     );

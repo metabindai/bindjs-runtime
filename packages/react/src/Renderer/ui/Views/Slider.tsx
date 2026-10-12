@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { layoutRegistry, LayoutMeasurement, useLayout, layoutStyle } from '../Layout';
-import { useStyle } from '../Style';
+import { useStyle, useControlAttributes } from '../Style';
 import { useAnimationNode } from '../AnimatableStyle';
 import { useRendererContext } from '../../RendererContext';
 
@@ -62,6 +62,9 @@ export function Slider(props: SliderProps) {
         width: '100%',
     };
 
+    // accessibilityLabel, accessibilityHint, accessibilityValue
+    const controlAttributes = useControlAttributes({ takesValue: true });
+
     return (
         <div ref={animationRef as React.Ref<HTMLDivElement>} style={style}>
             {React.isValidElement(minimumValueLabel) && (
@@ -75,6 +78,7 @@ export function Slider(props: SliderProps) {
                 value={currentValue}
                 onChange={updateSliderValue}
                 aria-label={label}
+                {...controlAttributes}
                 style={{
                     flex: 1,
                     height: '4px',

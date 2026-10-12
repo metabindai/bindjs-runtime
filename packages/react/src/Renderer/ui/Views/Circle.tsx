@@ -1,5 +1,5 @@
 import React, { useLayoutEffect, useRef, useState } from 'react';
-import { useStyle } from '../Style';
+import { useStyle, useElementProps } from '../Style';
 import { foregroundStyleToCSS, useForegroundStyleContext } from '../Modifiers/ForegroundStyle';
 import { shapeStyleToCSS, ShapeStyleProps } from '../ShapeStyle';
 import { useEnvironment } from '../Environment';
@@ -36,6 +36,9 @@ function Circle(props: CircleProps): React.ReactElement {
         ...animationStyle,
     }
 
+    // Element semantics (Button, Link, accessibility modifiers)
+    const { as: Element = 'div', ...elementProps } = useElementProps({ labelRole: 'img' });
+
     /** Shape Style */
     const { fill, stroke } = props;
     const shapeStyle = shapeStyleToCSS({ fill, stroke } as ShapeStyleProps, environment.colorScheme);
@@ -54,7 +57,7 @@ function Circle(props: CircleProps): React.ReactElement {
 
     return (
         <FitToParent>
-            <div ref={animationRef as React.Ref<HTMLDivElement>} style={circleStyle}></div>
+            <Element ref={animationRef as React.Ref<any>} style={circleStyle} {...elementProps}></Element>
         </FitToParent>
 
     )

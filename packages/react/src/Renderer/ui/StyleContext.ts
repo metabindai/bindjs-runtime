@@ -1,9 +1,22 @@
 import React, { createContext } from 'react';
 
+/**
+ * Element semantics
+ * What the next DOM element is to assistive technology and the browser: the tag it
+ * renders as (Button asks for a button, Link for a link) and the attributes it
+ * carries (ARIA, href). Passed down with the style; the view that applies the
+ * style applies these.
+ */
+export interface ElementSemanticsType {
+    as?: 'button' | 'a';
+    attributes: Record<string, string | number | boolean | undefined>;
+}
+
 // Define a type for the style context
 export interface StyleContextType {
     style: React.CSSProperties;
     forwardedRef?: React.Ref<HTMLElement>;
+    element?: ElementSemanticsType | null;
 }
 
 // Create the StyleContext with an empty default value

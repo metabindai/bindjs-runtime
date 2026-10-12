@@ -1,5 +1,5 @@
 import React from 'react';
-import { useStyle, StyleProvider } from '../Style';
+import { useStyle, StyleProvider, useElementProps } from '../Style';
 import { MaterialType, MaterialStyle, materialStyleToCSS } from '../Styles/MaterialStyle';
 import { useEnvironment } from '../Environment';
 import { layoutRegistry, LayoutMeasurement, useLayout, layoutStyle, LayoutNode, LayoutNodeChildren } from '../Layout';
@@ -45,6 +45,9 @@ export function Material(props: MaterialProps) {
         ...materialCSS,
     };
 
+    // Element semantics (Button, Link, accessibility modifiers)
+    const { as: Element = 'div', ...elementProps } = useElementProps({ labelRole: 'img' });
+
     // If content is provided, apply the material as a background
     if (content) {
         return (
@@ -57,7 +60,7 @@ export function Material(props: MaterialProps) {
     }
     // Otherwise render the material as a standalone element
     else {
-        return <div style={style} className="material" ref={animationRef as React.Ref<HTMLDivElement>}>&nbsp;</div>;
+        return <Element style={style} className="material" ref={animationRef as React.Ref<any>} {...elementProps}>&nbsp;</Element>;
     }
 }
 

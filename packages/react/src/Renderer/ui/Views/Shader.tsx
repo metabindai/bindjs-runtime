@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useContext, useId, useCallback } from 'react';
-import { useStyle } from '../Style';
+import { useStyle, useElementProps } from '../Style';
 import { layoutRegistry, LayoutMeasurement, useLayout, layoutStyle, LayoutNode } from '../Layout';
 import { useInView } from '../Utils/useInView';
 import { useAnimationNode } from '../AnimatableStyle';
@@ -115,8 +115,11 @@ function Shader(props: ShaderProps): React.ReactNode {
         ...animationStyle,
     };
 
+    // Element semantics (Button, Link, accessibility modifiers)
+    const { as: Element = 'div', ...elementProps } = useElementProps({ labelRole: 'img' });
+
     return (
-        <div style={style} ref={ref}>
+        <Element style={style} ref={ref as React.Ref<any>} {...elementProps}>
             <canvas
                 ref={canvasRef}
                 style={{
@@ -126,7 +129,7 @@ function Shader(props: ShaderProps): React.ReactNode {
                     objectFit: 'cover'  // Ensure the canvas covers the container fully
                 }}
             />
-        </div>
+        </Element>
     );
 }
 

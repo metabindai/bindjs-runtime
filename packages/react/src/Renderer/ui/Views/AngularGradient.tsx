@@ -1,5 +1,5 @@
 import React from 'react';
-import { useStyle } from '../Style';
+import { useStyle, useElementProps } from '../Style';
 import { AngularGradientStyle, angularGradientStyleToCSS } from '../Styles/AngularGradientStyle';
 import { useLayout } from '../Layout/useLayout';
 import { layoutStyle } from '../Layout/layoutStyle';
@@ -44,6 +44,9 @@ export function AngularGradient(props: AngularGradientProps): React.ReactElement
     // Convert the props to a CSS conic-gradient string
     const css = angularGradientStyleToCSS(props);
 
+    // Element semantics (Button, Link, accessibility modifiers)
+    const { as: Element = 'div', ...elementProps } = useElementProps({ labelRole: 'img' });
+
     // Get the current style from context and apply the gradient
     const style = {
         // Apply environment style.
@@ -60,7 +63,7 @@ export function AngularGradient(props: AngularGradientProps): React.ReactElement
     };
 
     return (
-        <div style={style} ref={animationRef as React.Ref<HTMLDivElement>}>&nbsp;</div>
+        <Element style={style} ref={animationRef as React.Ref<any>} {...elementProps}>&nbsp;</Element>
     );
 }
 

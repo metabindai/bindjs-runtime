@@ -1,5 +1,5 @@
 import React from 'react';
-import { useStyle, StyleProvider } from '../Style';
+import { useStyle, StyleProvider, useElementProps } from '../Style';
 import { ColorStyle, colorStyleToCSS } from '../Styles/ColorStyle';
 import { useEnvironment } from '../Environment';
 import { useLayout } from '../Layout/useLayout';
@@ -32,6 +32,9 @@ export function Color(props: ColorProps): React.ReactElement {
         ...animationStyle
     };
 
+    // Element semantics (Button, Link, accessibility modifiers)
+    const { as: Element = 'div', ...elementProps } = useElementProps({ labelRole: 'img' });
+
     const content = props.content;
     const environment = useEnvironment();
 
@@ -54,7 +57,7 @@ export function Color(props: ColorProps): React.ReactElement {
         // Otherwise present the color
     } else {
         return (
-            <div style={style} ref={animationRef as React.Ref<HTMLDivElement>}>&nbsp;</div>
+            <Element style={style} ref={animationRef as React.Ref<any>} {...elementProps}>&nbsp;</Element>
         );
     }
 }

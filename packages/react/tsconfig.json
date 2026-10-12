@@ -17,5 +17,5 @@
   },
   
   "include": [".", "src/global.d.ts" ],
-  "exclude": ["dist", "node_modules", "**/*.spec.ts"]
+  "exclude": ["dist", "node_modules", "**/*.spec.ts", "**/*.spec.tsx", "vitest.config.ts"]
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useStyle, StyleProvider } from '../Style';
+import { useStyle, StyleProvider, useElementProps } from '../Style';
 import { px } from '../../Utils';
 import { useForegroundStyleContext, foregroundStyleToCSS } from '../Modifiers/ForegroundStyle';
 import { shapeStyleToCSS, ShapeStyleProps } from '../ShapeStyle';
@@ -41,6 +41,9 @@ export function RoundedRectangle(props: RoundedRectangleProps): React.ReactEleme
         ...animationStyle
     };
 
+    // Element semantics (Button, Link, accessibility modifiers)
+    const { as: Element = 'div', ...elementProps } = useElementProps({ labelRole: 'img' });
+
     // Apply shape styles (fill/stroke)
     const { fill, stroke } = props;
     const shapeStyle = shapeStyleToCSS({ fill, stroke } as ShapeStyleProps, environment.colorScheme);
@@ -58,9 +61,9 @@ export function RoundedRectangle(props: RoundedRectangleProps): React.ReactEleme
     var elementContent: React.ReactElement | null = null
     if (cornerStyle === 'circular' || cornerStyle == null) {
         style.borderRadius = px(props.cornerRadius ?? 8);
-        elementContent = <div ref={animationRef as React.Ref<HTMLDivElement>} style={style}></div>
+        elementContent = <Element ref={animationRef as React.Ref<any>} style={style} {...elementProps}></Element>
     } else if (cornerStyle === 'continuous') {
-        elementContent = <Squircle cornerRadius={parseInt(cornerRadius as string)} style={style} />;
+        elementContent = <Squircle cornerRadius={parseInt(cornerRadius as string)} style={style} as={Element} {...elementProps} />;
     }
 
     return elementContent;
@@ -69,6 +72,7 @@ export function RoundedRectangle(props: RoundedRectangleProps): React.ReactEleme
 const EMPTY_STYLE: React.CSSProperties = {};
 
 const Squircle = ({
+    as: Element = 'div' as React.ElementType,
     className = '',
     style = EMPTY_STYLE,
     cornerRadius = 40,
@@ -110,7 +114,7 @@ const Squircle = ({
                 </defs>
             </svg>
 
-            <div
+            <Element
                 ref={ref}
                 className={className}
                 style={{

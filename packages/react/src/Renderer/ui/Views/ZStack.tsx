@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useStyle, ClearStyle } from '../Style';
+import { useStyle, ClearStyle, useElementProps } from '../Style';
 import { px, getDomEvents } from "../../Utils";
 import { useID, ClearID, ID } from '../Modifiers/ID';
 import { unwrapGroupChildren } from './Group';
@@ -78,6 +78,9 @@ export function ZStack(props: ZStackProps): React.ReactElement {
 
     const domEvents = getDomEvents(props);
 
+    // Element semantics (Button, Link, accessibility modifiers)
+    const elementProps = useElementProps({ labelRole: 'group' });
+
     return (
         <LayoutNode layout={layout}>
             <ClearStyle>
@@ -88,6 +91,7 @@ export function ZStack(props: ZStackProps): React.ReactElement {
                         id={id ? String(id) : undefined}
                         className={`zstack ${id} ${className ?? ''}`}
                         style={style}
+                        {...elementProps}
                         {...domEvents}>
                         <ClearTextInputPadding>
                             {remappedChildren}

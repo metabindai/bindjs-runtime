@@ -4,6 +4,7 @@ import React, { useEffect, createContext, useContext } from 'react';
 export interface RendererContextType {
     viewCallback: any;
     navigateCallback: any;
+    openURLCallback: any;
     dataCallback: any;
     functionCallback: any;
     restoreEnvironmentCallback: any;
@@ -16,7 +17,7 @@ export interface RendererContextType {
 }
 
 // Create the StyleContext with an empty default value
-export const RendererContext = createContext<RendererContextType>({ viewCallback: null, makeView: null, navigateCallback: null, dataCallback: null, functionCallback: null, decodeViewCallback: null, forEachCallback: null, getEnvironmentCallback: null, restoreEnvironmentCallback: null, setForEachId: null, renderVersion: 0 });
+export const RendererContext = createContext<RendererContextType>({ viewCallback: null, makeView: null, navigateCallback: null, openURLCallback: null, dataCallback: null, functionCallback: null, decodeViewCallback: null, forEachCallback: null, getEnvironmentCallback: null, restoreEnvironmentCallback: null, setForEachId: null, renderVersion: 0 });
 
 
 export interface RendererIssue {

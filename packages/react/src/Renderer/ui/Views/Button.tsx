@@ -1,7 +1,7 @@
 import { StyleProvider, useStyle } from '../Style';
 import { useRendererContext } from '../../RendererContext';
 import { useEnvironmentStyle } from '../Style';
-import { ActionsProvider } from '../Actions';
+import { ActionsProvider, ControlProvider } from '../Actions';
 import { AST } from '@metabindai/bindjs-runtime';
 import Text from './Text';
 import React from 'react';
@@ -12,6 +12,7 @@ import { LayoutNode } from '../Layout/LayoutNode';
 import { layoutRegistry } from '../Layout/LayoutRegistry';
 import type { LayoutMeasurement } from '../Layout/LayoutTypes';
 import { useAnimationContext } from '../AnimationContext';
+import { useEnvironment } from '../Environment';
 
 interface ButtonProps {
     rawValue?: any;
@@ -32,6 +33,7 @@ export function Button(props: ButtonProps): React.ReactElement {
     const rendererContext = useRendererContext();
     const functionCallback = useRendererContext().functionCallback;
     const animationContext = useAnimationContext();
+    const isEnabled = useEnvironment().isEnabled !== false;
 
     // Get button style component name and props if available.
     const { props: buttonStyleProps, handlerId: buttonStyleHandlerId, environmentId: buttonStyleEnvironmentId } = environmentStyle.buttonStyle || {};
@@ -78,7 +80,7 @@ export function Button(props: ButtonProps): React.ReactElement {
     }
 
     const buttonAction = () => {
-        if (handlerId) {
+        if (handlerId && isEnabled) {
             let func = functionCallback(handlerId)
             if (func) {
                 func()
@@ -89,7 +91,10 @@ export function Button(props: ButtonProps): React.ReactElement {
     return (
         <LayoutNode layout={layout}>
             <ActionsProvider actions={{ onClick: buttonAction }}>
-                {content}
+                {/* The label's element renders as the <button> */}
+                <ControlProvider as="button" attributes={{ type: 'button', disabled: !isEnabled || undefined }}>
+                    {content}
+                </ControlProvider>
             </ActionsProvider>
         </LayoutNode>
     )

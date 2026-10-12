@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { useStyle, ClearStyle, StyleProvider, useEnvironmentStyle, EnvironmentStyleProvider } from '../Style';
+import { useStyle, ClearStyle, StyleProvider, useEnvironmentStyle, EnvironmentStyleProvider, useElementProps } from '../Style';
 import { layoutRegistry, LayoutMeasurement, useLayout, layoutStyle, LayoutNode } from '../Layout';
 import { ScrollViewProvider, useDocumentScroll, DocumentScrollProvider } from '../ScrollViewContext';
 import { ClearTextInputPadding } from '../Utils/textInputPadding';
@@ -20,6 +20,9 @@ export function ScrollView(props) {
     const envStyle = useEnvironmentStyle();
     const scrollTargetBehavior = envStyle.scrollTargetBehavior;
     const baseStyle = useStyle();
+
+    // Element semantics (accessibility modifiers)
+    const { as, ...elementProps } = useElementProps({ labelRole: 'group' });
 
     // If document scroll is enabled, render children directly without scroll container
     // Reset the context to false so nested ScrollViews behave normally
@@ -99,6 +102,7 @@ export function ScrollView(props) {
             ref={scrollRef}
             className="scrollview"
             style={style}
+            {...elementProps}
         >
             <ClearStyle>
                 <EnvironmentStyleProvider style={childEnvStyle}>

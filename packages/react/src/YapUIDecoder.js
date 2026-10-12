@@ -62,6 +62,13 @@ import { TransformEffect } from './Renderer/ui/Modifiers/TransformEffect';
 import { ID } from './Renderer/ui/Modifiers/ID';
 import { Tag } from './Renderer/ui/Modifiers/Tag';
 import { Link } from './Renderer/ui/Modifiers/Link';
+import {
+    AccessibilityAddTraits,
+    AccessibilityHidden,
+    AccessibilityHint,
+    AccessibilityLabel,
+    AccessibilityValue
+} from './Renderer/ui/Modifiers/Accessibility';
 import { AccentColor } from './Renderer/ui/Modifiers/AccentColor';
 import { GlassEffect } from './Renderer/ui/Modifiers/GlassEffect';
 import { Mask } from './Renderer/ui/Modifiers/Mask';
@@ -333,7 +340,16 @@ const modifiersMap = {
     annotation: ChartAnnotationModifier,
     accessibilityLabel: ChartAccessibilityLabel,
     accessibilityHint: ChartAccessibilityHint,
-    accessibilityValue: ChartAccessibilityValue
+    accessibilityValue: ChartAccessibilityValue,
+    accessibilityHidden: AccessibilityHidden,
+    accessibilityAddTraits: AccessibilityAddTraits
+};
+
+// Modifiers that charts handle themselves (see YapUIDecoderChartScope), and what they map to on any other view.
+const nonChartModifiersMap = {
+    accessibilityLabel: AccessibilityLabel,
+    accessibilityHint: AccessibilityHint,
+    accessibilityValue: AccessibilityValue
 };
 
 const preventDecode = {
@@ -537,7 +553,9 @@ export function YapUIDecoder(json, viewCallback, resolvedDependanciesCallback) {
                 return content
             }
 
-            if (!shouldApplyChartModifierContext(modifierType, element)) {
+            const Node = shouldApplyChartModifierContext(modifierType, element) ? modifiersMap[modifierType] : nonChartModifiersMap[modifierType];
+
+            if (Node == null) {
                 return content
             }
 
@@ -548,8 +566,6 @@ export function YapUIDecoder(json, viewCallback, resolvedDependanciesCallback) {
 
             // Include type in props.
             modifierProps['_type'] = modifierType;
-
-            const Node = modifiersMap[modifierType];
 
             const key = (parent?.type ?? 'Element') + "_" + type + "_" + modifierType + "_" + stack + "_" + index;
 

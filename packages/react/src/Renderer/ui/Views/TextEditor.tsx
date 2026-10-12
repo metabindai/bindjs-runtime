@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useStyle } from '../Style';
+import { useStyle, useControlAttributes } from '../Style';
 import { useRendererContext } from '../../RendererContext';
 import { useAnimationNode } from '../AnimatableStyle';
 import { useResolvedFontStyle } from '../Modifiers/Font';
@@ -66,8 +66,12 @@ export function TextEditor({ text, setTextId }: TextEditorProps) {
         }
     } : setLocalText;
 
+    // accessibilityLabel, accessibilityHint
+    const controlAttributes = useControlAttributes();
+
     return (
         <textarea
+            {...controlAttributes}
             ref={animationRef as React.Ref<HTMLTextAreaElement>}
             value={text == null ? localText : text}
             onChange={(e) => setText(e.target.value)}

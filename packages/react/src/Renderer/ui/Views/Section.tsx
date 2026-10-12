@@ -1,4 +1,4 @@
-import { useStyle } from '../Style';
+import { useStyle, useElementProps, ClearElementSemantics } from '../Style';
 import { ClearTextInputPadding } from '../Utils/textInputPadding';
 
 export function Section({ rawValue, header, children }) {
@@ -13,12 +13,17 @@ export function Section({ rawValue, header, children }) {
         width: '-webkit-fill-available', 
     };
 
+    // Element semantics (Button, Link, accessibility modifiers)
+    const { as: Element = 'div', ...elementProps } = useElementProps({ labelRole: 'group' });
+
     return (
-        <div style={style} >
-            {rawValue ?? header}
-            <ClearTextInputPadding>
-                {children}
-            </ClearTextInputPadding>
-        </div>
+        <Element style={style} {...elementProps}>
+            <ClearElementSemantics>
+                {rawValue ?? header}
+                <ClearTextInputPadding>
+                    {children}
+                </ClearTextInputPadding>
+            </ClearElementSemantics>
+        </Element>
     );
 }
