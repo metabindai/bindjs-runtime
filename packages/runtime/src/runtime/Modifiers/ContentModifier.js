@@ -6,7 +6,7 @@ import AST from "../AST.js";
  * 
  * Used for modifiers like background and overlay.
  */
-export function ContentModifier({ args, content }) {
+export function ContentModifier({ args, content, name, position }) {
 
     var modifierContent = null
     var props = {}
@@ -18,21 +18,25 @@ export function ContentModifier({ args, content }) {
         modifierContent = args[0];
     }
 
-    // Single component
-    if (typeof modifierContent == 'function') {
-        modifierContent = this.unwrapComponentAST(modifierContent);
+    modifierContent = this.buildModifierContent(name, position, () => {
+        // Single component
+        if (typeof modifierContent == 'function') {
+            return this.unwrapComponentAST(modifierContent);
 
-        // Convert array of components to Group
-    } else if (Array.isArray(modifierContent)) {
-        const items = modifierContent.map((item) => {
-            if (typeof item == 'function') {
-                return this.unwrapComponentAST(item);
-            } else {
-                return item;
-            }
-        });
-        modifierContent = AST.Directive('Group', {}, items);
-    }
+            // Convert array of components to Group
+        } else if (Array.isArray(modifierContent)) {
+            const items = modifierContent.map((item, index) => {
+                if (typeof item == 'function') {
+                    this.hookState.childIndex = index;
+                    return this.unwrapComponentAST(item);
+                } else {
+                    return item;
+                }
+            });
+            return AST.Directive('Group', {}, items);
+        }
+        return modifierContent;
+    });
 
     return {
         props: { ...props, content: modifierContent },
