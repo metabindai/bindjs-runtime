@@ -27,10 +27,11 @@
     "license": "Apache-2.0",
     "dependencies": {
         "@google/model-viewer": "^4.1.0",
-        "@observablehq/plot": "0.6.17",
         "@metabindai/bindjs-runtime": "workspace:^",
+        "@observablehq/plot": "0.6.17",
         "fast-deep-equal": "^3.1.3",
         "framer-motion": "^12.15.0",
+        "hls.js": "1.7.3",
         "react-error-boundary": "^6.0.0",
         "react-helmet-async": "^2.0.5",
         "react-ios-switch": "^0.1.19",
