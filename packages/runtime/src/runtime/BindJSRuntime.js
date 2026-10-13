@@ -63,7 +63,7 @@ import SizeToFitScreen from './DefaultComponents/SizeToFitScreen.js'
 /**
  * Optional logger injected by the runtime owner. Any subset of console-style
  * methods; missing methods fall back to the default console. Use to downgrade
- * routine compile/runtime noise (e.g. mid-edit syntax errors in Composer) so
+ * routine compile/runtime noise (e.g. mid-edit syntax errors in Metabind Studio) so
  * it doesn't reach console.error.
  *
  * @typedef {Object} BindJSLogger
