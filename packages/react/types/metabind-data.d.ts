@@ -138,9 +138,9 @@ interface DataSourceAnnotations {
     idempotentHint?: boolean;
 }
 
-/** Metadata for a data source, used in MCP tool registration and the Composer. */
+/** Metadata for a data source, used in MCP tool registration and Metabind Studio. */
 interface DataSourceMetadata {
-    /** Human-readable title shown in the Composer and documentation. */
+    /** Human-readable title shown in Studio and documentation. */
     title?: string;
     /** Brief description of what this data source provides. */
     description?: string;

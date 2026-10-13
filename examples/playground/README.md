@@ -6,7 +6,7 @@ sidebar (or use the Scratch editor), edit it in TypeScript, see it rendered live
 
 It is deliberately small — **styled-components + Monaco + react-resizable-panels**
 only. No `metabind-ui` / shadcn dependency. Everything `metabind-ui` provided in
-the full Composer playground (header, sidebar, buttons, split view) is either a
+the full playground in Metabind Studio (header, sidebar, buttons, split view) is either a
 few styled `div`s here or, in the case of the split view, `react-resizable-panels`
 directly (which is what `metabind-ui`'s `SplitView` wraps anyway).
 

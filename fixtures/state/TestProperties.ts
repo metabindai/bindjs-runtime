@@ -1,6 +1,6 @@
 const metadata = {
     title: "TestProperties",
-    description: "Exercises the property inspector: string, boolean, a string field that is only visible while the Boolean is on, an asset picker, and a group with a nested string. The preview just shows \"TestProperties\" and \"Body\" (from a local sub-component that receives the asset prop); the real check is in the Composer inspector."
+    description: "Exercises the property inspector: string, boolean, a string field that is only visible while the Boolean is on, an asset picker, and a group with a nested string. The preview just shows \"TestProperties\" and \"Body\" (from a local sub-component that receives the asset prop); the real check is in the Metabind Studio inspector."
 };
 
 const properties = {

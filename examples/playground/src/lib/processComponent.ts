@@ -2,7 +2,7 @@
 // run with `var exports = {}` in scope and the runtime reads `exports.default`.
 // Authors write idiomatic `export default defineComponent({...})`, so we rewrite
 // that single token after Monaco transpiles TS → JS. This mirrors the
-// `processComponentJs` helper used by the full Composer.
+// `processComponentJs` helper used by Metabind Studio.
 export function processComponentJs(js: string): string {
     return js.replace(/export\s+default\s+/g, 'exports.default = ')
 }

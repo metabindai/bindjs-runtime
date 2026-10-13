@@ -26,9 +26,9 @@ type ComponentProps = Record<string, any>;
 /** A record of property field definitions that describe a component's configurable inputs. */
 type Properties = Record<string, PropertyField>;
 
-/** Component metadata displayed in the Composer, galleries, and documentation. */
+/** Component metadata displayed in Metabind Studio, galleries, and documentation. */
 interface Metadata {
-    /** Display name shown in the Composer and component galleries. */
+    /** Display name shown in Studio and component galleries. */
     title?: string;
     /** Brief description of the component's purpose. */
     description?: string;
@@ -66,7 +66,7 @@ interface Metadata {
 interface ComponentDefinition {
     /** The render function that returns the component's UI tree. */
     body: (props: any, children: Component[]) => Component;
-    /** Optional metadata for the Composer and documentation. */
+    /** Optional metadata for Studio and documentation. */
     metadata?: Record<string, any> | (() => Record<string, any>);
     /** Optional property schema defining the component's configurable inputs. */
     properties?: Record<string, any> | (() => Record<string, any>);
@@ -155,10 +155,10 @@ declare function defineButtonStyle(definition: ButtonStyleDefinition): ButtonSty
 // =============================================================================
 //
 // Property fields define the configurable inputs for a component. They appear
-// as form controls in the Composer and drive typed prop resolution at runtime.
+// as form controls in Studio and drive typed prop resolution at runtime.
 //
 
-/** Inspector options shared by all property types. Controls how the field appears in the Composer. */
+/** Inspector options shared by all property types. Controls how the field appears in Studio. */
 interface BaseInspector {
     /** Whether to show the field label. Default: true. */
     showLabel?: boolean;
@@ -166,19 +166,19 @@ interface BaseInspector {
     showDivider?: boolean;
     /** Dynamic visibility callback — return false to hide this field based on other prop values. */
     visible?: (props: Record<string, any>) => boolean;
-    /** Help text shown as a tooltip or info icon in the Composer. */
+    /** Help text shown as a tooltip or info icon in Studio. */
     helpDescription?: string;
 }
 
 /** Base options shared by all property field types. */
 interface BaseField {
-    /** Display label for the field in the Composer. */
+    /** Display label for the field in Studio. */
     title?: string;
     /** Brief description shown below the field label. */
     description?: string;
     /** Whether the field must have a value. */
     required?: boolean;
-    /** Composer inspector configuration. */
+    /** Studio inspector configuration. */
     inspector?: BaseInspector;
 }
 
@@ -198,7 +198,7 @@ interface StringInspector extends BaseInspector {
 /** Options for a string property field. */
 interface PropertyStringOptions extends BaseField {
     defaultValue?: string;
-    /** Example values shown as suggestions in the Composer. */
+    /** Example values shown as suggestions in Studio. */
     examples?: string[];
     inspector?: StringInspector;
     validation?: {
@@ -214,7 +214,7 @@ interface PropertyString extends PropertyStringOptions { type: "string" }
 
 // -- Boolean --
 
-/** Options for a boolean property field. Renders as a toggle in the Composer. */
+/** Options for a boolean property field. Renders as a toggle in Studio. */
 interface PropertyBooleanOptions extends BaseField {
     defaultValue?: boolean;
 }
@@ -316,7 +316,7 @@ interface PropertyDate extends PropertyDateOptions {
 /** Property types that can be used as the item type of an array property. */
 type ArrayPropertyFieldOptions = PropertyString | PropertyBoolean | PropertyEnum | PropertyNumber | PropertyInteger | PropertyDate | PropertyAsset | PropertyComponent | PropertyGroup | PropertyContent;
 
-/** Options for an array property field. Renders as a repeatable list in the Composer. */
+/** Options for an array property field. Renders as a repeatable list in Studio. */
 interface PropertyArrayOptions extends BaseField {
     /** The property type definition for each item in the array. */
     valueType: ArrayPropertyFieldOptions;
@@ -350,7 +350,7 @@ interface PropertyComponent extends PropertyComponentOptions {
 /** Supported asset media types. */
 type AssetType = "image" | "video" | "audio" | "model" | "model/usdz" | "model/glb";
 
-/** Options for an asset property field. Opens the asset picker in the Composer. */
+/** Options for an asset property field. Opens the asset picker in Studio. */
 interface PropertyAssetOptions extends BaseField {
     /** Restrict which asset types can be selected. Default: all types. */
     assetTypes?: AssetType[];
@@ -424,10 +424,10 @@ declare function PropertyGroup(options: PropertyGroupOptions): PropertyGroup;
 declare function PropertyDate(options: PropertyDateOptions): PropertyDate;
 
 // =============================================================================
-// MARK: - Composer Components
+// MARK: - Studio Components
 // =============================================================================
 
-/** Options for ComposerGroup, which defines named content slots in the Composer. */
+/** Options for ComposerGroup, which defines named content slots in Studio. */
 interface ComposerGroupOptions {
     /** The named group/slot to read children from. */
     group?: string;
@@ -436,7 +436,7 @@ interface ComposerGroupOptions {
 }
 
 /**
- * Defines a named content slot for the Composer's visual editor.
+ * Defines a named content slot for Studio's visual editor.
  * Children are read from the content's layout props for the given group name.
  * On native platforms, acts as a transparent pass-through.
  *
@@ -463,8 +463,8 @@ interface ComposerAddOptions {
 }
 
 /**
- * Renders an "add component" button in the Composer for a given content slot.
- * Only visible in the Composer editing UI.
+ * Renders an "add component" button in Studio for a given content slot.
+ * Only visible in the Studio editing UI.
  */
 declare function ComposerAdd(options?: ComposerAddOptions): Component;
 
