@@ -12,6 +12,7 @@ import { LayoutNode } from '../Layout/LayoutNode';
 import { layoutRegistry } from '../Layout/LayoutRegistry';
 import type { LayoutMeasurement } from '../Layout/LayoutTypes';
 import { useAnimationContext } from '../AnimationContext';
+import { useEnvironment } from '../Environment';
 
 interface ButtonProps {
     rawValue?: any;
@@ -32,6 +33,7 @@ export function Button(props: ButtonProps): React.ReactElement {
     const rendererContext = useRendererContext();
     const functionCallback = useRendererContext().functionCallback;
     const animationContext = useAnimationContext();
+    const environment = useEnvironment();
 
     // Get button style component name and props if available.
     const { props: buttonStyleProps, handlerId: buttonStyleHandlerId, environmentId: buttonStyleEnvironmentId } = environmentStyle.buttonStyle || {};
@@ -78,6 +80,7 @@ export function Button(props: ButtonProps): React.ReactElement {
     }
 
     const buttonAction = () => {
+        if (environment.isEnabled === false) return;
         if (handlerId) {
             let func = functionCallback(handlerId)
             if (func) {

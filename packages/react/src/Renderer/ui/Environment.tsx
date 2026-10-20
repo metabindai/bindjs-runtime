@@ -16,7 +16,7 @@ const EnvironmentContext = createContext<EnvironmentContextType>({ values: {} })
 export function EnvironmentProvider({ children, values }: { children: React.ReactNode; values: Environment }) {
     const context = useContext(EnvironmentContext);
     let currentEnvironment = context.values ?? {};
-    return <EnvironmentContext.Provider value={{ values: { ...currentEnvironment.values, ...values } }}>{children}</EnvironmentContext.Provider>;
+    return <EnvironmentContext.Provider value={{ values: { ...currentEnvironment, ...values } }}>{children}</EnvironmentContext.Provider>;
 }
 
 export function useEnvironment() {
