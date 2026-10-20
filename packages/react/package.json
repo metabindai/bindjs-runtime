@@ -1,7 +1,7 @@
 {
     "private": false,
     "name": "@metabindai/bindjs-react",
-    "version": "1.0.8",
+    "version": "1.0.9",
     "description": "React renderer for BindJS",
     "type": "module",
     "main": "dist/index.js",
@@ -14,7 +14,7 @@
         "dev": "tsc --watch",
         "build": "rm -rf dist && tsc -b",
         "build-runtime": "rm -rf dist-runtime && rollup -c",
-        "test": "vitest --watch"
+        "test": "vitest run"
     },
     "keywords": [
         "bindjs",

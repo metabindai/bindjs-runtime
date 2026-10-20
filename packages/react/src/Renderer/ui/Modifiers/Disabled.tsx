@@ -1,10 +1,10 @@
 import React from 'react';
-import { useLayout, LayoutNodeChildren } from '../Layout';
+import { useLayout, LayoutNodeChildren, layoutStyle } from '../Layout';
 import { Environment } from '../Environment';
 
 /**
  * Disabled modifier
- * Controls disabled state through Variables context
+ * Preserves inherited environment while disabling the entire subtree.
  */
 interface DisabledProps {
     rawValue?: boolean;
@@ -18,9 +18,11 @@ export function Disabled({ rawValue, children }: DisabledProps): React.ReactNode
     if (rawValue == null || rawValue == true) {
         return (
             <Environment values={{ isEnabled: false }}>
-                <LayoutNodeChildren layout={layout}>
-                    {children}
-                </LayoutNodeChildren>
+                <div {...{ inert: '' }} aria-disabled="true" style={{ ...layoutStyle(layout), opacity: 0.5, pointerEvents: 'none' }}>
+                    <LayoutNodeChildren layout={layout}>
+                        {children}
+                    </LayoutNodeChildren>
+                </div>
             </Environment>
         );
     } else {
